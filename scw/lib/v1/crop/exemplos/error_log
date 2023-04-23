@@ -1,0 +1,24 @@
+[22-Oct-2017 16:58:41 America/Manaus] PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 77
+[22-Oct-2017 16:58:41 America/Manaus] PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 16:58:41 America/Manaus] PHP Warning:  imagecolortransparent() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 16:58:41 America/Manaus] PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 79
+[22-Oct-2017 16:58:41 America/Manaus] PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 82
+[22-Oct-2017 21:43:58 America/Manaus] PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 77
+[22-Oct-2017 21:43:58 America/Manaus] PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 21:43:58 America/Manaus] PHP Warning:  imagecolortransparent() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 21:43:58 America/Manaus] PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 79
+[22-Oct-2017 21:43:58 America/Manaus] PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 82
+[22-Oct-2017 22:05:16 America/Manaus] PHP Warning:  imagealphablending() expects parameter 1 to be resource, string given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 33
+[22-Oct-2017 22:05:16 America/Manaus] PHP Warning:  imagesavealpha() expects parameter 1 to be resource, string given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 34
+[22-Oct-2017 22:06:52 America/Manaus] PHP Warning:  imagealphablending() expects parameter 1 to be resource, string given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 33
+[22-Oct-2017 22:06:52 America/Manaus] PHP Warning:  imagesavealpha() expects parameter 1 to be resource, null given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 34
+[22-Oct-2017 22:06:52 America/Manaus] PHP Warning:  imagecreatefrompng(): Filename cannot be empty in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 35
+[22-Oct-2017 22:06:52 America/Manaus] PHP Warning:  imagecreatefrompng(): Filename cannot be empty in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 36
+[22-Oct-2017 22:06:52 America/Manaus] PHP Warning:  imagecopyresampled() expects parameter 2 to be resource, boolean given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 65
+[22-Oct-2017 22:11:22 America/Manaus] PHP Warning:  imagecolorallocate() expects exactly 4 parameters, 5 given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 22:12:02 America/Manaus] PHP Warning:  imagecolorallocate() expects exactly 4 parameters, 5 given in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 78
+[22-Oct-2017 22:19:12 America/Manaus] PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 65
+[22-Oct-2017 22:20:50 America/Manaus] PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 65
+[22-Oct-2017 22:27:13 America/Manaus] PHP Warning:  imagepng(): gd-png error: compression level must be 0 through 9 in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 82
+[22-Oct-2017 22:28:53 America/Manaus] PHP Warning:  imagepng(): gd-png error: compression level must be 0 through 9 in /home/mohatron/public_html/lib/v1/crop/exemplos/img_crop_to_file.php on line 82
+[22-Oct-2017 22:52:08 America/Manaus] jpg

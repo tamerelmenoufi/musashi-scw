@@ -1,0 +1,142 @@
+	label[class="error"]{
+		position:absolute;
+		top:40px;
+		/*left:0px;*/
+		z-index:9999999;
+		padding:3px;
+		border:#C00 solid 0px;
+		border-radius:5px;
+		background-color:#F48C94;
+		color:#FFF;
+		font-size:10px;
+	}
+	span[form_file]{
+	    cursor:pointer;
+	}
+	.centro{
+        text-align:justify;
+        white-space:normal;
+        width:100%;
+        border-left:0px;
+        border-right:0px;
+    }
+    a[grupos]:link{
+        color:#fff;
+        text-decoration:none;
+    }
+    a[assinaturas]:link{
+        color:green;
+        text-decoration:none;
+    }
+    a{
+        cursor:pointer;
+    }
+    
+  #OrdemDocs{
+      cursor:move;
+  }
+
+  .alteracao_doc{
+      height:50px;
+      margin-top:5px;
+      margin-bottom:5px;
+      background-color:#fff;
+      border:1px solid #ccc;
+      border-style: dashed;
+      list-style-type: none;
+
+  }
+
+
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 0rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+main{
+  position:fixed;
+  top:0px;
+  margin-top: 60px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  
+}
+
+/*  Estilo de botão Upload de imagens*/
+.imagemCadastro{
+  border:solid 1px #ccc;
+  width: 130px;
+  height: 130px;
+  padding:20px;
+  margin:20px;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+}
+.imagemCadastro input{
+  left: 0;
+  top: 0;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}

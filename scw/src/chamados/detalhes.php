@@ -1,0 +1,264 @@
+<?php
+  include("../../includes/includes.php");
+
+  $status = array(
+  					'n' => 'Novo',
+  					'p' => 'Em Produção',
+  					'c' => 'Concluído'
+  					);
+
+  if($_POST['observacao']){
+
+  	$query = "insert into chamados_observacoes set chamado = '".$_POST['codigo']."', data = NOW(), tecnico='".$_SESSION['scw_usuario_logado']."', observacao = '".utf8_decode($_POST['observacao'])."'";
+  	mysql_query($query);
+
+  	$_GET['codigo'] = $_POST['codigo'];
+  	
+
+//*
+        $query = "SELECT 
+                    a.codigo,
+                    a.status,
+                    s.nome as setor, 
+                    m.nome as maquina, 
+                    t.nome as tipo_manutencao, 
+                    a.problema, 
+                    f.nome as funcionario, 
+                    tc.nome as tecnico 
+                FROM chamados a 
+                    left join setores s on a.setor = s.codigo 
+                    left join tipos_manutencao t on a.tipo_manutencao = t.codigo 
+                    left join maquinas m on a.maquina = m.codigo 
+                    left join login tc on a.tecnico = tc.codigo 
+                    left join login f on a.funcionario = f.codigo 
+                 where a.codigo = '".$_GET['codigo']."'";
+        $result = mysql_query($query);
+        $d = mysql_fetch_object($result);
+
+
+        $msg = "SCW-MUSASHI Informa: Chamado com alteração cadastrado ".
+               "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
+               ", *SETOR*: ".utf8_encode($d->setor).
+               ", *MÁQUINA*: ".utf8_encode($d->maquina).
+               ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
+               (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
+               (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
+               (($d->tecnico)?", *TÉCNICO*: ".utf8_encode($d->tecnico):false).
+               (($d->status)?", *SITUAÇÃO*: ".$status[$d->status]:false).
+               (($d->observacao)?", *OBSERVAÇÕES*: ".str_replace("\n"," ",$_POST['observacao']):false);
+               
+        //str_replace("[msg]", str_pad($cod, 8, "0", STR_PAD_LEFT) ,$msg);
+        
+        foreach($WappPhones as $ind => $num){
+            EnviarWappNovo($num, $msg);
+        }
+
+
+        ////////////////EMAIL//////////////////////////////////
+        $postdata = http_build_query(
+            array(
+                'codigo' => $d->codigo,
+            )
+        );
+        $opts = array('http' =>
+            array(
+                'method' => 'POST',
+                'header' => 'Content-type: application/x-www-form-urlencoded',
+                'content' => $postdata
+            )
+        );
+        $context = stream_context_create($opts);
+        $result = file_get_contents('http://moh1.com.br/musashi/scw/src/alertas/email.php', false, $context);
+        ////////////////////////////////////////////////////////
+
+//*/
+
+
+  }
+
+  $query = "select 
+                        a.*,
+                        b.nome as setor,
+                        c.nome as tipo_manutencao,
+                        d.nome as maquina,
+                        e.nome as funcionario,
+                        f.nome as tecnico,
+                        f.codigo as tecnico_codigo
+
+                  from chamados a
+                    left join setores b on a.setor = b.codigo
+                    left join tipos_manutencao c on a.tipo_manutencao = c.codigo
+                    left join maquinas d on a.maquina = d.codigo
+                    left join login e on a.funcionario = e.codigo
+                    left join login f on a.tecnico = f.codigo
+                
+                 where a.codigo = '".$_GET['codigo']."'";
+  $result = mysql_query($query);
+  $d = mysql_fetch_object($result);
+
+?>
+
+<style type="text/css">
+	.list-group-item label{
+		font-size: 10px;
+		font-weight: bold;
+		margin:0;
+		padding: 0;
+	}
+	.list-group-item p{
+		font-size: 14px;
+		margin:0;
+		padding: 0;	
+	}
+	.list-group-item span{
+		position: absolute;
+		right:20px;
+		top: 20px;
+		font-size: 14px;
+	}
+	.obs{
+		font-size: 10px; 
+	}
+</style>
+
+<h3>Chamado #<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></h3>
+<div class="card" style="margin-top: 20px;">
+  <ul class="list-group list-group-flush">
+    
+    <li class="list-group-item">
+    	<label>Solicitante:</label>
+    	<p><?=utf8_encode($d->funcionario)?></p>
+    	<span><?=dataBr($d->data_abertura)?></span>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Problema:</label>
+    	<p><?=utf8_encode($d->tipo_manutencao)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Setor:</label>
+    	<p><?=utf8_encode($d->setor)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Máquina:</label>
+    	<p><?=utf8_encode($d->maquina)?></p>
+    </li>
+
+
+
+    <?php
+    if($d->status != 'n'){
+    ?>
+    <li class="list-group-item">
+    	<label>Técnico:</label>
+    	<p><?=utf8_encode($d->tecnico)?></p>
+    	<span><?=dataBr($d->data_recebimento)?></span>
+
+    <?php
+    if($d->status == 'p' and $d->tecnico_codigo == $_SESSION['scw_usuario_logado']){
+    ?>
+		<div class="form-group">
+			<label for="observacoes">Incluir Observações</label>
+			<textarea class="form-control" id="observacoes" rows="3"></textarea>
+		</div>
+		<div class="form-group">
+			<button obs codigo="<?=$d->codigo?>" class="btn btn-secondary">Salvar</button>
+		</div>
+
+	<?php
+	}
+	?>	
+
+    </li>
+    <?php 
+	}
+    ?>
+
+    <li class="list-group-item">
+    	<label>Situação:</label>
+    	<p><?=$status[$d->status]?></p>
+    	<?php
+    	if(dataBr($d->data_fechamento)){
+    	?>
+    	<span><?=dataBr($d->data_fechamento)?></span>
+    	<?php
+    	}
+    	?>
+    </li>
+
+
+  </ul>
+  
+  <div class="card-body">
+    <h5 class="card-title">Descrição do problema</h5>
+    <p class="card-text"><?=utf8_encode($d->problema)?></p>
+  </div>
+
+  <hr>
+
+  
+  <div class="card-body">
+    <h5 class="card-title">Observações Técnicas</h5>
+    <?php
+    $q = "select a.*, b.nome as tecnico from chamados_observacoes a left join login b on a.tecnico = b.codigo where a.chamado = '".$d->codigo."'";
+    $r = mysql_query($q);
+    $n = mysql_num_rows($r);
+    while($o = mysql_fetch_object($r)){
+    ?>
+    <p class="card-text"><label class="obs">Escrito por: <b><?=utf8_encode($o->tecnico)?></b> em <b><?=dataBr($o->data)?></b></label><br><?=utf8_encode($o->observacao)?></p>
+    <?php
+    }
+    ?>
+  </div>
+
+  <div class="card-body">
+    <a fechar href="#" class="card-link">Fechar</a>
+  </div>
+</div>
+<br>
+<script type="text/javascript">
+
+	$(function(){
+
+		$("a[fechar]").click(function(){
+			JanelaDetalhes.close();
+		});
+
+		<?php
+		if($n and $d->status != 'c'){
+		?>
+		$("input[c<?=$_GET['codigo']?>]").attr("qt","<?=$n?>");
+		$("input[c<?=$_GET['codigo']?>]").removeAttr("disabled");
+		<?php	
+		}else{
+		?>
+		$("input[c<?=$_GET['codigo']?>]").attr("qt","0");
+		$("input[c<?=$_GET['codigo']?>]").attr("disabled","disabled");
+		<?php	
+		}
+		?>
+
+
+		$("button[obs]").click(function(){
+			codigo = $(this).attr("codigo");
+			observacao = $("#observacoes").val();
+			if(observacao.trim()){
+				$.ajax({
+					url:"src/chamados/detalhes.php",
+					type:"POST",
+					data:{
+						codigo:codigo,
+						observacao:observacao,
+					},
+					success:function(dados){
+						JanelaDetalhes.setContent(dados);
+					}
+				});
+			}
+		})
+
+	});
+
+</script>
