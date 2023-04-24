@@ -19,7 +19,7 @@
 			top:60px;
 			right:0;
 			height:60px;
-			border:solid 1px red;
+			border:solid 1px green;
 		}
 	</style>
 </head>
