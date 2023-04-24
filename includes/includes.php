@@ -2,6 +2,7 @@
 	$UrlProjeto = "http://scw.mohatron.com/";
 	session_start();
 	include("connect.php");
+	include("funcoes.php");
 	if(!$home){
 		if(!$_SESSION['scw_usuario_logado']){
 			header("Location:".$UrlProjeto);
