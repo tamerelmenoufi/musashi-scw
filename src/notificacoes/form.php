@@ -79,7 +79,7 @@
       $r = mysql_query($q);
       while($s = mysql_fetch_object($r)){
     ?>
-    <div class="card">
+    <div class="card" style="margin-bottom:20px;">
       <div class="card-header" id="heading<?=$s->codigo?>">
           <div class="form-group form-check" XXdata-toggle="collapse" XXdata-target="#collapse<?=$s->codigo?>" XXaria-expanded="true" XXaria-controls="collapse<?=$s->codigo?>">
             <input type="checkbox" class="form-check-input" id="time<?=$s->codigo?>">
