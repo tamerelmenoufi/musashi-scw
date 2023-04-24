@@ -81,7 +81,7 @@
       <div class="card">
         <div class="card-header" id="heading<?=$s->codigo?>">
             <div class="form-group form-check" XXdata-toggle="collapse" XXdata-target="#collapse<?=$s->codigo?>" XXaria-expanded="true" XXaria-controls="collapse<?=$s->codigo?>">
-              <input type="checkbox" class="form-check-input" id="time<?=$s->codigo?>">
+              <input type="checkbox" class="form-check-input" time="<?=$s->codigo?>" id="time<?=$s->codigo?>">
               <label class="form-check-label" for="time<?=$s->codigo?>"><?=utf8_encode($s->nome)?></label>
             </div>
         </div>
@@ -136,6 +136,17 @@
         obj = $("#formCadastros");
         codigo = $(this).attr('codigo');
         GetForm(obj);
+
+        obj.find("input[time]").each(function(){
+          t = 0;
+          if($(this).prop("checked") == true){
+            time[t] = $(this).attr("time");
+            t++;
+          }
+        });
+
+        campo[i] = 'time';
+		    valor[i] = time;
 
         valida = false;
         for(i=0;i<valor.length;i++){
