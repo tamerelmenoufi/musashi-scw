@@ -73,38 +73,40 @@
 
 
 
-  <div class="accordion" id="accordionTime" style="margin-bottom:20px;">
+
     <?php
       $q = "select * from time order by nome";
       $r = mysql_query($q);
       while($s = mysql_fetch_object($r)){
     ?>
-    <div class="card" style="margin-bottom:20px;">
-      <div class="card-header" id="heading<?=$s->codigo?>">
-          <div class="form-group form-check" XXdata-toggle="collapse" XXdata-target="#collapse<?=$s->codigo?>" XXaria-expanded="true" XXaria-controls="collapse<?=$s->codigo?>">
-            <input type="checkbox" class="form-check-input" id="time<?=$s->codigo?>">
-            <label class="form-check-label" for="time<?=$s->codigo?>"><?=utf8_encode($s->nome)?></label>
-          </div>
-      </div>
+    <div class="accordion" id="accordionTime" style="margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header" id="heading<?=$s->codigo?>">
+            <div class="form-group form-check" XXdata-toggle="collapse" XXdata-target="#collapse<?=$s->codigo?>" XXaria-expanded="true" XXaria-controls="collapse<?=$s->codigo?>">
+              <input type="checkbox" class="form-check-input" id="time<?=$s->codigo?>">
+              <label class="form-check-label" for="time<?=$s->codigo?>"><?=utf8_encode($s->nome)?></label>
+            </div>
+        </div>
 
-      <div XXid="collapse<?=$s->codigo?>" XXclass="collapse" XXaria-labelledby="heading<?=$s->codigo?>" XXdata-parent="#accordionTime">
-        <div class="card-body">
-          <?php
-          $q1 = "select * from motivos where competencia = '{$s->codigo}' order by codigo";
-          $r1 = mysql_query($q1);
-          while($s1 = mysql_fetch_object($r1)){
-          ?>
-          <p><?=utf8_encode($s1->nome)?></p>
-          <?php
-          }
-          ?>
+        <div XXid="collapse<?=$s->codigo?>" XXclass="collapse" XXaria-labelledby="heading<?=$s->codigo?>" XXdata-parent="#accordionTime">
+          <div class="card-body">
+            <?php
+            $q1 = "select * from motivos where competencia = '{$s->codigo}' order by codigo";
+            $r1 = mysql_query($q1);
+            while($s1 = mysql_fetch_object($r1)){
+            ?>
+            <p><?=utf8_encode($s1->nome)?></p>
+            <?php
+            }
+            ?>
+          </div>
         </div>
       </div>
     </div>
     <?php
       }
     ?>
-  </div>
+
 
 
 
