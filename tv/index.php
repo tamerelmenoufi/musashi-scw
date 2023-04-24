@@ -39,8 +39,28 @@
 	<div>posicao 2</div>
 	<div>posicao 3</div>
 </div>
-<div class="corpoTV">Aplicação na página</div>
-<div class="rodapeTV">Rodapé da aplicação</div>
+<div class="corpoTV">
+
+		<div class="slider-for">
+			<h1>1</h1>
+			<h1>2</h1>
+			<h1>3</h1>
+			<h1>4</h1>
+			<h1>5</h1>
+		</div>
+
+</div>
+<div class="rodapeTV">
+
+		<div class="slider-nav">
+			<h1>1</h1>
+			<h1>2</h1>
+			<h1>3</h1>
+			<h1>4</h1>
+			<h1>5</h1>
+		</div>
+
+</div>
 <script type="text/javascript">
 
 	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
@@ -48,6 +68,24 @@
 	$(function(){
 
 		Carregando('none');
+
+
+
+		$('.slider-for').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slider-nav'
+		});
+		$('.slider-nav').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.slider-for',
+			dots: true,
+			centerMode: true,
+			focusOnSelect: true
+		});
 
 
 
