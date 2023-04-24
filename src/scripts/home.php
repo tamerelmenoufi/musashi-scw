@@ -128,7 +128,7 @@
                       ),
                       array(
                         'icone'  => 'fa-cogs',
-                        'local'  => 'src/nitificacoes/index.php',
+                        'local'  => 'src/notificacoes/index.php',
                         'destino'  => 'main',
                         'titulo' => 'Notificações',
                         'permissao' => 'auxiliares',
