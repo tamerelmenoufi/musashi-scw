@@ -67,8 +67,8 @@
         <td><?=utf8_encode($d->telefone)?></td>
         <td>
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" <?=(($d->situacao)?'checked':false)?> id="<?=$d->codigo?>">
-            <label class="custom-control-label" for="<?=$d->codigo?>">Situação</label>
+            <input type="checkbox" class="custom-control-input" <?=(($d->situacao)?'checked':false)?> id="situacao">
+            <label class="custom-control-label" for="situacao">Situação</label>
           </div>
         </td>
         <td class="text-right">
