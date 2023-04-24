@@ -40,7 +40,7 @@
 	<div>posicao 3</div>
 </div>
 <div class="corpoTV">Aplicação na página</div>
-
+<div class="rodapeTV">Rodapé da aplicação</div>
 <script type="text/javascript">
 
 	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
