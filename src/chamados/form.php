@@ -13,7 +13,7 @@
     for ($i = 0; $i < count($_POST['campo']); $i++) {
       $campos[] = $_POST['campo'][$i] . " = '".utf8_decode($_POST['valor'][$i])."'";
     }
-    				
+
     if($_POST['codigo'] and $campos){
       $query = "update chamados set ".implode(", ",$campos)." where codigo = '".$_POST['codigo']."'";
       $msg = 'atualiza';
@@ -24,29 +24,29 @@
       $msg = 'novo';
     }
     mysql_query($query);
-    
-    if($msg){
-        if($msg == 'novo') {$cod = mysql_insert_id();} else { $cod = $_POST['codigo']; } 
 
-        $q = "SELECT 
+    if($msg){
+        if($msg == 'novo') {$cod = mysql_insert_id();} else { $cod = $_POST['codigo']; }
+
+        $q = "SELECT
                     a.codigo,
                     a.status,
-                    s.nome as setor, 
-                    m.nome as maquina, 
-                    t.nome as tipo_manutencao, 
-                    a.problema, 
-                    f.nome as funcionario, 
-                    tc.nome as tecnico 
-            FROM chamados a 
-                left join setores s on a.setor = s.codigo 
-                left join tipos_manutencao t on a.tipo_manutencao = t.codigo 
-                left join maquinas m on a.maquina = m.codigo 
-                left join login tc on a.tecnico = tc.codigo 
-                left join login f on a.funcionario = f.codigo 
+                    s.nome as setor,
+                    m.nome as maquina,
+                    t.nome as tipo_manutencao,
+                    a.problema,
+                    f.nome as funcionario,
+                    tc.nome as tecnico
+            FROM chamados a
+                left join setores s on a.setor = s.codigo
+                left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+                left join maquinas m on a.maquina = m.codigo
+                left join login tc on a.tecnico = tc.codigo
+                left join login f on a.funcionario = f.codigo
             where a.codigo = '{$cod}'";
         $r = mysql_query($q);
         $d = mysql_fetch_object($r);
-        
+
         $msg = "SCW-MUSASHI Informa: ".(($msg == 'novo')?"Um novo chamado":"Chamado com alteração ")." cadastrado ".
                "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                ", *SETOR*: ".utf8_encode($d->setor).
@@ -63,8 +63,8 @@
         foreach($WappPhones as $ind => $num){
             EnviarWappNovo($num, $msg);
         }
-        
-        
+
+
         ////////////////EMAIL//////////////////////////////////
         $postdata = http_build_query(
             array(
@@ -81,8 +81,8 @@
         $context = stream_context_create($opts);
         $result = file_get_contents('http://moh1.com.br/musashi/scw/src/alertas/email.php', false, $context);
         ////////////////////////////////////////////////////////
-        
-        
+
+
     }
     exit();
   }
@@ -112,7 +112,7 @@
         while($s = mysql_fetch_object($r)){
       ?>
       <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->setor)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
-      <?php    
+      <?php
         }
       ?>
     </select>
@@ -128,7 +128,7 @@
         while($s = mysql_fetch_object($r)){
       ?>
       <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->tipo_manutencao)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
-      <?php    
+      <?php
         }
       ?>
     </select>
@@ -144,15 +144,51 @@
         while($s = mysql_fetch_object($r)){
       ?>
       <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->maquina)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
-      <?php    
+      <?php
         }
       ?>
     </select>
   </div>
 
+
+  <div class="form-group">
+    <label for="time">Área de Atuação</label>
+    <select form id="time" class="form-control">
+      <option value="">:: Time ::</option>
+      <?php
+        $q = "select * from time order by nome";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+      ?>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->time)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="motivo">Motivo</label>
+    <select form id="motivo" class="form-control">
+      <option value="">:: Time ::</option>
+      <?php
+        $q = "select * from motivos where compotencia = '{$d->time}' order by codigo";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+      ?>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->motivo)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+
+
+
   <div class="form-group">
       <label>Descrição do problema</label>
-    <textarea form id="problema" class="form-control"><?=utf8_encode($d->problema)?></textarea> 
+    <textarea form id="problema" class="form-control"><?=utf8_encode($d->problema)?></textarea>
   </div>
 
   <div class="form-group">
@@ -164,6 +200,20 @@
 
 <script type="text/javascript">
   $(function(){
+
+    $("#time").change(function(){
+      time = $(this).val();
+      $.ajax({
+        url:"src/chamados/motivos.php",
+        type:"POST",
+        data:{
+          time,
+        },
+        success:function(dados){
+          $("#motivo").html(dados);
+        }
+      });
+    });
 
 
     $("div[voltar]").click(function(){
@@ -210,7 +260,7 @@
                     JanelaAlerta();
                   }
                 });
-                
+
               }
             });
 
