@@ -18,8 +18,16 @@
 			left:0;
 			top:60px;
 			right:0;
-			height:60px;
+			bottom:200px;
 			border:solid 1px green;
+		}
+		.rodapeTV{
+			position:fixed;
+			left:0;
+			bottom:0;
+			right:0;
+			height:200px;
+			border:solid 1px blue;
 		}
 	</style>
 </head>
