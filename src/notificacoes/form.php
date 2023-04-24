@@ -4,6 +4,7 @@
   if($_POST['acao'] == 'salvar'){
 
     for ($i = 0; $i < count($_POST['campo']); $i++) {
+      if(is_array($_POST['valor'][$i])) $_POST['valor'][$i] = implode(", ", $_POST['valor'][$i]);
       $campos[] = $_POST['campo'][$i] . " = '".utf8_decode($_POST['valor'][$i])."'";
     }
 
