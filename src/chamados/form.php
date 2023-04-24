@@ -173,7 +173,7 @@
     <select form id="motivo" class="form-control">
       <option value="">:: Motivo ::</option>
       <?php
-        $q = "select * from motivos where compotencia = '{$d->time}' order by codigo";
+        $q = "select * from motivos where competencia = '{$d->time}' order by codigo";
         $r = mysql_query($q);
         while($s = mysql_fetch_object($r)){
       ?>
