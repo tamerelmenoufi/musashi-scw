@@ -56,7 +56,7 @@ if($_SESSION['scw_usuario_perfil'] == 'adm'){
         <th scope="col">Perfil</th>
         <?php
         if($_SESSION['scw_usuario_perfil'] == 'adm'){
-        ?>        
+        ?>
         <th scope="col" width="30"></th>
         <th scope="col-1" width="110" class="text-right"></th>
         <?php
@@ -91,7 +91,7 @@ if($_SESSION['scw_usuario_perfil'] == 'adm'){
         </td>
         <?php
         }
-        ?>        
+        ?>
       </tr>
       <?php
         }

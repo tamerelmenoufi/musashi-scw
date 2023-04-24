@@ -135,5 +135,27 @@
     });
 
 
+    $("input[situacao]").change(function(){
+      codigo = $(this).attr("id");
+      if($(this).prop("checked") == true){
+        situacao = '1';
+      }else{
+        situacao = '0';
+      }
+      $.ajax({
+        url:"src/notificacoes/index.php",
+        type:"POST",
+        data:{
+          codigo:codigo,
+          situacao:situacao,
+          acao:'situacao',
+        },
+        success:function(dados){
+          JanelaAlerta();
+        }
+      });
+    });
+
+
   })
 </script>
