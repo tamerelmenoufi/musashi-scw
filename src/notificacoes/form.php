@@ -72,8 +72,6 @@
   </div>
 
 
-
-
     <?php
       $q = "select * from time order by nome";
       $r = mysql_query($q);
@@ -106,8 +104,6 @@
     <?php
       }
     ?>
-
-
 
 
 
