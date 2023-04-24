@@ -41,10 +41,20 @@
       <?php
         }
         while($d = mysql_fetch_object($result)){
+
+          $time = false;
+          if($d->time){
+            $q = "select * from time where codigo in({$d->time})";
+            $r = mysql_query($q);
+            while($d1 = mysql_fetch_object($r)){
+              $time = "$d1->nome<br>";
+            }
+          }
+
       ?>
       <tr cadastro<?=$d->codigo?>>
         <!--<th scope="row"><?=$d->codigo?></th>-->
-        <td><?=utf8_encode($d->time)?></td>
+        <td><?=utf8_encode($time)?></td>
         <td><?=utf8_encode($d->nome)?></td>
         <td><?=utf8_encode($d->email)?></td>
         <td><?=utf8_encode($d->telefone)?></td>
