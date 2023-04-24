@@ -75,6 +75,14 @@
   </div> -->
 
 
+    <div class="form-group">
+      <label for="situacao">Situação</label>
+      <select form class="form-control" id="situacao">
+        <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
+        <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
+      </select>
+    </div>
+
     <?php
       $q = "select * from time order by nome";
       $r = mysql_query($q);
