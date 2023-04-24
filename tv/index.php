@@ -23,7 +23,7 @@
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
-		order by desc limit 20";
+		order by a.codigo desc limit 20";
 	$r = mysql_query($q);
 
 	$TickDetalhe = [];
