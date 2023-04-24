@@ -1,34 +1,40 @@
 <?php
     $home = true;
     include("../../includes/includes.php");
-    
-    
+
+
     $titulo = array(
                   't' => '',
                   'n' => 'Novo',
                   'p' => 'Pendente',
                   'c' => 'Concluído',
-            );    
-    
-    $q = "SELECT 
-                    a.codigo, 
+            );
+
+    $q = "SELECT
+                    a.codigo,
                     a.status,
-                    s.nome as setor, 
-                    m.nome as maquina, 
-                    t.nome as tipo_manutencao, 
-                    a.problema, 
-                    f.nome as funcionario, 
-                    tc.nome as tecnico 
-            FROM chamados a 
-                left join setores s on a.setor = s.codigo 
-                left join tipos_manutencao t on a.tipo_manutencao = t.codigo 
-                left join maquinas m on a.maquina = m.codigo 
-                left join login tc on a.tecnico = tc.codigo 
-                left join login f on a.funcionario = f.codigo 
+                    a.time,
+                    a.motivo,
+                    tm.nome as time_nome,
+                    mt.nome as motivo_nome,
+                    s.nome as setor,
+                    m.nome as maquina,
+                    t.nome as tipo_manutencao,
+                    a.problema,
+                    f.nome as funcionario,
+                    tc.nome as tecnico
+            FROM chamados a
+                left join setores s on a.setor = s.codigo
+                left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+                left join maquinas m on a.maquina = m.codigo
+                left join time tm on a.time = tm.codigo
+                left join motivos mt on a.motivo = mt.codigo
+                left join login tc on a.tecnico = tc.codigo
+                left join login f on a.funcionario = f.codigo
             where a.codigo = '{$_POST['codigo']}'";
         $r = mysql_query($q);
         $d = mysql_fetch_object($r);
-        
+
         $msg = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
                "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
@@ -36,6 +42,11 @@
                (($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false).
+
+               (($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false).
+               (($d->motivo_nome)?"<br> <b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false).
+
+
                (($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false).
                (($d->observacao)?"<br> <b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false);
 

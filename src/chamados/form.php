@@ -31,6 +31,10 @@
         $q = "SELECT
                     a.codigo,
                     a.status,
+                    a.time,
+                    a.motivo,
+                    tm.nome as time_nome,
+                    mt.nome as motivo_nome,
                     s.nome as setor,
                     m.nome as maquina,
                     t.nome as tipo_manutencao,
@@ -41,6 +45,8 @@
                 left join setores s on a.setor = s.codigo
                 left join tipos_manutencao t on a.tipo_manutencao = t.codigo
                 left join maquinas m on a.maquina = m.codigo
+                left join time tm on a.time = tm.codigo
+                left join motivos mt on a.motivo = mt.codigo
                 left join login tc on a.tecnico = tc.codigo
                 left join login f on a.funcionario = f.codigo
             where a.codigo = '{$cod}'";
@@ -55,20 +61,24 @@
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?", *TÉCNICO*: ".utf8_encode($d->tecnico):false).
+               (($d->time_nome)?", *TIME*: ".utf8_encode($d->time_nome):false).
+               (($d->motivo_nome)?", *MOTIVO*: ".utf8_encode($d->motivo_nome):false).
                (($d->status)?", *SITUAÇÃO*: ".$status[$d->status]:false).
                (($d->observacao)?", *OBSERVAÇÕES*: ".str_replace("\n"," ",$_POST['observacao']):false);
 
         //str_replace("[msg]", str_pad($cod, 8, "0", STR_PAD_LEFT) ,$msg);
         //file_put_contents('wapp.txt',$msg);
-        foreach($WappPhones as $ind => $num){
-            EnviarWappNovo($num, $msg);
+        foreach($Notificacao['telefone'][$d->time] as $ind => $num){
+          EnviarWappNovo($num, $msg);
         }
+
 
 
         ////////////////EMAIL//////////////////////////////////
         $postdata = http_build_query(
             array(
                 'codigo' => $d->codigo,
+                'time' => $d->time,
             )
         );
         $opts = array('http' =>
@@ -79,7 +89,7 @@
             )
         );
         $context = stream_context_create($opts);
-        $result = file_get_contents('http://moh1.com.br/musashi/scw/src/alertas/email.php', false, $context);
+        $result = file_get_contents('http://scw.mohatron.com/src/alertas/email.php', false, $context);
         ////////////////////////////////////////////////////////
 
 

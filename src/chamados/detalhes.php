@@ -13,24 +13,30 @@
   	mysql_query($query);
 
   	$_GET['codigo'] = $_POST['codigo'];
-  	
+
 
 //*
-        $query = "SELECT 
+        $query = "SELECT
                     a.codigo,
                     a.status,
-                    s.nome as setor, 
-                    m.nome as maquina, 
-                    t.nome as tipo_manutencao, 
-                    a.problema, 
-                    f.nome as funcionario, 
-                    tc.nome as tecnico 
-                FROM chamados a 
-                    left join setores s on a.setor = s.codigo 
-                    left join tipos_manutencao t on a.tipo_manutencao = t.codigo 
-                    left join maquinas m on a.maquina = m.codigo 
-                    left join login tc on a.tecnico = tc.codigo 
-                    left join login f on a.funcionario = f.codigo 
+                    a.time,
+                    a.motivo,
+                    tm.nome as time_nome,
+                    mt.nome as motivo_nome,
+                    s.nome as setor,
+                    m.nome as maquina,
+                    t.nome as tipo_manutencao,
+                    a.problema,
+                    f.nome as funcionario,
+                    tc.nome as tecnico
+                FROM chamados a
+                    left join setores s on a.setor = s.codigo
+                    left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+                    left join maquinas m on a.maquina = m.codigo
+                    left join time tm on a.time = tm.codigo
+                    left join motivos mt on a.motivo = mt.codigo
+                    left join login tc on a.tecnico = tc.codigo
+                    left join login f on a.funcionario = f.codigo
                  where a.codigo = '".$_GET['codigo']."'";
         $result = mysql_query($query);
         $d = mysql_fetch_object($result);
@@ -44,13 +50,15 @@
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?", *TÉCNICO*: ".utf8_encode($d->tecnico):false).
+               (($d->time_nome)?", *TIME*: ".utf8_encode($d->time_nome):false).
+               (($d->motivo_nome)?", *MOTIVO*: ".utf8_encode($d->motivo_nome):false).
                (($d->status)?", *SITUAÇÃO*: ".$status[$d->status]:false).
                (($d->observacao)?", *OBSERVAÇÕES*: ".str_replace("\n"," ",$_POST['observacao']):false);
-               
+
         //str_replace("[msg]", str_pad($cod, 8, "0", STR_PAD_LEFT) ,$msg);
-        
-        foreach($WappPhones as $ind => $num){
-            EnviarWappNovo($num, $msg);
+
+        foreach($Notificacao['telefone'][$d->time] as $ind => $num){
+          EnviarWappNovo($num, $msg);
         }
 
 
@@ -58,6 +66,7 @@
         $postdata = http_build_query(
             array(
                 'codigo' => $d->codigo,
+                'time' => $d->time,
             )
         );
         $opts = array('http' =>
@@ -68,7 +77,7 @@
             )
         );
         $context = stream_context_create($opts);
-        $result = file_get_contents('http://moh1.com.br/musashi/scw/src/alertas/email.php', false, $context);
+        $result = file_get_contents('http://scw.mohatron.com/src/alertas/email.php', false, $context);
         ////////////////////////////////////////////////////////
 
 //*/
@@ -76,7 +85,7 @@
 
   }
 
-  $query = "select 
+  $query = "select
                         a.*,
                         b.nome as setor,
                         c.nome as tipo_manutencao,
@@ -91,7 +100,7 @@
                     left join maquinas d on a.maquina = d.codigo
                     left join login e on a.funcionario = e.codigo
                     left join login f on a.tecnico = f.codigo
-                
+
                  where a.codigo = '".$_GET['codigo']."'";
   $result = mysql_query($query);
   $d = mysql_fetch_object($result);
@@ -108,7 +117,7 @@
 	.list-group-item p{
 		font-size: 14px;
 		margin:0;
-		padding: 0;	
+		padding: 0;
 	}
 	.list-group-item span{
 		position: absolute;
@@ -117,14 +126,14 @@
 		font-size: 14px;
 	}
 	.obs{
-		font-size: 10px; 
+		font-size: 10px;
 	}
 </style>
 
 <h3>Chamado #<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></h3>
 <div class="card" style="margin-top: 20px;">
   <ul class="list-group list-group-flush">
-    
+
     <li class="list-group-item">
     	<label>Solicitante:</label>
     	<p><?=utf8_encode($d->funcionario)?></p>
@@ -169,10 +178,10 @@
 
 	<?php
 	}
-	?>	
+	?>
 
     </li>
-    <?php 
+    <?php
 	}
     ?>
 
@@ -190,7 +199,7 @@
 
 
   </ul>
-  
+
   <div class="card-body">
     <h5 class="card-title">Descrição do problema</h5>
     <p class="card-text"><?=utf8_encode($d->problema)?></p>
@@ -198,7 +207,7 @@
 
   <hr>
 
-  
+
   <div class="card-body">
     <h5 class="card-title">Observações Técnicas</h5>
     <?php
@@ -231,12 +240,12 @@
 		?>
 		$("input[c<?=$_GET['codigo']?>]").attr("qt","<?=$n?>");
 		$("input[c<?=$_GET['codigo']?>]").removeAttr("disabled");
-		<?php	
+		<?php
 		}else{
 		?>
 		$("input[c<?=$_GET['codigo']?>]").attr("qt","0");
 		$("input[c<?=$_GET['codigo']?>]").attr("disabled","disabled");
-		<?php	
+		<?php
 		}
 		?>
 
