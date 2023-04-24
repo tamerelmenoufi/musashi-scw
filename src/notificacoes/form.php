@@ -170,7 +170,7 @@
                 acao:'salvar',
               },
               success:function(dados){
-                console.log(dados);
+                // console.log(dados);
                 //$.alert({ content:dados });
                 if(dados == 'erro'){
 
