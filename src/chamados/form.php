@@ -171,7 +171,7 @@
   <div class="form-group">
     <label for="motivo">Motivo</label>
     <select form id="motivo" class="form-control">
-      <option value="">:: Time ::</option>
+      <option value="">:: Motivo ::</option>
       <?php
         $q = "select * from motivos where compotencia = '{$d->time}' order by codigo";
         $r = mysql_query($q);
@@ -207,7 +207,7 @@
         url:"src/chamados/motivos.php",
         type:"POST",
         data:{
-          time,
+          time
         },
         success:function(dados){
           $("#motivo").html(dados);
