@@ -123,7 +123,7 @@
     $("div[voltar]").click(function(){
       Carregando();
       $.ajax({
-        url:"src/notificacao/index.php",
+        url:"src/notificacoes/index.php",
         success:function(dados){
           $("main").html(dados);
           Carregando('none');
@@ -159,7 +159,7 @@
         if(!valida){
             Carregando();
             $.ajax({
-              url:"src/notificacao/form.php",
+              url:"src/notificacoes/form.php",
               type:"POST",
               data:{
                 campo:campo,
@@ -177,7 +177,7 @@
                 }else{
 
                     $.ajax({
-                      url:"src/notificacao/index.php",
+                      url:"src/notificacoes/index.php",
                       success:function(dados){
                         Carregando('none');
                         $("main").html(dados);
