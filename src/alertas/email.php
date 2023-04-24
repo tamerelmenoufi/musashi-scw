@@ -73,9 +73,9 @@ function SendMail($dados){
     //$contatos = sendContatos(0);
 
      $to = [
-            ['to_name' => 'Tamer Mohamed', 'to_email' => 'tamer.menoufi@gmail.com'], 
+            ['to_name' => 'Tamer Mohamed', 'to_email' => 'tamer.menoufi@gmail.com'],
             ['to_name' => 'Támer Elmenoufi', 'to_email' => 'tamer@mohatron.com.br'],
-            //*
+            /*
             ['to_name' => 'Ronaldo Bosco', 'to_email' => 'ronaldo.bosco@musashi.com.br'],
             ['to_name' => 'Nize Edwards', 'to_email' => 'nize.salvia@musashi.com.br'],
             ['to_name' => 'Hirata', 'to_email' => 'h.hirata@musashi.com.br'],
@@ -120,11 +120,12 @@ function SendMail($dados){
             ['to_name' => 'Odinei Silva', 'to_email' => 'odinei@musashi.com.br'],
             ['to_name' => 'Joelso Mazzarolo', 'to_email' => 'joelso.mazzarolo@musashi.com.br'],
             ['to_name' => 'Akira Takeno', 'to_email' => 'akiratakeno@musashi.com.br'],
-            //*/
+
             ['to_name' => 'Taicir Elmenoufi', 'to_email' => 'taicir@mohatron.com.br'],
-            
-            
-        
+            //*/
+
+
+
         ];
 
      $contatos = [
