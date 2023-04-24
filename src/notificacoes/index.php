@@ -44,7 +44,7 @@
 
           $time = false;
           if($d->time){
-            $q = "select * from time where codigo in({$d->time})";
+           echo $q = "select * from time where codigo in({$d->time})";
             $r = mysql_query($q);
             while($d1 = mysql_fetch_object($r)){
               $time = "$d1->nome<br>";
