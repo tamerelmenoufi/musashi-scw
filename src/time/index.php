@@ -25,7 +25,7 @@
 ?>
 <div class="card margin">
   <div class="card-header">
-    <h3><?=$value?></h3>
+    <h3><?=$value?> --- A</h3>
   </div>
   <div <?=$key?> class="card-body"></div>
 </div>

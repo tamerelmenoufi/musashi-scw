@@ -42,7 +42,7 @@
 ?>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-          <span class="input-group-text">Time de Atuação</span>
+          <span class="input-group-text">Time de Atuação --- B</span>
       </div>
       <input type="text" id="nome<?=$tabela?>" value="" class="form-control" placeholder="Digite a descrição" aria-label="Digite a descrição">
       <input type="hidden" id="codigo<?=$tabela?>" value="" />
