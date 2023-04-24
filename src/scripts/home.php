@@ -123,7 +123,7 @@
                         'icone'  => 'fa-cogs',
                         'local'  => 'src/motivos/index.php',
                         'destino'  => 'main',
-                        'titulo' => 'Motivos (Chamado)',
+                        'titulo' => 'Motivos',
                         'permissao' => 'auxiliares',
                       ),
                     );
