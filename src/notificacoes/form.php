@@ -123,6 +123,8 @@
 <script type="text/javascript">
   $(function(){
 
+    $("#telefone").mask("(99) 99999-9999");
+
     $("div[voltar]").click(function(){
       Carregando();
       $.ajax({
