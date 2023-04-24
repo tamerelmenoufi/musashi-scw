@@ -137,10 +137,9 @@
         obj = $("#formCadastros");
         codigo = $(this).attr('codigo');
         GetForm(obj);
-
+        t = 0;
+        time = [];
         obj.find("input[time]").each(function(){
-          t = 0;
-          time = [];
           if($(this).prop("checked") == true){
             time[t] = $(this).attr("time");
             t++;
