@@ -126,6 +126,13 @@
                         'titulo' => 'Motivos',
                         'permissao' => 'auxiliares',
                       ),
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/nitificacoes/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Notificações',
+                        'permissao' => 'auxiliares',
+                      ),
                     );
 
             for($i=0;$i<count($menu);$i++){
