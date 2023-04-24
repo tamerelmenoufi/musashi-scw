@@ -31,7 +31,7 @@
 	<div>posicao 2</div>
 	<div>posicao 3</div>
 </div>
-<div id="corpoTV">Aplicação na página</div>
+<div class="corpoTV">Aplicação na página</div>
 
 <script type="text/javascript">
 
