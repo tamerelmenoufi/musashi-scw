@@ -83,12 +83,12 @@
       <div class="card-header" id="heading<?=$s->codigo?>">
         <h2 class="mb-0">
           <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
-            <?=$s->nome?>
+            <?=utf8_encode($s->nome)?>
           </button>
         </h2>
       </div>
 
-      <div id="collapse<?=$s->codigo?>" class="collapse show" aria-labelledby="heading<?=$s->codigo?>" data-parent="#accordionTme">
+      <div id="collapse<?=$s->codigo?>" class="collapse" aria-labelledby="heading<?=$s->codigo?>" data-parent="#accordionTime">
         <div class="card-body">
           Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
         </div>
