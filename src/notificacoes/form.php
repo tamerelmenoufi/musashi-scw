@@ -55,7 +55,7 @@
   </div>
 
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="time">Time</label>
     <select form id="time" class="form-control">
       <option value="">:: Selecione o time ::</option>
@@ -69,7 +69,7 @@
         }
       ?>
     </select>
-  </div>
+  </div> -->
 
 
     <?php
