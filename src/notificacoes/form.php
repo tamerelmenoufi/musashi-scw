@@ -12,7 +12,7 @@
     }else if($campos){
       $query = "insert into notificacoes set ".implode(", ",$campos);
     }
-
+    echo $query;
 
     mysql_query($query);
 
@@ -168,6 +168,7 @@
                 acao:'salvar',
               },
               success:function(dados){
+                console.log(dados);
                 //$.alert({ content:dados });
                 if(dados == 'erro'){
 
