@@ -6,11 +6,16 @@
 	<?php include('../lib/header.php'); ?>
 </head>
 <body>
-<div id="app">
-	Aplicação na página
-</div>
+<div id="app">Aplicação na página</div>
 <script type="text/javascript">
+
+	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
+
 	$(function(){
+
+		Carregando('none');
+
+
 
 	})
 </script>
