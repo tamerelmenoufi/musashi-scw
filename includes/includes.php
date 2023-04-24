@@ -1,5 +1,5 @@
 <?php
-	$UrlProjeto = "https://".$_SERVER['HTTP_HOST']."/musashi/scw/";
+	$UrlProjeto = "http://scw.mohatron.com/";
 	session_start();
 	include("connect.php");
 	if(!$home){
@@ -10,7 +10,7 @@
 	}
 	///include("funcoes.php");
 	include("send.php");
-	
+
 	$WappPhones = [
 	    '92991886570',
 	    //*
@@ -59,6 +59,5 @@
         '92991268491',
         //*/
         '92982302004',
-	   
+
 	];
-	
