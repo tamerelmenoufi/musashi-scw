@@ -22,7 +22,7 @@
   <table class="table table-hover">
 
       <?php
-        $query = "select * from motivos order by nome";
+        $query = "select a.*, b.nome as competencia from motivos a left join time b on a.competencia = b.codigo order by a.nome";
         $result = mysql_query($query);
         if(mysql_num_rows($result)){
       ?>
