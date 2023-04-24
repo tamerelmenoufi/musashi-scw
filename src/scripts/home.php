@@ -1,6 +1,6 @@
 <?php
   include("../../includes/includes.php");
-  
+
   $query = "select * from login where codigo = '".$_SESSION['scw_usuario_logado']."'";
   $result = mysql_query($query);
   $d = mysql_fetch_object($result);
@@ -60,7 +60,7 @@
             </a>
           </li>
           <?php
-            } 
+            }
           ?>
         </ul>
 
@@ -112,6 +112,13 @@
                         'titulo' => 'Problemas',
                         'permissao' => 'auxiliares',
                       ),
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/time/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Time de Atuação',
+                        'permissao' => 'auxiliares',
+                      ),
                     );
 
             for($i=0;$i<count($menu);$i++){
@@ -127,7 +134,7 @@
           </li>
           <?php
               }
-            } 
+            }
           ?>
         </ul>
 
@@ -185,7 +192,7 @@
           </li>
           <?php
               }
-            } 
+            }
           ?>
         </ul>
       </div>
@@ -199,7 +206,7 @@
   $(function(){
 
     $("main").load("src/scripts/dashboard.php");
-    
+
     $("a[dados_cadastrais]").click(function(){
       Carregando();
       $.ajax({
@@ -232,7 +239,7 @@
           $(destino).html(dados);
           Carregando('none')
         }
-      });      
+      });
     });
 
   })
