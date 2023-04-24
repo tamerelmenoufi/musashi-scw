@@ -22,7 +22,7 @@
   <table class="table table-hover">
 
       <?php
-        $query = "select a.*, b.nome as time from notificacoes a left join time b on a.time = b.codigo order by b.nome, a.nome";
+        $query = "select * from notificacoes order by nome";
         $result = mysql_query($query);
         if(mysql_num_rows($result)){
       ?>
