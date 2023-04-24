@@ -13,7 +13,6 @@
     }else if($campos){
       $query = "insert into notificacoes set ".implode(", ",$campos);
     }
-    echo $query;
 
     mysql_query($query);
 
