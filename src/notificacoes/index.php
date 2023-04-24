@@ -6,6 +6,12 @@
     exit();
   }
 
+
+  if($_POST['acao'] == 'situacao'){
+    mysql_query("update notificacoes set situacao = '".$_POST['situacao']."' where codigo = '".$_POST['codigo']."'");
+    exit();
+  }
+
 ?>
 
 <style>
@@ -34,6 +40,7 @@
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
         <th scope="col">Telefone</th>
+        <th scope="col"></th>
         <th scope="col-1" width="110" class="text-right"></th>
       </tr>
     </thead>
@@ -58,6 +65,12 @@
         <td><?=utf8_encode($d->nome)?></td>
         <td><?=utf8_encode($d->email)?></td>
         <td><?=utf8_encode($d->telefone)?></td>
+        <td>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" <?=(($d->situacao)?'checked':false)?> id="<?=$d->codigo?>">
+            <label class="custom-control-label" for="<?=$d->codigo?>">Situação</label>
+          </div>
+        </td>
         <td class="text-right">
           <button EditarCadastro title="Editar Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" class="btn btn-info"><i class="fa fa-edit"></i></button>
           <button DeletarCadastro title="Excluir Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" class="btn btn-warning" ><i class="fa fa-trash-o"></i></button>
