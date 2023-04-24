@@ -17,10 +17,11 @@
       $query = "insert into motivos set ".implode(", ",$campos);
     }
 
-    mysql_query($query);
 
     if($n){
         echo "erro"; exit();
+    }else{
+      mysql_query($query);
     }
 
     exit();
