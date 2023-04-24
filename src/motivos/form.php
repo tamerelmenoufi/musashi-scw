@@ -12,7 +12,7 @@
       $query = "update motivos set ".implode(", ",$campos)." where codigo = '".$_POST['codigo']."'";
     }else if($campos){
 
-      $n = mysql_num_rows(mysql_query("select * from motivos where nome = '".$nome."'"));
+      $n = mysql_num_rows(mysql_query("select * from motivos where nome = '".$nome."' and competencia = '{$_POST['competencia']}'"));
 
       $query = "insert into motivos set ".implode(", ",$campos);
     }
