@@ -73,7 +73,7 @@
 
 
 
-  <div class="accordion" id="accordionTime">
+  <div class="accordion" id="accordionTime" style="margin-bottom:20px;">
     <?php
       $q = "select * from time order by nome";
       $r = mysql_query($q);
