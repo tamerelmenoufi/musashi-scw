@@ -67,7 +67,7 @@
         <td><?=utf8_encode($d->telefone)?></td>
         <td>
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" <?=(($d->situacao)?'checked':false)?> id="situacao">
+            <input type="checkbox" class="custom-control-input" situacao="<?=$d->situacao?>" <?=(($d->situacao)?'checked':false)?> id="situacao">
             <label class="custom-control-label" for="situacao">Situação</label>
           </div>
         </td>
@@ -136,7 +136,7 @@
 
 
     $("input[situacao]").change(function(){
-      codigo = $(this).attr("id");
+      codigo = $(this).attr("situacao");
       if($(this).prop("checked") == true){
         situacao = '1';
       }else{
