@@ -84,9 +84,9 @@
         <h2 class="mb-0">
 
 
-          <div class="form-group form-check"data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1"><?=utf8_encode($s->nome)?></label>
+          <div class="form-group form-check" data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
+            <input type="checkbox" class="form-check-input" id="time<?=$s->codigo?>">
+            <label class="form-check-label" for="time<?=$s->codigo?>"><?=utf8_encode($s->nome)?></label>
           </div>
 
           <!-- <button class="btn btn-link btn-secondary text-left" type="button" data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
