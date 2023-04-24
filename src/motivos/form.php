@@ -6,13 +6,14 @@
     for ($i = 0; $i < count($_POST['campo']); $i++) {
       $campos[] = $_POST['campo'][$i] . " = '".utf8_decode($_POST['valor'][$i])."'";
       if($_POST['campo'][$i] == 'nome') $nome = utf8_decode($_POST['valor'][$i]);
+      if($_POST['campo'][$i] == 'competencia') $competencia = utf8_decode($_POST['valor'][$i]);
     }
 
     if($_POST['codigo'] and $campos){
       $query = "update motivos set ".implode(", ",$campos)." where codigo = '".$_POST['codigo']."'";
     }else if($campos){
 
-      $n = mysql_num_rows(mysql_query("select * from motivos where nome = '".$nome."' and competencia = '{$_POST['competencia']}'"));
+      $n = mysql_num_rows(mysql_query("select * from motivos where nome = '".$nome."' and competencia = '{$competencia}'"));
 
       $query = "insert into motivos set ".implode(", ",$campos);
     }
