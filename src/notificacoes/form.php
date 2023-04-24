@@ -88,15 +88,17 @@
 
         <div XXid="collapse<?=$s->codigo?>" XXclass="collapse" XXaria-labelledby="heading<?=$s->codigo?>" XXdata-parent="#accordionTime">
           <div class="card-body">
+            <ul>
             <?php
             $q1 = "select * from motivos where competencia = '{$s->codigo}' order by codigo";
             $r1 = mysql_query($q1);
             while($s1 = mysql_fetch_object($r1)){
             ?>
-            <p><?=utf8_encode($s1->nome)?></p>
+            <li><?=utf8_encode($s1->nome)?></li>
             <?php
             }
             ?>
+            </ul>
           </div>
         </div>
       </div>
