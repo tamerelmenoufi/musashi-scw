@@ -82,7 +82,7 @@
     <div class="card">
       <div class="card-header" id="heading<?=$s->codigo?>">
         <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
+          <button class="btn btn-link btn-secondary text-left" type="button" data-toggle="collapse" data-target="#collapse<?=$s->codigo?>" aria-expanded="true" aria-controls="collapse<?=$s->codigo?>">
             <?=utf8_encode($s->nome)?>
           </button>
         </h2>
@@ -90,7 +90,15 @@
 
       <div id="collapse<?=$s->codigo?>" class="collapse" aria-labelledby="heading<?=$s->codigo?>" data-parent="#accordionTime">
         <div class="card-body">
-          Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+          <?php
+          $q1 = "select * from motivos where competencia = '{$s->codigo}' order by codigo";
+          $r1 = mysql_query($q1);
+          while($s1 = mysql_fetch_object($r1)){
+          ?>
+          <p><?=utf8_encode($s1->nome)?></p>
+          <?php
+          }
+          ?>
         </div>
       </div>
     </div>
