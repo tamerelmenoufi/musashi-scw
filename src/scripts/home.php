@@ -119,6 +119,13 @@
                         'titulo' => 'Time de Atuação',
                         'permissao' => 'auxiliares',
                       ),
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/motivos/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Motivos (Chamado)',
+                        'permissao' => 'auxiliares',
+                      ),
                     );
 
             for($i=0;$i<count($menu);$i++){
