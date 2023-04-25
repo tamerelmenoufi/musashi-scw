@@ -245,23 +245,23 @@
 <div class="RelatorioTV">
 	<div class="row">
 		<div class="col">
-			<div class="Qt" style="background-color:rgb(0,0,255, 0.5)">
-				<span>Novos</span><h1><?=$Qt['novos']?></h1>
+			<div class="Qt" style="background-color:rgb(0,0,255, 0.7)">
+				<span>Novos</span><h1><?=str_pad($Qt['novos'] , 5 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
-			<div class="Qt" style="background-color:rgb(255,165,0, 0.5)">
-				<span>Em Andamento</span><h1><?=$Qt['pendentes']?></h1>
+			<div class="Qt" style="background-color:rgb(255,165,0, 0.7)">
+				<span>Em Andamento</span><h1><?=str_pad($Qt['pendentes'] , 5 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
-			<div class="Qt" style="background-color:rgb(255,0,0, 0.5)">
-				<span>Máquinas Paradas</span><h1><?=$Qt['parados']?></h1>
+			<div class="Qt" style="background-color:rgb(255,0,0, 0.7)">
+				<span>Máquinas Paradas</span><h1><?=$str_pad(Qt['parados'] , 5 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
-			<div class="Qt" style="background-color:rgb(0,128,0, 0.5)">
-				<span>Concluído</span><h1><?=$Qt['concluidos']?></h1>
+			<div class="Qt" style="background-color:rgb(0,128,0, 0.7)">
+				<span>Concluído</span><h1><?=str_pad($Qt['concluidos'] , 5 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
