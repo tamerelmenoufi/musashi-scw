@@ -142,7 +142,7 @@
 		</div>
 	</div>
 	<div>
-		<div style="margin-top:15px; padding:10px;">
+		<div style="margin-top:10px; padding:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
