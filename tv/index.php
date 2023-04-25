@@ -57,8 +57,9 @@
 
                "<div> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao)."</div></div>".
                "<div>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
-               "<div>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>Funcionário:</b><div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
-               "<div>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;'>Técnico:</b><div>".utf8_encode($d->tecnico)."</div>":false)."</div>".
+
+			   "<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>Funcionário:</b><div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
+               "<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;'>Técnico:</b><div>".utf8_encode($d->tecnico)."</div>":false)."</div>".
 
                "<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
                "<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Motivo:</b><div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
