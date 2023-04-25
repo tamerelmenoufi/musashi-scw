@@ -191,17 +191,15 @@
 		.Qt{
 			margin:5px;
 			border-radius:5px;
-			background-color:#eee;
 			padding:10px;
+			color:#fff;
 		}
 		.Qt span{
 			font-size:12px;
-			color:#fff;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			color:#fff;
 		}
 	</style>
 </head>
