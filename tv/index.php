@@ -228,6 +228,7 @@
 			padding:2px;
 			margin:0;
 			border-radius:3px;
+			text-align:right;
 		}
 	</style>
 </head>
@@ -303,7 +304,9 @@
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
-					<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"><?=$Rlt['setor'][$ind]['qt']?></div>
+					<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%">
+						[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%
+					</div>
 				</div>
 				<?php
 					}
