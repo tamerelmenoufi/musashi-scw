@@ -225,11 +225,11 @@
 		<div class="col">Concluído</div>
 	</div>
 	<div class="row">
-		<div class="col">Graf1</div>
-		<div class="col">Graf2</div>
-		<div class="col">Graf3</div>
-		<div class="col">Graf4</div>
-		<div class="col">Graf5</div>
+		<div class="col">Setores</div>
+		<div class="col">Tipo de Manutenção</div>
+		<div class="col">Motivo</div>
+		<div class="col">Time de Atuação</div>
+		<div class="col">Máquinas Paradas</div>
 	</div>
 </div>
 <div class="rodapeTV">
