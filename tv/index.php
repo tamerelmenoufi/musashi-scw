@@ -239,11 +239,11 @@
 			asNavFor: '.slider-nav'
 		});
 		$('.slider-nav').slick({
-			slidesToShow: 6,
+			slidesToShow: 7,
 			slidesToScroll: 1,
 			asNavFor: '.slider-for',
 			dots: true,
-			centerMode: false,
+			centerMode: true,
 			focusOnSelect: true,
 			autoplay: true,
   			autoplaySpeed: 5000,
