@@ -225,6 +225,7 @@
 			margin-top:0px;
 			padding:2px;
 			margin:0;
+			border-radius:3px;
 		}
 	</style>
 </head>
