@@ -95,7 +95,7 @@
 		}
 		.slick-current{
 			background:#eee !important;
-			opacity:1;
+			opacity:1 !important;
 		}
 		.statusDestaque{
 			position:fixed;
