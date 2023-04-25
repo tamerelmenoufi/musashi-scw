@@ -7,7 +7,14 @@
 		'n' => 'Novo',
 		'p' => 'Pendente',
 		'c' => 'Concluído',
-  );
+  	);
+
+	$cor = array(
+		't' => '',
+		'n' => 'red',
+		'p' => 'orange',
+		'c' => 'green',
+  	);
 
 	$q = "SELECT
 	a.codigo,
@@ -37,6 +44,9 @@
 	$TickResumo = [];
 
 	while($d = mysql_fetch_object($r)){
+
+		$CorDetalhe[] = $cor[$d->status];
+		$CorResumo[] = $cor[$d->status];
 
         $TickDetalhe[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
@@ -94,7 +104,6 @@
 			border:solid 1px blue;
 		}
 		.slick-current{
-			background:#eee !important;
 			opacity:1 !important;
 		}
 		.statusDestaque{
@@ -123,7 +132,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div style="opacity:0.5;"><?=$TickDetalhe[$i]?></div>
+		<div style="opacity:0.5; color:<?=$CorDetalhe[$i]?>"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
@@ -136,7 +145,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.5;"><?=$TickResumo[$i]?></div>
+		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.5; color:<?=$CorResumo[$i]?>"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
