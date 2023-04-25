@@ -6,6 +6,10 @@
       	'p' => 'Em Produção',
       	'c' => 'Concluído'
   	);
+    $parada = array(
+      's' => 'SIM',
+      'n' => 'NÃO'
+    );
 
 
   if($_POST['acao'] == 'salvar'){
@@ -33,6 +37,7 @@
                     a.status,
                     a.time,
                     a.motivo,
+                    a.parada,
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
@@ -57,6 +62,7 @@
                "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                ", *SETOR*: ".utf8_encode($d->setor).
                ", *MÁQUINA*: ".utf8_encode($d->maquina).
+               ", *MÁQUINA PARADA*: ".($parada[$d->parada]).
                ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
@@ -160,6 +166,13 @@
     </select>
   </div>
 
+  <div class="form-setor">
+    <label for="parada">Máquina Parada?</label>
+    <select form id="parada" class="form-control">
+      <option value="n" <?=(('n' == $d->parada)?'selected':false)?>>Não</option>
+      <option value="s" <?=(('s' == $d->parada)?'selected':false)?>>Sim</option>
+    </select>
+  </div>
 
   <div class="form-group">
     <label for="time">Área de Atuação</label>

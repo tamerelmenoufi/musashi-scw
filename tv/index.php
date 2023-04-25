@@ -10,8 +10,8 @@
   	);
 
 	$cor = array(
-		't' => '',
-		'n' => 'red',
+		's' => 'red',
+		'n' => 'blue',
 		'p' => 'orange',
 		'c' => 'green',
   	);

@@ -6,7 +6,10 @@
   					'p' => 'Em Produção',
   					'c' => 'Concluído'
   					);
-
+  $parada = array(
+    's' => 'SIM',
+    'n' => 'NÃO'
+  );
   if($_POST['observacao']){
 
   	$query = "insert into chamados_observacoes set chamado = '".$_POST['codigo']."', data = NOW(), tecnico='".$_SESSION['scw_usuario_logado']."', observacao = '".utf8_decode($_POST['observacao'])."'";
@@ -21,6 +24,7 @@
                     a.status,
                     a.time,
                     a.motivo,
+                    a.parada,
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
@@ -46,6 +50,7 @@
                "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                ", *SETOR*: ".utf8_encode($d->setor).
                ", *MÁQUINA*: ".utf8_encode($d->maquina).
+               ", *MÁQUINA PARADA*: ".($parada[$d->parada]).
                ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).

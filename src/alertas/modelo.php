@@ -10,11 +10,17 @@
                   'c' => 'Concluído',
             );
 
+    $parada = array(
+        's' => 'SIM',
+        'n' => 'NÃO'
+        );
+
     $q = "SELECT
                     a.codigo,
                     a.status,
                     a.time,
                     a.motivo,
+                    a.parada,
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
@@ -38,6 +44,7 @@
         $msg = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
                "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
+               "<br> <b>MÁQUINA PARADA</b>: <span style='color:red; font-weight:bold;'>".$parada[$d->parada]."</span>".
                "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false).

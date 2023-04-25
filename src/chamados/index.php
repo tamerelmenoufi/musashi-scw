@@ -32,7 +32,10 @@
                   'p' => 'Pendente',
                   'c' => 'Concluído',
             );
-
+  $parada = array(
+    's' => 'SIM',
+    'n' => 'NÃO'
+  );
   if($_POST['acao'] == 'excluir'){
     mysql_query("delete from chamados where codigo = '".$_POST['codigo']."'");
     exit();
@@ -63,6 +66,7 @@
                     a.status,
                     a.time,
                     a.motivo,
+                    a.parada,
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
@@ -87,6 +91,7 @@
                "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                ", *SETOR*: ".utf8_encode($d->setor).
                ", *MÁQUINA*: ".utf8_encode($d->maquina).
+               ", *MÁQUINA PARADA*: ".($parada[$d->parada]).
                ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
@@ -206,6 +211,7 @@ if(!$_SESSION['status']){
 
     <thead>
       <tr>
+        <th scope="col-1"><i class="fa fa-cogs" aria-hidden="true"></i></th>
         <th scope="col-1">Chamado</th>
         <th scope="col">Setor</th>
         <th scope="col">Problema</th>
@@ -236,6 +242,7 @@ if(!$_SESSION['status']){
 
       ?>
       <tr cadastro<?=$d->codigo?> class="<?=$classTr?>">
+        <td><i class="fa fa-cogs" aria-hidden="true" style="color:<?=(($d->parada == 's')?'red':'green')?>"></i></td>
         <th scope="row">#<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></th>
         <td><?=utf8_encode($d->setor)?></td>
         <td><?=utf8_encode($d->tipo_manutencao)?></td>
