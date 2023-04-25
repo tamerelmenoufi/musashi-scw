@@ -300,9 +300,9 @@
 				<?php
 				foreach($Rlt['setor'] as $ind => $vet){
 				?>
-				<div class="grafico" style="width:<?=number_format(($Rlt['setor']['tot']/$Rlt['setor'][$ind]['qt']*100),0,false,false)?>%">
+				<div class="grafico">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
-					<div><?=$Rlt['setor'][$ind]['qt']?></div>
+					<div style="width:<?=number_format(($Rlt['setor']['tot']*100/$Rlt['setor'][$ind]['qt']),0,false,false)?>%"><?=$Rlt['setor'][$ind]['qt']?></div>
 				</div>
 				<?php
 				}
