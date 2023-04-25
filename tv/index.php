@@ -125,7 +125,9 @@
 
 
 <div class="topoTV d-flex justify-content-between">
-	<div>posicao 1</div>
+	<div>
+		<img src="img/logo.png" style="height:50px; margin:5px;">
+	</div>
 	<div>
 		<i class="fas fa-square" style="color:green;"></i> Atendido
 		<i class="fas fa-square" style="color:orange;"></i> Em Andamento
