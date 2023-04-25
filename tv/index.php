@@ -294,18 +294,20 @@
 		</div>
 	</div>
 	<div class="row mt-3">
-		<div class="setores">
-			<h5>Setores</h5>
-			<?php
-			foreach($Rlt['setor'] as $ind => $vet){
-			?>
-			<div class="grafico">
-				<span><?=$Rlt['setor'][$ind]['nome']?></span>
-				<div><?=$Rlt['setor'][$ind]['qt']?></div>
+		<div class="col">
+			<div class="setores">
+				<h5>Setores</h5>
+				<?php
+				foreach($Rlt['setor'] as $ind => $vet){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['setor'][$ind]['nome']?></span>
+					<div><?=$Rlt['setor'][$ind]['qt']?></div>
+				</div>
+				<?php
+				}
+				?>
 			</div>
-			<?php
-			}
-			?>
 		</div>
 		<div class="col">Tipo de Manutenção</div>
 		<div class="col">Motivo</div>
