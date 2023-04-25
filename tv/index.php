@@ -27,6 +27,7 @@
 	a.status,
 	a.time,
 	a.motivo,
+	a.parada,
 	tm.nome as time_nome,
 	mt.nome as motivo_nome,
 	s.nome as setor,
