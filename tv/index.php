@@ -58,7 +58,7 @@
 	while($d = mysql_fetch_object($r)){
 
 
-		$Qt['novos'] = (($d->status == 'n')?($Qt['novos']++):($Qt['novos']));
+		echo $Qt['novos'] = (($d->status == 'n')?($Qt['novos']++):($Qt['novos']))."<br>";
 		$Qt['pendentes'] = (($d->status == 'p')?($Qt['pendentes']++):($Qt['pendentes']));
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos']++):($Qt['concluidos']));
 		$Qt['parados'] = (($d->parada == 's')?($Qt['parados']++):($Qt['parados']));
