@@ -50,6 +50,11 @@
 	$TickDetalhe = [];
 	$TickResumo = [];
 
+	$Qt['novos'] = 0;
+	$Qt['pendentes'] = 0;
+	$Qt['concluidos'] = 0;
+	$Qt['parados'] = 0;
+
 	while($d = mysql_fetch_object($r)){
 
 
