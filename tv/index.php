@@ -109,7 +109,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div><?=$TickDetalhe[$i]?></div>
+		<div style="border:solid 1px #ccc"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
