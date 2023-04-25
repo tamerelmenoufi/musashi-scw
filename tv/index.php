@@ -80,7 +80,7 @@
 	<?php include('../lib/header.php'); ?>
 	<style>
 		body{
-			background-color:#eee;
+			background-color:#ccc;
 		}
 		.topoTV{
 			position:fixed;
@@ -116,7 +116,7 @@
 			bottom:220px;
 			width:30%;
 			border-radius:10px;
-			background:#ccc !important;
+			background:#eee !important;
 			padding:15px;
 		}
 	</style>
