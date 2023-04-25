@@ -304,9 +304,9 @@
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
-					<div>
-						<div style="float:left; width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
-						<span style="margin-left:3px; padding-bottom:10px;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
 				<?php
