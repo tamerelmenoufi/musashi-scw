@@ -265,7 +265,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row ms-3">
+	<div class="row mt-3">
 		<div class="col">Setores</div>
 		<div class="col">Tipo de Manutenção</div>
 		<div class="col">Motivo</div>
