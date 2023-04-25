@@ -306,6 +306,7 @@
 			<div class="setores">
 				<h5>Setores</h5>
 				<?php
+				arsort($Rlt['setor']['qt']);
 				foreach($Rlt['setor']['nome'] as $ind => $vet){
 					if($Rlt['setor']['nome'][$ind]){
 				?>
@@ -326,6 +327,7 @@
 			<div class="setores">
 				<h5>Manutenção</h5>
 				<?php
+				arsort($Rlt['tipo_manutencao']['qt']);
 				foreach($Rlt['tipo_manutencao']['nome'] as $ind => $vet){
 					if($Rlt['tipo_manutencao']['nome'][$ind]){
 				?>
