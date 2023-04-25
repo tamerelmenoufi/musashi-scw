@@ -215,6 +215,7 @@
 		.grafico span{
 			color:#a1a1a1;
 			font-size:10px;
+			font-weight:bold;
 			margin-top:0px;
 			padding:0;
 			margin:0;
