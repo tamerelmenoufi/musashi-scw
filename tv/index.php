@@ -126,7 +126,11 @@
 
 <div class="topoTV d-flex justify-content-between">
 	<div>posicao 1</div>
-	<div>posicao 2</div>
+	<div>
+		<i class="fas fa-square" style="color:green;"></i> Atendido
+		<i class="fas fa-square" style="color:orange;"></i> Em Andamento
+		<i class="fas fa-square" style="color:red;"></i> Novo
+	</div>
 	<div>posicao 3</div>
 </div>
 <div class="corpoTV">
