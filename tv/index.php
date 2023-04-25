@@ -188,6 +188,12 @@
 			padding:0;
 			margin-top:-9px;
 		}
+		.Qt{
+			margin:5px;
+			border-radius:5px;
+			background-color:#eee;
+			padding:10px;
+		}
 	</style>
 </head>
 <body>
@@ -231,10 +237,26 @@
 </div>
 <div class="RelatorioTV">
 	<div class="row">
-		<div class="col">Novos<h1><?=$Qt['novos']?></h1></div>
-		<div class="col">Em Andamento<h1><?=$Qt['pendentes']?></h1></div>
-		<div class="col">Máquinas Paradas<h1><?=$Qt['parados']?></h1></div>
-		<div class="col">Concluído<h1><?=$Qt['concluidos']?></h1></div>
+		<div class="col">
+			<div class="Qt">
+				Novos<h1><?=$Qt['novos']?></h1>
+			</div>
+		</div>
+		<div class="col">
+			<div class="Qt">
+				Em Andamento<h1><?=$Qt['pendentes']?></h1>
+			</div>
+		</div>
+		<div class="col">
+			<div class="Qt">
+				Máquinas Paradas<h1><?=$Qt['parados']?></h1>
+			</div>
+		</div>
+		<div class="col">
+			<div class="Qt">
+				Concluído<h1><?=$Qt['concluidos']?></h1>
+			</div>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col">Setores</div>
