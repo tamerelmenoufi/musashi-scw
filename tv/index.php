@@ -126,7 +126,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:220px;
+			bottom:160px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
