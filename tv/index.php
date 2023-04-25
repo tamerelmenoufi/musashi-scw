@@ -48,20 +48,21 @@
 		$CorDetalhe[] = $cor[$d->status];
 		$CorResumo[] = $cor[$d->status];
 
-        $TickDetalhe[] = "<b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
-               "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
-               "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
-               "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
-               (($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
-               (($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false).
-               (($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false).
+        $TickDetalhe[] = "
+				<div><b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div>".
+               "<div> <b>SETOR</b>: ".utf8_encode($d->setor)."</div>".
+               "<div> <b>MÁQUINA</b>: ".utf8_encode($d->maquina)."</div>".
+               "<div> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao)."</div>".
+               "<div>".(($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false)."</div>".
+               "<div>".(($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false)."</div>".
+               "<div>".(($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false)."</div>".
 
-               (($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false).
-               (($d->motivo_nome)?"<br> <b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false).
+               "<div>".(($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false)."</div>".
+               "<div>".(($d->motivo_nome)?"<br> <b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false)."</div>".
 
 
-               (($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false).
-               (($d->observacao)?"<br> <b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false);
+               "<div>".(($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false)."</div>".
+               "<div>".(($d->observacao)?"<br> <b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false)."</div>";
 
 		$TickResumo[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
