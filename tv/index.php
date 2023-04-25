@@ -211,16 +211,20 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:10px;
-			margin-top:-5px;
+			font-size:12px;
+			margin-top:0px;
+			padding:0;
+			margin:0;
 		}
 		.grafico div{
 			width:100%;
-			height:10px;
+			height:20px;
 			background-color:green;
 			color:#fff;
-			font-size:6px;
-			margin-top:-10px;
+			font-size:10px;
+			margin-top:0px;
+			padding:0;
+			margin:0;
 		}
 	</style>
 </head>
