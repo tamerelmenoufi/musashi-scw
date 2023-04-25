@@ -206,6 +206,22 @@
 			width:100%;
 			text-align:center;
 		}
+		.grafico{
+
+		}
+		.grafico span{
+			color:#a1a1a1;
+			font-size:10px;
+			margin-top:-5px;
+		}
+		.grafico div{
+			width:100%;
+			height:10px;
+			background-color:green;
+			color:#fff;
+			font-size:6px;
+			margin-top:-10px;
+		}
 	</style>
 </head>
 <body>
@@ -272,13 +288,13 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col">
-			<h4>Setores</h4>
+			<h5>Setores</h5>
 			<?php
 			foreach($Rlt['setor'] as $ind => $vet){
 			?>
-			<div class="row">
-				<div class="col-3"><?=$Rlt['setor'][$ind]['nome']?></div>
-				<div class="col-9"><?=$Rlt['setor'][$ind]['qt']?></div>
+			<div class="grafico">
+				<span><?=$Rlt['setor'][$ind]['nome']?></span>
+				<div><?=$Rlt['setor'][$ind]['qt']?></div>
 			</div>
 			<?php
 			}
