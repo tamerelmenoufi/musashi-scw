@@ -52,8 +52,8 @@
 
 	while($d = mysql_fetch_object($r)){
 
-		$CorDetalhe[] = $cor[$d->status];
-		$CorResumo[] = $cor[$d->status];
+		$CorDetalhe[] = $cor[(($d->parada == 's')?:$d->status)];
+		$CorResumo[] = $cor[(($d->parada == 's')?:$d->status)];
 
         $TickDetalhe[] = "
 				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
@@ -160,7 +160,7 @@
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
 			<i class="fa fa-square" style="color:blue;"></i> Novo
-			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Em Andamento
+			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
 			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
 		</div>
