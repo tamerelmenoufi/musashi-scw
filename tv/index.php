@@ -132,7 +132,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div style="opacity:0.5; padding-top:10px; border-top:4px solid <?=$CorDetalhe[$i]?>"><?=$TickDetalhe[$i]?></div>
+		<div style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:15px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
