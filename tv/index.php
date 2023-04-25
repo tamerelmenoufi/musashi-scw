@@ -93,7 +93,7 @@
 			height:200px;
 			border:solid 1px blue;
 		}
-		.slick-active{
+		.slick-current{
 			background:#eee !important;
 		}
 	</style>
