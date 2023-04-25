@@ -49,20 +49,20 @@
 		$CorResumo[] = $cor[$d->status];
 
         $TickDetalhe[] = "
-				<div><b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-               "<div> <b style='color:#a1a1a1; font-size:10px;>SETOR</b>: <div>".utf8_encode($d->setor)."</div></div>".
-               "<div> <b style='color:#a1a1a1; font-size:10px;>MÁQUINA</b>: <div>".utf8_encode($d->maquina)."</div></div>".
-               "<div> <b style='color:#a1a1a1; font-size:10px;>TIPO DE MANUTENÇÃO</b>: <div>".utf8_encode($d->tipo_manutencao)."</div></div>".
-               "<div>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;>PROBLEMA</b>: <div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
-               "<div>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;>FUNCIONÁRIO</b>: <div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
-               "<div>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;>TÉCNICO</b>: <div>".utf8_encode($d->tecnico)."</div>":false)."</div>".
+				<div><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID</b>: <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;'>SETOR</b>: <div>".utf8_encode($d->setor)."</div></div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;'>MÁQUINA</b>: <div>".utf8_encode($d->maquina)."</div></div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;'>TIPO DE MANUTENÇÃO</b>: <div>".utf8_encode($d->tipo_manutencao)."</div></div>".
+               "<div>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>PROBLEMA</b>: <div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
+               "<div>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>FUNCIONÁRIO</b>: <div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
+               "<div>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;'>TÉCNICO</b>: <div>".utf8_encode($d->tecnico)."</div>":false)."</div>".
 
-               "<div>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;>TIME</b>: <div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
-               "<div>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;>MOTIVO</b>: <div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+               "<div>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>TIME</b>: <div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
+               "<div>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>MOTIVO</b>: <div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
-               "<div>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;>SITUAÇÃO</b>: <div>".$titulo[$d->status]."</div>":false)."</div>".
-               "<div>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;>OBSERVAÇÕES</b>: <div>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div>";
+               "<div>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>SITUAÇÃO</b>: <div>".$titulo[$d->status]."</div>":false)."</div>".
+               "<div>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>OBSERVAÇÕES</b>: <div>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div>";
 
 		$TickResumo[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
