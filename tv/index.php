@@ -96,6 +96,14 @@
 		.slick-current{
 			background:#eee !important;
 		}
+		.statusDestaque{
+			position:fixed;
+			left:10px;
+			top:70px;
+			bottom:220px;
+			width:30%;
+			border-radius:10px;
+		}
 	</style>
 </head>
 <body>
@@ -112,7 +120,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div><?=$TickDetalhe[$i]?></div>
+		<div class="statusDestaque"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
