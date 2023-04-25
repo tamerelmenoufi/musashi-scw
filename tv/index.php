@@ -132,8 +132,8 @@
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
 			<i class="fa fa-square" style="color:green;"></i> Atendido
-			<i class="fa fa-square" style="color:orange;"></i> Em Andamento
-			<i class="fa fa-square" style="color:red;"></i> Novo
+			<i class="fa fa-square" style="color:orange; margin-left:5px;"></i> Em Andamento
+			<i class="fa fa-square" style="color:red; margin-left:5px;"></i> Novo
 		</div>
 	</div>
 	<div>posicao 3</div>
