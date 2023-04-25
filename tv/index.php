@@ -58,10 +58,10 @@
 	while($d = mysql_fetch_object($r)){
 
 
-		$Qt['novos'] = (($d->status == 'n')?$Qt['novos']++:$Qt['novos']);
-		$Qt['pendentes'] = (($d->status == 'p')?$Qt['pendentes']++:$Qt['pendentes']);
-		$Qt['concluidos'] = (($d->status == 'c')?$Qt['concluidos']++:$Qt['concluidos']);
-		$Qt['parados'] = (($d->parada == 's')?$Qt['parados']++:$Qt['parados']);
+		$Qt['novos'] = (($d->status == 'n')?($Qt['novos']++):($Qt['novos']));
+		$Qt['pendentes'] = (($d->status == 'p')?($Qt['pendentes']++):($Qt['pendentes']));
+		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos']++):($Qt['concluidos']));
+		$Qt['parados'] = (($d->parada == 's')?($Qt['parados']++):($Qt['parados']));
 
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
