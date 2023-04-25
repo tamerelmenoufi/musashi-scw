@@ -70,13 +70,13 @@
 		$Rlt['setor'][$d->setor]['nome'] = utf8_encode($d->setor_nome);
 		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
-		arsort($Rlt['setor']['qt']);
+		arsort($Rlt['setor']);
 
 		//Setores
 		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['nome'] = utf8_encode($d->tipo_manutencao_nome);
 		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] = ($Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] + 1);
 		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
-		arsort($Rlt['tipo_manutencao']['qt']);
+		arsort($Rlt['tipo_manutencao']);
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
