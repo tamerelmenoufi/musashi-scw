@@ -29,12 +29,13 @@
 	a.motivo,
 	a.parada,
 	a.setor,
+	a.tipo_manutencao,
 	a.maquina,
 	tm.nome as time_nome,
 	mt.nome as motivo_nome,
 	s.nome as setor_nome,
 	m.nome as maquina_nome,
-	t.nome as tipo_manutencao,
+	t.nome as tipo_manutencao_nome,
 	a.problema,
 	f.nome as funcionario,
 	tc.nome as tecnico
@@ -65,10 +66,15 @@
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
 		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
+		//Setores
 		$Rlt['setor'][$d->setor]['nome'] = utf8_encode($d->setor_nome);
 		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
+		//Setores
+		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['nome'] = utf8_encode($d->tipo_manutencao_nome);
+		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] = ($Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] + 1);
+		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -83,7 +89,7 @@
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 
-               "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao)."</div></div>".
+               "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
                "<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
 			   "<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>Funcionário:</b><div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
@@ -316,7 +322,26 @@
 				?>
 			</div>
 		</div>
-		<div class="col">Tipo de Manutenção</div>
+		<div class="col">
+			<div class="setores">
+				<h5>Tipo de Manutenção</h5>
+				<?php
+				foreach($Rlt['tipo_manutencao'] as $ind => $vet){
+					if($Rlt['tipo_manutencao'][$ind]['nome']){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['tipo_manutencao'][$ind]['nome']?></span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['tipo_manutencao'][$ind]['qt']*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['tipo_manutencao'][$ind]['qt']?>] <?=number_format(($Rlt['tipo_manutencao'][$ind]['qt']*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%</span>
+					</div>
+				</div>
+				<?php
+					}
+				}
+				?>
+			</div>
+		</div>
 		<div class="col">Motivo</div>
 		<div class="col">Time de Atuação</div>
 		<div class="col">Máquinas Paradas</div>
