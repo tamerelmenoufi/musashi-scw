@@ -50,7 +50,7 @@
 
         $TickDetalhe[] = "
 				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-
+				"<div style='float:left; width:33%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div>".dataBr($d->data_abertura)."</div>":false)."</div>".
 				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
 
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
