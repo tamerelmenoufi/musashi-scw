@@ -18,6 +18,7 @@
 
 	$q = "SELECT
 	a.codigo,
+	a.data_abertura,
 	a.status,
 	a.time,
 	a.motivo,
