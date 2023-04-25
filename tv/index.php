@@ -121,6 +121,10 @@
 			background:#eee !important;
 			padding:15px;
 		}
+		.listaDestaque div{
+			margin:0;
+			padding:0;
+		}
 	</style>
 </head>
 <body>
@@ -154,7 +158,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
+		<div class="listaDestaque" style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
