@@ -116,18 +116,11 @@
 </div>
 <div class="corpoTV">
 
-	<div class="slider-for">
+	<div class="slider-for statusDestaque">
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div style="
-			position:fixed;
-			left:10px;
-			top:70px;
-			bottom:220px;
-			width:30%;
-			border-radius:10px;
-		"><?=$TickDetalhe[$i]?></div>
+		<div><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
