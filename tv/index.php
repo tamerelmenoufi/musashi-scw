@@ -218,7 +218,7 @@
 		}
 		.grafico div{
 			width:100%;
-			height:10px;
+			height:15px;
 			background-color:green;
 			color:#fff;
 			font-size:10px;
