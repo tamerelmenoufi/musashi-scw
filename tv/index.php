@@ -141,7 +141,11 @@
 			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
 		</div>
 	</div>
-	<div>posicao 3</div>
+	<div>
+		<div style="margin-top:15px;">
+			<?=date("d/m/Y H:i")?>
+		</div>
+	</div>
 </div>
 <div class="corpoTV">
 
