@@ -218,12 +218,12 @@
 		}
 		.grafico div{
 			width:100%;
-			height:20px;
+			height:10px;
 			background-color:green;
 			color:#fff;
 			font-size:10px;
 			margin-top:0px;
-			padding:0;
+			padding:2px;
 			margin:0;
 		}
 	</style>
