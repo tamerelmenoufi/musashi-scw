@@ -124,7 +124,7 @@
 		.listaDestaque div{
 			margin:0;
 			padding:0;
-			margin-top:-10px;
+			margin-top:-5px;
 		}
 		.listaDestaque div div{
 			margin:0;
