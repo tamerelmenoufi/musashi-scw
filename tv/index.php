@@ -79,6 +79,9 @@
 	<title>SISTEMA - SCW</title>
 	<?php include('../lib/header.php'); ?>
 	<style>
+		body{
+			background-color:#eee;
+		}
 		.topoTV{
 			position:fixed;
 			left:0;
