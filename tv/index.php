@@ -112,6 +112,15 @@
 			right:0;
 			bottom:150px;
 		}
+		.RelatorioTV{
+			position:fixed;
+			right:0;
+			top:60px;
+			left:30%;
+			width:70%;
+			bottom:150px;
+			border:1px blue solid;
+		}
 		.rodapeTV{
 			position:fixed;
 			left:0;
@@ -206,6 +215,8 @@
 		}
 		?>
 	</div>
+</div>
+<div class="RelatorioTV">
 
 </div>
 <div class="rodapeTV">
