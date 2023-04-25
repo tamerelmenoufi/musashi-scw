@@ -54,7 +54,7 @@
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
-		$CorBorda[] = (($d->parada == 's')?'red':'green');
+		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
 
         $TickDetalhe[] = "
 				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
