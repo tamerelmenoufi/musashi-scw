@@ -53,16 +53,16 @@
                "<div> <b>SETOR</b>: ".utf8_encode($d->setor)."</div>".
                "<div> <b>MÁQUINA</b>: ".utf8_encode($d->maquina)."</div>".
                "<div> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao)."</div>".
-               "<div>".(($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false)."</div>".
-               "<div>".(($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false)."</div>".
-               "<div>".(($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false)."</div>".
+               "<div>".(($d->problema)?"<b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false)."</div>".
+               "<div>".(($d->funcionario)?"<b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false)."</div>".
+               "<div>".(($d->tecnico)?"<b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false)."</div>".
 
-               "<div>".(($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false)."</div>".
-               "<div>".(($d->motivo_nome)?"<br> <b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false)."</div>".
+               "<div>".(($d->time_nome)?"<b>TIME</b>: ".utf8_encode($d->time_nome):false)."</div>".
+               "<div>".(($d->motivo_nome)?"<b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false)."</div>".
 
 
-               "<div>".(($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false)."</div>".
-               "<div>".(($d->observacao)?"<br> <b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false)."</div>";
+               "<div>".(($d->status)?"<b>SITUAÇÃO</b>: ".$titulo[$d->status]:false)."</div>".
+               "<div>".(($d->observacao)?"<b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false)."</div>";
 
 		$TickResumo[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
