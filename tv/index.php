@@ -75,10 +75,10 @@
 
                "<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>Observações:</b><div>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
-		$TickResumo[] = "<div><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-						"<div> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
-						"<div> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'green').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina)."</div></div>".
-						"<div>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
+		$TickResumo[] = "<div><b style='font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+						"<div> <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
+						"<div> <b style='font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'green').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina)."</div></div>".
+						"<div>".(($d->status)?"<b style='font-size:10px;'>Situação:</b>
 						<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>";
 
 
@@ -214,7 +214,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div class="listaResumo" style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff;"><?=$TickResumo[$i]?></div>
+		<div class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
