@@ -256,7 +256,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:rgb(255,0,0, 0.7)">
-				<span>Máquinas Paradas</span><h1><?=$str_pad(Qt['parados'] , 5 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Máquinas Paradas</span><h1><?=str_pad($Qt['parados'] , 5 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
