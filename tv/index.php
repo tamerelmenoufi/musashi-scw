@@ -183,6 +183,7 @@
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
 			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
+			<i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando
 		</div>
 	</div>
 	<div>
