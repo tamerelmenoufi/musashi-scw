@@ -194,6 +194,14 @@
 			background-color:#eee;
 			padding:10px;
 		}
+		.Qt span{
+			font-size:12px;
+			color:#a1a1a1;
+		}
+		.Qt h1{
+			width:100%;
+			text-align:center;
+		}
 	</style>
 </head>
 <body>
@@ -239,22 +247,22 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt">
-				Novos<h1><?=$Qt['novos']?></h1>
+				<span>Novos</span><h1><?=$Qt['novos']?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt">
-				Em Andamento<h1><?=$Qt['pendentes']?></h1>
+				<span>Em Andamento</span><h1><?=$Qt['pendentes']?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt">
-				Máquinas Paradas<h1><?=$Qt['parados']?></h1>
+				<span>Máquinas Paradas</span><h1><?=$Qt['parados']?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt">
-				Concluído<h1><?=$Qt['concluidos']?></h1>
+				<span>Concluído</span><h1><?=$Qt['concluidos']?></h1>
 			</div>
 		</div>
 	</div>
