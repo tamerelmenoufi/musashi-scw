@@ -67,6 +67,7 @@
 
 		$Rlt['setor'][$d->setor]['nome'] = utf8_encode($d->setor_nome);
 		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
+		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -219,7 +220,6 @@
 			margin:0;
 		}
 		.grafico div{
-			width:100%;
 			height:18px;
 			background-color:green;
 			color:#fff;
@@ -300,7 +300,7 @@
 				<?php
 				foreach($Rlt['setor'] as $ind => $vet){
 				?>
-				<div class="grafico">
+				<div class="grafico" style="width:<?=number_format(($Rlt['setor']['tot']/$Rlt['setor'][$ind]['qt']*100),0,false,false)?>%">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
 					<div><?=$Rlt['setor'][$ind]['qt']?></div>
 				</div>
