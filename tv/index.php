@@ -136,6 +136,11 @@
 			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Novo
 		</div>
 	</div>
+	<div>
+		<div style="margin-top:15px;">
+			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
+		</div>
+	</div>
 	<div>posicao 3</div>
 </div>
 <div class="corpoTV">
