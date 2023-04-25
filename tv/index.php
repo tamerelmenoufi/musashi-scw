@@ -302,7 +302,7 @@
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
-					<div style="width:<?=number_format(($Rlt['setor']['tot']*100/$Rlt['setor'][$ind]['qt']),0,false,false)?>%"><?=$Rlt['setor'][$ind]['qt']?></div>
+					<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"><?=$Rlt['setor'][$ind]['qt']?></div>
 				</div>
 				<?php
 				}
