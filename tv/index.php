@@ -133,6 +133,7 @@
 			background:#eee !important;
 			padding:15px;
 		}
+
 		.listaDestaque div{
 			margin:0;
 			padding:0;
@@ -145,6 +146,23 @@
 			font-size:12px;
 		}
 		.listaDestaque div b{
+			margin:0;
+			padding:0;
+			margin-top:-9px;
+		}
+
+		.listaResumo div{
+			margin:0;
+			padding:0;
+			margin-top:-5px;
+		}
+		.listaResumo div div{
+			margin:0;
+			padding:0;
+			margin-top:-7px;
+			font-size:12px;
+		}
+		.listaResumo div b{
 			margin:0;
 			padding:0;
 			margin-top:-9px;
@@ -196,7 +214,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff;"><?=$TickResumo[$i]?></div>
+		<div class="listaResumo" style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
