@@ -145,7 +145,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.7; background-color:<?=$CorResumo[$i]?>"><?=$TickResumo[$i]?></div>
+		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px; opacity:0.7; background-color:<?=$CorResumo[$i]?>; color:#fff;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
