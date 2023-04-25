@@ -17,8 +17,8 @@
   	);
 
 	$parada = array(
-		's' => 'Máquina Parada',
-		'n' => 'Máquina Funcionando',
+		's' => 'Parada',
+		'n' => 'Funcionando',
   	);
 
 	$q = "SELECT
@@ -59,10 +59,10 @@
 				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 				"<div style='float:left; width:33%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div>".dataBr($d->data_abertura)."</div>":false)."</div>".
 				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
-					<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."<span style='color:".(($d->parada == 's')?'red':'green')."; font-weight:bold;'> (".$parada[$d->parada].")</span></div>":false)."</div>".
+					<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
-				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:</b><div>".utf8_encode($d->maquina)."</div></div>".
+				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:</b><div>".utf8_encode($d->maquina)."<span style='color:".(($d->parada == 's')?'red':'green')."; font-weight:bold;'> (".$parada[$d->parada].")</span></div></div>".
 
                "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao)."</div></div>".
                "<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
