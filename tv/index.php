@@ -93,6 +93,9 @@
 			height:200px;
 			border:solid 1px blue;
 		}
+		.slick-active{
+			background:#eee !important;
+		}
 	</style>
 </head>
 <body>
