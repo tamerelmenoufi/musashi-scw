@@ -159,9 +159,10 @@
 	</div>
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
-			<i class="fa fa-square" style="color:green;"></i> Atendido
+			<i class="fa fa-square" style="color:blue;"></i> Novo
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Em Andamento
-			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Novo
+			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
+			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
 		</div>
 	</div>
 	<div>
