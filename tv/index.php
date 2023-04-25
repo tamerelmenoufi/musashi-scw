@@ -130,9 +130,9 @@
 		<img src="img/logo.png" style="height:50px; margin:5px;">
 	</div>
 	<div>
-		<i class="fa fa-square" style="color:green;"></i> Atendido
-		<i class="fa fa-square" style="color:orange;"></i> Em Andamento
-		<i class="fa fa-square" style="color:red;"></i> Novo
+		<i class="fa fa-square" style="color:green; border:solid 1px #eee;"></i> Atendido
+		<i class="fa fa-square" style="color:orange; border:solid 1px #eee;"></i> Em Andamento
+		<i class="fa fa-square" style="color:red; border:solid 1px #eee;"></i> Novo
 	</div>
 	<div>posicao 3</div>
 </div>
