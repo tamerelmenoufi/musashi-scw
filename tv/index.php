@@ -67,13 +67,13 @@
 		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
 		//Setores
-		$Rlt['setor'][$d->setor]['nome'] = utf8_encode($d->setor_nome);
-		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
+		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
+		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
 		//Setores
-		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['nome'] = utf8_encode($d->tipo_manutencao_nome);
-		$Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] = ($Rlt['tipo_manutencao'][$d->tipo_manutencao]['qt'] + 1);
+		$Rlt['tipo_manutencao']['nome'][$d->tipo_manutencao] = utf8_encode($d->tipo_manutencao_nome);
+		$Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] = ($Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] + 1);
 		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -306,15 +306,14 @@
 			<div class="setores">
 				<h5>Setores</h5>
 				<?php
-				arsort($Rlt['setor']);
 				foreach($Rlt['setor'] as $ind => $vet){
-					if($Rlt['setor'][$ind]['nome']){
+					if($Rlt['setor']['nome'][$ind]){
 				?>
 				<div class="grafico">
-					<span><?=$Rlt['setor'][$ind]['nome']?></span>
+					<span><?=$Rlt['setor']['nome'][$ind]?></span>
 					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
-						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
+						<div style="width:<?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor']['qt'][$ind]?>] <?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
 				<?php
