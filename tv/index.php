@@ -116,9 +116,10 @@
 			position:fixed;
 			right:0;
 			top:60px;
-			left:calc(30% + 15px);
+			left:calc(30% + 10px);
 			width:70%;
 			bottom:150px;
+			padding:10px;
 			border:1px blue solid;
 		}
 		.rodapeTV{
@@ -217,7 +218,12 @@
 	</div>
 </div>
 <div class="RelatorioTV">
-
+	<div class="row">
+		<div class="col">Novos</div>
+		<div class="col">Em Andamento</div>
+		<div class="col">Máquinas Paradas</div>
+		<div class="col">Concluído</div>
+	</div>
 </div>
 <div class="rodapeTV">
 
