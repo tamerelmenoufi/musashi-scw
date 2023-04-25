@@ -324,7 +324,7 @@
 		</div>
 		<div class="col">
 			<div class="setores">
-				<h5>Tipo de Manutenção</h5>
+				<h5>Manutenção</h5>
 				<?php
 				foreach($Rlt['tipo_manutencao'] as $ind => $vet){
 					if($Rlt['tipo_manutencao'][$ind]['nome']){
