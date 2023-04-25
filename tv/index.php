@@ -128,11 +128,12 @@
 		.listaDestaque div div{
 			margin:0;
 			padding:0;
-			margin-top:-10px;
+			margin-top:-9px;
 		}
 		.listaDestaque div b{
 			margin:0;
 			padding:0;
+			margin-top:-9px;
 		}
 	</style>
 </head>
