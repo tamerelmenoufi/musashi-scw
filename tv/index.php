@@ -48,7 +48,7 @@
 		$CorDetalhe[] = $cor[$d->status];
 		$CorResumo[] = $cor[$d->status];
 
-        $TickDetalhe[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
+        $TickDetalhe[] = "<b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
                "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
                "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
