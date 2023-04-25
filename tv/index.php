@@ -52,6 +52,13 @@
 
 	while($d = mysql_fetch_object($r)){
 
+
+		$Qt['novos'] = (($d->status == 'n')?$Qt['novos']++:$Qt['novos']);
+		$Qt['pendentes'] = (($d->status == 'p')?$Qt['pendentes']++:$Qt['pendentes']);
+		$Qt['concluidos'] = (($d->status == 'c')?$Qt['concluidos']++:$Qt['concluidos']);
+		$Qt['parados'] = (($d->parada == 's')?$Qt['parados']++:$Qt['parados']);
+
+
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
@@ -219,10 +226,10 @@
 </div>
 <div class="RelatorioTV">
 	<div class="row">
-		<div class="col">Novos</div>
-		<div class="col">Em Andamento</div>
-		<div class="col">Máquinas Paradas</div>
-		<div class="col">Concluído</div>
+		<div class="col">Novos<h1><?=$Qt['novos']?></h1></div>
+		<div class="col">Em Andamento<h1><?=$Qt['pendentes']?></h1></div>
+		<div class="col">Máquinas Paradas<h1><?=$Qt['parados']?></h1></div>
+		<div class="col">Concluído<h1><?=$Qt['concluidos']?></h1></div>
 	</div>
 	<div class="row">
 		<div class="col">Setores</div>
