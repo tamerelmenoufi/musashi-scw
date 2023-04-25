@@ -207,7 +207,9 @@
 			text-align:center;
 		}
 		.grafico{
-
+			background-color:#fff;
+			border-radius:10px;
+			padding:5px;
 		}
 		.grafico span{
 			color:#a1a1a1;
