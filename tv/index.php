@@ -307,7 +307,7 @@
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
 					<div class="d-flex justify-content-start">
 						<div style="width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
-						<span style="margin-left:3px;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
 				<?php
