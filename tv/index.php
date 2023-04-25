@@ -306,7 +306,7 @@
 			<div class="setores">
 				<h5>Setores</h5>
 				<?php
-				foreach($Rlt['setor'] as $ind => $vet){
+				foreach($Rlt['setor']['nome'] as $ind => $vet){
 					if($Rlt['setor']['nome'][$ind]){
 				?>
 				<div class="grafico">
@@ -327,13 +327,13 @@
 				<h5>Manutenção</h5>
 				<?php
 				foreach($Rlt['tipo_manutencao'] as $ind => $vet){
-					if($Rlt['tipo_manutencao'][$ind]['nome']){
+					if($Rlt['tipo_manutencao']['nome'][$ind]){
 				?>
 				<div class="grafico">
-					<span><?=$Rlt['tipo_manutencao'][$ind]['nome']?></span>
+					<span><?=$Rlt['tipo_manutencao']['nome'][$ind]?></span>
 					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['tipo_manutencao'][$ind]['qt']*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%"></div>
-						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['tipo_manutencao'][$ind]['qt']?>] <?=number_format(($Rlt['tipo_manutencao'][$ind]['qt']*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%</span>
+						<div style="width:<?=number_format(($Rlt['tipo_manutencao']['qt'][$ind]*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['tipo_manutencao']['qt'][$ind]?>] <?=number_format(($Rlt['tipo_manutencao']['qt'][$ind]*100/$Rlt['tipo_manutencao']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
 				<?php
