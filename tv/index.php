@@ -2,6 +2,13 @@
 	$home = true;
 	include('../includes/includes.php');
 
+    $titulo = array(
+		't' => '',
+		'n' => 'Novo',
+		'p' => 'Pendente',
+		'c' => 'Concluído',
+  );
+
 	$q = "SELECT
 	a.codigo,
 	a.status,
@@ -48,7 +55,8 @@
 
 		$TickResumo[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
-               "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina);
+               "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
+			   (($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false);
 
 
 
