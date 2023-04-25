@@ -132,7 +132,7 @@
 			width:70%;
 			bottom:150px;
 			padding:10px;
-			border:1px blue solid;
+			border:0px blue solid;
 		}
 		.rodapeTV{
 			position:fixed;
