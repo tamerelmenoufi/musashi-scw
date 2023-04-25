@@ -103,6 +103,8 @@
 			bottom:220px;
 			width:30%;
 			border-radius:10px;
+			background:#eee !important;
+			padding:15px;
 		}
 	</style>
 </head>
