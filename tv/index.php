@@ -89,6 +89,7 @@
 			right:0;
 			height:60px;
 			background-color:#6a6a6a;
+			color:#fff;
 		}
 		.corpoTV{
 			position:fixed;
