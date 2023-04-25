@@ -129,9 +129,9 @@
 		<img src="img/logo.png" style="height:50px; margin:5px;">
 	</div>
 	<div>
-		<i class="fas fa-square" style="color:green;"></i> Atendido
-		<i class="fas fa-square" style="color:orange;"></i> Em Andamento
-		<i class="fas fa-square" style="color:red;"></i> Novo
+		<i class="fa fa-square" style="color:green;"></i> Atendido
+		<i class="fa fa-square" style="color:orange;"></i> Em Andamento
+		<i class="fa fa-square" style="color:red;"></i> Novo
 	</div>
 	<div>posicao 3</div>
 </div>
