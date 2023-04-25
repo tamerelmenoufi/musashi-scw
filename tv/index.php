@@ -196,12 +196,12 @@
 		}
 		.Qt span{
 			font-size:12px;
-			color:#a1a1a1;
+			color:#fff;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			color:#333;
+			color:#fff;
 		}
 	</style>
 </head>
