@@ -65,7 +65,7 @@
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
 		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
-		$Rlt['setor'][$d->setor]['nome'] = $d->setor_nome;
+		$Rlt['setor'][$d->setor]['nome'] = utf8_encode($d->setor_nome);
 		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
 
 
@@ -213,7 +213,7 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:12px;
+			font-size:10px;
 			margin-top:0px;
 			padding:0;
 			margin:0;
