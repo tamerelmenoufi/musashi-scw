@@ -49,8 +49,8 @@
 		$CorResumo[] = $cor[$d->status];
 
         $TickDetalhe[] = "
-				<div style='float-left; width:45%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-				"<div style='float-left; width:45%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina</b>:<div>".utf8_encode($d->maquina)."</div></div>".
+				<div style='float:left; width:50%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina</b>:<div>".utf8_encode($d->maquina)."</div></div>".
 				"<div> <b style='color:#a1a1a1; font-size:10px;'>Setor</b>:<div>".utf8_encode($d->setor)."</div></div>".
 
                "<div> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção</b>:<div>".utf8_encode($d->tipo_manutencao)."</div></div>".
