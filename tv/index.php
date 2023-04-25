@@ -28,10 +28,12 @@
 	a.time,
 	a.motivo,
 	a.parada,
+	a.setor,
+	a.maquina,
 	tm.nome as time_nome,
 	mt.nome as motivo_nome,
-	s.nome as setor,
-	m.nome as maquina,
+	s.nome as setor_nome,
+	m.nome as maquina_nome,
 	t.nome as tipo_manutencao,
 	a.problema,
 	f.nome as funcionario,
@@ -63,6 +65,9 @@
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
 		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
+		$Rlt['setor'][$d->setor]['nome'] = $d->setor_nome;
+		$Rlt['setor'][$d->setor]['qt'] = ($Rlt['setor'][$d->setor]['qt'] + 1);
+
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -74,8 +79,8 @@
 				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
 					<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
-				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
-				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina)."</div></div>".
+				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 
                "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao)."</div></div>".
                "<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
@@ -89,8 +94,8 @@
                "<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>Observações:</b><div>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
 		$TickResumo[] = "<div><b style='font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-						"<div> <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
-						"<div> <b style='font-size:10px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina)."</div></div>".
+						"<div> <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+						"<div> <b style='font-size:10px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 						"<div>".(($d->status)?"<b style='font-size:10px;'>Situação:</b>
 						<div font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>";
 
@@ -266,7 +271,19 @@
 		</div>
 	</div>
 	<div class="row mt-3">
-		<div class="col">Setores</div>
+		<div class="col">
+			<h4>Setores</h4>
+			<?php
+			foreach($Rlt['setor'] as $ind => $vet){
+			?>
+			<div class="row">
+				<div class="col-3"><?=$Rlt['setor'][$ind]['nome']?></div>
+				<div class="col-9"><?=$Rlt['setor'][$ind]['qt']?></div>
+			</div>
+			<?php
+			}
+			?>
+		</div>
 		<div class="col">Tipo de Manutenção</div>
 		<div class="col">Motivo</div>
 		<div class="col">Time de Atuação</div>
