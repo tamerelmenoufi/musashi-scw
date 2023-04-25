@@ -49,20 +49,20 @@
 		$CorResumo[] = $cor[$d->status];
 
         $TickDetalhe[] = "
-				<div><b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div>".
-               "<div> <b>SETOR</b>: ".utf8_encode($d->setor)."</div>".
-               "<div> <b>MÁQUINA</b>: ".utf8_encode($d->maquina)."</div>".
-               "<div> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao)."</div>".
-               "<div>".(($d->problema)?"<b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false)."</div>".
-               "<div>".(($d->funcionario)?"<b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false)."</div>".
-               "<div>".(($d->tecnico)?"<b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false)."</div>".
+				<div><b style='color:#a1a1a1; font-size:10px;'>Cadastrado ID</b>: <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;>SETOR</b>: <div>".utf8_encode($d->setor)."</div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;>MÁQUINA</b>: <div>".utf8_encode($d->maquina)."</div>".
+               "<div> <b style='color:#a1a1a1; font-size:10px;>TIPO DE MANUTENÇÃO</b>: <div>".utf8_encode($d->tipo_manutencao)."</div>".
+               "<div>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;>PROBLEMA</b>: <div>".str_replace("\n"," ",utf8_encode($d->problema)):false)."</div></div>".
+               "<div>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;>FUNCIONÁRIO</b>: <div>".utf8_encode($d->funcionario):false)."</div></div>".
+               "<div>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;>TÉCNICO</b>: <div>".utf8_encode($d->tecnico):false)."</div></div>".
 
-               "<div>".(($d->time_nome)?"<b>TIME</b>: ".utf8_encode($d->time_nome):false)."</div>".
-               "<div>".(($d->motivo_nome)?"<b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false)."</div>".
+               "<div>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;>TIME</b>: <div>".utf8_encode($d->time_nome):false)."</div></div>".
+               "<div>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;>MOTIVO</b>: <div>".utf8_encode($d->motivo_nome):false)."</div></div>".
 
 
-               "<div>".(($d->status)?"<b>SITUAÇÃO</b>: ".$titulo[$d->status]:false)."</div>".
-               "<div>".(($d->observacao)?"<b>OBSERVAÇÕES</b>: ".str_replace("\n"," ",$_POST['observacao']):false)."</div>";
+               "<div>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;>SITUAÇÃO</b>: <div>".$titulo[$d->status]:false)."</div></div>".
+               "<div>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;>OBSERVAÇÕES</b>: <div>".str_replace("\n"," ",$_POST['observacao']):false)."</div></div>";
 
 		$TickResumo[] = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
