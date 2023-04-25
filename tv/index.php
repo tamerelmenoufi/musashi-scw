@@ -206,7 +206,7 @@
 			width:100%;
 			text-align:center;
 		}
-		.grafico{
+		.setores{
 			background-color:#fff;
 			border-radius:10px;
 			padding:5px;
@@ -294,7 +294,7 @@
 		</div>
 	</div>
 	<div class="row mt-3">
-		<div class="col">
+		<div class="setores">
 			<h5>Setores</h5>
 			<?php
 			foreach($Rlt['setor'] as $ind => $vet){
