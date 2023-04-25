@@ -219,7 +219,7 @@
 			padding:0;
 			margin:0;
 		}
-		.grafico div{
+		.grafico div div{
 			height:18px;
 			background-color:green;
 			color:#fff;
@@ -304,8 +304,10 @@
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor'][$ind]['nome']?></span>
-					<div style="float:left; width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
-					<font style="margin-left:3px;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</font>
+					<div>
+						<div style="float:left; width:<?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px;">[<?=$Rlt['setor'][$ind]['qt']?>] <?=number_format(($Rlt['setor'][$ind]['qt']*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
+					</div>
 				</div>
 				<?php
 					}
