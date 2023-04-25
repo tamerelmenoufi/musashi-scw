@@ -116,7 +116,7 @@
 			position:fixed;
 			right:0;
 			top:60px;
-			left:30%;
+			left:calc(30% + 30px);
 			width:70%;
 			bottom:150px;
 			border:1px blue solid;
