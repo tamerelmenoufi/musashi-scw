@@ -111,7 +111,6 @@
 			top:60px;
 			right:0;
 			bottom:150px;
-			border:solid 1px green;
 		}
 		.rodapeTV{
 			position:fixed;
@@ -119,7 +118,6 @@
 			bottom:0;
 			right:0;
 			height:150px;
-			border:solid 1px blue;
 		}
 		.slick-current{
 			opacity:1 !important;
