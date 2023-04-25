@@ -125,6 +125,10 @@
 			margin:0;
 			padding:0;
 		}
+		.listaDestaque div b{
+			margin:0;
+			padding:0;
+		}
 	</style>
 </head>
 <body>
