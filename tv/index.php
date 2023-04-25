@@ -122,7 +122,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div style="border:solid 1px #ccc"><?=$TickResumo[$i]?></div>
+		<div style="border:solid 1px #ccc; margin:5px; padding:10px; text-align:center; border-radius:10px;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
