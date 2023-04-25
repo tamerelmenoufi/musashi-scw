@@ -79,7 +79,7 @@
 						"<div> <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor)."</div></div>".
 						"<div> <b style='font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'green').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina)."</div></div>".
 						"<div>".(($d->status)?"<b style='font-size:10px;'>Situação:</b>
-						<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>";
+						<div font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>";
 
 
 
