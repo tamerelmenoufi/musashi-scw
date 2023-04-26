@@ -330,7 +330,7 @@
 				arsort($Rlt['tipo_manutencao']['qt']);
 				$i=0;
 				foreach($Rlt['tipo_manutencao']['qt'] as $ind => $vet){
-					if($Rlt['tipo_manutencao']['nome'][$ind] and $i == 5){
+					if($Rlt['tipo_manutencao']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['tipo_manutencao']['nome'][$ind]?></span>
