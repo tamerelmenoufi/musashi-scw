@@ -307,8 +307,9 @@
 				<h5>Setores</h5>
 				<?php
 				arsort($Rlt['setor']['qt']);
+				$i=0;
 				foreach($Rlt['setor']['qt'] as $ind => $vet){
-					if($Rlt['setor']['nome'][$ind]){
+					if($Rlt['setor']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor']['nome'][$ind]?></span>
@@ -318,6 +319,7 @@
 					</div>
 				</div>
 				<?php
+					$i++;
 					}
 				}
 				?>
