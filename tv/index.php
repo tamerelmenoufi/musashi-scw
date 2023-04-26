@@ -256,7 +256,6 @@
 		}
 		.lista_maquinas_paradas{
 			background-color:#eee;
-			padding:10px;
 			margin:5px;
 			border-radius:10px;
 		}
@@ -268,6 +267,7 @@
 			border-radius:10px;
 			font-size:15px;
 			font-weight:bold;
+			margin:10px;
 		}
 	</style>
 </head>
