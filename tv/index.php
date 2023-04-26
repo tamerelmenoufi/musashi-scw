@@ -254,6 +254,21 @@
 			border-radius:3px;
 			text-align:right;
 		}
+		.lista_maquinas_paradas{
+			background-color:#eee;
+			padding:10px;
+			margin:5px;
+			border-radius:10px;
+		}
+		.lista_maquinas_paradas div{
+			text-align:center;
+			height:60px;
+			color:#fff;
+			background-color:red;
+			border-radius:10px;
+			font-size:15px;
+			font-weight:bold;
+		}
 	</style>
 </head>
 <body>
