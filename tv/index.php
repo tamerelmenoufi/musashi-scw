@@ -86,6 +86,12 @@
 		$Rlt['time']['qt'][$d->time] = ($Rlt['time']['qt'][$d->time] + 1);
 		$Rlt['time']['tot'] = ($Rlt['time']['tot'] + 1);
 
+		//Paradas
+		if($d->parada == 's'){
+			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
+		}
+
+
 
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -314,6 +320,20 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col">
+			<h5>Máquinas Paradas</h5>
+			<div class="lista_maquinas_paradas">
+				<?php
+				foreach($Rlt['paradas'] as $ind => $maq){
+				?>
+				<div><?=$maq?></div>
+				<?php
+				}
+				?>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col">
 			<div class="graficos">
 				<h5>Setores</h5>
 				<?php
@@ -406,9 +426,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="row mt-3">
-		<div class="col">Máquinas Paradas</div>
-	</div>
 </div>
 <div class="rodapeTV">
 
@@ -449,6 +466,16 @@
 			focusOnSelect: true,
 			autoplay: true,
   			autoplaySpeed: 5000,
+		});
+
+		$('.lista_maquinas_paradas').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			dots: true,
+			centerMode: false,
+			focusOnSelect: true,
+			autoplay: true,
+  			autoplaySpeed: 2000,
 		});
 
 
