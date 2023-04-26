@@ -261,7 +261,6 @@
 		}
 		.lista_maquinas_paradas div{
 			text-align:center;
-			height:60px;
 			color:#fff;
 			font-size:15px;
 			font-weight:bold;
@@ -338,7 +337,7 @@
 				foreach($Rlt['paradas'] as $ind => $maq){
 					for($i=0;$i<20;$i++){
 				?>
-				<div style="margin:5px; border-radius:10px; background-color:red;"><?=$maq?></div>
+				<div style="margin:5px; border-radius:5px; background-color:red; padding-top:10px;"><?=$maq?></div>
 				<?php
 					}
 				}
