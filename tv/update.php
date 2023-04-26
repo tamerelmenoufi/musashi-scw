@@ -1,9 +1,8 @@
 <?php
-    $codigo = rand(0,10);
+    $codigo = rand(0,1);
 
     $json = [
-        'codigo' => $codigo,
-        'conteudo' => "Alteração no registro de código {$codigo}"
+        'success' => (($codigo == 1)?true:false),
     ];
 
     echo json_encode($json);
