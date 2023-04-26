@@ -508,7 +508,7 @@
 				dataType:"json",
 				success:function(dados){
 					console.log(dados.status)
-					if(dados.status == 'success'){
+					if(dados.status == true){
 						window.location.href='./';
 					}
 				}
