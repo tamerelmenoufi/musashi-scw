@@ -261,6 +261,8 @@
 		}
 		.lista_maquinas h5{
 			margin:10px;
+			margin-bottom:0;
+			padding-bottom:0;
 		}
 		.lista_maquinas_paradas div{
 			text-align:center;
