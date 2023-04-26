@@ -457,7 +457,7 @@
 		for($i=0;$i<count($TickResumo);$i++){
 			// $Codigo[$i]
 		?>
-		<div data-codigo="<?=$i?>" class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
+		<div class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
@@ -505,18 +505,15 @@
 		setInterval(() => {
 			$.ajax({
 				url:"update.php",
-				type:"POST",
 				dataType:"json",
-				data:{
-					opc:'a'
-				},
 				success:function(dados){
-					console.log(dados.codigo)
-					console.log(dados.conteudo)
-					$(`div[data-codigo="${dados.codigo}"]`).html(dados.conteudo);
+					console.log(dados.status)
+					if(dados.status == 'success'){
+						window.location.href='./';
+					}
 				}
 			});
-		}, 2000);
+		}, 50000);
 
 	})
 </script>
