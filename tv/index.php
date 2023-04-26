@@ -81,6 +81,12 @@
 		$Rlt['motivo']['qt'][$d->motivo] = ($Rlt['motivo']['qt'][$d->motivo] + 1);
 		$Rlt['motivo']['tot'] = ($Rlt['motivo']['tot'] + 1);
 
+		//Time
+		$Rlt['time']['nome'][$d->time] = utf8_encode($d->time_nome);
+		$Rlt['time']['qt'][$d->time] = ($Rlt['time']['qt'][$d->time] + 1);
+		$Rlt['time']['tot'] = ($Rlt['time']['tot'] + 1);
+
+
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
@@ -376,7 +382,29 @@
 				?>
 			</div>
 		</div>
-		<div class="col">Time de Atuação</div>
+		<div class="col">
+			<div class="graficos">
+				<h5>Time de Atuação</h5>
+				<?php
+				arsort($Rlt['time']['qt']);
+				$i=0;
+				foreach($Rlt['time']['qt'] as $ind => $vet){
+					if($Rlt['time']['nome'][$ind] and $i < 5){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['time']['nome'][$ind]?></span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['time']['qt'][$ind]*100/$Rlt['time']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['time']['qt'][$ind]?>] <?=number_format(($Rlt['time']['qt'][$ind]*100/$Rlt['time']['tot']),0,false,false)?>%</span>
+					</div>
+				</div>
+				<?php
+					$i++;
+					}
+				}
+				?>
+			</div>
+		</div>
 		<div class="col">Máquinas Paradas</div>
 	</div>
 </div>
