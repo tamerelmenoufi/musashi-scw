@@ -260,7 +260,7 @@
 			border-radius:10px;
 		}
 		.lista_maquinas h5{
-			margin:5px;
+			margin:10px;
 		}
 		.lista_maquinas_paradas div{
 			text-align:center;
