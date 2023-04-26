@@ -76,6 +76,11 @@
 		$Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] = ($Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] + 1);
 		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
 
+		//Motivos
+		$Rlt['motivo']['nome'][$d->motivo] = utf8_encode($d->motivo);
+		$Rlt['motivo']['qt'][$d->motivo] = ($Rlt['motivo']['qt'][$d->motivo] + 1);
+		$Rlt['motivo']['tot'] = ($Rlt['motivo']['tot'] + 1);
+
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
@@ -213,7 +218,7 @@
 			width:100%;
 			text-align:center;
 		}
-		.setores{
+		.graficos{
 			background-color:#fff;
 			border-radius:10px;
 			padding:5px;
@@ -303,7 +308,7 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col">
-			<div class="setores">
+			<div class="graficos">
 				<h5>Setores</h5>
 				<?php
 				arsort($Rlt['setor']['qt']);
@@ -326,7 +331,7 @@
 			</div>
 		</div>
 		<div class="col">
-			<div class="setores">
+			<div class="graficos">
 				<h5>Manutenção</h5>
 				<?php
 				arsort($Rlt['tipo_manutencao']['qt']);
@@ -348,7 +353,29 @@
 				?>
 			</div>
 		</div>
-		<div class="col">Motivo</div>
+		<div class="col">
+			<div class="graficos">
+				<h5>Motivo</h5>
+				<?php
+				arsort($Rlt['motivo']['qt']);
+				$i=0;
+				foreach($Rlt['motivo']['qt'] as $ind => $vet){
+					if($Rlt['motivo']['nome'][$ind] and $i < 5){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['motivo']['nome'][$ind]?></span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['motivo']['qt'][$ind]?>] <?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%</span>
+					</div>
+				</div>
+				<?php
+					$i++;
+					}
+				}
+				?>
+			</div>
+		</div>
 		<div class="col">Time de Atuação</div>
 		<div class="col">Máquinas Paradas</div>
 	</div>
