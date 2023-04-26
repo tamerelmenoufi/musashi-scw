@@ -267,7 +267,7 @@
 			border-radius:10px;
 			font-size:15px;
 			font-weight:bold;
-			margin:10px;
+			margin:10px !important;
 		}
 	</style>
 </head>
