@@ -473,7 +473,7 @@
 		$('.lista_maquinas_paradas').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			dots: true,
+			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
 			autoplay: true,
