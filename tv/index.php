@@ -455,8 +455,9 @@
 	<div class="slider-nav">
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
+			// $Codigo[$i]
 		?>
-		<div data-codigo="<?=$Codigo[$i]?>" class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
+		<div data-codigo="<?=$i?>" class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
