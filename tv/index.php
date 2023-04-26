@@ -254,11 +254,12 @@
 			border-radius:3px;
 			text-align:right;
 		}
-		.lista_maquinas_paradas{
+		.lista_maquinas{
 			background-color:#eee;
 			margin:5px;
 			border-radius:10px;
 		}
+
 		.lista_maquinas_paradas div{
 			text-align:center;
 			color:#fff;
@@ -331,17 +332,19 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col">
-			<div class="lista_maquinas_paradas">
+			<div class="lista_maquinas">
 				<h5>Máquinas Paradas</h5>
-				<?php
-				foreach($Rlt['paradas'] as $ind => $maq){
-					for($i=0;$i<20;$i++){
-				?>
-				<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
-				<?php
+				<div class="lista_maquinas_paradas">
+					<?php
+					foreach($Rlt['paradas'] as $ind => $maq){
+						for($i=0;$i<20;$i++){
+					?>
+					<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
+					<?php
+						}
 					}
-				}
-				?>
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
