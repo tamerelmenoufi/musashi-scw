@@ -77,7 +77,7 @@
 		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
 
 		//Motivos
-		$Rlt['motivo']['nome'][$d->motivo] = utf8_encode($d->motivo);
+		$Rlt['motivo']['nome'][$d->motivo] = utf8_encode($d->motivo_nome);
 		$Rlt['motivo']['qt'][$d->motivo] = ($Rlt['motivo']['qt'][$d->motivo] + 1);
 		$Rlt['motivo']['tot'] = ($Rlt['motivo']['tot'] + 1);
 
