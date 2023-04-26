@@ -512,6 +512,7 @@
 				success:function(dados){
 					console.log(dados.codigo)
 					console.log(dados.conteudo)
+					$(`.listaResumo[data-codigo="${dados.codigo}"]`).html(dados.conteudo);
 				}
 			});
 		}, 2000);
