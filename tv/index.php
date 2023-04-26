@@ -324,9 +324,11 @@
 			<div class="lista_maquinas_paradas">
 				<?php
 				foreach($Rlt['paradas'] as $ind => $maq){
+					for($i=0;$i<20;$i++){
 				?>
 				<div><?=$maq?></div>
 				<?php
+					}
 				}
 				?>
 			</div>
