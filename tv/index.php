@@ -331,8 +331,8 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col">
-			<h5>Máquinas Paradas</h5>
 			<div class="lista_maquinas_paradas">
+				<h5>Máquinas Paradas</h5>
 				<?php
 				foreach($Rlt['paradas'] as $ind => $maq){
 					for($i=0;$i<20;$i++){
