@@ -98,6 +98,8 @@
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
 
+		$Codigo[] = $d->codigo;
+
         $TickDetalhe[] = "
 				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 				"<div style='float:left; width:33%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div>".dataBr($d->data_abertura)."</div>":false)."</div>".
@@ -306,7 +308,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div class="listaDestaque" style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
+		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
@@ -454,7 +456,7 @@
 		<?php
 		for($i=0;$i<count($TickResumo);$i++){
 		?>
-		<div class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
+		<div data-codigo="<?=$Codigo[$i]?>" class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
@@ -468,8 +470,6 @@
 	$(function(){
 
 		Carregando('none');
-
-
 
 		$('.slider-for').slick({
 			slidesToShow: 1,
@@ -500,6 +500,21 @@
 		});
 
 
+
+		setInterval(() => {
+			$.ajax({
+				url:"update.php",
+				type:"POST",
+				dataType:"json",
+				data:{
+					opc:'a'
+				},
+				success:function(dados){
+					console.log(dados.codigo)
+					console.log(dados.conteundo)
+				}
+			});
+		}, 2000);
 
 	})
 </script>
