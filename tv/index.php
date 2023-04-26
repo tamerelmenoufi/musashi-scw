@@ -263,11 +263,8 @@
 			text-align:center;
 			height:60px;
 			color:#fff;
-			background-color:red;
-			border-radius:10px;
 			font-size:15px;
 			font-weight:bold;
-			margin:10px !important;
 		}
 	</style>
 </head>
@@ -341,7 +338,7 @@
 				foreach($Rlt['paradas'] as $ind => $maq){
 					for($i=0;$i<20;$i++){
 				?>
-				<div><?=$maq?></div>
+				<div style="margin:5px; border-radius:10px; background-color:red;"><?=$maq?></div>
 				<?php
 					}
 				}
