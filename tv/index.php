@@ -300,7 +300,7 @@
 		</div>
 	</div>
 	<div>
-		<div style="margin-top:10px; padding:10px;">
+		<div class="dataHora" style="margin-top:10px; padding:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
@@ -529,6 +529,16 @@
 				}
 			});
 		}, 50000);
+
+
+		setInterval(() => {
+			$.ajax({
+				url:"hora.php",
+				success:function(dados){
+					$(".dataHora").html(dados);
+				}
+			});
+		}, 60000);
 
 	})
 </script>
