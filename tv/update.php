@@ -2,7 +2,7 @@
 	$home = true;
 	include('../includes/includes.php');
 
-	$q = "SELECT count(*) as qt, max(UNIX_TIMESTAMP(data_abertura)) as tempo FROM `chamados`";
+	$q = "SELECT count(*) as qt, max(UNIX_TIMESTAMP(data_atualizacao)) as tempo FROM `chamados`";
 	$r = mysql_query($q);
     $d = mysql_fetch_object($r);
 
