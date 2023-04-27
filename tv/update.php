@@ -7,7 +7,7 @@
     $d = mysql_fetch_object($r);
 
     $json = [
-        'status' => (($d->qt != $_POST['qt'] or $d->tempo > $_POST['tempo'])?true:false),
+        'status' => (($d->qt != $_POST['qt'] or $d->tempo != $_POST['tempo'])?true:false),
     ];
 
     echo json_encode($json);
