@@ -21,6 +21,11 @@
 		'n' => 'Funcionando',
   	);
 
+
+	$q = "SELECT count(*) as qt, max(UNIX_TIMESTAMP(data_abertura)) as tempo FROM `chamados`";
+	$r = mysql_query($q);
+    $st = mysql_fetch_object($r);
+
 	$q = "SELECT
 	a.codigo,
 	a.data_abertura,
@@ -502,6 +507,11 @@
 		setInterval(() => {
 			$.ajax({
 				url:"update.php",
+				type:"POST",
+				data:{
+					dt:'<?=$st->dt?>',
+					tempo:'<?=$st->tempo?>'
+				},
 				dataType:"json",
 				success:function(dados){
 					console.log(dados.status)
