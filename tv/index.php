@@ -347,11 +347,11 @@
 				<div class="lista_maquinas_paradas">
 					<?php
 					foreach($Rlt['paradas'] as $ind => $maq){
-						for($i=0;$i<20;$i++){
+						// for($i=0;$i<20;$i++){
 					?>
 					<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
 					<?php
-						}
+						// }
 					}
 					?>
 				</div>
