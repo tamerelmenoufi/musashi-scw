@@ -70,7 +70,7 @@
 		$Qt['novos'] = (($d->status == 'n')?($Qt['novos'] = ($Qt['novos'] + 1)):($Qt['novos']));
 		$Qt['pendentes'] = (($d->status == 'p')?($Qt['pendentes'] = ($Qt['pendentes'] + 1)):($Qt['pendentes']));
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
-		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
+		$Qt['parados'] = (($d->parada == 's' and $d->status != 'c')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
 		//Setores
 		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
