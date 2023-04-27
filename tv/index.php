@@ -48,7 +48,7 @@
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
 	where (a.status != 'c') or (a.status = 'c' and a.data_abertura >= NOW() - INTERVAL 1 DAY)
-		order by a.codigo desc limit 10";
+		order by a.codigo desc";
 	$r = mysql_query($q);
 
 	$TickDetalhe = [];

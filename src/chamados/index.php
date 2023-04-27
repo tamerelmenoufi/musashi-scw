@@ -56,7 +56,7 @@
     }
 
 
-    $q = "update chamados set status = '".$_POST['situacao']."'".$and." where codigo = '".$_POST['codigo']."'";
+    $q = "update chamados set data_atualizacao = '".date("Y-m-d H:i:s")."', status = '".$_POST['situacao']."'".$and." where codigo = '".$_POST['codigo']."'";
     mysql_query($q);
 
     if($msg){

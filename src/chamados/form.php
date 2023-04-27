@@ -19,12 +19,12 @@
     }
 
     if($_POST['codigo'] and $campos){
-      $query = "update chamados set ".implode(", ",$campos)." where codigo = '".$_POST['codigo']."'";
+      $query = "update chamados set data_atualizacao = '".date("Y-m-d H:i:s")."', ".implode(", ",$campos)." where codigo = '".$_POST['codigo']."'";
       $msg = 'atualiza';
     }else if($campos){
       $campos[] = "funcionario = '".$_SESSION['scw_usuario_logado']."'";
       $campos[] = "data_abertura = NOW()";
-      $query = "insert into chamados set ".implode(", ",$campos);
+      $query = "insert into chamados set data_atualizacao = '".date("Y-m-d H:i:s")."', ".implode(", ",$campos);
       $msg = 'novo';
     }
     mysql_query($query);
