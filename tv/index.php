@@ -340,26 +340,32 @@
 			</div>
 		</div>
 	</div>
+	<?php
+	if($Rlt['paradas']){
+	?>
 	<div class="row mt-3">
 		<div class="col">
 			<div class="lista_maquinas">
 				<h5>Máquinas Paradas</h5>
 				<div class="lista_maquinas_paradas">
-					<?php
-					if($Rlt['paradas']){
-						foreach($Rlt['paradas'] as $ind => $maq){
-							// for($i=0;$i<20;$i++){
-						?>
-						<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
-						<?php
-							// }
-						}
+				<?php
+
+					foreach($Rlt['paradas'] as $ind => $maq){
+						// for($i=0;$i<20;$i++){
+				?>
+					<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
+				<?php
+						// }
 					}
-					?>
+
+				?>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php
+	}
+	?>
 	<div class="row mt-3">
 		<div class="col">
 			<div class="graficos">
