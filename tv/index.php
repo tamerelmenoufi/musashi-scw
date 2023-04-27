@@ -92,8 +92,6 @@
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
 
-
-
 		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
@@ -499,7 +497,6 @@
 			autoplay: true,
   			autoplaySpeed: 2000,
 		});
-
 
 
 		setInterval(() => {
