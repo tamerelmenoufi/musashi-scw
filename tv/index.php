@@ -509,7 +509,7 @@
 				url:"update.php",
 				type:"POST",
 				data:{
-					dt:'<?=$st->dt?>',
+					qt:'<?=$st->qt?>',
 					tempo:'<?=$st->tempo?>'
 				},
 				dataType:"json",
