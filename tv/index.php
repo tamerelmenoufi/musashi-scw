@@ -93,7 +93,7 @@
 		$Rlt['time']['tot'] = ($Rlt['time']['tot'] + 1);
 
 		//Paradas
-		if($d->parada == 's'){
+		if($d->parada == 's' and $d->status != 'c'){
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
 
