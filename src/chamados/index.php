@@ -247,7 +247,7 @@ if(!$_SESSION['status']){
         <td><i class="fa fa-cogs" aria-hidden="true" style="color:<?=(($d->parada == 's')?'red':'green')?>"></i></td>
         <th scope="row">#<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></th>
         <td><?=utf8_encode($d->setor)?></td>
-        <td><?=utf8_encode($d->time)."<br>".utf8_encode($d->motivo)?></td>
+        <td><?=utf8_encode($d->time)."<br><span style='color:#a1a1a1'>".utf8_encode($d->motivo)?></span></td>
         <td><?=utf8_encode($d->maquina)?></td>
         <td><?=dataBr($d->data_abertura)?></td>
         <?php
