@@ -216,7 +216,7 @@ if(!$_SESSION['status']){
         <th scope="col-1"><i class="fa fa-cogs" aria-hidden="true"></i></th>
         <th scope="col-1">Chamado</th>
         <th scope="col">Setor</th>
-        <th scope="col">Time/Ocorrência</th>
+        <th scope="col">Time<br>Ocorrência</th>
         <th scope="col">Máquina</th>
         <th scope="col">Data</th>
         <?php
