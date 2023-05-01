@@ -18,7 +18,6 @@
     margin-bottom: 20px;
   }
 </style>
-<h3>Informações Auxiliares</h3>
 <?php
   foreach ($r as $key => $value) {
 ?>
