@@ -152,9 +152,9 @@
   </div>
 
   <div class="form-group">
-    <label for="motivo">Motivo</label>
+    <label for="motivo">Ocorrência</label>
     <select form id="motivo" class="form-control">
-      <option value="">:: Motivo ::</option>
+      <option value="">:: Ocorrências ::</option>
       <?php
         $q = "select * from motivos where competencia = '{$d->time}' order by codigo";
         $r = mysql_query($q);
