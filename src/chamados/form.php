@@ -134,7 +134,41 @@
     </select>
   </div>
 
+
   <div class="form-group">
+    <label for="time">Área de Atuação</label>
+    <select form id="time" class="form-control">
+      <option value="">:: Time ::</option>
+      <?php
+        $q = "select * from time order by nome";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+      ?>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->time)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="motivo">Motivo</label>
+    <select form id="motivo" class="form-control">
+      <option value="">:: Motivo ::</option>
+      <?php
+        $q = "select * from motivos where competencia = '{$d->time}' order by codigo";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+      ?>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->motivo)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+
+
+  <!-- <div class="form-group">
     <label for="tipo_manutencao">Problemas</label>
     <select form id="tipo_manutencao" class="form-control">
       <option value="">:: Selecione o problema ::</option>
@@ -148,7 +182,7 @@
         }
       ?>
     </select>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label for="maquina">Máquina</label>
@@ -174,16 +208,18 @@
     </select>
   </div>
 
+
+
   <div class="form-group">
-    <label for="time">Área de Atuação</label>
-    <select form id="time" class="form-control">
-      <option value="">:: Time ::</option>
+    <label for="peca">Peça</label>
+    <select form id="peca" class="form-control">
+      <option value="">:: Peças ::</option>
       <?php
-        $q = "select * from time order by nome";
+        $q = "select * from pecas order by nome";
         $r = mysql_query($q);
         while($s = mysql_fetch_object($r)){
       ?>
-      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->time)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->peca)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
       <?php
         }
       ?>
@@ -192,20 +228,38 @@
 
 
   <div class="form-group">
-    <label for="motivo">Motivo</label>
-    <select form id="motivo" class="form-control">
-      <option value="">:: Motivo ::</option>
+    <label for="modelo">Modelo</label>
+    <select form id="modelo" class="form-control">
+      <option value="">:: Modelos ::</option>
       <?php
-        $q = "select * from motivos where competencia = '{$d->time}' order by codigo";
+        $q = "select * from modelos order by nome";
         $r = mysql_query($q);
         while($s = mysql_fetch_object($r)){
       ?>
-      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->motivo)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->modelo)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
       <?php
         }
       ?>
     </select>
   </div>
+
+
+  <div class="form-group">
+    <label for="codigos">Código</label>
+    <select form id="codigos" class="form-control">
+      <option value="">:: Códigos ::</option>
+      <?php
+        $q = "select * from codigos order by nome";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+      ?>
+      <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->codigos)?'selected':false)?>><?=utf8_encode($s->nome)?></option>
+      <?php
+        }
+      ?>
+    </select>
+  </div>
+
 
 
 

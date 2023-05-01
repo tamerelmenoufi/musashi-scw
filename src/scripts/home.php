@@ -133,6 +133,29 @@
                         'titulo' => 'Notificações',
                         'permissao' => 'auxiliares',
                       ),
+
+
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/pecas/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Peças',
+                        'permissao' => 'auxiliares',
+                      ),
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/modelos/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Modelos',
+                        'permissao' => 'auxiliares',
+                      ),
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/codigos/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Códigos',
+                        'permissao' => 'auxiliares',
+                      ),
                     );
 
             for($i=0;$i<count($menu);$i++){
