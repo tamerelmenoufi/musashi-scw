@@ -193,13 +193,13 @@ if(!$_SESSION['status']){
         $query = "select
                         a.*,
                         b.nome as setor,
-                        c.nome as tipo_manutencao,
+                        c.nome as motivos,
                         d.nome as maquina,
                         (select count(*) from chamados_observacoes where chamado = a.codigo) as qt
 
                   from chamados a
                     left join setores b on a.setor = b.codigo
-                    left join tipos_manutencao c on a.tipo_manutencao = c.codigo
+                    left join motivos c on a.motivo = c.codigo
                     left join maquinas d on a.maquina = d.codigo
 
                 ".(($_SESSION['status'])?" where status = '".$_SESSION['status']."'":false).$_SESSION['scw_chamado_where_filtro']."
@@ -245,7 +245,7 @@ if(!$_SESSION['status']){
         <td><i class="fa fa-cogs" aria-hidden="true" style="color:<?=(($d->parada == 's')?'red':'green')?>"></i></td>
         <th scope="row">#<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></th>
         <td><?=utf8_encode($d->setor)?></td>
-        <td><?=utf8_encode($d->tipo_manutencao)?></td>
+        <td><?=utf8_encode($d->motivo)?></td>
         <td><?=utf8_encode($d->maquina)?></td>
         <td><?=dataBr($d->data_abertura)?></td>
         <?php
