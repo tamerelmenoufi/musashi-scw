@@ -194,12 +194,14 @@ if(!$_SESSION['status']){
                         a.*,
                         b.nome as setor,
                         c.nome as motivo,
+                        t.nome as time,
                         d.nome as maquina,
                         (select count(*) from chamados_observacoes where chamado = a.codigo) as qt
 
                   from chamados a
                     left join setores b on a.setor = b.codigo
                     left join motivos c on a.motivo = c.codigo
+                    left join time t on a.time = t.codigo
                     left join maquinas d on a.maquina = d.codigo
 
                 ".(($_SESSION['status'])?" where status = '".$_SESSION['status']."'":false).$_SESSION['scw_chamado_where_filtro']."
@@ -214,7 +216,7 @@ if(!$_SESSION['status']){
         <th scope="col-1"><i class="fa fa-cogs" aria-hidden="true"></i></th>
         <th scope="col-1">Chamado</th>
         <th scope="col">Setor</th>
-        <th scope="col">Problema</th>
+        <th scope="col">Time/Ocorrência</th>
         <th scope="col">Máquina</th>
         <th scope="col">Data</th>
         <?php
@@ -245,7 +247,7 @@ if(!$_SESSION['status']){
         <td><i class="fa fa-cogs" aria-hidden="true" style="color:<?=(($d->parada == 's')?'red':'green')?>"></i></td>
         <th scope="row">#<?=str_pad($d->codigo, 8, "0", STR_PAD_LEFT)?></th>
         <td><?=utf8_encode($d->setor)?></td>
-        <td><?=utf8_encode($d->motivo)?></td>
+        <td><?=utf8_encode($d->time)."<br>".utf8_encode($d->motivo)?></td>
         <td><?=utf8_encode($d->maquina)?></td>
         <td><?=dataBr($d->data_abertura)?></td>
         <?php
