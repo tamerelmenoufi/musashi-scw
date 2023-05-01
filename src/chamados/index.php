@@ -193,7 +193,7 @@ if(!$_SESSION['status']){
         $query = "select
                         a.*,
                         b.nome as setor,
-                        c.nome as motivos,
+                        c.nome as motivo,
                         d.nome as maquina,
                         (select count(*) from chamados_observacoes where chamado = a.codigo) as qt
 
