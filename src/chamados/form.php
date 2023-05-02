@@ -38,9 +38,19 @@
                     a.time,
                     a.motivo,
                     a.parada,
+
+                    a.peca,
+                    a.modelo,
+                    a.codigos,
+
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
+
+                    p.nome as peca_nome,
+                    md.nome as modelo_nome,
+                    cd.nome as codigo_nome,
+
                     m.nome as maquina,
                     t.nome as tipo_manutencao,
                     a.problema,
@@ -48,6 +58,11 @@
                     tc.nome as tecnico
             FROM chamados a
                 left join setores s on a.setor = s.codigo
+
+                left join pecas p on a.peca = p.codigo
+                left join modelos md on a.modelo = md.codigo
+                left join codigos cd on a.codigos = cd.codigo
+
                 left join tipos_manutencao t on a.tipo_manutencao = t.codigo
                 left join maquinas m on a.maquina = m.codigo
                 left join time tm on a.time = tm.codigo
@@ -63,12 +78,19 @@
                ", *SETOR*: ".utf8_encode($d->setor).
                ", *MÁQUINA*: ".utf8_encode($d->maquina).
                ", *MÁQUINA PARADA*: ".($parada[$d->parada]).
-               ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
+
+               ", *PEÇA*: ".utf8_encode($d->peca_nome).
+               ", *MODELO*: ".utf8_encode($d->modelo_nome).
+               ", *CÓDIGO*: ".utf8_encode($d->codigo_nome).
+
+               (($d->time_nome)?", *TIME*: ".utf8_encode($d->time_nome):false).
+               (($d->motivo_nome)?", *OCORRÊNCIA*: ".utf8_encode($d->motivo_nome):false).
+
+               //  ", *TIPO DE MANUTENÇÃO*: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?", *PROBLEMA*: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?", *FUNCIONÁRIO*: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?", *TÉCNICO*: ".utf8_encode($d->tecnico):false).
-               (($d->time_nome)?", *TIME*: ".utf8_encode($d->time_nome):false).
-               (($d->motivo_nome)?", *MOTIVO*: ".utf8_encode($d->motivo_nome):false).
+
                (($d->status)?", *SITUAÇÃO*: ".$status[$d->status]:false).
                (($d->observacao)?", *OBSERVAÇÕES*: ".str_replace("\n"," ",$_POST['observacao']):false);
 

@@ -21,16 +21,31 @@
                     a.time,
                     a.motivo,
                     a.parada,
+
+                    a.peca,
+                    a.modelo,
+                    a.codigos,
+
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
                     s.nome as setor,
                     m.nome as maquina,
+
+                    p.nome as peca_nome,
+                    md.nome as modelo_nome,
+                    cd.nome as codigo_nome,
+
                     t.nome as tipo_manutencao,
                     a.problema,
                     f.nome as funcionario,
                     tc.nome as tecnico
             FROM chamados a
                 left join setores s on a.setor = s.codigo
+
+                left join pecas p on a.peca = p.codigo
+                left join modelos md on a.modelo = md.codigo
+                left join codigos cd on a.codigos = cd.codigo
+
                 left join tipos_manutencao t on a.tipo_manutencao = t.codigo
                 left join maquinas m on a.maquina = m.codigo
                 left join time tm on a.time = tm.codigo
@@ -44,14 +59,19 @@
         $msg = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
                "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
-               "<br> <b>MÁQUINA PARADA</b>: <span style='color:red; font-weight:bold;'>".$parada[$d->parada]."</span>".
+
+               "<br> <b>PEÇA</b>: ".utf8_encode($d->peca_nome).
+               "<br> <b>MODELO</b>: ".utf8_encode($d->modelo_nome).
+               "<br> <b>CÓDIGO</b>: ".utf8_encode($d->codigo_nome).
+
+               (($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false).
+               (($d->motivo_nome)?"<br> <b>OCORRÊNCIA</b>: ".utf8_encode($d->motivo_nome):false).
+
+            //    "<br> <b>MÁQUINA PARADA</b>: <span style='color:red; font-weight:bold;'>".$parada[$d->parada]."</span>".
                "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false).
-
-               (($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false).
-               (($d->motivo_nome)?"<br> <b>MOTIVO</b>: ".utf8_encode($d->motivo_nome):false).
 
 
                (($d->status)?"<br> <b>SITUAÇÃO</b>: ".$titulo[$d->status]:false).
