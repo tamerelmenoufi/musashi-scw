@@ -59,6 +59,7 @@
         $msg = "<b>Cadastrado ID</b>: ".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                "<br> <b>SETOR</b>: ".utf8_encode($d->setor).
                "<br> <b>MÁQUINA</b>: ".utf8_encode($d->maquina).
+               "<br> <b>MÁQUINA PARADA</b>: <span style='color:red; font-weight:bold;'>".$parada[$d->parada]."</span>".
 
                "<br> <b>PEÇA</b>: ".utf8_encode($d->peca_nome).
                "<br> <b>MODELO</b>: ".utf8_encode($d->modelo_nome).
@@ -67,8 +68,8 @@
                (($d->time_nome)?"<br> <b>TIME</b>: ".utf8_encode($d->time_nome):false).
                (($d->motivo_nome)?"<br> <b>OCORRÊNCIA</b>: ".utf8_encode($d->motivo_nome):false).
 
-            //    "<br> <b>MÁQUINA PARADA</b>: <span style='color:red; font-weight:bold;'>".$parada[$d->parada]."</span>".
-               "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
+
+            //    "<br> <b>TIPO DE MANUTENÇÃO</b>: ".utf8_encode($d->tipo_manutencao).
                (($d->problema)?"<br> <b>PROBLEMA</b>: ".str_replace("\n"," ",utf8_encode($d->problema)):false).
                (($d->funcionario)?"<br> <b>FUNCIONÁRIO</b>: ".utf8_encode($d->funcionario):false).
                (($d->tecnico)?"<br> <b>TÉCNICO</b>: ".utf8_encode($d->tecnico):false).
