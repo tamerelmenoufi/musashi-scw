@@ -186,7 +186,7 @@
 
   <div class="form-group">
     <label for="maquina">Máquina</label>
-    <select form id="maquina" class="form-control">
+    <select form id="maquina" class="form-control" data-live-search="true">
       <option value="">:: Máquinas ::</option>
       <?php
         $q = "select * from maquinas order by nome";
@@ -277,6 +277,10 @@
 
 <script type="text/javascript">
   $(function(){
+
+
+    $('#maquina').selectpicker();
+	  // data-live-search="true"
 
     $("#time").change(function(){
       time = $(this).val();
