@@ -26,7 +26,7 @@
 	$r = mysql_query($q);
     $st = mysql_fetch_object($r);
 
-	$q = "SELECT
+	echo $q = "SELECT
 	a.codigo,
 	a.data_abertura,
 	a.status,
@@ -73,7 +73,7 @@
 	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 1 DAY)
 		order by a.codigo desc";
 	$r = mysql_query($q);
-
+	exit();
 	$TickDetalhe = [];
 	$TickResumo = [];
 
