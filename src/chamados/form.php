@@ -118,7 +118,7 @@
 <form id="formCadastros">
 
 
-  <div class="form-setor">
+  <div class="form-group">
     <label for="setor">Setor</label>
     <select form id="setor" class="form-control">
       <option value="">:: Setores ::</option>
@@ -200,7 +200,7 @@
     </select>
   </div>
 
-  <div class="form-setor">
+  <div class="form-group">
     <label for="parada">Máquina Parada?</label>
     <select form id="parada" class="form-control">
       <option value="n" <?=(('n' == $d->parada)?'selected':false)?>>Não</option>
