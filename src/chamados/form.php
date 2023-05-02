@@ -282,7 +282,7 @@
     // $('#maquina').selectpicker();
 	  // data-live-search="true"
 
-    $( '#maquina' ).select2( {
+    $( 'select' ).select2( {
       theme: "bootstrap-5",
     } );
 
