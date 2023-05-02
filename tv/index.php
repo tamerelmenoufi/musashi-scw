@@ -36,10 +36,22 @@
 	a.setor,
 	a.tipo_manutencao,
 	a.maquina,
+
+	a.peca,
+	a.modelo,
+	a.codigos,
+
+
 	tm.nome as time_nome,
 	mt.nome as motivo_nome,
 	s.nome as setor_nome,
 	m.nome as maquina_nome,
+
+	p.nome as peca_nome,
+	md.nome as modelo_nome,
+	cd.nome as codigos_nome,
+
+
 	t.nome as tipo_manutencao_nome,
 	a.problema,
 	f.nome as funcionario,
@@ -48,6 +60,12 @@
 		left join setores s on a.setor = s.codigo
 		left join tipos_manutencao t on a.tipo_manutencao = t.codigo
 		left join maquinas m on a.maquina = m.codigo
+
+		left join pecas p on a.peca = p.codigo
+		left join modelo md on a.modelo = md.codigo
+		left join codigos cd on a.codigos = cd.codigo
+
+
 		left join time tm on a.time = tm.codigo
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
@@ -77,15 +95,34 @@
 		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
-		//Setores
-		$Rlt['tipo_manutencao']['nome'][$d->tipo_manutencao] = utf8_encode($d->tipo_manutencao_nome);
-		$Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] = ($Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] + 1);
-		$Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
+		// //Setores
+		// $Rlt['tipo_manutencao']['nome'][$d->tipo_manutencao] = utf8_encode($d->tipo_manutencao_nome);
+		// $Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] = ($Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] + 1);
+		// $Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
 
 		//Motivos
 		$Rlt['motivo']['nome'][$d->motivo] = utf8_encode($d->motivo_nome);
 		$Rlt['motivo']['qt'][$d->motivo] = ($Rlt['motivo']['qt'][$d->motivo] + 1);
 		$Rlt['motivo']['tot'] = ($Rlt['motivo']['tot'] + 1);
+
+
+		//Peças
+		$Rlt['peca']['nome'][$d->peca] = utf8_encode($d->peca_nome);
+		$Rlt['peca']['qt'][$d->peca] = ($Rlt['peca']['qt'][$d->peca] + 1);
+		$Rlt['peca']['tot'] = ($Rlt['peca']['tot'] + 1);
+
+
+		//Modelos
+		$Rlt['modelo']['nome'][$d->modelo] = utf8_encode($d->modelo_nome);
+		$Rlt['modelo']['qt'][$d->modelo] = ($Rlt['modelo']['qt'][$d->modelo] + 1);
+		$Rlt['modelo']['tot'] = ($Rlt['modelo']['tot'] + 1);
+
+
+		//Códigos
+		$Rlt['codigos']['nome'][$d->codigos] = utf8_encode($d->codigos_nome);
+		$Rlt['codigos']['qt'][$d->codigos] = ($Rlt['codigos']['qt'][$d->codigos] + 1);
+		$Rlt['codigos']['tot'] = ($Rlt['codigos']['tot'] + 1);
+
 
 		//Time
 		$Rlt['time']['nome'][$d->time] = utf8_encode($d->time_nome);
@@ -112,14 +149,16 @@
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 
-               "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
+
+				"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Motivo:</b><div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+
+
+            //    "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
                "<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
 			   "<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>Funcionário:</b><div>".utf8_encode($d->funcionario)."</div>":false)."</div>".
                "<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;'>Técnico:</b><div>".utf8_encode($d->tecnico)."</div>":false)."</div>".
-
-               "<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
-               "<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Motivo:</b><div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
                "<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>Observações:</b><div>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
