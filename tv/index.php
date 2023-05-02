@@ -26,7 +26,7 @@
 	$r = mysql_query($q);
     $st = mysql_fetch_object($r);
 
-	echo $q = "SELECT
+	$q = "SELECT
 	a.codigo,
 	a.data_abertura,
 	a.status,
@@ -62,7 +62,7 @@
 		left join maquinas m on a.maquina = m.codigo
 
 		left join pecas p on a.peca = p.codigo
-		left join modelo md on a.modelo = md.codigo
+		left join modelos md on a.modelo = md.codigo
 		left join codigos cd on a.codigos = cd.codigo
 
 
@@ -73,7 +73,7 @@
 	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 1 DAY)
 		order by a.codigo desc";
 	$r = mysql_query($q);
-	exit();
+	// exit();
 	$TickDetalhe = [];
 	$TickResumo = [];
 
