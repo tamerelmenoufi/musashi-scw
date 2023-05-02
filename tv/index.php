@@ -146,12 +146,17 @@
 				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
 					<div style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
+				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Peça:</b> <div>".$d->peca_nome."</div></div>".
+				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;'>Modelo:</b><div>".$d->modelo_nome."</div></div>".
+				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;'>Código:</b><div>".$d->codigos_nome."</div></div>".
+
+
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 
 
 				"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div>":false)."</div>".
-				"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Motivo:</b><div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
             //    "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
