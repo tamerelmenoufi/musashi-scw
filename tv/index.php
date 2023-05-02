@@ -434,7 +434,7 @@
 				?>
 			</div>
 		</div>
-		<div class="col">
+		<!-- <div class="col">
 			<div class="graficos">
 				<h5>Manutenção</h5>
 				<?php
@@ -456,30 +456,8 @@
 				}
 				?>
 			</div>
-		</div>
-		<div class="col">
-			<div class="graficos">
-				<h5>Motivo</h5>
-				<?php
-				arsort($Rlt['motivo']['qt']);
-				$i=0;
-				foreach($Rlt['motivo']['qt'] as $ind => $vet){
-					if($Rlt['motivo']['nome'][$ind] and $i < 5){
-				?>
-				<div class="grafico">
-					<span><?=$Rlt['motivo']['nome'][$ind]?></span>
-					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%"></div>
-						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['motivo']['qt'][$ind]?>] <?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%</span>
-					</div>
-				</div>
-				<?php
-					$i++;
-					}
-				}
-				?>
-			</div>
-		</div>
+		</div> -->
+
 		<div class="col">
 			<div class="graficos">
 				<h5>Time de Atuação</h5>
@@ -503,6 +481,34 @@
 				?>
 			</div>
 		</div>
+
+
+
+		<div class="col">
+			<div class="graficos">
+				<h5>Ocorrência</h5>
+				<?php
+				arsort($Rlt['motivo']['qt']);
+				$i=0;
+				foreach($Rlt['motivo']['qt'] as $ind => $vet){
+					if($Rlt['motivo']['nome'][$ind] and $i < 5){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['motivo']['nome'][$ind]?></span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['motivo']['qt'][$ind]?>] <?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%</span>
+					</div>
+				</div>
+				<?php
+					$i++;
+					}
+				}
+				?>
+			</div>
+		</div>
+
+
 	</div>
 </div>
 <div class="rodapeTV">
