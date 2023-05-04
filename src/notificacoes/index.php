@@ -68,7 +68,7 @@
         <td>
           <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" situacao="<?=$d->codigo?>" <?=(($d->situacao)?'checked':false)?> id="situacao<?=$d->codigo?>">
-            <label class="custom-control-label" for="situacao">Situação</label>
+            <label class="custom-control-label" for="situacao<?=$d->codigo?>">Situação</label>
           </div>
         </td>
         <td class="text-right">
