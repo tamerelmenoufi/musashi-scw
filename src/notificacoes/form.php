@@ -83,7 +83,7 @@
       <div class="card">
         <div class="card-header" id="heading<?=$s->codigo?>">
             <div class="form-group form-check" XXdata-toggle="collapse" XXdata-target="#collapse<?=$s->codigo?>" XXaria-expanded="true" XXaria-controls="collapse<?=$s->codigo?>">
-              <input type="checkbox" class="form-check-input" time="<?=$s->codigo?>" id="time<?=$s->codigo?>" <?=((in_array($s->codigo, $time))?'checked':false)?>>
+              <input type="checkbox" class="form-check-input" time="<?=$s->codigo?>" id="time<?=$s->codigo?>" <?=((@in_array($s->codigo, $time))?'checked':false)?>>
               <label class="form-check-label" for="time<?=$s->codigo?>"><?=utf8_encode($s->nome)?></label>
             </div>
         </div>
