@@ -14,7 +14,7 @@
   }
 </style>
 
-<h2>Motivos (Chamados) </h2>
+<h2>Ocorrências (Chamados) </h2>
 <div class="text-right">
   <button novoCadastro class="btn btn-primary"><i class="fa fa-file-o"></i> Novo Cadastro</button>
 </div>

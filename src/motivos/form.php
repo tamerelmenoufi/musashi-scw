@@ -45,11 +45,11 @@
 
 <div voltar class="text-left" style="cursor: pointer;"> <i class="fa fa-angle-left" style="margin-right: 10px;"></i> voltar </div>
 
-<h2>Motivos (Chamados)</small></h2>
+<h2>Ocorrências (Chamados)</small></h2>
 <form id="formCadastros">
 
   <div class="form-group">
-    <label for="nome">Motivo</label>
+    <label for="nome">Ocorrência</label>
     <input form type="text" class="form-control" id="nome" aria-describedby="Nome" value="<?=utf8_encode($d->nome)?>">
   </div>
 
