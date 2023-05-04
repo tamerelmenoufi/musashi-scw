@@ -105,13 +105,13 @@
                         'titulo' => 'Setores',
                         'permissao' => 'auxiliares',
                       ),
-                      array(
-                        'icone'  => 'fa-cogs',
-                        'local'  => 'src/problemas/index.php',
-                        'destino'  => 'main',
-                        'titulo' => 'Problemas',
-                        'permissao' => 'auxiliares',
-                      ),
+                      // array(
+                      //   'icone'  => 'fa-cogs',
+                      //   'local'  => 'src/problemas/index.php',
+                      //   'destino'  => 'main',
+                      //   'titulo' => 'Problemas',
+                      //   'permissao' => 'auxiliares',
+                      // ),
                       array(
                         'icone'  => 'fa-cogs',
                         'local'  => 'src/time/index.php',
@@ -123,17 +123,9 @@
                         'icone'  => 'fa-cogs',
                         'local'  => 'src/motivos/index.php',
                         'destino'  => 'main',
-                        'titulo' => 'Motivos',
+                        'titulo' => 'Ocorrências',
                         'permissao' => 'auxiliares',
                       ),
-                      array(
-                        'icone'  => 'fa-cogs',
-                        'local'  => 'src/notificacoes/index.php',
-                        'destino'  => 'main',
-                        'titulo' => 'Notificações',
-                        'permissao' => 'auxiliares',
-                      ),
-
 
                       array(
                         'icone'  => 'fa-cogs',
@@ -154,6 +146,14 @@
                         'local'  => 'src/codigos/index.php',
                         'destino'  => 'main',
                         'titulo' => 'Códigos',
+                        'permissao' => 'auxiliares',
+                      ),
+
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/notificacoes/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Notificações',
                         'permissao' => 'auxiliares',
                       ),
                     );
