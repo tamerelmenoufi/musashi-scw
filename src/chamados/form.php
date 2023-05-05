@@ -266,7 +266,7 @@
   </div>
 
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="codigos">Código</label>
     <select form id="codigos" class="form-control">
       <option value="">:: Códigos ::</option>
@@ -280,9 +280,12 @@
         }
       ?>
     </select>
+  </div> -->
+
+  <div class="form-group">
+    <label for="codigos">Código</label>
+    <input form type="text" class="form-control" id="codigos" aria-describedby="Código" value="<?=utf8_encode($d->codigos)?>">
   </div>
-
-
 
 
   <div class="form-group">
