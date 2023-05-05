@@ -39,7 +39,7 @@
 
 	a.peca,
 	a.modelo,
-	a.codigos,
+	a.codigos as codigos_nome,
 
 
 	tm.nome as time_nome,
@@ -49,7 +49,7 @@
 
 	p.nome as peca_nome,
 	md.nome as modelo_nome,
-	cd.nome as codigos_nome,
+	/*cd.nome as codigos_nome,*/
 
 
 	t.nome as tipo_manutencao_nome,
@@ -63,7 +63,7 @@
 
 		left join pecas p on a.peca = p.codigo
 		left join modelos md on a.modelo = md.codigo
-		left join codigos cd on a.codigos = cd.codigo
+		/*left join codigos cd on a.codigos = cd.codigo*/
 
 
 		left join time tm on a.time = tm.codigo

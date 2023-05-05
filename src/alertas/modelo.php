@@ -24,7 +24,7 @@
 
                     a.peca,
                     a.modelo,
-                    a.codigos,
+                    a.codigos as codigo_nome,
 
                     tm.nome as time_nome,
                     mt.nome as motivo_nome,
@@ -33,7 +33,7 @@
 
                     p.nome as peca_nome,
                     md.nome as modelo_nome,
-                    cd.nome as codigo_nome,
+                    /*cd.nome as codigo_nome,*/
 
                     t.nome as tipo_manutencao,
                     a.problema,
@@ -44,7 +44,7 @@
 
                 left join pecas p on a.peca = p.codigo
                 left join modelos md on a.modelo = md.codigo
-                left join codigos cd on a.codigos = cd.codigo
+                /*left join codigos cd on a.codigos = cd.codigo*/
 
                 left join tipos_manutencao t on a.tipo_manutencao = t.codigo
                 left join maquinas m on a.maquina = m.codigo

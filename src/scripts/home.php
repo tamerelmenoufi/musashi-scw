@@ -141,13 +141,13 @@
                         'titulo' => 'Modelos',
                         'permissao' => 'auxiliares',
                       ),
-                      array(
-                        'icone'  => 'fa-cogs',
-                        'local'  => 'src/codigos/index.php',
-                        'destino'  => 'main',
-                        'titulo' => 'Códigos',
-                        'permissao' => 'auxiliares',
-                      ),
+                      // array(
+                      //   'icone'  => 'fa-cogs',
+                      //   'local'  => 'src/codigos/index.php',
+                      //   'destino'  => 'main',
+                      //   'titulo' => 'Códigos',
+                      //   'permissao' => 'auxiliares',
+                      // ),
 
                       array(
                         'icone'  => 'fa-cogs',
