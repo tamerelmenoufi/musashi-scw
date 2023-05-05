@@ -554,7 +554,7 @@
 
 
 		$('.slider-nav').slick({
-			slidesToShow: 15,
+			slidesToShow: 5,
 			slidesToScroll: 1,
 			arrows: false,
 			fade: true,
