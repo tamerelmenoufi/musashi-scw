@@ -552,24 +552,32 @@
   		// 	autoplaySpeed: 5000,
 		// });
 
-
-		$('.slider-nav').slick({
-			slidesToShow: 5,
+		$('.slider-for').slick({
+			slidesToShow: 1,
 			slidesToScroll: 1,
-			arrows: true,
+			arrows: false,
 			fade: true,
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
-			asNavFor: '.slider-for'
+			autoplay: true,
+  			autoplaySpeed: 5000,
+			// asNavFor: '.slider-nav'
 		});
-		$('.slider-for').slick({
-			slidesToShow: 1,
+		$('.slider-nav').slick({
+			slidesToShow: 5,
 			slidesToScroll: 1,
-			asNavFor: '.slider-nav',
+			// asNavFor: '.slider-for',
+			fade: true,
+			dots: false,
+			centerMode: false,
+			focusOnSelect: true,
 			autoplay: true,
   			autoplaySpeed: 5000,
 		});
+
+
+
 
 		$('.lista_maquinas_paradas').slick({
 			slidesToShow: 5,
