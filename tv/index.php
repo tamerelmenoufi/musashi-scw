@@ -569,7 +569,7 @@
 			slidesToScroll: 1,
 			// asNavFor: '.slider-for',
 			fade: true,
-			dots: false,
+			// dots: false,
 			centerMode: false,
 			focusOnSelect: true,
 			autoplay: true,
