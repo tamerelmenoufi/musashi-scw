@@ -556,7 +556,7 @@
 		$('.slider-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			arrows: false,
+			arrows: true,
 			fade: true,
 			dots: false,
 			centerMode: false,
