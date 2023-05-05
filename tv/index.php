@@ -558,15 +558,15 @@
 			slidesToScroll: 1,
 			arrows: false,
 			fade: true,
+			dots: false,
+			centerMode: false,
+			focusOnSelect: true,
 			asNavFor: '.slider-for'
 		});
 		$('.slider-for').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			asNavFor: '.slider-nav',
-			dots: false,
-			centerMode: false,
-			focusOnSelect: true,
 			autoplay: true,
   			autoplaySpeed: 5000,
 		});
