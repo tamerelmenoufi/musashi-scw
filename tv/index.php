@@ -534,40 +534,17 @@
 
 		Carregando('none');
 
-		// $('.slider-for').slick({
-		// 	slidesToShow: 1,
-		// 	slidesToScroll: 1,
-		// 	arrows: false,
-		// 	fade: true,
-		// 	asNavFor: '.slider-nav'
-		// });
-		// $('.slider-nav').slick({
-		// 	slidesToShow: 5,
-		// 	slidesToScroll: 1,
-		// 	asNavFor: '.slider-for',
-		// 	dots: false,
-		// 	centerMode: false,
-		// 	focusOnSelect: true,
-		// 	autoplay: true,
-  		// 	autoplaySpeed: 5000,
-		// });
-
 		$('.slider-for').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
 			fade: true,
-			dots: false,
-			centerMode: false,
-			focusOnSelect: true,
-			autoplay: true,
-  			autoplaySpeed: 5000,
+			asNavFor: '.slider-nav'
 		});
 		$('.slider-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			arrows: false,
-			fade: true,
+			asNavFor: '.slider-for',
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
