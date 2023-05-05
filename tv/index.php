@@ -562,14 +562,13 @@
 			focusOnSelect: true,
 			autoplay: true,
   			autoplaySpeed: 5000,
-			// asNavFor: '.slider-nav'
 		});
 		$('.slider-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			// asNavFor: '.slider-for',
+			arrows: false,
 			fade: true,
-			// dots: false,
+			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
 			autoplay: true,
