@@ -542,7 +542,7 @@
 			asNavFor: '.slider-nav'
 		});
 		$('.slider-nav').slick({
-			slidesToShow: 1,
+			slidesToShow: 5,
 			slidesToScroll: 1,
 			asNavFor: '.slider-for',
 			dots: false,
