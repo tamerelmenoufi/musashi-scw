@@ -187,7 +187,6 @@
 	<style>
 		body{
 			background-color:#ccc;
-			font-size:20px;
 		}
 		.topoTV{
 			position:fixed;
