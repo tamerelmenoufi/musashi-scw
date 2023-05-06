@@ -321,6 +321,23 @@
 			font-size:15px;
 			font-weight:bold;
 		}
+		.rodapeTV div div{
+			margin:5px;
+			padding:10px;
+			text-align:left;
+			border-radius:10px;
+			opacity:0.5;
+			color:#fff;
+		}
+		.corpoTV div div{
+			opacity:0.5;
+			padding-top:5px;
+
+		}
+		.corpoTV div div div div{
+			font-size:20px;
+
+		}
 	</style>
 </head>
 <body>
@@ -356,7 +373,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
+		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
@@ -512,6 +529,7 @@
 
 	</div>
 </div>
+
 <div class="rodapeTV">
 
 	<div class="slider-nav">
@@ -519,7 +537,7 @@
 		for($i=0;$i<count($TickResumo);$i++){
 			// $Codigo[$i]
 		?>
-		<div class="listaResumo" style="margin:5px; padding:10px; text-align:left; border-radius:10px; opacity:0.5; background-color:<?=$CorResumo[$i]?>; color:#fff; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
+		<div class="listaResumo" style="background-color:<?=$CorResumo[$i]?>; border-right:solid 10px <?=$CorBorda[$i]?>;"><?=$TickResumo[$i]?></div>
 		<?php
 		}
 		?>
