@@ -335,7 +335,7 @@
 
 		}
 		.corpoTV div div div div{
-			font-size:20px;
+			font-size:15px;
 
 		}
 	</style>
