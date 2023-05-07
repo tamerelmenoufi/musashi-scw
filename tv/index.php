@@ -141,9 +141,9 @@
 		$Codigo[] = $d->codigo;
 
         $TickDetalhe[] = "
-				<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-				"<div style='float:left; width:33%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
-				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
+				<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+				"<div style='float:left; width:60%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
+				"<div style='float:left; width:20%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
 					<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
 				"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:10px;''>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
