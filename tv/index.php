@@ -322,7 +322,7 @@
 			font-weight:bold;
 		}
 		.detalhesTexto{
-			font-size:18px;
+			font-size:18px!important;
 		}
 	</style>
 </head>
