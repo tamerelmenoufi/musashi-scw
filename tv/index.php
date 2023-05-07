@@ -146,9 +146,9 @@
 				"<div style='float:left; width:33%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
 					<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
-				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;''>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
-				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
-				"<div style='float:left; width:33%;'><b style='color:#a1a1a1; font-size:10px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
+				"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:10px;''>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
+				"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:10px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
+				"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:10px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
 
 
 				"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
