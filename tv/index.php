@@ -323,6 +323,7 @@
 		}
 		.detalhesTexto{
 			font-size:18px!important;
+			/*Dado de teste*/
 		}
 	</style>
 </head>
