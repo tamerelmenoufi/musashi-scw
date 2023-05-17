@@ -228,7 +228,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:290px;
+			bottom:310px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
