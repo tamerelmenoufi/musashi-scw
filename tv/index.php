@@ -322,9 +322,9 @@
 			font-weight:bold;
 		}
 		.detalhesTexto{
-			font-size:20px!important;
+			font-size:23px!important;
 			margin-top:3px;
-			margin-bottom:10px;
+			margin-bottom:20px;
 			/*Dado de teste*/
 		}
 	</style>
