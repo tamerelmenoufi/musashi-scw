@@ -210,7 +210,7 @@
 			top:60px;
 			left:calc(30% + 10px);
 			width:70%;
-			bottom:260px;
+			bottom:280px;
 			padding:10px;
 			border:0px blue solid;
 		}
@@ -219,7 +219,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:260px;
+			height:280px;
 		}
 		.slick-current{
 			opacity:1 !important;
@@ -228,7 +228,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:230px;
+			bottom:290px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
