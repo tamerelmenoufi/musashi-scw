@@ -296,7 +296,7 @@
 			margin:0;
 		}
 		.grafico div div{
-			height:18px;
+			height:25px;
 			background-color:green;
 			color:#fff;
 			font-size:10px;
