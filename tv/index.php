@@ -167,12 +167,12 @@
 
                "<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
-		$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:20px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-						"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:20px;'>Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
-						"<div > <b style='font-size:15px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
-						"<div> <b style='font-size:20px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
+		$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:20px;''>Cadastrado ID:</b> <div style='font-size:25px;'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+						"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:20px;'>Situação:</b><div style='font-size:25px;'>".$titulo[$d->status]."</div>":false)."</div>".
+						"<div > <b style='font-size:15px;'>Setor:</b><div style='font-size:25px;'>".utf8_encode($d->setor_nome)."</div></div>".
+						"<div> <b style='font-size:20px;'>Máquina: (".$parada[$d->parada].")</b><div style='font-size:25px;'>".utf8_encode($d->maquina_nome)."</div></div>".
 						"<div > <b style='font-size:20px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
-						"<div> <b style='font-size:20px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
+						"<div> <b style='font-size:20px;'>Ocorrência:</b><div style='font-size:20px;'>".utf8_encode($d->motivo_nome)."</div></div>";
 
 
 
@@ -219,7 +219,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:200px;
+			height:230px;
 		}
 		.slick-current{
 			opacity:1 !important;
@@ -228,7 +228,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:210px;
+			bottom:240px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
