@@ -169,10 +169,10 @@
 
 		$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 						"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:10px;'>Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
-						"<div > <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
-						"<div> <b style='font-size:10px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
-						"<div > <b style='font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
-						"<div> <b style='font-size:10px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
+						"<div > <b style='font-size:12px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+						"<div> <b style='font-size:12px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
+						"<div > <b style='font-size:12px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
+						"<div> <b style='font-size:12px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
 
 
 
