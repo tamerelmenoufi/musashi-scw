@@ -421,7 +421,7 @@
 	<div class="row mt-3">
 		<div class="col">
 			<div class="graficos">
-				<h5>Setores</h5>
+				<h4>Setores</h4>
 				<?php
 				arsort($Rlt['setor']['qt']);
 				$i=0;
@@ -444,7 +444,7 @@
 		</div>
 		<!-- <div class="col">
 			<div class="graficos">
-				<h5>Manutenção</h5>
+				<h4>Manutenção</h4>
 				<?php
 				arsort($Rlt['tipo_manutencao']['qt']);
 				$i=0;
@@ -468,7 +468,7 @@
 
 		<div class="col">
 			<div class="graficos">
-				<h5>Time de Atuação</h5>
+				<h4>Time de Atuação</h4>
 				<?php
 				arsort($Rlt['time']['qt']);
 				$i=0;
@@ -494,7 +494,7 @@
 
 		<div class="col">
 			<div class="graficos">
-				<h5>Ocorrência</h5>
+				<h4>Ocorrência</h4>
 				<?php
 				arsort($Rlt['motivo']['qt']);
 				$i=0;
