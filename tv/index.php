@@ -280,7 +280,7 @@
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			font-size:40px;
+			font-size:60px;
 		}
 		.graficos{
 			background-color:#fff;
@@ -289,7 +289,7 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:10px;
+			font-size:20px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
