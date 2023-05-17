@@ -280,6 +280,7 @@
 		.Qt h1{
 			width:100%;
 			text-align:center;
+			font-size:40px;
 		}
 		.graficos{
 			background-color:#fff;
