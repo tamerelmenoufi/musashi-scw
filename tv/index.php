@@ -289,14 +289,14 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:20px;
+			font-size:17px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
 			margin:0;
 		}
 		.grafico div div{
-			height:30px;
+			height:27px;
 			background-color:green;
 			color:#fff;
 			font-size:10px;
