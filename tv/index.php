@@ -324,6 +324,7 @@
 		.detalhesTexto{
 			font-size:20px!important;
 			margin-top:3px;
+			margin-bottom:10px;
 			/*Dado de teste*/
 		}
 	</style>
