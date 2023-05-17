@@ -398,7 +398,7 @@
 	<div class="row mt-3">
 		<div class="col">
 			<div class="lista_maquinas">
-				<h5>Máquinas Paradas</h5>
+				<h4>Máquinas Paradas</h4>
 				<div class="lista_maquinas_paradas">
 				<?php
 
