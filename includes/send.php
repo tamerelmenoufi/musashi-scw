@@ -26,6 +26,6 @@ function EnviarWappNovo($n, $m){
 			'mensagem' => $m,
 		  );
 
-	file_put_contents("../../cron/wapp/".md5(date("YmdHis").$n).".txt", json_encode($postdata));
+	// file_put_contents("../../cron/wapp/".md5(date("YmdHis").$n).".txt", json_encode($postdata));
 
 }
