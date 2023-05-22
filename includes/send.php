@@ -29,3 +29,14 @@ function EnviarWappNovo($n, $m){
 	file_put_contents("../../cron/wapp/".md5(date("YmdHis").$n).".txt", json_encode($postdata));
 
 }
+
+function EnviaEmailNovo($codigo, $time){
+
+	$postdata = array(
+		'codigo' => $codigo, // Receivers phonei
+		'time' => $time,
+	  );
+
+	file_put_contents("../../cron/email/".md5(date("YmdHis").$n).".txt", json_encode($postdata));
+
+}

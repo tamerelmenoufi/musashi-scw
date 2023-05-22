@@ -128,23 +128,7 @@
             EnviarWappNovo($num, $msg);
         }
 
-        ////////////////EMAIL//////////////////////////////////
-        $postdata = http_build_query(
-            array(
-                'codigo' => $d->codigo,
-                'time' => $d->time,
-            )
-        );
-        $opts = array('http' =>
-            array(
-                'method' => 'POST',
-                'header' => 'Content-type: application/x-www-form-urlencoded',
-                'content' => $postdata
-            )
-        );
-        $context = stream_context_create($opts);
-        $result = file_get_contents('http://scw.mohatron.com/src/alertas/email.php', false, $context);
-        ////////////////////////////////////////////////////////
+        EnviaEmailNovo($d->codigo, $d->time);
 
     }
 
