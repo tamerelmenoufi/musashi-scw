@@ -20,6 +20,7 @@
 
 
     $path = "./wapp/";
+    if(!is_dir($path)) mkdir($path);
     $dir = dir($path);
 
     while($file = $dir -> read()){
