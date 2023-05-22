@@ -36,7 +36,6 @@ function EnviaEmailNovo($codigo, $time){
             unlink($path.$file);
             EnviaEmailNovo($send->codigo, $send->time);
             // echo $file."\n";
-
         }
     }
     $dir -> close();
