@@ -1,6 +1,6 @@
 <?php
 
-//*
+/*
 function EnviarWappNovo($n, $m){
 	$postdata = http_build_query(
 		array(
@@ -19,3 +19,13 @@ function EnviarWappNovo($n, $m){
 	$result = file_get_contents('http://wapp.mohatron.com/', false, $context);
 }
 //*/
+
+function EnviarWappNovo($n, $m){
+	$postdata = array(
+			'numero' => $n, // Receivers phonei
+			'mensagem' => $m,
+		  );
+
+	file_put_contents("../../cron/wapp/".md5(date("YmdHis").$n).".txt", json_encode($postdata));
+
+}
