@@ -134,13 +134,15 @@
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
 
-		$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
-		$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
-		$CorBorda[] = (($d->parada == 's')?'red':'yellow');
-
-		$Codigo[] = $d->codigo;
-
 		if($d->status != 'c'){
+
+			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
+			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
+			$CorBorda[] = (($d->parada == 's')?'red':'yellow');
+
+			$Codigo[] = $d->codigo;
+
+		
 			$TickDetalhe[] = "
 					<div style='float:left; width:25%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
