@@ -188,6 +188,10 @@
     <li class="list-group-item">
     	<label>Setor:</label>
     	<p><?=utf8_encode($d->setor)?></p>
+      <span>
+      <label>Setor:</label>
+    	<p><?=utf8_encode($d->setor)?></p>
+      </span>
     </li>
 
     <li class="list-group-item">
