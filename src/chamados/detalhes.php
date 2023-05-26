@@ -153,6 +153,9 @@
 ?>
 
 <style type="text/css">
+  .list-group-item{
+    min-height:100px;
+  }
 	.list-group-item label{
 		font-size: 10px;
 		font-weight: bold;
