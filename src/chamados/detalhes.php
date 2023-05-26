@@ -189,44 +189,33 @@
     	<label>Setor:</label>
     	<p><?=utf8_encode($d->setor)?></p>
       <span>
-      <label>Setor:</label>
-    	<p><?=utf8_encode($d->setor)?></p>
-      </span>
-    </li>
-
-    <li class="list-group-item">
-    	<label>Time:</label>
+      <label>Time:</label>
     	<p><?=utf8_encode($d->time_nome)?></p>
+      </span>
     </li>
 
     <li class="list-group-item">
     	<label>Problema:</label>
     	<p><?=utf8_encode($d->motivo_nome)?></p>
-    </li>
-
-    <li class="list-group-item">
-    	<label>Máquina:</label>
+      <span>
+      <label>Máquina: <?=(($d->parada == 's')?'<span style="color:red">Parada</span>':'<span style="color:green">Funcionando</span>')?></label>
     	<p><?=utf8_encode($d->maquina)?></p>
+      </span>
     </li>
 
-    <li class="list-group-item">
-    	<label>Máquina Parada?</label>
-    	<p><?=(($d->parada == 's')?'SIM':'NÃO')?></p>
-    </li>
-
-    <li class="list-group-item">
-    	<label>Peça:</label>
-    	<p><?=utf8_encode($d->peca_nome)?></p>
-    </li>
-
-    <li class="list-group-item">
-    	<label>Modelo:</label>
-    	<p><?=utf8_encode($d->modelo_nome)?></p>
-    </li>
-
-    <li class="list-group-item">
-    	<label>Código:</label>
-    	<p><?=utf8_encode($d->codigos)?></p>
+    <li class="list-group-item d-flex justify-content-between">
+      <div>
+        <label>Peça:</label>
+        <p><?=utf8_encode($d->peca_nome)?></p>        
+      </div>
+      <div>
+        <label>Modelo:</label>
+        <p><?=utf8_encode($d->modelo_nome)?></p>
+      </div>
+      <div>
+        <label>Código:</label>
+        <p><?=utf8_encode($d->codigos)?></p>
+      </div>
     </li>
 
 
