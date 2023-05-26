@@ -187,7 +187,7 @@
 
     <li class="list-group-item">
     	<label>Setor:</label>
-    	<p><?=utf8_encode($d->setor_nome)?></p>
+    	<p><?=utf8_encode($d->setor)?></p>
     </li>
 
     <li class="list-group-item">
@@ -202,12 +202,12 @@
 
     <li class="list-group-item">
     	<label>Máquina:</label>
-    	<p><?=utf8_encode($d->maquina_nome)?></p>
+    	<p><?=utf8_encode($d->maquina)?></p>
     </li>
 
     <li class="list-group-item">
     	<label>Máquina Parada?</label>
-    	<p><?=utf8_encode($d->parada)?></p>
+    	<p><?=(($d->parada == 's')?'SIM':'NÃO')?></p>
     </li>
 
     <li class="list-group-item">
