@@ -116,14 +116,7 @@
 
 
   $query = "SELECT
-                 a.codigo,
-                 a.status,
-                 a.time,
-                 a.motivo,
-                 a.parada,
-
-                 a.peca,
-                 a.modelo,
+                 a.*,
                  a.codigos as codigo_nome,
 
                  tm.nome as time_nome,
