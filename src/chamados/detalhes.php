@@ -186,20 +186,44 @@
     </li>
 
     <li class="list-group-item">
-    	<label>Problema:</label>
-    	<p><?=utf8_encode($d->tipo_manutencao)?></p>
+    	<label>Setor:</label>
+    	<p><?=utf8_encode($d->setor_nome)?></p>
     </li>
 
     <li class="list-group-item">
-    	<label>Setor:</label>
-    	<p><?=utf8_encode($d->setor)?></p>
+    	<label>Time:</label>
+    	<p><?=utf8_encode($d->time_nome)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Problema:</label>
+    	<p><?=utf8_encode($d->motivo_nome)?></p>
     </li>
 
     <li class="list-group-item">
     	<label>Máquina:</label>
-    	<p><?=utf8_encode($d->maquina)?></p>
+    	<p><?=utf8_encode($d->maquina_nome)?></p>
     </li>
 
+    <li class="list-group-item">
+    	<label>Máquina Parada?</label>
+    	<p><?=utf8_encode($d->parada)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Peça:</label>
+    	<p><?=utf8_encode($d->peca_nome)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Modelo:</label>
+    	<p><?=utf8_encode($d->modelo_nome)?></p>
+    </li>
+
+    <li class="list-group-item">
+    	<label>Código:</label>
+    	<p><?=utf8_encode($d->codigos)?></p>
+    </li>
 
 
     <?php
