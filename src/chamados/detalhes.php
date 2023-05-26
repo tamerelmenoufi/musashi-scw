@@ -113,6 +113,47 @@
                     left join login f on a.tecnico = f.codigo
 
                  where a.codigo = '".$_GET['codigo']."'";
+
+
+  $query = "SELECT
+                 a.codigo,
+                 a.status,
+                 a.time,
+                 a.motivo,
+                 a.parada,
+
+                 a.peca,
+                 a.modelo,
+                 a.codigos as codigo_nome,
+
+                 tm.nome as time_nome,
+                 mt.nome as motivo_nome,
+                 s.nome as setor,
+
+                 p.nome as peca_nome,
+                 md.nome as modelo_nome,
+                 /*cd.nome as codigo_nome,*/
+
+                 m.nome as maquina,
+                 t.nome as tipo_manutencao,
+                 a.problema,
+                 f.nome as funcionario,
+                 tc.nome as tecnico
+         FROM chamados a
+             left join setores s on a.setor = s.codigo
+
+             left join pecas p on a.peca = p.codigo
+             left join modelos md on a.modelo = md.codigo
+             /*left join codigos cd on a.codigos = cd.codigo*/
+
+             left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+             left join maquinas m on a.maquina = m.codigo
+             left join time tm on a.time = tm.codigo
+             left join motivos mt on a.motivo = mt.codigo
+             left join login tc on a.tecnico = tc.codigo
+             left join login f on a.funcionario = f.codigo
+         where a.codigo = '{$_GET['codigo']}'";
+
   $result = mysql_query($query);
   $d = mysql_fetch_object($result);
 
