@@ -198,7 +198,7 @@
     	<label>Problema:</label>
     	<p><?=utf8_encode($d->motivo_nome)?></p>
       <span>
-      <label>Máquina: <?=(($d->parada == 's')?'<span style="color:red">Parada</span>':'<span style="color:green">Funcionando</span>')?></label>
+      <label>Máquina: <?=(($d->parada == 's')?'<font style="color:red">Parada</font>':'<font style="color:green">Funcionando</font>')?></label>
     	<p><?=utf8_encode($d->maquina)?></p>
       </span>
     </li>
