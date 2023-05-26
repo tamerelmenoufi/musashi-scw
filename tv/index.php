@@ -135,7 +135,7 @@
 		}
 
 		if($d->status != 'c'){
-			
+
 			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 			$CorBorda[] = (($d->parada == 's')?'red':'yellow');
@@ -391,7 +391,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<span>Concluído</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Concluído (últimas 24H)</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
