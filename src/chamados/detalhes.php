@@ -113,12 +113,49 @@
                     left join login f on a.tecnico = f.codigo
 
                  where a.codigo = '".$_GET['codigo']."'";
+
+
+  $query = "SELECT
+                 a.*,
+                 a.codigos as codigo_nome,
+
+                 tm.nome as time_nome,
+                 mt.nome as motivo_nome,
+                 s.nome as setor,
+
+                 p.nome as peca_nome,
+                 md.nome as modelo_nome,
+                 /*cd.nome as codigo_nome,*/
+
+                 m.nome as maquina,
+                 t.nome as tipo_manutencao,
+                 a.problema,
+                 f.nome as funcionario,
+                 tc.nome as tecnico
+         FROM chamados a
+             left join setores s on a.setor = s.codigo
+
+             left join pecas p on a.peca = p.codigo
+             left join modelos md on a.modelo = md.codigo
+             /*left join codigos cd on a.codigos = cd.codigo*/
+
+             left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+             left join maquinas m on a.maquina = m.codigo
+             left join time tm on a.time = tm.codigo
+             left join motivos mt on a.motivo = mt.codigo
+             left join login tc on a.tecnico = tc.codigo
+             left join login f on a.funcionario = f.codigo
+         where a.codigo = '{$_GET['codigo']}'";
+
   $result = mysql_query($query);
   $d = mysql_fetch_object($result);
 
 ?>
 
 <style type="text/css">
+  .list-group-item{
+    min-height:70px;
+  }
 	.list-group-item label{
 		font-size: 10px;
 		font-weight: bold;
@@ -152,20 +189,37 @@
     </li>
 
     <li class="list-group-item">
-    	<label>Problema:</label>
-    	<p><?=utf8_encode($d->tipo_manutencao)?></p>
-    </li>
-
-    <li class="list-group-item">
     	<label>Setor:</label>
     	<p><?=utf8_encode($d->setor)?></p>
+      <span>
+      <label>Time:</label>
+    	<p><?=utf8_encode($d->time_nome)?></p>
+      </span>
     </li>
 
     <li class="list-group-item">
-    	<label>Máquina:</label>
+    	<label>Problema:</label>
+    	<p><?=utf8_encode($d->motivo_nome)?></p>
+      <span>
+      <label>Máquina: <?=(($d->parada == 's')?'<font style="color:red">Parada</font>':'<font style="color:green">Funcionando</font>')?></label>
     	<p><?=utf8_encode($d->maquina)?></p>
+      </span>
     </li>
 
+    <li class="list-group-item d-flex justify-content-between">
+      <div>
+        <label>Peça:</label>
+        <p><?=utf8_encode($d->peca_nome)?></p>        
+      </div>
+      <div>
+        <label>Modelo:</label>
+        <p><?=utf8_encode($d->modelo_nome)?></p>
+      </div>
+      <div>
+        <label>Código:</label>
+        <p><?=utf8_encode($d->codigos)?></p>
+      </div>
+    </li>
 
 
     <?php
