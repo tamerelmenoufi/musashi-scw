@@ -131,7 +131,9 @@
                  t.nome as tipo_manutencao,
                  a.problema,
                  f.nome as funcionario,
-                 tc.nome as tecnico
+                 tc.nome as tecnico,
+                 f.codigo as tecnico_codigo
+
          FROM chamados a
              left join setores s on a.setor = s.codigo
 
