@@ -106,6 +106,7 @@
                         f.codigo as tecnico_codigo
 
                   from chamados a
+
                     left join setores b on a.setor = b.codigo
                     left join tipos_manutencao c on a.tipo_manutencao = c.codigo
                     left join maquinas d on a.maquina = d.codigo
