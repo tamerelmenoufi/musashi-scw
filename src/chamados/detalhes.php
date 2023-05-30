@@ -231,7 +231,7 @@
     	<span><?=dataBr($d->data_recebimento)?></span>
 
     <?php
-    if($d->status == 'p' /*and $d->tecnico_codigo == $_SESSION['scw_usuario_logado']*/){
+    if($d->status == 'p' and $d->tecnico_codigo == $_SESSION['scw_usuario_logado']){
     ?>
 		<div class="form-group">
 			<label for="observacoes">Incluir Observações</label>
