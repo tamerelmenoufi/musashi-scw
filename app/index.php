@@ -315,7 +315,7 @@
 			border-radius:10px;
 		}
 		.lista_maquinas h5{
-			margin:10px;
+			margin:5px;
 			margin-bottom:0;
 			padding-bottom:0;
 		}
@@ -326,9 +326,9 @@
 			font-weight:bold;
 		}
 		.detalhesTexto{
-			font-size:23px!important;
+			font-size:13px!important;
 			margin-top:3px;
-			margin-bottom:20px;
+			margin-bottom:10px;
 			/*Dado de teste*/
 		}
 	</style>
