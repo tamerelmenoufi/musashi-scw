@@ -142,40 +142,40 @@
 
 			$Codigo[] = $d->codigo;
 
-		
+
 			$TickDetalhe[] = "
-					<div style='float:left; width:30%;'><b style='color:#a1a1a1; font-size:20px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:45%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:20px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
-					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:20px;'>Situação:</b>
+					<div style='float:left; width:30%;'><b style='color:#a1a1a1; font-size:14px;'>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+					"<div style='float:left; width:45%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:14px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:14px;'>Situação:</b>
 						<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
-					"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:20px;''>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:20px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:20px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
+					"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:14px;'>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:14px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:14px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
 
 
-					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:20px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
-					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:20px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div class='detalhesTexto'>".utf8_encode($d->maquina_nome)."</div></div>".
+					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:14px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
+					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:14px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div class='detalhesTexto'>".utf8_encode($d->maquina_nome)."</div></div>".
 
 
-					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:20px;'>Time:</b><div class='detalhesTexto'>".utf8_encode($d->time_nome)."</div>":false)."</div>".
-					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:20px;'>Ocorrência:</b><div class='detalhesTexto'>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:14px;'>Time:</b><div class='detalhesTexto'>".utf8_encode($d->time_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:14px;'>Ocorrência:</b><div class='detalhesTexto'>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
-				"<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:20px;'>Problema:</b><div class='detalhesTexto'>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
+				"<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:14px;'>Problema:</b><div class='detalhesTexto'>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
-				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:20px;'>Funcionário:</b><div class='detalhesTexto'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
-				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:20px;'>Técnico:</b><div class='detalhesTexto'>".utf8_encode($d->tecnico)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:14px;'>Funcionário:</b><div class='detalhesTexto'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:14px;'>Técnico:</b><div class='detalhesTexto'>".utf8_encode($d->tecnico)."</div>":false)."</div>".
 
-				"<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:20px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
+				"<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:14px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
-			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:20px;''>Cadastrado ID:</b> <div style='font-size:23px;'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:20px;'>Situação:</b><div style='font-size:23px;'>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div > <b style='font-size:20px;'>Setor:</b><div style='font-size:25px;'>".utf8_encode($d->setor_nome)."</div></div>".
-							"<div> <b style='font-size:20px;'>Máquina: (".$parada[$d->parada].")</b><div style='font-size:23px;'>".utf8_encode($d->maquina_nome)."</div></div>".
-							"<div > <b style='font-size:20px;'>Time:</b><div style='font-size:23px;'>".utf8_encode($d->time_nome)."</div></div>".
-							"<div> <b style='font-size:20px;'>Ocorrência:</b><div style='font-size:23px;'>".utf8_encode($d->motivo_nome)."</div></div>";
+			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:14px;''>Cadastrado ID:</b> <div style='font-size:13px;'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:14px;'>Situação:</b><div style='font-size:13px;'>".$titulo[$d->status]."</div>":false)."</div>".
+							"<div > <b style='font-size:14px;'>Setor:</b><div style='font-size:13px;'>".utf8_encode($d->setor_nome)."</div></div>".
+							"<div> <b style='font-size:14px;'>Máquina: (".$parada[$d->parada].")</b><div style='font-size:13px;'>".utf8_encode($d->maquina_nome)."</div></div>".
+							"<div > <b style='font-size:14px;'>Time:</b><div style='font-size:13px;'>".utf8_encode($d->time_nome)."</div></div>".
+							"<div> <b style='font-size:14px;'>Ocorrência:</b><div style='font-size:13px;'>".utf8_encode($d->motivo_nome)."</div></div>";
 		}
 
 
@@ -278,7 +278,7 @@
 			color:#fff;
 		}
 		.Qt span{
-			font-size:20px;
+			font-size:14px;
 		}
 		.Qt h1{
 			width:100%;
