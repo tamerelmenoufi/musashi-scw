@@ -274,16 +274,16 @@
 		.Qt{
 			margin:5px;
 			border-radius:5px;
-			padding:10px;
+			padding:5px;
 			color:#fff;
 		}
 		.Qt span{
-			font-size:14px;
+			font-size:10px;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			font-size:60px;
+			font-size:30px;
 		}
 		.graficos{
 			background-color:#fff;
