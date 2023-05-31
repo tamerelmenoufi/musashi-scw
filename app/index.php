@@ -144,38 +144,38 @@
 
 
 			$TickDetalhe[] = "
-					<div style='float:left; width:30%;'><b style='color:#a1a1a1; font-size:14px;'>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:45%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:14px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
-					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:14px;'>Situação:</b>
+					<div style='float:left; width:25%;'><b style='color:#a1a1a1; font-size:10px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:10px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:10px;'>Situação:</b>
 						<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
-					"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:14px;'>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:14px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:14px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
+					"<div style='float:left; width:60%;'><b style='color:#a1a1a1; font-size:10px;''>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:10px;'>Modelo:</b><div class='detalhesTexto'>".utf8_encode($d->modelo_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:10px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
 
 
-					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:14px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
-					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:14px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div class='detalhesTexto'>".utf8_encode($d->maquina_nome)."</div></div>".
+					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
+					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:10px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div class='detalhesTexto'>".utf8_encode($d->maquina_nome)."</div></div>".
 
 
-					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:14px;'>Time:</b><div class='detalhesTexto'>".utf8_encode($d->time_nome)."</div>":false)."</div>".
-					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:14px;'>Ocorrência:</b><div class='detalhesTexto'>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Time:</b><div class='detalhesTexto'>".utf8_encode($d->time_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b style='color:#a1a1a1; font-size:10px;'>Ocorrência:</b><div class='detalhesTexto'>".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
-				"<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:14px;'>Problema:</b><div class='detalhesTexto'>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
+				"<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:10px;'>Problema:</b><div class='detalhesTexto'>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
-				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:14px;'>Funcionário:</b><div class='detalhesTexto'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
-				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:14px;'>Técnico:</b><div class='detalhesTexto'>".utf8_encode($d->tecnico)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:10px;'>Funcionário:</b><div class='detalhesTexto'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:10px;'>Técnico:</b><div class='detalhesTexto'>".utf8_encode($d->tecnico)."</div>":false)."</div>".
 
-				"<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:14px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
+				"<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:10px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
-			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:14px;''>Cadastrado ID:</b> <div style='font-size:13px;'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:14px;'>Situação:</b><div style='font-size:13px;'>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div > <b style='font-size:14px;'>Setor:</b><div style='font-size:13px;'>".utf8_encode($d->setor_nome)."</div></div>".
-							"<div> <b style='font-size:14px;'>Máquina: (".$parada[$d->parada].")</b><div style='font-size:13px;'>".utf8_encode($d->maquina_nome)."</div></div>".
-							"<div > <b style='font-size:14px;'>Time:</b><div style='font-size:13px;'>".utf8_encode($d->time_nome)."</div></div>".
-							"<div> <b style='font-size:14px;'>Ocorrência:</b><div style='font-size:13px;'>".utf8_encode($d->motivo_nome)."</div></div>";
+			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:10px;''>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:10px;'>Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
+							"<div > <b style='font-size:10px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+							"<div> <b style='font-size:10px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
+							"<div > <b style='font-size:10px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
+							"<div> <b style='font-size:10px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
 		}
 
 
@@ -205,7 +205,7 @@
 			left:0;
 			top:60px;
 			right:0;
-			bottom:240px;
+			bottom:200px;
 		}
 		.RelatorioTV{
 			position:fixed;
@@ -213,7 +213,7 @@
 			top:60px;
 			left:calc(30% + 10px);
 			width:70%;
-			bottom:300px;
+			bottom:200px;
 			padding:10px;
 			border:0px blue solid;
 		}
@@ -222,7 +222,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:300px;
+			height:200px;
 		}
 		.slick-current{
 			opacity:1 !important;
@@ -231,7 +231,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:310px;
+			bottom:210px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
@@ -247,7 +247,7 @@
 			margin:0;
 			padding:0;
 			margin-top:-7px;
-			font-size:10px;
+			font-size:12px;
 		}
 		.listaDestaque div b{
 			margin:0;
@@ -274,16 +274,15 @@
 		.Qt{
 			margin:5px;
 			border-radius:5px;
-			padding:5px;
+			padding:10px;
 			color:#fff;
 		}
 		.Qt span{
-			font-size:10px;
+			font-size:12px;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			font-size:30px;
 		}
 		.graficos{
 			background-color:#fff;
@@ -292,14 +291,14 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:17px;
+			font-size:10px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
 			margin:0;
 		}
 		.grafico div div{
-			height:27px;
+			height:18px;
 			background-color:green;
 			color:#fff;
 			font-size:10px;
@@ -315,7 +314,7 @@
 			border-radius:10px;
 		}
 		.lista_maquinas h5{
-			margin:5px;
+			margin:10px;
 			margin-bottom:0;
 			padding-bottom:0;
 		}
@@ -326,9 +325,7 @@
 			font-weight:bold;
 		}
 		.detalhesTexto{
-			font-size:13px!important;
-			margin-top:3px;
-			margin-bottom:10px;
+			font-size:18px!important;
 			/*Dado de teste*/
 		}
 	</style>
@@ -341,7 +338,7 @@
 		<img src="img/logo.png" style="height:50px; margin:5px;">
 	</div>
 	<div>
-		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px; font-size:10px;">
+		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
 			<i class="fa fa-square" style="color:blue;"></i> Novo
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
@@ -351,11 +348,11 @@
 	</div>
 	<div>
 		<div style="margin-top:15px;">
-			<h6 style="font-size:12px;">CHAMADA SCW (STOP CALL WAIT)</h6>
+			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
 		</div>
 	</div>
 	<div>
-		<div class="dataHora" style="margin-top:10px; padding:10px; font-size:10px;">
+		<div class="dataHora" style="margin-top:10px; padding:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
@@ -376,22 +373,22 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<span style="font-size:10px;">Novos</span><h5><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h5>
+				<span>Novos</span><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<span style="font-size:10px;">Em Andamento</span><h5><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h5>
+				<span>Em Andamento</span><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:red">
-				<span style="font-size:10px;">Máquinas Paradas</span><h5><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h5>
+				<span>Máquinas Paradas</span><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<span style="font-size:10px;">Concluído (últimas 24H)</span><h5><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h5>
+				<span>Concluído (últimas 24H)</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
@@ -401,14 +398,14 @@
 	<div class="row mt-3">
 		<div class="col">
 			<div class="lista_maquinas">
-				<h4>Máquinas Paradas</h4>
+				<h5>Máquinas Paradas</h5>
 				<div class="lista_maquinas_paradas">
 				<?php
 
 					foreach($Rlt['paradas'] as $ind => $maq){
 						// for($i=0;$i<20;$i++){
 				?>
-					<div style="margin:5px; border-radius:5px; background-color:red; padding:10px; font-size:29px;"><?=$maq?></div>
+					<div style="margin:5px; border-radius:5px; background-color:red; padding:10px;"><?=$maq?></div>
 				<?php
 						// }
 					}
@@ -424,12 +421,12 @@
 	<div class="row mt-3">
 		<div class="col">
 			<div class="graficos">
-				<h4>Setores</h4>
+				<h5>Setores</h5>
 				<?php
 				arsort($Rlt['setor']['qt']);
 				$i=0;
 				foreach($Rlt['setor']['qt'] as $ind => $vet){
-					if($Rlt['setor']['nome'][$ind] and $i < 7){
+					if($Rlt['setor']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['setor']['nome'][$ind]?></span>
@@ -447,12 +444,12 @@
 		</div>
 		<!-- <div class="col">
 			<div class="graficos">
-				<h4>Manutenção</h4>
+				<h5>Manutenção</h5>
 				<?php
 				arsort($Rlt['tipo_manutencao']['qt']);
 				$i=0;
 				foreach($Rlt['tipo_manutencao']['qt'] as $ind => $vet){
-					if($Rlt['tipo_manutencao']['nome'][$ind] and $i < 7){
+					if($Rlt['tipo_manutencao']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['tipo_manutencao']['nome'][$ind]?></span>
@@ -471,12 +468,12 @@
 
 		<div class="col">
 			<div class="graficos">
-				<h4>Time de Atuação</h4>
+				<h5>Time de Atuação</h5>
 				<?php
 				arsort($Rlt['time']['qt']);
 				$i=0;
 				foreach($Rlt['time']['qt'] as $ind => $vet){
-					if($Rlt['time']['nome'][$ind] and $i < 7){
+					if($Rlt['time']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['time']['nome'][$ind]?></span>
@@ -497,12 +494,12 @@
 
 		<div class="col">
 			<div class="graficos">
-				<h4>Ocorrência</h4>
+				<h5>Ocorrência</h5>
 				<?php
 				arsort($Rlt['motivo']['qt']);
 				$i=0;
 				foreach($Rlt['motivo']['qt'] as $ind => $vet){
-					if($Rlt['motivo']['nome'][$ind] and $i < 7){
+					if($Rlt['motivo']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['motivo']['nome'][$ind]?></span>
