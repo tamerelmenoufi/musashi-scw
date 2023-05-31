@@ -376,22 +376,22 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<span>Novos</span><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span style="font-size:10px;">Novos</span><h5><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h5>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<span>Em Andamento</span><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span style="font-size:10px;">Em Andamento</span><h5><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h5>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:red">
-				<span>Máquinas Paradas</span><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span style="font-size:10px;">Máquinas Paradas</span><h5><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h5>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<span>Concluído (últimas 24H)</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span style="font-size:10px;">Concluído (últimas 24H)</span><h5><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h5>
 			</div>
 		</div>
 	</div>
