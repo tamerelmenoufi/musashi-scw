@@ -351,11 +351,11 @@
 	</div>
 	<div>
 		<div style="margin-top:15px;">
-			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
+			<h6>CHAMADA SCW (STOP CALL WAIT)</h6>
 		</div>
 	</div>
 	<div>
-		<div class="dataHora" style="margin-top:10px; padding:10px;">
+		<div class="dataHora" style="margin-top:10px; padding:10px; font-size:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
