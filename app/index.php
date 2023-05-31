@@ -341,7 +341,7 @@
 		<img src="img/logo.png" style="height:50px; margin:5px;">
 	</div>
 	<div>
-		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
+		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px; font-size:10px;">
 			<i class="fa fa-square" style="color:blue;"></i> Novo
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
