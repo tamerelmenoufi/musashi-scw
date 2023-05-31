@@ -247,7 +247,7 @@
 			margin:0;
 			padding:0;
 			margin-top:-7px;
-			font-size:12px;
+			font-size:10px;
 		}
 		.listaDestaque div b{
 			margin:0;
