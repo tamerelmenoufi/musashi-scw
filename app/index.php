@@ -319,12 +319,12 @@
 			margin:5px;
 			margin-bottom:0;
 			padding-bottom:0;
-			font-size:15px;
+			font-size:13px;
 		}
 		.lista_maquinas_paradas div{
 			text-align:center;
 			color:#fff;
-			font-size:15px;
+			font-size:12px;
 			font-weight:bold;
 		}
 		.detalhesTexto{
