@@ -145,19 +145,19 @@
 
 			$TickDetalhe[] = "
 					<div style='float:left; width:30%;'><b>Cadastrado ID:</b> <div >".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b'>Data:</b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data:</b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
 					"<div style='float:left; width:20%;'>".(($d->status)?"<b>Situação:</b>
 						<div  style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
-					"<div style='float:left; width:60%;'><b'>Peça:</b> <div >".utf8_encode($d->peca_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b'>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
+					"<div style='float:left; width:60%;'><b>Peça:</b> <div >".utf8_encode($d->peca_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
 					"<div style='float:left; width:20%;'><b>Código:</b><div >".utf8_encode($d->codigos_nome)."</div></div>".
 
 					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)."</div></div>".
 					"<div style='float:left; width:40%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
 
-					"<div style='float:left; width:100%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
-					"<div style='float:left; width:100%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
