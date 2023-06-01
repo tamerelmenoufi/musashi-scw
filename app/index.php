@@ -210,7 +210,7 @@
 		.RelatorioTV{
 			position:fixed;
 			right:0;
-			top:40px;
+			top:30px;
 			left:calc(30% + 10px);
 			width:70%;
 			bottom:200px;
@@ -230,7 +230,7 @@
 		.statusDestaque{
 			position:fixed;
 			left:10px;
-			top:50px;
+			top:45px;
 			bottom:210px;
 			width:30%;
 			border-radius:10px;
