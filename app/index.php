@@ -212,7 +212,7 @@
 			right:0;
 			top:30px;
 			left:calc(30% + 10px);
-			width:70%;
+			width:100%;
 			bottom:200px;
 			padding:10px;
 			border:0px blue solid;
