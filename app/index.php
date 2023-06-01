@@ -258,7 +258,7 @@
 		.listaResumo div{
 			margin:0;
 			padding:0;
-			margin-top:-5px;
+			margin-top:-10px;
 		}
 		.listaResumo div div{
 			margin:0;
