@@ -293,7 +293,7 @@
 			padding:3px;
 		}
 		.grafico{
-			margin-top:3px;
+			margin-top:2px;
 		}
 		.graficos h5{
 			font-size:10px;
