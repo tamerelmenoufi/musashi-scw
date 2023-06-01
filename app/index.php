@@ -156,8 +156,8 @@
 					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)."</div></div>".
 					"<div style='float:left; width:40%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
 
-					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
-					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:100%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:100%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
 
 
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
