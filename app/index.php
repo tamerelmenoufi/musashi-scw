@@ -248,7 +248,7 @@
 			margin-top:0px;
 			font-size:11px;
 			border:solid 1px red;
-			max-height:25px;
+			max-height:20px;
 		}
 		.listaDestaque div b{
 			margin:0;
