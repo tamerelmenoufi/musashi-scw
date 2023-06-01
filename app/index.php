@@ -203,7 +203,7 @@
 			left:0;
 			top:40px;
 			right:0;
-			bottom:200px;
+			bottom:114px;
 		}
 		.RelatorioTV{
 			position:fixed;
@@ -221,7 +221,6 @@
 			bottom:0;
 			right:0;
 			height:112px;
-			border:solid 1px red;
 		}
 		.slick-current{
 			opacity:1 !important;
