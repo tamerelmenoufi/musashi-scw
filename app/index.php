@@ -441,7 +441,7 @@
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['setor']['nome'][$ind]?></div>
 					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
+						<div class="rotulo" style="width:<?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
 						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor']['qt'][$ind]?>] <?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
@@ -488,7 +488,7 @@
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['time']['nome'][$ind]?></div>
 					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['time']['qt'][$ind]*100/$Rlt['time']['tot']),0,false,false)?>%"></div>
+						<div class="rotulo" style="width:<?=number_format(($Rlt['time']['qt'][$ind]*100/$Rlt['time']['tot']),0,false,false)?>%"></div>
 						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['time']['qt'][$ind]?>] <?=number_format(($Rlt['time']['qt'][$ind]*100/$Rlt['time']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
@@ -514,7 +514,7 @@
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['motivo']['nome'][$ind]?></div>
 					<div class="d-flex justify-content-start">
-						<div style="width:<?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%"></div>
+						<div class="rotulo" style="width:<?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%"></div>
 						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['motivo']['qt'][$ind]?>] <?=number_format(($Rlt['motivo']['qt'][$ind]*100/$Rlt['motivo']['tot']),0,false,false)?>%</span>
 					</div>
 				</div>
