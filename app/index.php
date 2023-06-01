@@ -339,20 +339,20 @@
 	</div>
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
-			<i class="fa fa-square" style="color:blue;"></i> Novo
-			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
-			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
-			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
-			<i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando
+			<i class="fa fa-square" style="color:blue; font-size:10px;"></i> Novo
+			<i class="fa fa-square" style="color:orange; margin-left:10px; font-size:10px;"></i> Pendente
+			<i class="fa fa-square" style="color:green; margin-left:10px; font-size:10px;"></i> Concluído
+			<i class="fa fa-square" style="color:red; margin-left:10px; font-size:10px;"></i> Máquina Parada
+			<i class="fa fa-square" style="color:yellow; margin-left:10px; font-size:10px;"></i> Máquina Funcionando
 		</div>
 	</div>
 	<div>
-		<div style="margin-top:15px;">
+		<div style="margin-top:15px; font-size:15px;">
 			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
 		</div>
 	</div>
 	<div>
-		<div class="dataHora" style="margin-top:10px; padding:10px;">
+		<div class="dataHora" style="margin-top:10px; padding:10px; font-size:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
