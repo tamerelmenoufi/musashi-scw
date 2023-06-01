@@ -230,7 +230,7 @@
 		.statusDestaque{
 			position:fixed;
 			left:10px;
-			top:70px;
+			top:40px;
 			bottom:210px;
 			width:30%;
 			border-radius:10px;
