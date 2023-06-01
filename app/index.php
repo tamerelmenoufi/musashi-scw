@@ -287,12 +287,12 @@
 			color:#fff;
 		}
 		.Qt div{
-			font-size:8px;
+			font-size:10px;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			font-size:16px;
+			font-size:18px;
 		}
 		.graficos{
 			background-color:#fff;
