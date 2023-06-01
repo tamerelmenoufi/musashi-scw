@@ -439,7 +439,7 @@
 	<?php
 	}
 	?>
-	<div class="row">
+	<div class="row" style="margin-top:-2px;">
 		<div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>Setores</h5>
