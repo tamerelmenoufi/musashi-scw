@@ -292,6 +292,9 @@
 			border-radius:10px;
 			padding:3px;
 		}
+		.grafico{
+			margin-top:5px;
+		}
 		.graficos h5{
 			font-size:10px;
 			margin:0;
