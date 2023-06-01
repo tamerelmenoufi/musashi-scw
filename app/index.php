@@ -234,7 +234,6 @@
 			border-radius:10px;
 			background:#eee !important;
 			padding:15px;
-			border:solid 1px red;
 		}
 
 		.listaDestaque div{
@@ -291,6 +290,7 @@
 			background-color:#fff;
 			border-radius:10px;
 			padding:3px;
+			border:solid 1px red;
 		}
 		.grafico{
 			margin-top:2px;
