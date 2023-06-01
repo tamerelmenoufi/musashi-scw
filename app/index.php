@@ -276,7 +276,7 @@
 			margin:5px;
 			border-radius:5px;
 			padding:5px;
-			height:40px;
+			height:45px;
 			color:#fff;
 		}
 		.Qt div{
