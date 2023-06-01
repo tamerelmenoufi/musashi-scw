@@ -440,8 +440,8 @@
 	}
 	?>
 	<div class="row">
-		<div class="col" style="border:solid 1px green; text-align:right;">
-			<div class="graficos">
+		<div class="col" style="border:solid 1px green; position:relative;">
+			<div class="graficos" style="right:0;">
 				<h5>Setores</h5>
 				<?php
 				arsort($Rlt['setor']['qt']);
@@ -487,7 +487,7 @@
 			</div>
 		</div> -->
 
-		<div class="col" style="border:solid 1px green; text-align:center;">
+		<div class="col" style="border:solid 1px green; position:relative;">
 			<div class="graficos">
 				<h5>Time de Atuação</h5>
 				<?php
@@ -513,8 +513,8 @@
 
 
 
-		<div class="col" style="border:solid 1px green; text-align:left;">
-			<div class="graficos">
+		<div class="col" style="border:solid 1px green; position:relative;">
+			<div class="graficos" style="left:0;">
 				<h5>Ocorrência</h5>
 				<?php
 				arsort($Rlt['motivo']['qt']);
