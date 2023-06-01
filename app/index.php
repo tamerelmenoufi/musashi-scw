@@ -272,9 +272,9 @@
 			margin-top:-9px;
 		}
 		.Qt{
-			margin:0px;
+			margin:5px;
 			border-radius:5px;
-			padding:2px;
+			padding:0px;
 			color:#fff;
 		}
 		.Qt span{
