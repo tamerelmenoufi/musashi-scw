@@ -168,12 +168,12 @@
 
 				"<div style='width:100%;'>".(($d->observacao)?"<b>Observações:</b><div >".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
 
-			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:7px;'>Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:7px;'>Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div style='float:left; width:100%;'> <b style='font-size:7px;'>Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
-							"<div style='float:left; width:100%;'> <b style='font-size:7px;'>Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
-							"<div style='float:left; width:100%;'> <b style='font-size:7px;'>Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
-							"<div style='float:left; width:100%;'> <b style='font-size:7px;'>Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
+			$TickResumo[] = "<div style='float:left; width:40%;'><b >Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+							"<div style='float:left; width:60%;'>".(($d->status)?"<b >Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
+							"<div style='float:left; width:100%;'> <b >Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
 		}
 
 
@@ -259,6 +259,9 @@
 			margin:0;
 			padding:0;
 			margin-top:-10px;
+		}
+		.listaResumo b{
+			font-size:8px;
 		}
 		.listaResumo div div{
 			margin:0;
