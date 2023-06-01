@@ -283,7 +283,7 @@
 		.Qt h1{
 			width:100%;
 			text-align:center;
-			font-size:14px;
+			font-size:18px;
 		}
 		.graficos{
 			background-color:#fff;
