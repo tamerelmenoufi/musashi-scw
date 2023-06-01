@@ -220,7 +220,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:160px;
+			height:140px;
 		}
 		.slick-current{
 			opacity:1 !important;
@@ -269,8 +269,8 @@
 			margin-top:-7px;
 			font-size:11px;
 			text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 		.listaResumo div b{
 			margin:0;
