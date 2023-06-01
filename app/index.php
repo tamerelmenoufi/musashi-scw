@@ -305,7 +305,7 @@
 			padding:0;
 			margin:0;
 		}
-		.grafico div div.rotulo{
+		.grafico div span{
 			color:#a1a1a1;
 			font-size:7px;
 			font-weight:bold;
