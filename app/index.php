@@ -329,6 +329,9 @@
 			font-size:12px;
 			font-weight:bold;
 		}
+		button:{
+			display:none;
+		}
 
 	</style>
 </head>
