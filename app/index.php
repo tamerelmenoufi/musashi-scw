@@ -268,6 +268,9 @@
 			padding:0;
 			margin-top:-7px;
 			font-size:11px;
+			text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 		}
 		.listaResumo div b{
 			margin:0;
