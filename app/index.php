@@ -210,7 +210,7 @@
 		.RelatorioTV{
 			position:fixed;
 			right:0;
-			top:60px;
+			top:40px;
 			left:calc(30% + 10px);
 			width:70%;
 			bottom:200px;
