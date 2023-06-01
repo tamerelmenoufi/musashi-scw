@@ -203,7 +203,7 @@
 		.corpoTV{
 			position:fixed;
 			left:0;
-			top:60px;
+			top:40px;
 			right:0;
 			bottom:200px;
 		}
