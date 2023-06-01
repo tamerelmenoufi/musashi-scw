@@ -397,7 +397,7 @@
 	<?php
 	if($Rlt['paradas']){
 	?>
-	<div class="row mt-1">
+	<div class="row">
 		<div class="col">
 			<div class="lista_maquinas">
 				<h5>Máquinas Paradas</h5>
