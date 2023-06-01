@@ -229,7 +229,7 @@
 			position:fixed;
 			left:10px;
 			top:45px;
-			bottom:111px;
+			bottom:130px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
