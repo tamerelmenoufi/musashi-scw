@@ -220,7 +220,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:110px;
+			height:115px;
 			border:solid 1px red;
 		}
 		.slick-current{
