@@ -239,19 +239,19 @@
 		.listaDestaque div{
 			margin:0;
 			padding:0;
-			margin-top:-5px;
+			margin-top:0px;
 			font-size:7px;
 		}
 		.listaDestaque div div{
 			margin:0;
 			padding:0;
-			margin-top:-7px;
+			margin-top:0px;
 			font-size:8px;
 		}
 		.listaDestaque div b{
 			margin:0;
 			padding:0;
-			margin-top:-9px;
+			margin-top:0px;
 			color:#a1a1a1;
 		}
 		.detalhesTexto{
