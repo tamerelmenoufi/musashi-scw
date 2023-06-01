@@ -330,7 +330,7 @@
 			font-weight:bold;
 		}
 		button:{
-			display:none;
+			opacity:0;
 		}
 
 	</style>
