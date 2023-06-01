@@ -440,7 +440,7 @@
 	}
 	?>
 	<div class="row">
-		<div class="col" style="border:solid 1px green">
+		<div class="col" style="border:solid 1px green; text-alig:right;">
 			<div class="graficos">
 				<h5>Setores</h5>
 				<?php
@@ -487,7 +487,7 @@
 			</div>
 		</div> -->
 
-		<div class="col">
+		<div class="col" style="border:solid 1px green; text-alig:center;">
 			<div class="graficos">
 				<h5>Time de Atuação</h5>
 				<?php
@@ -513,7 +513,7 @@
 
 
 
-		<div class="col">
+		<div class="col" style="border:solid 1px green; text-alig:left;">
 			<div class="graficos">
 				<h5>Ocorrência</h5>
 				<?php
