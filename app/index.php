@@ -153,8 +153,8 @@
 					"<div style='float:left; width:20%;'><b'>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
 					"<div style='float:left; width:20%;'><b>Código:</b><div >".utf8_encode($d->codigos_nome)."</div></div>".
 
-					"<div style='float:left; width:50%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)."</div></div>".
-					"<div style='float:left; width:50%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
+					"<div style='float:left; width:70%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)."</div></div>".
+					"<div style='float:left; width:30%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
 
 					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
 					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
