@@ -338,7 +338,7 @@
 		<img src="img/logo.png" style="height:30px; margin:5px;">
 	</div>
 	<div>
-		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:5px; font-size:10px;">
+		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:10px; font-size:10px;">
 			<i class="fa fa-square" style="color:blue;"></i> Novo
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
@@ -347,7 +347,7 @@
 		</div>
 	</div>
 	<div>
-		<div style="margin-top:5px;">
+		<div style="margin-top:10px;">
 			<h5 style="font-size:15px;">CHAMADA SCW (STOP CALL WAIT)</h5>
 		</div>
 	</div>
