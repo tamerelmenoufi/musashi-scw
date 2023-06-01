@@ -316,9 +316,10 @@
 			border-radius:10px;
 		}
 		.lista_maquinas h5{
-			margin:10px;
+			margin:5px;
 			margin-bottom:0;
 			padding-bottom:0;
+			font-size:15px;
 		}
 		.lista_maquinas_paradas div{
 			text-align:center;
@@ -400,7 +401,7 @@
 	<div class="row">
 		<div class="col">
 			<div class="lista_maquinas">
-				<h5>Máquinas Paradas</h5>
+				<h5 >Máquinas Paradas</h5>
 				<div class="lista_maquinas_paradas">
 				<?php
 
