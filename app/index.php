@@ -254,10 +254,9 @@
 			margin-top:0px;
 			color:#a1a1a1;
 		}
-		.detalhesTexto{
+		/* .detalhesTexto{
 			font-size:8px!important;
-			/*Dado de teste*/
-		}
+		} */
 
 		.listaResumo div{
 			margin:0;
