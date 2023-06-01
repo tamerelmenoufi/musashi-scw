@@ -420,7 +420,7 @@
 	<?php
 	}
 	?>
-	<div class="row mt-3">
+	<div class="row">
 		<div class="col">
 			<div class="graficos">
 				<h5>Setores</h5>
