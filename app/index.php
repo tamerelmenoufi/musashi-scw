@@ -488,7 +488,7 @@
 		</div> -->
 
 		<div class="col" style="border:solid 1px green; position:relative;">
-			<div class="graficos">
+			<div class="graficos" style="position:absolute; left:5px; right:5px;">
 				<h5>Time de Atuação</h5>
 				<?php
 				arsort($Rlt['time']['qt']);
