@@ -310,7 +310,7 @@
 		}
 		.grafico > .rotulo{
 			color:#a1a1a1;
-			font-size:8px;
+			font-size:10px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
@@ -318,17 +318,17 @@
 		}
 		.grafico div span{
 			color:#a1a1a1;
-			font-size:9px;
+			font-size:11px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
 			margin:0;
 		}
 		.grafico div div{
-			height:10px;
+			height:15px;
 			background-color:green;
 			color:#fff;
-			font-size:7px;
+			font-size:10px;
 			margin-top:0px;
 			padding:2px;
 			margin:0;
