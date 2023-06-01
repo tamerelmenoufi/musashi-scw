@@ -297,7 +297,7 @@
 			margin:0;
 			padding:0;
 		}
-		.grafico span{
+		.grafico div.rotulo{
 			color:#a1a1a1;
 			font-size:7px;
 			font-weight:bold;
@@ -439,7 +439,7 @@
 					if($Rlt['setor']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
-					<div><?=$Rlt['setor']['nome'][$ind]?></div>
+					<div class="rotulo><?=$Rlt['setor']['nome'][$ind]?></div>
 					<div class="d-flex justify-content-start">
 						<div style="width:<?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
 						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor']['qt'][$ind]?>] <?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
