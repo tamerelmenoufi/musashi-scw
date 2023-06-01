@@ -350,7 +350,7 @@
 		.lista_maquinas_paradas div{
 			text-align:center;
 			color:#fff;
-			font-size:10px;
+			font-size:12px;
 			font-weight:bold;
 		}
 		button:{
