@@ -220,7 +220,7 @@
 			left:0;
 			bottom:0;
 			right:0;
-			height:120px;
+			height:150px;
 		}
 		.slick-current{
 			opacity:1 !important;
