@@ -278,7 +278,7 @@
 			color:#fff;
 		}
 		.Qt span{
-			font-size:10px;
+			font-size:9px;
 		}
 		.Qt h1{
 			width:100%;
