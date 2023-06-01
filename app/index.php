@@ -290,7 +290,7 @@
 			background-color:#fff;
 			border-radius:10px;
 			padding:3px;
-			border:solid 1px red;
+
 		}
 		.grafico{
 			margin-top:2px;
@@ -440,7 +440,7 @@
 	}
 	?>
 	<div class="row">
-		<div class="col" style="border:solid 1px green; position:relative;">
+		<div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>Setores</h5>
 				<?php
@@ -487,7 +487,7 @@
 			</div>
 		</div> -->
 
-		<div class="col" style="border:solid 1px green; position:relative;">
+		<div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:5px; right:5px;">
 				<h5>Time de Atuação</h5>
 				<?php
@@ -513,7 +513,7 @@
 
 
 
-		<div class="col" style="border:solid 1px green; position:relative;">
+		<div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:0; right:20px;">
 				<h5>Ocorrência</h5>
 				<?php
