@@ -240,13 +240,13 @@
 			margin:0;
 			padding:0;
 			margin-top:0px;
-			font-size:7px;
+			font-size:10px;
 		}
 		.listaDestaque div div{
 			margin:0;
 			padding:0;
 			margin-top:0px;
-			font-size:8px;
+			font-size:12px;
 		}
 		.listaDestaque div b{
 			margin:0;
