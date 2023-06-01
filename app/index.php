@@ -274,7 +274,7 @@
 		.Qt{
 			margin:5px;
 			border-radius:5px;
-			padding:0px;
+			padding:5px;
 			height:50px;
 			color:#fff;
 		}
