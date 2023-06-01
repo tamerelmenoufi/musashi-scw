@@ -211,7 +211,7 @@
 			top:35px;
 			left:calc(30% + 10px);
 			width:70%;
-			bottom:200px;
+			bottom:140px;
 			padding:5px;
 			border:0px blue solid;
 		}
