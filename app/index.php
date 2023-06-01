@@ -261,7 +261,7 @@
 			margin-top:-10px;
 		}
 		.listaResumo b{
-			font-size:8px;
+			font-size:10px;
 		}
 		.listaResumo div div{
 			margin:0;
