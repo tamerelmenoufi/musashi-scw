@@ -196,7 +196,7 @@
 			left:0;
 			top:0;
 			right:0;
-			height:60px;
+			height:40px;
 			background-color:#6a6a6a;
 			color:#fff;
 		}
