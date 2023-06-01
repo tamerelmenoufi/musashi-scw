@@ -145,8 +145,8 @@
 
 			$TickDetalhe[] = "
 					<div style='float:left; width:25%;'><b>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
-					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1;'>Situação:</b>
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:25%;'>".(($d->status)?"<b>Situação:</b>
 						<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
 					"<div style='float:left; width:60%;'><b'>Peça:</b> <div class='detalhesTexto'>".utf8_encode($d->peca_nome)."</div></div>".
@@ -254,6 +254,10 @@
 			margin-top:-9px;
 			color:#a1a1a1;
 		}
+		.detalhesTexto{
+			font-size:8px!important;
+			/*Dado de teste*/
+		}
 
 		.listaResumo div{
 			margin:0;
@@ -327,10 +331,7 @@
 			font-size:12px;
 			font-weight:bold;
 		}
-		.detalhesTexto{
-			font-size:18px!important;
-			/*Dado de teste*/
-		}
+
 	</style>
 </head>
 <body>
