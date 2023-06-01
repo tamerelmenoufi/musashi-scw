@@ -352,7 +352,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="dataHora" style="margin-top:10px; padding:10px; font-size:10px;">
+		<div class="dataHora" style="margin-top:0px; padding:10px; font-size:10px;">
 			<?=date("d/m/Y H:i")?>
 		</div>
 	</div>
