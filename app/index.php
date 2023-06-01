@@ -290,7 +290,7 @@
 		.graficos{
 			background-color:#fff;
 			border-radius:10px;
-			padding:2px;
+			padding:3px;
 		}
 		.graficos h5{
 			font-size:10px;
@@ -439,7 +439,7 @@
 					if($Rlt['setor']['nome'][$ind] and $i < 5){
 				?>
 				<div class="grafico">
-					<span><?=$Rlt['setor']['nome'][$ind]?></span>
+					<div><?=$Rlt['setor']['nome'][$ind]?></div>
 					<div class="d-flex justify-content-start">
 						<div style="width:<?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%"></div>
 						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['setor']['qt'][$ind]?>] <?=number_format(($Rlt['setor']['qt'][$ind]*100/$Rlt['setor']['tot']),0,false,false)?>%</span>
