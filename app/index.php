@@ -210,11 +210,11 @@
 		.RelatorioTV{
 			position:fixed;
 			right:0;
-			top:30px;
+			top:35px;
 			left:calc(30% + 10px);
 			width:70%;
 			bottom:200px;
-			padding:2px;
+			padding:5px;
 			border:0px blue solid;
 		}
 		.rodapeTV{
