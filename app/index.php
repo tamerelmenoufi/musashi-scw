@@ -294,17 +294,17 @@
 		}
 		.grafico span{
 			color:#a1a1a1;
-			font-size:10px;
+			font-size:7px;
 			font-weight:bold;
 			margin-top:0px;
 			padding:0;
 			margin:0;
 		}
 		.grafico div div{
-			height:18px;
+			height:10px;
 			background-color:green;
 			color:#fff;
-			font-size:10px;
+			font-size:7px;
 			margin-top:0px;
 			padding:2px;
 			margin:0;
