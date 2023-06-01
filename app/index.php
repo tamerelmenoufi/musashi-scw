@@ -347,8 +347,8 @@
 		</div>
 	</div>
 	<div>
-		<div style="margin-top:15px; font-size:15px;">
-			<h5>CHAMADA SCW (STOP CALL WAIT)</h5>
+		<div style="margin-top:15px;">
+			<h5 style="font-size:15px;">CHAMADA SCW (STOP CALL WAIT)</h5>
 		</div>
 	</div>
 	<div>
