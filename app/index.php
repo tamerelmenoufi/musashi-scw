@@ -441,7 +441,7 @@
 	?>
 	<div class="row">
 		<div class="col" style="border:solid 1px green; position:relative;">
-			<div class="graficos" style="position:absolute; right:0; left:10px;">
+			<div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>Setores</h5>
 				<?php
 				arsort($Rlt['setor']['qt']);
@@ -514,7 +514,7 @@
 
 
 		<div class="col" style="border:solid 1px green; position:relative;">
-			<div class="graficos" style="position:absolute; left:0; right:10px;">
+			<div class="graficos" style="position:absolute; left:0; right:20px;">
 				<h5>Ocorrência</h5>
 				<?php
 				arsort($Rlt['motivo']['qt']);
