@@ -297,7 +297,7 @@
 			margin:0;
 			padding:0;
 		}
-		.grafico div.rotulo{
+		.grafico.rotulo{
 			color:#a1a1a1;
 			font-size:7px;
 			font-weight:bold;
