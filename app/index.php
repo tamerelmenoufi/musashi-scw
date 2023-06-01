@@ -440,7 +440,7 @@
 	}
 	?>
 	<div class="row">
-		<div class="col" style="border:solid px green">
+		<div class="col" style="border:solid 1px green">
 			<div class="graficos">
 				<h5>Setores</h5>
 				<?php
