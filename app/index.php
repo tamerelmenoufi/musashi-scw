@@ -212,9 +212,9 @@
 			right:0;
 			top:30px;
 			left:calc(30% + 10px);
-			width:100%;
+			width:70%;
 			bottom:200px;
-			padding:10px;
+			padding:2px;
 			border:0px blue solid;
 		}
 		.rodapeTV{
