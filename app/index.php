@@ -275,6 +275,7 @@
 			margin:5px;
 			border-radius:5px;
 			padding:0px;
+			height:100px;
 			color:#fff;
 		}
 		.Qt span{
