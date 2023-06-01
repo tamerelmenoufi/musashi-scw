@@ -455,7 +455,7 @@
 				arsort($Rlt['setor']['qt']);
 				$i=0;
 				foreach($Rlt['setor']['qt'] as $ind => $vet){
-					if($Rlt['setor']['nome'][$ind] and $i < 5){
+					if($Rlt['setor']['nome'][$ind] and $i < 7){
 				?>
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['setor']['nome'][$ind]?></div>
@@ -478,7 +478,7 @@
 				arsort($Rlt['tipo_manutencao']['qt']);
 				$i=0;
 				foreach($Rlt['tipo_manutencao']['qt'] as $ind => $vet){
-					if($Rlt['tipo_manutencao']['nome'][$ind] and $i < 5){
+					if($Rlt['tipo_manutencao']['nome'][$ind] and $i < 7){
 				?>
 				<div class="grafico">
 					<span><?=$Rlt['tipo_manutencao']['nome'][$ind]?></span>
@@ -502,7 +502,7 @@
 				arsort($Rlt['time']['qt']);
 				$i=0;
 				foreach($Rlt['time']['qt'] as $ind => $vet){
-					if($Rlt['time']['nome'][$ind] and $i < 5){
+					if($Rlt['time']['nome'][$ind] and $i < 7){
 				?>
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['time']['nome'][$ind]?></div>
@@ -528,7 +528,7 @@
 				arsort($Rlt['motivo']['qt']);
 				$i=0;
 				foreach($Rlt['motivo']['qt'] as $ind => $vet){
-					if($Rlt['motivo']['nome'][$ind] and $i < 5){
+					if($Rlt['motivo']['nome'][$ind] and $i < 7){
 				?>
 				<div class="grafico">
 					<div class="rotulo"><?=$Rlt['motivo']['nome'][$ind]?></div>
