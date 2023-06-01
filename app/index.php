@@ -290,7 +290,12 @@
 		.graficos{
 			background-color:#fff;
 			border-radius:10px;
-			padding:5px;
+			padding:2px;
+		}
+		.graficos h5{
+			font-size:10px;
+			margin:0;
+			padding:0;
 		}
 		.grafico span{
 			color:#a1a1a1;
