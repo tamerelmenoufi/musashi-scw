@@ -314,6 +314,7 @@
 		.lista_maquinas{
 			background-color:#eee;
 			margin:5px;
+			margin-top:0;
 			border-radius:10px;
 		}
 		.lista_maquinas h5{
