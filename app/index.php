@@ -247,7 +247,7 @@
 			margin:0;
 			padding:0;
 			margin-top:-7px;
-			font-size:12px;
+			font-size:10px;
 		}
 		.listaDestaque div b{
 			margin:0;
@@ -274,15 +274,16 @@
 		.Qt{
 			margin:5px;
 			border-radius:5px;
-			padding:10px;
+			padding:5px;
 			color:#fff;
 		}
 		.Qt span{
-			font-size:12px;
+			font-size:10px;
 		}
 		.Qt h1{
 			width:100%;
 			text-align:center;
+			font-size:14px;
 		}
 		.graficos{
 			background-color:#fff;
