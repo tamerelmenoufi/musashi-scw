@@ -305,6 +305,14 @@
 			padding:0;
 			margin:0;
 		}
+		.grafico div > .rotulo{
+			color:#a1a1a1;
+			font-size:7px;
+			font-weight:bold;
+			margin-top:0px;
+			padding:0;
+			margin:0;
+		}
 		.grafico div div{
 			height:10px;
 			background-color:green;
