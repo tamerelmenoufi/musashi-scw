@@ -416,7 +416,7 @@
 	<?php
 	if($Rlt['paradas']){
 	?>
-	<div class="row">
+	<div class="row" style="margin-top:-5px;">
 		<div class="col">
 			<div class="lista_maquinas">
 				<h5 >Máquinas Paradas</h5>
