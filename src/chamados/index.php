@@ -137,7 +137,6 @@
     //exit();
   }
 
-  EnviarWappNovo('92991886570', 'Mensagem de teste da MUSASHI!');
 
 ?>
 
