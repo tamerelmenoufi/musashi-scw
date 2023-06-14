@@ -61,7 +61,7 @@
         $d = mysql_fetch_object($result);
 
 
-        $msg = "SCW-MUSASHI Informa: Chamado com alteração cadastrado ".
+        $msg = /*"SCW-MUSASHI Informa: Chamado com alteração cadastrado ".*/
                "*ID*:".str_pad($d->codigo, 8, "0", STR_PAD_LEFT).
                ", *SETOR*: ".utf8_encode($d->setor).
                ", *MÁQUINA*: ".utf8_encode($d->maquina).
