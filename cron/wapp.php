@@ -7,7 +7,8 @@
                 'mensagem' => $m,
                 'cnf' => [
                     'template' => 'mohatron_musashi_scw',
-                    'namespace' => 'd897e193_d48e_4831_8739_470062b6e4db'
+                    'namespace' => 'd897e193_d48e_4831_8739_470062b6e4db',
+                    'language' => 'pt_BR',
                 ]
             )
             );
