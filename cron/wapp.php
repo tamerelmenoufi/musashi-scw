@@ -5,6 +5,9 @@
             array(
                 'numero' => $n, // Receivers phonei
                 'mensagem' => $m,
+                'cnf' => [
+                    'tamplate' => 'mohatron_musashi_scw'
+                ]
             )
             );
         $opts = array('http' =>
