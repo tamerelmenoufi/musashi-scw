@@ -6,7 +6,7 @@
                 'numero' => $n, // Receivers phonei
                 'mensagem' => $m,
                 'cnf' => [
-                    'tamplate' => 'mohatron_musashi_scw'
+                    'template' => 'mohatron_musashi_scw'
                 ]
             )
             );
