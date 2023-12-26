@@ -46,6 +46,20 @@
       </div>
       <input type="text" id="nome<?=$tabela?>" value="" class="form-control" placeholder="Digite a descrição" aria-label="Digite a descrição">
       <input type="hidden" id="codigo<?=$tabela?>" value="" />
+      <select id="utm" class="form-select">
+        <?php
+        $q1 = "select * from utm order by nome";
+        $r1 = mysql_query($q1);
+        ?>
+        <option value="">::UTM::</option>
+        <?php
+        while($d1 = mysql_fetch_object($r1)){
+        ?>
+        <option value="<?=$d1->codigo?>"><?=$d1->nome?></option>
+        <?php
+        }
+        ?>
+      </select>
       <div class="input-group-append">
         <button salvar<?=$tabela?> class="btn btn-primary"><i class="fa fa-save"></i> Salvar</button>
       </div>
