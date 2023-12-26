@@ -107,7 +107,7 @@
       nome = $("#nome<?=$tabela?>").val();
       utm = $("#utm<?=$tabela?>").val();
       codigo = $("#codigo<?=$tabela?>").val();
-      if(nome){
+      if(nome && utm){
         Carregando();
         $.ajax({
           url:"src/setores/form.php",
