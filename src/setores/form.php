@@ -51,7 +51,7 @@
         $q1 = "select * from utm order by nome";
         $r1 = mysql_query($q1);
         ?>
-        <option value="">::UTM::</option>
+        <option value="">:: UTM ::</option>
         <?php
         while($d1 = mysql_fetch_object($r1)){
         ?>
