@@ -46,6 +46,9 @@
       </div>
       <input type="text" id="nome<?=$tabela?>" value="" class="form-control" placeholder="Digite a descrição" aria-label="Digite a descrição">
       <input type="hidden" id="codigo<?=$tabela?>" value="" />
+      <div class="input-group-prepend">
+          <span class="input-group-text">UTM</span>
+      </div>
       <select id="utm<?=$tabela?>" class="form-select">
         <?php
         $q1 = "select * from utm order by nome";
