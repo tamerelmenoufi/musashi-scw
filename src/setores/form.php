@@ -46,12 +46,12 @@
       </div>
       <input type="text" id="nome<?=$tabela?>" value="" class="form-control" placeholder="Digite a descrição" aria-label="Digite a descrição">
       <input type="hidden" id="codigo<?=$tabela?>" value="" />
-      <select id="utm" class="form-select">
+      <select id="utm<?=$tabela?>" class="form-select">
         <?php
         $q1 = "select * from utm order by nome";
         $r1 = mysql_query($q1);
         ?>
-        <option value="">:: UTM ::</option>
+        <option value=""></option>
         <?php
         while($d1 = mysql_fetch_object($r1)){
         ?>
@@ -105,6 +105,7 @@
 
     $("button[salvar<?=$tabela?>]").click(function(){
       nome = $("#nome<?=$tabela?>").val();
+      utm = $("#utm<?=$tabela?>").val();
       codigo = $("#codigo<?=$tabela?>").val();
       if(nome){
         Carregando();
@@ -114,6 +115,7 @@
           data:{
             codigo:codigo,
             nome:nome,
+            utm:utm,
             tabela:'<?=$tabela?>',
             acao:'editar',
           },
