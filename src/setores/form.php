@@ -21,12 +21,12 @@
   if($_POST['acao'] == 'editar'){
 
     if($_POST['codigo']){
-      $query = "update ".$_POST['tabela']." set nome = '".utf8_decode($_POST['nome'])."' where codigo = '".$_POST['codigo']."'";
+      $query = "update ".$_POST['tabela']." set nome = '".utf8_decode($_POST['nome'])."', utm='".utf8_decode($_POST['utm'])."' where codigo = '".$_POST['codigo']."'";
     }else{
         
       $n = mysql_num_rows(mysql_query("select * from ".$_POST['tabela']." where nome = '".utf8_decode($_POST['nome'])."'"));
         
-      $query = "insert into ".$_POST['tabela']." set nome = '".utf8_decode($_POST['nome'])."'";
+      $query = "insert into ".$_POST['tabela']." set nome = '".utf8_decode($_POST['nome'])."', utm='".utf8_decode($_POST['utm'])."'";
     }
     mysql_query($query);
 
@@ -93,8 +93,8 @@
           <!--<th scope="row"><?=$d->codigo?></th>-->
           <td><?=utf8_encode($d->nome)?></td>
           <td class="text-right">
-            <button Editar<?=$tabela?> title="Editar Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" class="btn btn-info"><i class="fa fa-edit"></i> Editar</button>
-            <button Deletar<?=$tabela?> title="Excluir Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</button>
+            <button Editar<?=$tabela?> title="Editar Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-info"><i class="fa fa-edit"></i> Editar</button>
+            <button Deletar<?=$tabela?> title="Excluir Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-danger"><i class="fa fa-close"></i> Excluir</button>
           </td>
         </tr>
         <?php
@@ -144,7 +144,9 @@
     $("button[Editar<?=$tabela?>]").click(function(){
       codigo = $(this).attr("codigo");
       nome = $(this).attr("nome");
+      utm = $(this).attr("utm");
       $("#nome<?=$tabela?>").val(nome);
+      $("#utm<?=$tabela?>").val(utm);
       $("#codigo<?=$tabela?>").val(codigo);
       $("#nome<?=$tabela?>").focus();
     });
@@ -154,9 +156,10 @@
 
       codigo = $(this).attr("codigo");
       nome = $(this).attr("nome");
+      utm = $(this).attr("utm");
       
       $.confirm({
-        content:"Confirma a excluisão de <b>"+nome+"</b>?",
+        content:"Confirma a excluisão de <b>"+nome+"</b> pertencente a <b>"+utm+"</b>?",
         title:false,
         buttons:{
           "SIM":function(){
