@@ -72,7 +72,7 @@
     <table class="table table-hover">
     
         <?php
-          $query = "select * from ".$tabela." order by nome";
+          $query = "select a.*, b.nome as utm_nome from ".$tabela." a left join utm b on a.utm = b.codigo order by a.nome";
           $result = mysql_query($query);
           if(mysql_num_rows($result)){
         ?>
@@ -91,7 +91,7 @@
         ?>
         <tr <?=$tabela.$d->codigo?>>
           <!--<th scope="row"><?=$d->codigo?></th>-->
-          <td><?=utf8_encode($d->nome)?><?=(($d->utm)?" ({$d->utm})":false)?></td>
+          <td><?=utf8_encode($d->nome)?><?=(($d->utm)?" ({$d->utm_nome})":false)?></td>
           <td class="text-right">
             <button Editar<?=$tabela?> title="Editar Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-info"><i class="fa fa-edit"></i> Editar</button>
             <button Deletar<?=$tabela?> title="Excluir Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-danger"><i class="fa fa-close"></i> Excluir</button>
