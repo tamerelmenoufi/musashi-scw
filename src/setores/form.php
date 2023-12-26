@@ -80,7 +80,7 @@
       <thead>
         <tr>
           <!--<th scope="col-1">#</th>-->
-          <th scope="col">Nome</th>
+          <th scope="col">Nome (UTM)</th>
           <th scope="col-2" class="text-right"></th>
         </tr>
       </thead>
@@ -91,7 +91,7 @@
         ?>
         <tr <?=$tabela.$d->codigo?>>
           <!--<th scope="row"><?=$d->codigo?></th>-->
-          <td><?=utf8_encode($d->nome)?></td>
+          <td><?=utf8_encode($d->nome)?>(<?=(($d->utm)?" ({$d->utm})":false)?>)</td>
           <td class="text-right">
             <button Editar<?=$tabela?> title="Editar Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-info"><i class="fa fa-edit"></i> Editar</button>
             <button Deletar<?=$tabela?> title="Excluir Registro" codigo="<?=$d->codigo?>" nome="<?=utf8_encode($d->nome)?>" utm=<?=$d->utm?> class="btn btn-danger"><i class="fa fa-close"></i> Excluir</button>
