@@ -100,6 +100,13 @@
                       ),
                       array(
                         'icone'  => 'fa-cogs',
+                        'local'  => 'src/utm/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'UTM',
+                        'permissao' => 'auxiliares',
+                      ),
+                      array(
+                        'icone'  => 'fa-cogs',
                         'local'  => 'src/setores/index.php',
                         'destino'  => 'main',
                         'titulo' => 'Setores',
