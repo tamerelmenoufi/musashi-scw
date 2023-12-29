@@ -163,6 +163,7 @@
                         'titulo' => 'Notificações',
                         'permissao' => 'auxiliares',
                       ),
+
                     );
 
             for($i=0;$i<count($menu);$i++){
@@ -223,12 +224,21 @@
                         'titulo' => 'Concluídos',
                         'permissao' => 'concluidos',
                       ),
+
+                      array(
+                        'icone'  => 'fa-cogs',
+                        'local'  => 'src/relatorios/index.php',
+                        'destino'  => 'main',
+                        'titulo' => 'Relatórios',
+                        'permissao' => 'concluidos',
+                      ),
+
                     );
 
             for($i=0;$i<count($menu);$i++){
               if(in_array($menu[$i]['permissao'], $_SESSION['scw_usuario_permissoes'])){
           ?>
-          <li class="nav-item">
+          <li class="nav-item" <?=(($menu[$i]['titulo'] == 'Relatórios')?"style='opacity:0'":false)?>>
             <a menu class="nav-link" local="<?=$menu[$i]['local']?>" destino="<?=$menu[$i]['destino']?>" >
               <i class="fa <?=$menu[$i]['icone']?>"></i>
               <?=$menu[$i]['titulo']?>
