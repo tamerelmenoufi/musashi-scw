@@ -481,7 +481,7 @@
 
 
 			<div class="graficos" style="position:absolute; right:0; left:20px;">
-				<h5>UTM</h5>
+				<h5>UTM's</h5>
 				<?php
 				arsort($Rlt['utm']['qt']);
 				$i=0;
