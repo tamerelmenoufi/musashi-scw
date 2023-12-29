@@ -161,7 +161,7 @@
 					"<div style='float:left; width:20%;'><b>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
 					"<div style='float:left; width:20%;'><b>Código:</b><div >".utf8_encode($d->codigos_nome)."</div></div>".
 
-					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)."</div></div>".
+					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
 					"<div style='float:left; width:40%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
 
 					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
@@ -178,7 +178,7 @@
 
 			$TickResumo[] = "<div style='float:left; width:40%;'><b >Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 							"<div style='float:left; width:60%;'>".(($d->status)?"<b >Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div style='float:left; width:100%;'> <b >Setor:</b><div>".utf8_encode($d->setor_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Setor:</b><div>".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
 							"<div style='float:left; width:100%;'> <b >Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
 							"<div style='float:left; width:100%;'> <b >Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
 							"<div style='float:left; width:100%;'> <b >Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
