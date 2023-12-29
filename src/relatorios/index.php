@@ -147,7 +147,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Legenda</th>
             <th>UTM</th>
             <th>Quantidade</th>
             <th>Conclídos</th>
@@ -165,7 +164,6 @@
 
 ?>
         <tr>
-            <td><?=strtoupper(substr($i,0,2)).$j?></td>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
             <td><?=$v['pendente']*1?></td>
@@ -186,6 +184,7 @@
 <table class="table mt-3">
     <thead>
         <tr>
+            <th>Legenda</th>
             <th>Setor</th>
             <th>Quantidade</th>
             <th>Conclídos</th>
@@ -201,6 +200,7 @@
     foreach($relatorio['setor'] as $i => $v){
 ?>
         <tr>
+            <td><?=strtoupper(substr($i,0,2)).$j?></td>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
             <td><?=$v['pendente']*1?></td>
