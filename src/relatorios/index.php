@@ -1,6 +1,20 @@
 <?php
   include("../../includes/includes.php");
 
+  function Legenda($opc){
+
+    $d = [
+        'nome' => 'Quantidade',
+        'pendente' => 'Pendente',
+        'concluido' => 'Concluido',
+        'parada' => 'Parada',
+        'producao' => 'Em Produção',
+    ];
+
+    return $d[$opc];
+
+  }
+
   if($_POST['limpar']){
     $_SESSION['relatorio_utm'] = [];
     $_SESSION['relatorio_setor'] = [];
@@ -211,7 +225,6 @@
         data: {
             labels: [
                 <?php
-                    arsort($relatorio['setor']);
                     foreach($relatorio['setor'] as $i => $v){
                 ?>
                         '<?=$i?>',    
@@ -220,24 +233,20 @@
                 ?>
                 ],
             datasets: [
+
+                <?php
+                    foreach($relatorio['setor'] as $i => $v){
+                ?>
                 {
-                    label: 'CHAMADOS REGISTRADOS',
+                    label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [10,15, 41, 17, 1, 27]
-                },
-                {
-                    label: 'CHAMADOS REGISTRADOS',
-                    backgroundColor: 'red',
-                    borderColor: 'red',
-                    data: [10,15, 41, 17, 1, 27]
-                },
-                {
-                    label: 'CHAMADOS REGISTRADOS',
-                    backgroundColor: 'green',
-                    borderColor: 'green',
-                    data: [10,15, 41, 17, 1, 27]
-                },
+                    data: [Legenda($v['nome']), $v['pendente'], $v['concluido'], $v['parado'], $v['producao']]
+                },   
+                <?php
+                    }
+                ?>
+
             ]
         },
     
