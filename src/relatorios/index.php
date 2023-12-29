@@ -225,7 +225,13 @@
         data: {
             labels: [
                 <?php
+                    $grafico = [];
                     foreach($relatorio['setor'] as $i => $v){
+                        $grafico[]['qt'] = $v['nome'];
+                        $grafico[]['pd'] = $v['pendente'];
+                        $grafico[]['cl'] = $v['concluido'];
+                        $grafico[]['pa'] = $v['parado'];
+                        $grafico[]['pr'] = $v['producao'];
                 ?>
                         '<?=$i?>',    
                 <?php
@@ -235,13 +241,13 @@
             datasets: [
 
                 <?php
-                    foreach($relatorio['setor'] as $i => $v){
+                    foreach($grafico as $i => $v){
                 ?>
                 {
                     label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [<?=Legenda($v['nome'])?>, <?=$v['pendente']?>, <?=$v['concluido']?>, <?=$v['parado']?>, <?=$v['producao']?>]
+                    data: [<?=Legenda($v['qt'])?>, <?=$v['pd']?>, <?=$v['cl']?>, <?=$v['pa']?>, <?=$v['pr']?>]
                 },   
                 <?php
                     }
