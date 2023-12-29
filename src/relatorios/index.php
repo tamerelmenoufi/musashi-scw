@@ -100,12 +100,12 @@
         $relatorio['setor'][utf8_encode($d->setor_nome)] = ($relatorio['setor'][utf8_encode($d->setor_nome)] + 1);
     }
 
-    asort($relatorio['utm']);
+    arsort($relatorio['utm']);
     foreach($relatorio['utm'] as $i => $v){
         echo "<p>{$i} - {$v}</p>";
     }
     echo "<hr>";
-    asort($relatorio['setor']);
+    arsort($relatorio['setor']);
     foreach($relatorio['setor'] as $i => $v){
         echo "<p>{$i} - {$v}</p>";
     }
