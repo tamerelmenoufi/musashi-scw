@@ -96,8 +96,8 @@
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
-        $relatorio[$d->utm] = ($relatorio['utm'][$d->utm] + 1);
-        $relatorio[$d->setor] = ($relatorio['utm'][$d->utm] + 1);
+        $relatorio[$d->utm] = ($relatorio[$d->utm] + 1);
+        $relatorio[$d->setor] = ($relatorio[$d->setor] + 1);
     }
 
 
