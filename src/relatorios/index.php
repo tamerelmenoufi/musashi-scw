@@ -224,7 +224,7 @@ $j++;
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
 
 
-    const xValues = ['<?=implode("', '", $grafico_setor)?>'];
+    const xValues = ['<?=implode("', '", $grafico_setor['legenda'])?>'];
 
     new Chart("grafico_utm", {
         type: "horizontalBar",
