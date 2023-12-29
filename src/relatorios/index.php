@@ -2,6 +2,7 @@
   include("../../includes/includes.php");
 ?>
 
+<h3>Relatório</h3>
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
