@@ -238,6 +238,7 @@
                     $grafico = [];
                     foreach($relatorio['setor'] as $i => $v){
                 ?>
+                [
                 {
                     label: 'Geral',
                     backgroundColor: 'blue',
@@ -267,13 +268,12 @@
                     backgroundColor: 'orange',
                     borderColor: 'orange',
                     data: [50]
-                },     
+                },    
+                ], 
                 <?php
                     }
                 ?>
                 
-
-
             ]
         },
     
