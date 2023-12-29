@@ -51,7 +51,7 @@
         $r = mysql_query($q);
         while($s = mysql_fetch_object($r)){
         ?>
-        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_utm'])?'selected':false)?>><?=$s->nome?></option>
+        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_utm'])?'selected':false)?>><?=utf8_encode($s->nome)?></option>
         <?php
         }
         ?>
@@ -67,7 +67,7 @@
         $r = mysql_query($q);
         while($s = mysql_fetch_object($r)){
         ?>
-        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_setor'])?'selected':false)?>><?=$s->nome?></option>
+        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_setor'])?'selected':false)?>><?=utf8_encode($s->nome)?></option>
         <?php
         }
         ?>
