@@ -1,6 +1,8 @@
 <?php
   include("../../includes/includes.php");
 
+  $md5 = md5(date("YmdHis"));
+
   function Legenda($opc){
 
     $d = [
