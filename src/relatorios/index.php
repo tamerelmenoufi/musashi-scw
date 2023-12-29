@@ -147,6 +147,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Legenda</th>
             <th>UTM</th>
             <th>Quantidade</th>
             <th>Conclídos</th>
@@ -159,10 +160,12 @@
 
 <?php
     arsort($relatorio['utm']);
+    $j = 1;
     foreach($relatorio['utm'] as $i => $v){
 
 ?>
         <tr>
+            <td><?=strtoupper(substr($i,0,2)).$j?></td>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
             <td><?=$v['pendente']*1?></td>
@@ -172,6 +175,7 @@
         </tr>
         
 <?php
+    $j++;
     }
 ?>
     </tbody>
