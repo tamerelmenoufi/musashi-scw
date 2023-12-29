@@ -99,7 +99,7 @@
 
 		//UTMs
 		$Rlt['utm']['nome'][$d->utm] = utf8_encode($d->utm_nome);
-		$Rlt['utm']['qt'][$d->utm] = ($Rlt['setor']['qt'][$d->utm] + 1);
+		$Rlt['utm']['qt'][$d->utm] = ($Rlt['utm']['qt'][$d->utm] + 1);
 		$Rlt['utm']['tot'] = ($Rlt['utm']['tot'] + 1);
 
 
