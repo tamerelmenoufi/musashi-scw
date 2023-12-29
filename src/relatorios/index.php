@@ -103,7 +103,7 @@
                 type:"POST",
                 data:{
                     utm,
-                    acao:filtra_setor,
+                    acao:'filtra_setor',
                 },
                 success:function(dados){
                     $("#setor").html(dados);
