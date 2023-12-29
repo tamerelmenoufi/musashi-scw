@@ -12,7 +12,7 @@
   if($_POST['acao'] == 'filtra_setor'){
     $q = "select * from setores where utm = '{$_POST['utm']}' order by nome";
     $r = mysql_query($q);
-    echo "<option value=''>:: Selecione ::</option>";
+    echo "<option value=''>:: Geral ::</option>";
     while($s = mysql_fetch_object($r)){
         echo "<option value='{$s->codigo}'>".utf8_encode($s->nome)."</option>";
     }
@@ -45,7 +45,7 @@
         <span class="input-group-text">UTM</span>
     </div>
     <select class="form-control" id="utm">
-        <option value="">:: Selecione ::</option>
+        <option value="">:: Geral ::</option>
         <?php
         $q = "select * from utm order by nome";
         $r = mysql_query($q);
@@ -61,7 +61,7 @@
         <span class="input-group-text">Setor</span>
     </div>
     <select class="form-control" id="setor">
-        <option value="">:: Selecione ::</option>
+        <option value="">:: Geral ::</option>
         <?php
         $q = "select * from setores where utm = '{$_SESSION['relatorio_utm']}' order by nome";
         $r = mysql_query($q);
