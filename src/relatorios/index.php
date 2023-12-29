@@ -104,6 +104,10 @@
     foreach($relatorio['utm'] as $i => $v){
         echo "<p>{$i} - {$v}</p>";
     }
+    echo "<hr>";
+    foreach($relatorio['setor'] as $i => $v){
+        echo "<p>{$i} - {$v}</p>";
+    }
 ?>
 
 
