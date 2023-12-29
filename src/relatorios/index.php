@@ -96,12 +96,12 @@
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
-        $relatorio[$d->utm] = ($relatorio[$d->utm] + 1);
-        $relatorio[$d->setor] = ($relatorio[$d->setor] + 1);
+        $relatorio['utm'][$d->utm] = ($relatorio['utm'][$d->utm] + 1);
+        $relatorio['setor'][$d->setor] = ($relatorio['setor'][$d->setor] + 1);
     }
 
 
-    foreach($relatorio as $i => $v){
+    foreach($relatorio['utm'] as $i => $v){
         echo "<p>{$i} - {$v}</p>";
     }
 ?>
