@@ -96,18 +96,18 @@
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
-        $relatorio['utm'][utf8_encode($d->utm_nome)] = ($relatorio['utm'][utf8_encode($d->utm_nome)] + 1);
-        $relatorio['setor'][utf8_encode($d->setor_nome)] = ($relatorio['setor'][utf8_encode($d->setor_nome)] + 1);
+        $relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] + 1);
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] + 1);
     }
 
     arsort($relatorio['utm']);
     foreach($relatorio['utm'] as $i => $v){
-        echo "<p>{$i} - {$v}</p>";
+        echo "<p>{$i} - {$v['nome']}</p>";
     }
     echo "<hr>";
     arsort($relatorio['setor']);
     foreach($relatorio['setor'] as $i => $v){
-        echo "<p>{$i} - {$v}</p>";
+        echo "<p>{$i} - {$v['nome']}</p>";
     }
 ?>
 
