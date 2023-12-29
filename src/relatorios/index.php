@@ -13,14 +13,14 @@
     <div class="input-group-prepend">
         <span class="input-group-text">UTM</span>
     </div>
-    <select id="utm">
+    <select class="form-control" id="utm">
         <option value="">:: Selecione ::</option>
     </select>
 
     <div class="input-group-prepend">
         <span class="input-group-text">Setor</span>
     </div>
-    <select id="setor">
+    <select class="form-control" id="setor">
         <option value="">:: Selecione ::</option>
     </select>
 
