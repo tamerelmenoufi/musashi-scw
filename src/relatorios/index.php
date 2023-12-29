@@ -199,7 +199,7 @@
     foreach($relatorio['setor'] as $i => $v){
 ?>
         <tr>
-            <td><?=strtoupper(substr($i,0,2)).$j?></td>
+            <td><?=strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT)?></td>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
             <td><?=$v['pendente']*1?></td>
