@@ -233,8 +233,8 @@ $j++;
             datasets: [{
             label: 'Geral',
             data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-            borderColor: "blue",
-            backgroundColor:"blue",
+            borderColor: "rgb(2, 62, 198, 0.5)",
+            backgroundColor:"rgb(2, 62, 198, 0.5)",
             fill: false
             },{
             label: 'Concluido',
