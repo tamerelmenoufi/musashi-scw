@@ -159,9 +159,8 @@
 
 <?php
     arsort($relatorio['utm']);
-    $j = 1;
+    
     foreach($relatorio['utm'] as $i => $v){
-
 ?>
         <tr>
             <td><?=$i?></td>
@@ -173,7 +172,6 @@
         </tr>
         
 <?php
-    $j++;
     }
 ?>
     </tbody>
@@ -197,6 +195,7 @@
 
 <?php
     arsort($relatorio['setor']);
+    $j = 1;
     foreach($relatorio['setor'] as $i => $v){
 ?>
         <tr>
@@ -210,6 +209,7 @@
         </tr>
         
 <?php
+$j++;
     }
 ?>
     </tbody>
