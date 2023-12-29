@@ -240,7 +240,7 @@
                 ?>
                 {
                     label: ['Geral','Pendente','Concluido','Parada','Em Produção'],
-                    backgroundColor: {'blue','gray','green','red','orange'},
+                    backgroundColor: ['blue','gray','green','red','orange'],
                     // borderColor: 'blue',
                     data: [10, 20, 30, 40, 50]
                 }, 
