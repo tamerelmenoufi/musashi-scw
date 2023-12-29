@@ -246,19 +246,19 @@ $j++;
             label: 'Pendente',
             data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
             borderColor: "gray",
-            backgroundColor:"gray",
+            backgroundColor:"rgb(116, 116, 116, 0.5)",
             fill: false
             },{
             label: 'Paradas',
             data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
             borderColor: "red",
-            backgroundColor:"red",
+            backgroundColor:"rgb(116, 116, 116, 0.5)",
             fill: false
             },{
             label: 'Em Produção',
             data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
             borderColor: "orange",
-            backgroundColor:"orange",
+            backgroundColor:"rgb(116, 116, 116, 0.5)",
             fill: false
             }]
         },
