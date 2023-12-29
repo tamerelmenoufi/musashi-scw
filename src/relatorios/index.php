@@ -97,13 +97,70 @@
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
         $relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] + 1);
-        $relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] + 1);
-    }
 
+        if($d->status != 'c'){
+        $relatorio['utm'][utf8_encode($d->utm_nome)]['pendente'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['pendente'] + 1);
+        }else{
+        $relatorio['utm'][utf8_encode($d->utm_nome)]['concluido'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['concluido'] + 1);
+        }
+        if($d->parada == 's'){
+        $relatorio['utm'][utf8_encode($d->utm_nome)]['parada'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['parada'] + 1);
+        }else{
+        $relatorio['utm'][utf8_encode($d->utm_nome)]['producao'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['producao'] + 1);    
+        }
+        
+
+
+
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] + 1);
+
+
+        if($d->status != 'c'){
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['pendente'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['pendente'] + 1);
+        }else{
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['concluido'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['concluido'] + 1);
+        }
+        if($d->parada == 's'){
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['parada'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['parada'] + 1);
+        }else{
+        $relatorio['setor'][utf8_encode($d->setor_nome)]['producao'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['producao'] + 1);    
+        }
+
+    }
+?>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UTM</th>
+            <th>Quantidade</th>
+            <th>Conclídos</th>
+            <th>Pendentes</th>
+            <th>Máquinas Paradas</th>
+            <th>Máquinas Em Produção</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<?php
     arsort($relatorio['utm']);
     foreach($relatorio['utm'] as $i => $v){
-        echo "<p>{$i} - {$v['nome']}</p>";
+?>
+        <tr>
+            <td><?=$i?></td>
+            <td><?=$v['nome']?></td>
+            <td><?=$v['pendente']?></td>
+            <td><?=$v['concluido']?></td>
+            <td><?=$v['parada']?></td>
+            <td><?=$v['producao']?></td>
+        </tr>
+        
+<?php
     }
+?>
+    </tbody>
+</table>
+
+<?php
     echo "<hr>";
     arsort($relatorio['setor']);
     foreach($relatorio['setor'] as $i => $v){
