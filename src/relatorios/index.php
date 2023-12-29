@@ -63,7 +63,8 @@
 
 
 <script>
-    $(funciton(){
+    $(function(){
+
         $("#relatorio_filtro_data1, #relatorio_filtro_data2").mask("99/99/9999");
 
         $("#utm").click(function(){
