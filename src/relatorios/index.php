@@ -209,7 +209,14 @@
     
         // The data for our dataset
         data: {
-            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+            labels: [
+                    'Jan',
+                    'Fev',
+                    'Mar', 
+                    'Abr', 
+                    'Mai', 
+                    'Jun'
+                ],
             datasets: [
                 {
                     label: 'CHAMADOS REGISTRADOS',
