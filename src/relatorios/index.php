@@ -5,8 +5,9 @@
   if($_POST['utm']){
     $q = "select * from setores where utm = '{$_POST['utm']}' order by nome";
     $r = mysql_query($q);
+    echo "<option value=''>:: Selecione ::</option>";
     while($s = mysql_fetch_object($r)){
-        echo "<option value='{$s->codigo}'>{$s->nome}</option>";
+        echo "<option value='{$s->codigo}'>".utf8_decode($s->nome)."</option>";
     }
     exit();
   }
