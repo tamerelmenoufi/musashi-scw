@@ -241,7 +241,7 @@
                     label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [Legenda($v['nome']), $v['pendente'], $v['concluido'], $v['parado'], $v['producao']]
+                    data: [<?=Legenda($v['nome'])?>, <?=$v['pendente']?>, <?=$v['concluido']?>, <?=$v['parado']?>, <?=$v['producao']?>]
                 },   
                 <?php
                     }
