@@ -144,6 +144,7 @@
 <?php
     arsort($relatorio['utm']);
     foreach($relatorio['utm'] as $i => $v){
+
 ?>
         <tr>
             <td><?=$i?></td>
@@ -201,7 +202,7 @@
 
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
     var ctx = document.getElementById('grafico_utm').getContext('2d');
-    var data = [<?=implode(',',$relatorio['setor']['nome'])?>];
+    //var data = [<?=implode(',',$relatorio['setor']['nomexx'])?>];
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'bar',
@@ -213,7 +214,7 @@
                 label: 'CHAMADOS REGISTRADOS',
                 backgroundColor: 'blue',
                 borderColor: 'blue',
-                data: data
+                data: [10,15, 41, 17, 1, 27]
             }]
         },
     
