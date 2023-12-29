@@ -160,7 +160,7 @@
     </tbody>
 </table>
 
-
+<canvas id="grafico_utm"></canvas>
 
 <table class="table mt-3">
     <thead>
@@ -197,6 +197,39 @@
 
 
 <script>
+
+
+    ///////////////////////// Chamados ////////////////////////////////////////////////////////////
+    var ctx = document.getElementById('grafico_utm').getContext('2d');
+    var data = [<?=implode(',',$relatorio['setor']['nome'])?>];
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+    
+        // The data for our dataset
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+            datasets: [{
+                label: 'CHAMADOS REGISTRADOS',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+                data: data
+            }]
+        },
+    
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
     $(function(){
 
         $("#relatorio_filtro_data1, #relatorio_filtro_data2").mask("99/99/9999");
