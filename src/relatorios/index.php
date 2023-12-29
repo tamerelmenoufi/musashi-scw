@@ -216,6 +216,13 @@
 
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
     var ctx = document.getElementById('grafico_utm').getContext('2d');
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+            indexAxis: 'y',
+        }
+    };
     const data = {
     labels: ['a','b','c','d'],
     datasets: [{
@@ -244,18 +251,7 @@
         borderWidth: 1
     }]
     };
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
-    
-        // The data for our dataset
-        data: data,
-    
-        // Configuration options go here
-        options: {
-            indexAxis: 'y',
-        }
-    });
+    var chart = new Chart(ctx, config);
 
 
     $(function(){
