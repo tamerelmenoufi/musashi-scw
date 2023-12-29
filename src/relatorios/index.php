@@ -197,6 +197,7 @@
     arsort($relatorio['setor']);
     $j = 1;
     foreach($relatorio['setor'] as $i => $v){
+        $grafico_setor['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
 ?>
         <tr>
             <td><?=strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT)?></td>
@@ -223,7 +224,7 @@ $j++;
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
 
 
-    const xValues = [100,200,300,400,500,600,700,800,900,1000];
+    const xValues = ['<?=implode("', '", $grafico_setor)?>'];
 
     new Chart("grafico_utm", {
         type: "horizontalBar",
