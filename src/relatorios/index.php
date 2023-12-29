@@ -210,12 +210,26 @@
         // The data for our dataset
         data: {
             labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-            datasets: [{
-                label: 'CHAMADOS REGISTRADOS',
-                backgroundColor: 'blue',
-                borderColor: 'blue',
-                data: [10,15, 41, 17, 1, 27]
-            }]
+            datasets: [
+                {
+                    label: 'CHAMADOS REGISTRADOS',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: [10,15, 41, 17, 1, 27]
+                },
+                {
+                    label: 'CHAMADOS REGISTRADOS',
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    data: [10,15, 41, 17, 1, 27]
+                },
+                {
+                    label: 'CHAMADOS REGISTRADOS',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                    data: [10,15, 41, 17, 1, 27]
+                },
+            ]
         },
     
         // Configuration options go here
