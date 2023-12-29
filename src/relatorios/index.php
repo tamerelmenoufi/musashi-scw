@@ -223,12 +223,12 @@ $j++;
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
 
 
-    const xValues = [100,200,300,400,500,600,700,800,900,1000];
+    // const xValues = [100,200,300,400,500,600,700,800,900,1000];
 
     new Chart("grafico_utm", {
         type: "horizontalBar",
         data: {
-            labels: xValues,
+            // labels: xValues,
             datasets: [{
             data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
             borderColor: "red",
