@@ -252,13 +252,13 @@ $j++;
             label: 'Paradas',
             data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
             borderColor: "red",
-            backgroundColor:"rgb(116, 116, 116, 0.5)",
+            backgroundColor:"rgb(200, 3, 54, 0.5)",
             fill: false
             },{
             label: 'Em Produção',
             data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
             borderColor: "orange",
-            backgroundColor:"rgb(116, 116, 116, 0.5)",
+            backgroundColor:"rgb(247, 152, 2, 0.5)",
             fill: false
             }]
         },
