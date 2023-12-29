@@ -92,7 +92,7 @@
 
 
 <?php
-    $query = "select a.* from chamados a left join setores b on a.setor = b.codigo left join utm c on b.utm = c.codigo order by a.data_abertura desc limit 0,100";
+    $query = "select a.*, b.utm from chamados a left join setores b on a.setor = b.codigo left join utm c on b.utm = c.codigo order by a.data_abertura desc limit 0,100";
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
