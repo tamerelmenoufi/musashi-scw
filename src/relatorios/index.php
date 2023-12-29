@@ -247,7 +247,7 @@
                     label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [<?=Legenda($v['qt'])?>, <?=$v['pd']?>, <?=$v['cl']?>, <?=$v['pa']?>, <?=$v['pr']?>]
+                    data: [<?=Legenda($v[$i]['qt'])?>, <?=$v[$i]['pd']?>, <?=$v[$i]['cl']?>, <?=$v[$i]['pa']?>, <?=$v[$i]['pr']?>]
                 },   
                 <?php
                     }
