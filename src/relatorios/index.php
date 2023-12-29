@@ -215,7 +215,7 @@
 
 
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
-    var ctx = document.getElementById('grafico_utm').getContext('2d');
+    var ctx<?=$md5?> = document.getElementById('grafico_utm').getContext('2d');
     const data = {
     labels: ['a','b','c','d'],
     datasets: [{
@@ -251,7 +251,7 @@
             indexAxis: 'y',
         }
     };
-    var chart = new Chart(ctx, config);
+    var chart<?=$md5?> = new Chart(ctx<?=$md5?>, config);
 
 
     $(function(){
