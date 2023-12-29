@@ -216,9 +216,8 @@
 
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
     var ctx = document.getElementById('grafico_utm').getContext('2d');
-    const labels = Utils.months({count: 7});
     const data = {
-    labels: labels,
+    labels: ['a','b','c','d'],
     datasets: [{
         axis: 'y',
         label: 'My First Dataset',
