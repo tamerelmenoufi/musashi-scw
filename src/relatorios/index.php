@@ -147,11 +147,11 @@
 ?>
         <tr>
             <td><?=$i?></td>
-            <td><?=$v['nome']?></td>
-            <td><?=$v['pendente']?></td>
-            <td><?=$v['concluido']?></td>
-            <td><?=$v['parada']?></td>
-            <td><?=$v['producao']?></td>
+            <td><?=$v['nome']*1?></td>
+            <td><?=$v['pendente']*1?></td>
+            <td><?=$v['concluido']*1?></td>
+            <td><?=$v['parada']*1?></td>
+            <td><?=$v['producao']*1?></td>
         </tr>
         
 <?php
