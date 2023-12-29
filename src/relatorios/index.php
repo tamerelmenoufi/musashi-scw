@@ -243,6 +243,7 @@
     
         // Configuration options go here
         options: {
+            indexAxis: 'y',
             scales: {
                 yAxes: [{
                     ticks: {
