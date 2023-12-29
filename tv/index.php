@@ -45,6 +45,8 @@
 	tm.nome as time_nome,
 	mt.nome as motivo_nome,
 	s.nome as setor_nome,
+	s.utm as utm,
+    u.nome as utm_nome,
 	m.nome as maquina_nome,
 
 	p.nome as peca_nome,
@@ -58,13 +60,13 @@
 	tc.nome as tecnico
 		FROM chamados a
 		left join setores s on a.setor = s.codigo
+        left join utm u on s.utm = u.codigo
 		left join tipos_manutencao t on a.tipo_manutencao = t.codigo
 		left join maquinas m on a.maquina = m.codigo
 
 		left join pecas p on a.peca = p.codigo
 		left join modelos md on a.modelo = md.codigo
 		/*left join codigos cd on a.codigos = cd.codigo*/
-
 
 		left join time tm on a.time = tm.codigo
 		left join motivos mt on a.motivo = mt.codigo
@@ -94,6 +96,11 @@
 		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
 		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
+
+		//UTMs
+		$Rlt['utm']['nome'][$d->utm] = utf8_encode($d->utm_nome);
+		$Rlt['utm']['qt'][$d->utm] = ($Rlt['utm']['qt'][$d->utm] + 1);
+		$Rlt['utm']['tot'] = ($Rlt['utm']['tot'] + 1);
 
 		// //Setores
 		// $Rlt['tipo_manutencao']['nome'][$d->tipo_manutencao] = utf8_encode($d->tipo_manutencao_nome);
@@ -154,7 +161,7 @@
 					"<div style='float:left; width:20%;'><b style='color:#a1a1a1; font-size:20px;'>Código:</b><div class='detalhesTexto'>".utf8_encode($d->codigos_nome)."</div></div>".
 
 
-					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:20px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)."</div></div>".
+					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:20px;'>Setor:</b><div class='detalhesTexto'>".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
 					"<div style='float:left; width:50%;'> <b style='color:#a1a1a1; font-size:20px;'>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div class='detalhesTexto'>".utf8_encode($d->maquina_nome)."</div></div>".
 
 
@@ -172,7 +179,7 @@
 
 			$TickResumo[] = "<div style='float:left; width:40%;'><b style='font-size:20px;''>Cadastrado ID:</b> <div style='font-size:23px;'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
 							"<div style='float:left; width:60%;'>".(($d->status)?"<b style='font-size:20px;'>Situação:</b><div style='font-size:23px;'>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div > <b style='font-size:20px;'>Setor:</b><div style='font-size:25px;'>".utf8_encode($d->setor_nome)."</div></div>".
+							"<div > <b style='font-size:20px;'>Setor:</b><div style='font-size:25px;'>".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
 							"<div> <b style='font-size:20px;'>Máquina: (".$parada[$d->parada].")</b><div style='font-size:23px;'>".utf8_encode($d->maquina_nome)."</div></div>".
 							"<div > <b style='font-size:20px;'>Time:</b><div style='font-size:23px;'>".utf8_encode($d->time_nome)."</div></div>".
 							"<div> <b style='font-size:20px;'>Ocorrência:</b><div style='font-size:23px;'>".utf8_encode($d->motivo_nome)."</div></div>";
@@ -422,7 +429,7 @@
 	}
 	?>
 	<div class="row mt-3">
-		<div class="col">
+		<!-- <div class="col">
 			<div class="graficos">
 				<h4>Setores</h4>
 				<?php
@@ -444,7 +451,34 @@
 				}
 				?>
 			</div>
+		</div> -->
+
+
+		<div class="col">
+			<div class="graficos">
+				<h4>UTM's</h4>
+				<?php
+				arsort($Rlt['utm']['qt']);
+				$i=0;
+				foreach($Rlt['utm']['qt'] as $ind => $vet){
+					if($Rlt['utm']['nome'][$ind] and $i < 7){
+				?>
+				<div class="grafico">
+					<span><?=$Rlt['utm']['nome'][$ind]?></span>
+					<div class="d-flex justify-content-start">
+						<div style="width:<?=number_format(($Rlt['utm']['qt'][$ind]*100/$Rlt['utm']['tot']),0,false,false)?>%"></div>
+						<span style="margin-left:3px; font-weight:normal;">[<?=$Rlt['utm']['qt'][$ind]?>] <?=number_format(($Rlt['utm']['qt'][$ind]*100/$Rlt['utm']['tot']),0,false,false)?>%</span>
+					</div>
+				</div>
+				<?php
+					$i++;
+					}
+				}
+				?>
+			</div>
 		</div>
+
+
 		<!-- <div class="col">
 			<div class="graficos">
 				<h4>Manutenção</h4>
