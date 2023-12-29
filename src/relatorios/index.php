@@ -227,11 +227,11 @@
                 <?php
                     $grafico = [];
                     foreach($relatorio['setor'] as $i => $v){
-                        $grafico[]['qt'] = $v['nome'];
-                        $grafico[]['pd'] = $v['pendente'];
-                        $grafico[]['cl'] = $v['concluido'];
-                        $grafico[]['pa'] = $v['parado'];
-                        $grafico[]['pr'] = $v['producao'];
+                        $grafico[$i]['qt'] = $v['nome'];
+                        $grafico[$i]['pd'] = $v['pendente'];
+                        $grafico[$i]['cl'] = $v['concluido'];
+                        $grafico[$i]['pa'] = $v['parado'];
+                        $grafico[$i]['pr'] = $v['producao'];
                 ?>
                         '<?=$i?>',    
                 <?php
@@ -247,7 +247,7 @@
                     label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [<?=Legenda($v[$i]['qt'])?>, <?=$v[$i]['pd']?>, <?=$v[$i]['cl']?>, <?=$v[$i]['pa']?>, <?=$v[$i]['pr']?>]
+                    data: [<?=$v[$i]['qt']?>, <?=$v[$i]['pd']?>, <?=$v[$i]['cl']?>, <?=$v[$i]['pa']?>, <?=$v[$i]['pr']?>]
                 },   
                 <?php
                     }
