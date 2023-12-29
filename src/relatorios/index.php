@@ -227,11 +227,6 @@
                 <?php
                     $grafico = [];
                     foreach($relatorio['setor'] as $i => $v){
-                        $grafico[$i]['qt'] = $v['nome'];
-                        $grafico[$i]['pd'] = $v['pendente'];
-                        $grafico[$i]['cl'] = $v['concluido'];
-                        $grafico[$i]['pa'] = $v['parado'];
-                        $grafico[$i]['pr'] = $v['producao'];
                 ?>
                         '<?=$i?>',    
                 <?php
@@ -240,18 +235,31 @@
                 ],
             datasets: [
 
-                <?php
-                    foreach($grafico as $i => $v){
-                ?>
                 {
                     label: '<?=$i?>',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [<?=$v[$i]['qt']?>, <?=$v[$i]['pd']?>, <?=$v[$i]['cl']?>, <?=$v[$i]['pa']?>, <?=$v[$i]['pr']?>]
+                    data: [10, 20, 30, 40, 50]
+                }, 
+                {
+                    label: '<?=$i?>',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: [10, 20, 30, 40, 50]
+                }, 
+                {
+                    label: '<?=$i?>',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: [10, 20, 30, 40, 50]
+                }, 
+                {
+                    label: '<?=$i?>',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: [10, 20, 30, 40, 50]
                 },   
-                <?php
-                    }
-                ?>
+
 
             ]
         },
