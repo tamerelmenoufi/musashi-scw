@@ -92,12 +92,12 @@
 
 
 <?php
-    $query = "select a.*, b.utm from chamados a left join setores b on a.setor = b.codigo left join utm c on b.utm = c.codigo order by a.data_abertura desc limit 0,100";
+    $query = "select a.*, b.utm, c.nome as utm_nome, b.nome as setor_nome from chamados a left join setores b on a.setor = b.codigo left join utm c on b.utm = c.codigo order by a.data_abertura desc limit 0,100";
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
-        $relatorio['utm'][$d->utm] = ($relatorio['utm'][$d->utm] + 1);
-        $relatorio['setor'][$d->setor] = ($relatorio['setor'][$d->setor] + 1);
+        $relatorio['utm'][$d->utm_nome] = ($relatorio['utm'][$d->utm_nome] + 1);
+        $relatorio['setor'][$d->setor_nome] = ($relatorio['setor'][$d->setor_nome] + 1);
     }
 
 
