@@ -223,13 +223,32 @@
     datasets: [{
         axis: 'y',
         label: 'My First Dataset',
-        data: {
-            [65, 59, 80, 81, 56, 55, 40],
-            [65, 59, 80, 81, 56, 55, 40],
-            [65, 59, 80, 81, 56, 55, 40],
-            [65, 59, 80, 81, 56, 55, 40],
-            [65, 59, 80, 81, 56, 55, 40],
-        },
+        data: [
+            {
+                label: 'Dataset 1',
+                data: [11, 15, 21, 13, 22],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: 'Dataset 1',
+                data: [11, 15, 21, 13, 22],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: 'Dataset 1',
+                data: [11, 15, 21, 13, 22],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: 'Dataset 1',
+                data: [11, 15, 21, 13, 22],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+        ],
         fill: false,
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
