@@ -239,31 +239,31 @@
                     label: 'Geral',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
-                    data: [10, 20, 30, 40, 50]
+                    data: [10]
                 }, 
                 {
                     label: 'Pendentes',
                     backgroundColor: 'gray',
                     borderColor: 'gray',
-                    data: [10, 20, 30, 40, 50]
+                    data: [20]
                 }, 
                 {
                     label: 'Concluidos',
                     backgroundColor: 'green',
                     borderColor: 'green',
-                    data: [10, 20, 30, 40, 50]
+                    data: [30]
                 }, 
                 {
                     label: 'Parada',
                     backgroundColor: 'red',
                     borderColor: 'red',
-                    data: [10, 20, 30, 40, 50]
+                    data: [40]
                 },
                 {
                     label: 'Em Produção',
                     backgroundColor: 'orange',
                     borderColor: 'orange',
-                    data: [10, 20, 30, 40, 50]
+                    data: [50]
                 },   
 
 
