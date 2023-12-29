@@ -7,7 +7,7 @@
     $r = mysql_query($q);
     echo "<option value=''>:: Selecione ::</option>";
     while($s = mysql_fetch_object($r)){
-        echo "<option value='{$s->codigo}'>".utf8_decode($s->nome)."</option>";
+        echo "<option value='{$s->codigo}'>".utf8_encode($s->nome)."</option>";
     }
     exit();
   }
