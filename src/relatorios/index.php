@@ -236,27 +236,33 @@
             datasets: [
 
                 {
-                    label: '<?=$i?>',
+                    label: 'Geral',
                     backgroundColor: 'blue',
                     borderColor: 'blue',
                     data: [10, 20, 30, 40, 50]
                 }, 
                 {
-                    label: '<?=$i?>',
-                    backgroundColor: 'blue',
-                    borderColor: 'blue',
+                    label: 'Pendentes',
+                    backgroundColor: 'gray',
+                    borderColor: 'gray',
                     data: [10, 20, 30, 40, 50]
                 }, 
                 {
-                    label: '<?=$i?>',
-                    backgroundColor: 'blue',
-                    borderColor: 'blue',
+                    label: 'Concluidos',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
                     data: [10, 20, 30, 40, 50]
                 }, 
                 {
-                    label: '<?=$i?>',
-                    backgroundColor: 'blue',
-                    borderColor: 'blue',
+                    label: 'Parada',
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    data: [10, 20, 30, 40, 50]
+                },
+                {
+                    label: 'Em Produção',
+                    backgroundColor: 'orange',
+                    borderColor: 'orange',
                     data: [10, 20, 30, 40, 50]
                 },   
 
