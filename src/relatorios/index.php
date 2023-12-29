@@ -210,12 +210,14 @@
         // The data for our dataset
         data: {
             labels: [
-                    'Jan',
-                    'Fev',
-                    'Mar', 
-                    'Abr', 
-                    'Mai', 
-                    'Jun'
+                <?php
+                    arsort($relatorio['setor']);
+                    foreach($relatorio['setor'] as $i => $v){
+                ?>
+                        '<?=$i?>',    
+                <?php
+                    }
+                ?>
                 ],
             datasets: [
                 {
