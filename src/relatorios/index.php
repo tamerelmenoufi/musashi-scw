@@ -217,68 +217,33 @@
 
 
     ///////////////////////// Chamados ////////////////////////////////////////////////////////////
-    var ctx<?=$md5?> = document.getElementById('grafico_utm').getContext('2d');
-    const data = {
-    labels: ['a','b','c','d'],
-    datasets: [{
-        axis: 'y',
-        label: 'My First Dataset',
-        data: [
-            {
-                label: 'Dataset 1',
-                data: [11, 15, 21, 13, 22],
-                // borderColor: Utils.CHART_COLORS.red,
-                backgroundColor: 'red',
-            },
-            {
-                label: 'Dataset 1',
-                data: [11, 15, 21, 13, 22],
-                // borderColor: Utils.CHART_COLORS.red,
-                backgroundColor: 'red',
-            },
-            {
-                label: 'Dataset 1',
-                data: [11, 15, 21, 13, 22],
-                // borderColor: Utils.CHART_COLORS.red,
-                backgroundColor: 'red',
-            },
-            {
-                label: 'Dataset 1',
-                data: [11, 15, 21, 13, 22],
-                // borderColor: Utils.CHART_COLORS.red,
-                backgroundColor: 'red',
-            },
-        ],
-        fill: false,
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
-        ],
-        borderWidth: 1
-    }]
-    };
-    const config = {
-        type: 'bar',
-        data,
+
+
+    const xValues = [100,200,300,400,500,600,700,800,900,1000];
+
+    new Chart("#grafico_utm", {
+        type: "line",
+        data: {
+            labels: xValues,
+            datasets: [{
+            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+            borderColor: "red",
+            fill: false
+            },{
+            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+            borderColor: "green",
+            fill: false
+            },{
+            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+            borderColor: "blue",
+            fill: false
+            }]
+        },
         options: {
-            indexAxis: 'y',
+            legend: {display: false}
         }
-    };
-    var chart<?=$md5?> = new Chart(ctx<?=$md5?>, config);
+    });
+    
 
 
     $(function(){
