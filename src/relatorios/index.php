@@ -160,13 +160,40 @@
     </tbody>
 </table>
 
+
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Setor</th>
+            <th>Quantidade</th>
+            <th>Conclídos</th>
+            <th>Pendentes</th>
+            <th>Máquinas Paradas</th>
+            <th>Máquinas Em Produção</th>
+        </tr>
+    </thead>
+    <tbody>
+
 <?php
-    echo "<hr>";
     arsort($relatorio['setor']);
     foreach($relatorio['setor'] as $i => $v){
-        echo "<p>{$i} - {$v['nome']}</p>";
+?>
+        <tr>
+            <td><?=$i?></td>
+            <td><?=$v['nome']*1?></td>
+            <td><?=$v['pendente']*1?></td>
+            <td><?=$v['concluido']*1?></td>
+            <td><?=$v['parada']*1?></td>
+            <td><?=$v['producao']*1?></td>
+        </tr>
+        
+<?php
     }
 ?>
+    </tbody>
+</table>
+
 
 
 <script>
