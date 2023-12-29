@@ -239,12 +239,35 @@
                     foreach($relatorio['setor'] as $i => $v){
                 ?>
                 {
-                    label: ['Geral','Pendente','Concluido','Parada','Em Produção'],
-                    backgroundColor: ['blue','gray','green','red','orange'],
-                    // borderColor: 'blue',
-                    data: [10, 20, 30, 40, 50]
+                    label: 'Geral',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: [10]
                 }, 
-                
+                {
+                    label: 'Pendentes',
+                    backgroundColor: 'gray',
+                    borderColor: 'gray',
+                    data: [20]
+                }, 
+                {
+                    label: 'Concluidos',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                    data: [30]
+                }, 
+                {
+                    label: 'Parada',
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    data: [40]
+                },
+                {
+                    label: 'Em Produção',
+                    backgroundColor: 'orange',
+                    borderColor: 'orange',
+                    data: [50]
+                },     
                 <?php
                     }
                 ?>
