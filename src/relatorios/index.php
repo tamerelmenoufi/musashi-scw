@@ -1,5 +1,16 @@
 <?php
   include("../../includes/includes.php");
+
+
+  if($_POST['utm']){
+    $q = "select * from setores where utm = '{$_POST['utm']}' order by nome";
+    $r = mysql_query($q);
+    while($s = mysql_fetch_object($r)){
+        echo "<option value='{$s->codigo}'>{$s->nome}</option>";
+    }
+    exit();
+  }
+
 ?>
 
 <h3>Relatório</h3>
@@ -15,6 +26,15 @@
     </div>
     <select class="form-control" id="utm">
         <option value="">:: Selecione ::</option>
+        <?php
+        $q = "select * from utm order by nome";
+        $r = mysql_query($q);
+        while($s = mysql_fetch_object($r)){
+        ?>
+        <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+        <?php
+        }
+        ?>
     </select>
 
     <div class="input-group-prepend">
@@ -40,3 +60,25 @@
     <button limpar_relatorio class="btn btn-danger"><i class="fa fa-eraser"></i> Limpar</button>
     </div>
 </div>
+
+
+<script>
+    $(funciton(){
+        $("#relatorio_filtro_data1, #relatorio_filtro_data2").mask("99/99/9999");
+
+        $("#utm").click(function(){
+            utm = $(this).val();
+            $.ajax({
+                url:"src/relatorios/index.php",
+                type:"POST",
+                data:{
+                    utm,
+                },
+                success:function(dados){
+                    $("#setor").html(dados);
+                }
+            });
+        })
+
+    })
+</script>
