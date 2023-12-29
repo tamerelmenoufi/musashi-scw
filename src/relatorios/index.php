@@ -240,7 +240,7 @@ $j++;
             label: 'Concluido',
             data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
             borderColor: "green",
-            backgroundColor:"green",
+            backgroundColor:"rgb(1, 174, 50, 0.5)",
             fill: false
             },{
             label: 'Pendente',
