@@ -240,12 +240,10 @@ $j++;
     ///////////////////////// Grafico ////////////////////////////////////////////////////////////
 
 
-    const xValues = ['<?=implode("', '", $grafico_setor['legenda'])?>'];
-
     new Chart("grafico_setor", {
         type: "horizontalBar",
         data: {
-            labels: xValues,
+            labels: ['<?=implode("', '", $grafico_setor['legenda'])?>'],
             datasets: [{
             label: 'Geral',
             data: [<?=implode(", ", $grafico_setor['nome'])?>],
@@ -293,12 +291,10 @@ $j++;
 ///////////////////////// Grafico ////////////////////////////////////////////////////////////
 
 
-const xValues = ['<?=implode("', '", $grafico_utm['legenda'])?>'];
-
 new Chart("grafico_utm", {
     type: "horizontalBar",
     data: {
-        labels: xValues,
+        labels: ['<?=implode("', '", $grafico_utm['legenda'])?>'],
         datasets: [{
         label: 'Geral',
         data: [<?=implode(", ", $grafico_utm['nome'])?>],
