@@ -162,6 +162,14 @@
     arsort($relatorio['utm']);
     
     foreach($relatorio['utm'] as $i => $v){
+
+        $grafico_utm['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+        $grafico_utm['nome'][] = $v['nome']*1;
+        $grafico_utm['pendente'][] = $v['pendente']*1;
+        $grafico_utm['concluido'][] = $v['concluido']*1;
+        $grafico_utm['parada'][] = $v['parada']*1;
+        $grafico_utm['producao'][] = $v['producao']*1;
+
 ?>
         <tr>
             <td><?=$i?></td>
@@ -178,6 +186,7 @@
     </tbody>
 </table>
 
+<canvas id="grafico_utm" style="margin-top:30px;"></canvas>
 
 <h3 class="mt-3">Representação dos Setores</h3>
 <table class="table">
@@ -222,17 +231,17 @@ $j++;
     </tbody>
 </table>
 
-<canvas id="grafico_utm" style="margin-top:30px;"></canvas>
+<canvas id="grafico_setor" style="margin-top:30px;"></canvas>
 
 <script>
 
 
-    ///////////////////////// Chamados ////////////////////////////////////////////////////////////
+    ///////////////////////// Grafico ////////////////////////////////////////////////////////////
 
 
     const xValues = ['<?=implode("', '", $grafico_setor['legenda'])?>'];
 
-    new Chart("grafico_utm", {
+    new Chart("grafico_setor", {
         type: "horizontalBar",
         data: {
             labels: xValues,
@@ -278,6 +287,59 @@ $j++;
         }
     });
     
+
+
+///////////////////////// Grafico ////////////////////////////////////////////////////////////
+
+
+const xValues = ['<?=implode("', '", $grafico_utm['legenda'])?>'];
+
+new Chart("grafico_utm", {
+    type: "horizontalBar",
+    data: {
+        labels: xValues,
+        datasets: [{
+        label: 'Geral',
+        data: [<?=implode(", ", $grafico_utm['nome'])?>],
+        borderColor: "blue",
+        backgroundColor:"rgb(2, 62, 198, 0.7)",
+        fill: false
+        },{
+        label: 'Concluidos',
+        data: [<?=implode(", ", $grafico_utm['concluido'])?>],
+        borderColor: "green",
+        backgroundColor:"rgb(1, 174, 50, 0.7)",
+        fill: false
+        },{
+        label: 'Pendentes',
+        data: [<?=implode(", ", $grafico_utm['pendente'])?>],
+        borderColor: "gray",
+        backgroundColor:"rgb(116, 116, 116, 0.7)",
+        fill: false
+        },{
+        label: 'Máquinas Paradas',
+        data: [<?=implode(", ", $grafico_utm['parada'])?>],
+        borderColor: "red",
+        backgroundColor:"rgb(200, 3, 54, 0.7)",
+        fill: false
+        },{
+        label: 'Máquinas Em Produção',
+        data: [<?=implode(", ", $grafico_utm['producao'])?>],
+        borderColor: "orange",
+        backgroundColor:"rgb(247, 152, 2, 0.7)",
+        fill: false
+        }]
+    },
+    options: {
+        legend: {display: false},
+        title: {
+            display: true,
+            text: "Gráfico de Representação das UTM's",
+            fontSize: 16
+        }
+    }
+});
+
 
 
     $(function(){
