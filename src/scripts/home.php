@@ -225,6 +225,38 @@
                         'permissao' => 'concluidos',
                       ),
 
+                    );
+
+            for($i=0;$i<count($menu);$i++){
+              if(in_array($menu[$i]['permissao'], $_SESSION['scw_usuario_permissoes'])){
+          ?>
+          <li class="nav-item">
+            <a menu class="nav-link" local="<?=$menu[$i]['local']?>" destino="<?=$menu[$i]['destino']?>" >
+              <i class="fa <?=$menu[$i]['icone']?>"></i>
+              <?=$menu[$i]['titulo']?>
+            </a>
+          </li>
+          <?php
+              }
+            }
+          ?>
+        </ul>
+
+
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>RELATÓRIO</span>
+          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <i class="fa fa-bullhorn" aria-hidden="true"></i>
+          </a>
+        </h6>
+
+        <ul class="nav flex-column mb-2">
+
+          <?php
+
+            $menu = array(
+
                       array(
                         'icone'  => 'fa-cogs',
                         'local'  => 'src/relatorios/index.php',
@@ -238,7 +270,7 @@
             for($i=0;$i<count($menu);$i++){
               if(in_array($menu[$i]['permissao'], $_SESSION['scw_usuario_permissoes'])){
           ?>
-          <li class="nav-item" <?=(($menu[$i]['titulo'] == 'Relatórios')?"style='opacity:0'":false)?>>
+          <li class="nav-item">
             <a menu class="nav-link" local="<?=$menu[$i]['local']?>" destino="<?=$menu[$i]['destino']?>" >
               <i class="fa <?=$menu[$i]['icone']?>"></i>
               <?=$menu[$i]['titulo']?>
@@ -249,6 +281,9 @@
             }
           ?>
         </ul>
+
+
+
       </div>
     </nav>
     <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4"></main>
