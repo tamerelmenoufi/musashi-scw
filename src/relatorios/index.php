@@ -174,8 +174,8 @@
         <tr>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
-            <td><?=$v['pendente']*1?></td>
             <td><?=$v['concluido']*1?></td>
+            <td><?=$v['pendente']*1?></td>
             <td><?=$v['parada']*1?></td>
             <td><?=$v['producao']*1?></td>
         </tr>
