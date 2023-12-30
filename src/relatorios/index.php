@@ -144,6 +144,7 @@
 
     }
 ?>
+<h3 class="mt-3">Representação dos Setores</h3>
 <table class="table">
     <thead>
         <tr>
@@ -178,8 +179,8 @@
 </table>
 
 
-
-<table class="table mt-3">
+<h3 class="mt-3">Representação dos Setores</h3>
+<table class="table">
     <thead>
         <tr>
             <th>Legenda</th>
@@ -221,7 +222,7 @@ $j++;
     </tbody>
 </table>
 
-<canvas id="grafico_utm"></canvas>
+<canvas id="grafico_utm" style="margin-top:30px;"></canvas>
 
 <script>
 
