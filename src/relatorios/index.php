@@ -55,7 +55,6 @@
     $where .= " and a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])." 00:00:00' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))." 23:59:59' ";
   }
 
-  echo $where;
 
 ?>
 
@@ -118,7 +117,7 @@
 
 
 <?php
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     b.utm,
                     c.nome as utm_nome,
