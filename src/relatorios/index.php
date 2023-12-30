@@ -184,8 +184,8 @@
         <tr>
             <th>Legenda</th>
             <th>Setor</th>
-            <th>Quantidade</th>
-            <th>Conclídos</th>
+            <th>Geral</th>
+            <th>Concluidos</th>
             <th>Pendentes</th>
             <th>Máquinas Paradas</th>
             <th>Máquinas Em Produção</th>
@@ -208,8 +208,8 @@
             <td><?=strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT)?></td>
             <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
-            <td><?=$v['pendente']*1?></td>
             <td><?=$v['concluido']*1?></td>
+            <td><?=$v['pendente']*1?></td>
             <td><?=$v['parada']*1?></td>
             <td><?=$v['producao']*1?></td>
         </tr>
@@ -242,25 +242,25 @@ $j++;
             backgroundColor:"rgb(2, 62, 198, 0.7)",
             fill: false
             },{
-            label: 'Concluido',
+            label: 'Concluidos',
             data: [<?=implode(", ", $grafico_setor['concluido'])?>],
             borderColor: "green",
             backgroundColor:"rgb(1, 174, 50, 0.7)",
             fill: false
             },{
-            label: 'Pendente',
+            label: 'Pendentes',
             data: [<?=implode(", ", $grafico_setor['pendente'])?>],
             borderColor: "gray",
             backgroundColor:"rgb(116, 116, 116, 0.7)",
             fill: false
             },{
-            label: 'Paradas',
+            label: 'Máquinas Paradas',
             data: [<?=implode(", ", $grafico_setor['parada'])?>],
             borderColor: "red",
             backgroundColor:"rgb(200, 3, 54, 0.7)",
             fill: false
             },{
-            label: 'Em Produção',
+            label: 'Máquinas Em Produção',
             data: [<?=implode(", ", $grafico_setor['producao'])?>],
             borderColor: "orange",
             backgroundColor:"rgb(247, 152, 2, 0.7)",
