@@ -46,7 +46,7 @@
   }
 
   if($_SESSION['relatorio_utm']){
-    $where = " and a.utm = '{$_SESSION['relatorio_utm']}' ";
+    $where = " and b.utm = '{$_SESSION['relatorio_utm']}' ";
   }
   if($_SESSION['relatorio_setor']){
     $where .= " and a.setor = '{$_SESSION['relatorio_setor']}' ";
