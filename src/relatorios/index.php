@@ -49,10 +49,10 @@
     $where = " a.utm = '{$_SESSION['relatorio_utm']}' ";
   }
   if($_SESSION['relatorio_setor']){
-    $where .= (($where)?'and ':false) . " a.setor = '{$_SESSION['relatorio_setor']}' ";
+    $where .= (($where)?' and ':false) . " a.setor = '{$_SESSION['relatorio_setor']}' ";
   }
   if($_SESSION['relatorio_filtro_data1']){
-    $where .= (($where)?'and ':false) . " a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])."' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))."' ";
+    $where .= (($where)?' and ':false) . " a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])."' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))."' ";
   }
 
   echo $where;
