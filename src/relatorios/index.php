@@ -198,6 +198,11 @@
     $j = 1;
     foreach($relatorio['setor'] as $i => $v){
         $grafico_setor['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+        $grafico_setor['nome'][] = $v['nome']*1;
+        $grafico_setor['pendente'][] = $v['pendente']*1;
+        $grafico_setor['concluido'][] = $v['concluido']*1;
+        $grafico_setor['parada'][] = $v['parada']*1;
+        $grafico_setor['producao'][] = $v['producao']*1;
 ?>
         <tr>
             <td><?=strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT)?></td>
@@ -232,31 +237,31 @@ $j++;
             labels: xValues,
             datasets: [{
             label: 'Geral',
-            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+            data: [<?=implode(", ", $grafico_setor['nome'])?>],
             borderColor: "blue",
             backgroundColor:"rgb(2, 62, 198, 0.7)",
             fill: false
             },{
             label: 'Concluido',
-            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+            data: [<?=implode(", ", $grafico_setor['concluido'])?>],
             borderColor: "green",
             backgroundColor:"rgb(1, 174, 50, 0.7)",
             fill: false
             },{
             label: 'Pendente',
-            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+            data: [<?=implode(", ", $grafico_setor['pendente'])?>],
             borderColor: "gray",
             backgroundColor:"rgb(116, 116, 116, 0.7)",
             fill: false
             },{
             label: 'Paradas',
-            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+            data: [<?=implode(", ", $grafico_setor['parada'])?>],
             borderColor: "red",
             backgroundColor:"rgb(200, 3, 54, 0.7)",
             fill: false
             },{
             label: 'Em Produção',
-            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+            data: [<?=implode(", ", $grafico_setor['producao'])?>],
             borderColor: "orange",
             backgroundColor:"rgb(247, 152, 2, 0.7)",
             fill: false
