@@ -258,7 +258,7 @@
             $menu = array(
 
                       array(
-                        'icone'  => 'fa-cogs',
+                        'icone'  => 'fa-pie-chart',
                         'local'  => 'src/relatorios/index.php',
                         'destino'  => 'main',
                         'titulo' => 'Relatórios',
