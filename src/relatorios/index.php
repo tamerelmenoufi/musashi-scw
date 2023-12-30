@@ -160,7 +160,7 @@
 
 <?php
     arsort($relatorio['utm']);
-    
+    $j = 1;
     foreach($relatorio['utm'] as $i => $v){
 
         $grafico_utm['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
@@ -181,6 +181,7 @@
         </tr>
         
 <?php
+    $j++;
     }
 ?>
     </tbody>
