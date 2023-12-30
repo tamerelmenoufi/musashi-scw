@@ -46,13 +46,13 @@
   }
 
   if($_SESSION['relatorio_utm']){
-    $where = " a.utm = '{$_SESSION['relatorio_utm']}' ";
+    $where = " and a.utm = '{$_SESSION['relatorio_utm']}' ";
   }
   if($_SESSION['relatorio_setor']){
-    $where .= (($where)?' and ':false) . " a.setor = '{$_SESSION['relatorio_setor']}' ";
+    $where .= " and a.setor = '{$_SESSION['relatorio_setor']}' ";
   }
   if($_SESSION['relatorio_filtro_data1']){
-    $where .= (($where)?' and ':false) . " a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])." 00:00:00' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))." 23:59:59' ";
+    $where .= " and a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])." 00:00:00' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))." 23:59:59' ";
   }
 
   echo $where;
