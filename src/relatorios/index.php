@@ -268,7 +268,12 @@ $j++;
             }]
         },
         options: {
-            legend: {display: false}
+            legend: {display: false},
+            title: {
+                display: true,
+                text: "Gráfico de Representação dos Setores",
+                fontSize: 16
+            }
         }
     });
     
