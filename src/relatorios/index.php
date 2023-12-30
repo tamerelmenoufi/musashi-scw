@@ -126,7 +126,7 @@
                 left join setores b on a.setor = b.codigo 
                 left join utm c on b.utm = c.codigo 
             where 1 = 1 {$where}
-            order by a.data_abertura desc limit 0,100";
+            order by a.data_abertura desc";
     $result = mysql_query($query);
     $relatorio = [];
     while($d = mysql_fetch_object($result)){
