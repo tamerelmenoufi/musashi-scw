@@ -177,7 +177,7 @@
     </tbody>
 </table>
 
-<canvas id="grafico_utm"></canvas>
+
 
 <table class="table mt-3">
     <thead>
@@ -221,7 +221,7 @@ $j++;
     </tbody>
 </table>
 
-
+<canvas id="grafico_utm"></canvas>
 
 <script>
 
