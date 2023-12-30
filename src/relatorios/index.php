@@ -45,7 +45,20 @@
     
   }
 
+  if($_SESSION['relatorio_utm']){
+    $where = " a.utm = '{$_SESSION['relatorio_utm']}' ";
+  }
+  if($_SESSION['relatorio_setor']){
+    $where .= (($where)?', ':false) . " a.setor = '{$_SESSION['relatorio_setor']}' ";
+  }
+  if($_SESSION['relatorio_filtro_data1']){
+    $where .= (($where)?', ':false) . " a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])."' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))."' ";
+  }
+  if($_SESSION['relatorio_filtro_data2']){
+    $where .= (($where)?', ':false) . " ";
+  }
 
+  echo $where;
 
 ?>
 
@@ -116,7 +129,7 @@
                 from chamados a 
                 left join setores b on a.setor = b.codigo 
                 left join utm c on b.utm = c.codigo 
-            where 1 = 1 {$where}
+            where 1 = 1 {$where22}
             order by a.data_abertura desc limit 0,100";
     $result = mysql_query($query);
     $relatorio = [];
