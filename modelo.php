@@ -27,7 +27,7 @@
             <th>Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
-            <th>Concluídos</th>
+            <th>Concluídos (30 Dias)</th>
         </tr>
     </thead>
     <tbody>
