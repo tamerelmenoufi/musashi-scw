@@ -7,12 +7,14 @@
                     s.nome as setor_nome,
                     t.nome as time_nome,
                     u.nome as utm_nome,
-                    count(*) as qt
+                    (select count(*) from chamados where status = 'c' and utm = a.utm) as concluidos,
+                    (select count(*) from chamados where status = 'p' and utm = a.utm) as pendentes,
+                    (select count(*) from chamados where status = 'n' and utm = a.utm) as novos
                 from chamados a 
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
-                    left join utm u on s.utm = u.codigo
-                where a.status != 'c' group by s.utm, a.status";
+                    left join utm u on a.utm = u.codigo
+                where a.status != 'c' group by s.utm";
     $result = mysql_query($query);
     $i = 1;
 ?>
