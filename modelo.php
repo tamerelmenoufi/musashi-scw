@@ -12,7 +12,7 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on s.utm = u.codigo
-                where a.status != 'c' group by a.setor, a.time";
+                where a.status != 'c' group by s.utm, a.setor, a.time";
     $result = mysql_query($query);
     $i = 1;
 ?>
