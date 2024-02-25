@@ -27,7 +27,7 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=$d->setor_nome?></td>
+            <td><?=utf8_decode($d->setor_nome)?></td>
             <td><?=$d->time_nome?></td>
             <td><?=$d->qt?></td>
         </tr>
