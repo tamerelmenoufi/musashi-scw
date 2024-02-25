@@ -21,6 +21,7 @@
         <tr>
             <th>Setor</th>
             <th>Time de Atuação</th>
+            <th>Situação</th>
             <th>Quantidade</th>
         </tr>
     </thead>
@@ -31,6 +32,7 @@
         <tr>
             <td><?=utf8_encode($d->setor_nome)?> - <?=utf8_encode($d->utm_nome)?></td>
             <td><?=utf8_encode($d->time_nome)?></td>
+            <td><?=utf8_encode($d->status)?></td>
             <td><?=utf8_encode($d->qt)?></td>
         </tr>
 <?php
