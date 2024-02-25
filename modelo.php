@@ -12,17 +12,20 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on s.utm = u.codigo
-                where a.status != 'c' group by s.utm, a.setor, a.time";
+                where a.status != 'c' group by s.utm, a.status";
     $result = mysql_query($query);
     $i = 1;
 ?>
 <table>
     <thead>
         <tr>
-            <th>Setor</th>
-            <th>Time de Atuação</th>
-            <th>Situação</th>
-            <th>Quantidade</th>
+            <th colspan="4">UTM</th>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <th>Novos</th>
+            <th>Pendentes</th>
+            <th>Concluídos</th>
         </tr>
     </thead>
     <tbody>
