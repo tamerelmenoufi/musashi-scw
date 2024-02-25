@@ -7,7 +7,7 @@
                     s.nome as setor_nome,
                     t.nome as time_nome,
                     u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and utm = a.utm) as concluidos,
+                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
                     (select count(*) from chamados where status = 'p' and utm = a.utm) as pendentes,
                     (select count(*) from chamados where status = 'n' and utm = a.utm) as novos
                 from chamados a 
