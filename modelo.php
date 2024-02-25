@@ -35,7 +35,7 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=utf8_encode((($d->utm_nome)?:'Não Identificada'))?></td>
+            <td><?=(($d->utm_nome)?:utf8_encode('Não Identificada'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
