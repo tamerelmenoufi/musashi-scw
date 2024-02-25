@@ -2,7 +2,7 @@
     $home = true; 
     include('includes/includes.php');
 
-    $query = "select * from chamados where status != 'c' order by data_abertura desc, status";
+    $query = "select * from chamados where status != 'c' group by setor, time";
     $result = mysql_query($query);
     $i = 1;
     while($d = mysql_fetch_object($result)){
