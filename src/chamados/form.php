@@ -16,6 +16,11 @@
 
     for ($i = 0; $i < count($_POST['campo']); $i++) {
       $campos[] = $_POST['campo'][$i] . " = '".utf8_decode($_POST['valor'][$i])."'";
+
+      if($_POST['campo'][$i] == 'setor'){
+        $campos[] = "utm = (select utm from setores where codigo = '".utf8_decode($_POST['valor'][$i])."'";
+      }
+
     }
 
     if($_POST['codigo'] and $campos){

@@ -33,10 +33,10 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=utf8_encode($d->setor_nome)?> - <?=utf8_encode($d->utm_nome)?></td>
-            <td><?=utf8_encode($d->time_nome)?></td>
-            <td><?=utf8_encode($d->status)?></td>
-            <td><?=utf8_encode($d->qt)?></td>
+            <td><?=utf8_encode($d->utm_nome)?></td>
+            <td><?=$d->novos?></td>
+            <td><?=$d->pendentes?></td>
+            <td><?=$d->concluidos?></td>
         </tr>
 <?php
     $i++;
