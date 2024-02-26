@@ -63,7 +63,7 @@
                     (select count(*) from chamados where status = 'c' and setor = a.setor and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
                     (select count(*) from chamados where status = 'p' and setor = a.setor) as pendentes,
                     (select count(*) from chamados where status = 'n' and setor = a.setor) as novos,
-                    ((select count(*) from chamados where status = 'p' and setor = a.setor), (select count(*) from chamados where status = 'n' and setor = a.setor)) as ordem
+                    ((select count(*) from chamados where status = 'p' and setor = a.setor) + (select count(*) from chamados where status = 'n' and setor = a.setor)) as ordem
                 from chamados a 
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
