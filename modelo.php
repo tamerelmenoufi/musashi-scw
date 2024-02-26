@@ -15,7 +15,7 @@
         font-size:18px;
         font-family:verdana;
         color:#333;
-        padding:10px;
+        padding:5px;
     }
     .bg1{
         background-color:#fff;
