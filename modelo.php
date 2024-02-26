@@ -167,7 +167,7 @@
         if($i%2 == 0){
             $bg = 'bg1';
         }else{
-            $bg = 'b2';
+            $bg = 'bg2';
         }
 ?>
         <tr class="<?=$bg?>">
