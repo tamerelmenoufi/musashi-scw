@@ -2,7 +2,14 @@
     $home = true; 
     include('includes/includes.php');
 ?>
-
+<style>
+    table{
+        width:100%;
+    }
+    td:first{
+        width:50%;
+    }
+</style>
 <?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
     $query = "select 
@@ -72,7 +79,7 @@
     $result = mysql_query($query);
     $i = 1;
 ?>
-<table>
+<table >
     <thead>
         <tr>
             <th colspan="4">SETORES</th>
