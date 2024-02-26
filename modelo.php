@@ -46,7 +46,7 @@
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4"><hr><h3>UTM</h3></th>
+            <th colspan="4"><h3>UTM</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
