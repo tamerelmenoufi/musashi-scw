@@ -6,9 +6,13 @@
     table{
         width:100%;
     }
+    th{
+        font-size:18px;
+        font-family:verdana;        
+    }
     td{
         text-align:center;
-        font-size:20px;
+        font-size:18px;
         font-family:verdana;
         color:#333;
         padding:10px;
