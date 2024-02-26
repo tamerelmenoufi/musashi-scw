@@ -8,9 +8,10 @@
     }
     td{
         text-align:center;
-        font-size:16px;
+        font-size:20px;
         font-family:verdana;
         color:#333;
+        padding:10px;
     }
     .bg1{
         background-color:#fff;
@@ -38,7 +39,7 @@
                 where a.status != 'c' group by a.utm order by ordem desc";
     $result = mysql_query($query);
 ?>
-<table>
+<table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th colspan="4">UTM</th>
