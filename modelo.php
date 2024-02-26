@@ -98,3 +98,51 @@
 ?>
     </tbody>
 </table>
+
+
+<?php
+    ////////////////////////////////////////////////// TIMES ///////////////////////////////////////////////////
+    $query = "select 
+                    a.*,
+                    s.nome as setor_nome,
+                    t.nome as time_nome,
+                    u.nome as utm_nome,
+                    (select count(*) from chamados where status = 'c' and time = a.time and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
+                    (select count(*) from chamados where status = 'p' and time = a.time) as pendentes,
+                    (select count(*) from chamados where status = 'n' and time = a.time) as novos
+                from chamados a 
+                    left join setores s on a.setor = s.codigo
+                    left join time t on a.time = t.codigo
+                    left join utm u on a.utm = u.codigo
+                where a.status != 'c' group by a.time";
+    $result = mysql_query($query);
+    $i = 1;
+?>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">TIMES DE ATUAÇÃO</th>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <th>Novos</th>
+            <th>Pendentes</th>
+            <th>Concluídos (30 Dias)</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    while($d = mysql_fetch_object($result)){
+?>
+        <tr>
+            <td><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=$d->novos?></td>
+            <td><?=$d->pendentes?></td>
+            <td><?=$d->concluidos?></td>
+        </tr>
+<?php
+    $i++;
+    }
+?>
+    </tbody>
+</table>
