@@ -176,7 +176,7 @@
         }
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td style="text-align:left;"><?=(utf8_encode($d->time_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
