@@ -6,6 +6,9 @@
     table{
         width:100%;
     }
+    td{
+        text-align:center;
+    }
 </style>
 <?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
@@ -32,7 +35,7 @@
             <th colspan="4">UTM</th>
         </tr>
         <tr>
-            <th style="width:60%">Nome</th>
+            <th style="width:60%; text-align:left;">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
@@ -43,7 +46,7 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
@@ -82,7 +85,7 @@
             <th colspan="4">SETORES</th>
         </tr>
         <tr>
-            <th style="width:60%">Nome</th>
+            <th style="width:60%; text-align:left;">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
@@ -93,7 +96,7 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
@@ -131,7 +134,7 @@
             <th colspan="4">TIMES DE ATUAÇÃO</th>
         </tr>
         <tr>
-            <th style="width:60%">Nome</th>
+            <th style="width:60%; text-align:left:">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
@@ -142,7 +145,7 @@
     while($d = mysql_fetch_object($result)){
 ?>
         <tr>
-            <td><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
