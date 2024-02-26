@@ -101,7 +101,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:20px;">
     <thead>
         <tr>
-            <th colspan="4"><h3>SETORES</h3></th>
+            <th colspan="4"><h3>SETORES / UTMs</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -121,7 +121,7 @@
         }
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?> / <?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
             <td><?=$d->concluidos?></td>
