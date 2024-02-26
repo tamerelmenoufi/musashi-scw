@@ -134,7 +134,7 @@
             <th colspan="4">TIMES DE ATUAÇÃO</th>
         </tr>
         <tr>
-            <th style="width:60%; text-align:left:">Nome</th>
+            <th style="width:60%; text-align:left;">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
