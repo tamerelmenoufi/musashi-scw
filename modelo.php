@@ -101,7 +101,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:20px;">
     <thead>
         <tr>
-            <th colspan="4"><h3>SETORES / UTMs</h3></th>
+            <th colspan="4"><h3>SETORES / UTM</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
