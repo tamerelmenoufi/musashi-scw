@@ -94,7 +94,7 @@
                 where a.status != 'c' group by a.setor order by ordem desc";
     $result = mysql_query($query);
 ?>
-<table >
+<table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th colspan="4">SETORES</th>
@@ -149,7 +149,7 @@
     $result = mysql_query($query);
     $i = 1;
 ?>
-<table>
+<table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th colspan="4">TIMES DE ATUAÇÃO</th>
