@@ -40,13 +40,13 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.utm order by ordem desc";
+                where a.status != 'c' group by a.utm order by ordem desc limit 7";
     $result = mysql_query($query);
 ?>
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4">UTM</th>
+            <th colspan="4"><h3>UTM</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -95,13 +95,13 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.setor order by ordem desc";
+                where a.status != 'c' group by a.setor order by ordem desc limit 7";
     $result = mysql_query($query);
 ?>
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4">SETORES</th>
+            <th colspan="4"><h3>SETORES</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -149,14 +149,14 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.time order by ordem desc";
+                where a.status != 'c' group by a.time order by ordem desc limit 7";
     $result = mysql_query($query);
     $i = 1;
 ?>
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4">TIMES DE ATUAÇÃO</th>
+            <th colspan="4"><h3>TIMES DE ATUAÇÃO</h3></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
