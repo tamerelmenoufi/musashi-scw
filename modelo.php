@@ -8,7 +8,17 @@
     }
     td{
         text-align:center;
+        font-size:16px;
+        font-family:verdana;
+        color:#333;
     }
+    .bg1{
+        background-color:#fff;
+    }
+    .bg2{
+        background-color:#ccc;
+    }
+
 </style>
 <?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
@@ -27,7 +37,6 @@
                     left join utm u on a.utm = u.codigo
                 where a.status != 'c' group by a.utm order by ordem desc";
     $result = mysql_query($query);
-    $i = 1;
 ?>
 <table>
     <thead>
@@ -43,7 +52,13 @@
     </thead>
     <tbody>
 <?php
+    $i = 0;
     while($d = mysql_fetch_object($result)){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'b2';
+        }
 ?>
         <tr>
             <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
@@ -77,7 +92,6 @@
                     left join utm u on a.utm = u.codigo
                 where a.status != 'c' group by a.setor order by ordem desc";
     $result = mysql_query($query);
-    $i = 1;
 ?>
 <table >
     <thead>
@@ -93,7 +107,13 @@
     </thead>
     <tbody>
 <?php
+    $i = 0;
     while($d = mysql_fetch_object($result)){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'b2';
+        }
 ?>
         <tr>
             <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
@@ -142,7 +162,13 @@
     </thead>
     <tbody>
 <?php
+    $i = 0;
     while($d = mysql_fetch_object($result)){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'b2';
+        }
 ?>
         <tr>
             <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
