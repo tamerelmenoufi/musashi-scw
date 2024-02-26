@@ -6,9 +6,6 @@
     table{
         width:100%;
     }
-    td:first{
-        width:50%;
-    }
 </style>
 <?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
@@ -35,7 +32,7 @@
             <th colspan="4">UTM</th>
         </tr>
         <tr>
-            <th>Nome</th>
+            <th style="width:60%">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
@@ -85,7 +82,7 @@
             <th colspan="4">SETORES</th>
         </tr>
         <tr>
-            <th>Nome</th>
+            <th style="width:60%">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
@@ -134,7 +131,7 @@
             <th colspan="4">TIMES DE ATUAÇÃO</th>
         </tr>
         <tr>
-            <th>Nome</th>
+            <th style="width:60%">Nome</th>
             <th>Novos</th>
             <th>Pendentes</th>
             <th>Concluídos (30 Dias)</th>
