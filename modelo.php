@@ -60,7 +60,7 @@
             $bg = 'b2';
         }
 ?>
-        <tr>
+        <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
@@ -115,7 +115,7 @@
             $bg = 'b2';
         }
 ?>
-        <tr>
+        <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
@@ -170,7 +170,7 @@
             $bg = 'b2';
         }
 ?>
-        <tr>
+        <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?></td>
             <td><?=$d->novos?></td>
             <td><?=$d->pendentes?></td>
