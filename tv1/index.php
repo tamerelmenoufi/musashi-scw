@@ -558,7 +558,7 @@
 
 <style>
     table{
-        width:100%;
+        width:calc(100% - 500px);
     }
     th{
         font-size:18px;
