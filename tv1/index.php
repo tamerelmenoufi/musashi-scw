@@ -579,17 +579,27 @@
 
 		Carregando('none');
 
+		// $('.slider-for').slick({
+		// 	slidesToShow: 1,
+		// 	slidesToScroll: 1,
+		// 	arrows: false,
+		// 	fade: true,
+		// 	asNavFor: '.slider-nav'
+		// });
+		// $('.slider-nav').slick({
+		// 	slidesToShow: 5,
+		// 	slidesToScroll: 1,
+		// 	asNavFor: '.slider-for',
+		// 	dots: false,
+		// 	centerMode: false,
+		// 	focusOnSelect: true,
+		// 	autoplay: true,
+  		// 	autoplaySpeed: 5000,
+		// });
+
 		$('.slider-for').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			arrows: false,
-			fade: true,
-			asNavFor: '.slider-nav'
-		});
-		$('.slider-nav').slick({
-			slidesToShow: 5,
-			slidesToScroll: 1,
-			asNavFor: '.slider-for',
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
@@ -598,17 +608,15 @@
 		});
 
 
-
-
-		$('.lista_maquinas_paradas').slick({
-			slidesToShow: 5,
-			slidesToScroll: 1,
-			dots: false,
-			centerMode: false,
-			focusOnSelect: true,
-			autoplay: true,
-  			autoplaySpeed: 2000,
-		});
+		// $('.lista_maquinas_paradas').slick({
+		// 	slidesToShow: 5,
+		// 	slidesToScroll: 1,
+		// 	dots: false,
+		// 	centerMode: false,
+		// 	focusOnSelect: true,
+		// 	autoplay: true,
+  		// 	autoplaySpeed: 2000,
+		// });
 
 
 		setInterval(() => {
