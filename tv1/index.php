@@ -599,8 +599,8 @@
 
 		$('.slider-for').slick({
 			slidesToShow: 1,
-			slidesToScroll: 2,
-			rows:2,
+			slidesToScroll: 1,
+			rows:3,
 			vertical:true,
 			dots: false,
 			centerMode: false,
