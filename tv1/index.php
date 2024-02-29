@@ -598,9 +598,9 @@
 		// });
 
 		$('.slider-for').slick({
-			slidesToShow: 2,
+			slidesToShow: 1,
 			slidesToScroll: 1,
-			rows:3,
+			rows:2,
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
