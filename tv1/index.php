@@ -349,11 +349,11 @@
 	</div>
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:15px;">
-			<i class="fa fa-square" style="color:blue;"></i> Novo
-			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
-			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
-			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
-			<i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando
+			<i class="fa fa-square" style="color:blue;"></i> Chamados
+			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendentes
+			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Paradas
+			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluídas
+			<!-- <i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando -->
 		</div>
 	</div>
 	<div>
