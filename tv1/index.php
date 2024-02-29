@@ -556,7 +556,8 @@
 
 	</div>
 </div>
-<div class="rodapeTV">
+
+<!-- <div class="rodapeTV">
 
 	<div class="slider-nav">
 		<?php
@@ -568,8 +569,8 @@
 		}
 		?>
 	</div>
+</div> -->
 
-</div>
 <script type="text/javascript">
 
 	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
