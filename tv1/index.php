@@ -600,7 +600,7 @@
 		$('.slider-for').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			rows:3,
+			rows:2,
 			vertical:true,
 			dots: false,
 			centerMode: false,
