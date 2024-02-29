@@ -403,7 +403,7 @@
 		</div>
 	</div>
 	<?php
-	if($Rlt['paradas']){
+	if($Rlt['paradasXXX']){
 	?>
 	<div class="row mt-3">
 		<div class="col">
