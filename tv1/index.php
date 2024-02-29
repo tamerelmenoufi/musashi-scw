@@ -383,22 +383,22 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<span>Novos</span><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Chamados</span><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<span>Em Andamento</span><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Pendentes</span><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:red">
-				<span>Máquinas Paradas</span><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Paradas</span><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<span>Concluído (últimas 24H)</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Concluído (últimas 30Dias)</span><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
