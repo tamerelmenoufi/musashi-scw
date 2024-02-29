@@ -601,7 +601,7 @@
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			rows:2,
-			vertical:true;
+			vertical:true,
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
