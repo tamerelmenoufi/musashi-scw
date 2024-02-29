@@ -598,7 +598,7 @@
 		// });
 
 		$('.slider-for').slick({
-			slidesToShow: 1,
+			slidesToShow: 2,
 			slidesToScroll: 1,
 			dots: false,
 			centerMode: false,
