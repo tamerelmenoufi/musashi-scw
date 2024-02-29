@@ -559,6 +559,7 @@
 <style>
     table{
         width:calc(100% - 30px);
+		margin-left:10px;
     }
     th{
         font-size:18px;
