@@ -456,7 +456,13 @@
 	}
 	?>
 	<div class="row" style="margin-top:-2px;">
-		<div class="col" style="position:relative;">
+		<div class="col" style="position:relative; border-bottom:2px red solid;">
+
+
+
+
+
+
 			<!-- <div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>Setores</h5>
 				<?php
@@ -479,7 +485,7 @@
 				?>
 			</div> -->
 
-
+<!-- 
 			<div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>UTM's</h5>
 				<?php
@@ -500,7 +506,7 @@
 					}
 				}
 				?>
-			</div>
+			</div> -->
 
 
 		</div>
@@ -528,7 +534,7 @@
 			</div>
 		</div> -->
 
-		<div class="col" style="position:relative;">
+		<!-- <div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:5px; right:5px;">
 				<h5>Time de Atuação</h5>
 				<?php
@@ -550,7 +556,7 @@
 				}
 				?>
 			</div>
-		</div>
+		</div> -->
 
 
 
