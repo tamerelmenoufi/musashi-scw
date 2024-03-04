@@ -747,7 +747,7 @@
 
 </div>
 
-<div style="margin-left:40px; margin-right:50px; width:calc(100% - 90px); margin-top:5px;">
+<div style="position:absolute; bottom:10px; margin-left:40px; margin-right:50px; width:calc(100% - 90px); margin-top:5px;">
 	<div class="row bg-warning p-3">
 		<div class="col-4">
 			<div style="width:100%; text-align:center; font-weight:bold">NV (NOVO)</div>
