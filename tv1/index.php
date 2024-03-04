@@ -395,7 +395,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:1; margin-bottom:30px; border:solid 1px #333; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px; height:470px;"><?=$TickDetalhe[$i]?></div>
+		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:1; margin-bottom:30px; border:solid 0px #333; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px; height:470px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
