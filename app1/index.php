@@ -371,12 +371,12 @@
 		margin-left:10px;
 		}
 		th{
-			font-size:18px;
+			font-size:10px;
 			font-family:verdana;        
 		}
 		td{
 			text-align:center;
-			font-size:18px;
+			font-size:10px;
 			font-family:verdana;
 			color:#333;
 			padding:5px;
