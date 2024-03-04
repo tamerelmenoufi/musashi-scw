@@ -598,7 +598,7 @@
 </table>
 
 </div>
-<div class="col-6" style="position:relative; border-bottom:2px red solid;">
+<div class="col-6" style="position:relative;">
 
 
 <?php
