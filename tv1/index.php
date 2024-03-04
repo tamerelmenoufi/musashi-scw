@@ -344,7 +344,8 @@
 		}
 		th{
 			font-size:18px;
-			font-family:verdana;        
+			font-family:verdana; 
+			text-align:center;       
 		}
 		td{
 			text-align:center;
