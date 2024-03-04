@@ -655,7 +655,7 @@
     </tbody>
 </table>
 </div>
-<div class="w-100">
+<div class="w-100 p-3">
 	<div class="row bg-warning">
 		<div class="col-4">
 			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
