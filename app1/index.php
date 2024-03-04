@@ -479,7 +479,7 @@
 	}
 	?>
 	<div class="row" style="margin-top:-2px;">
-		<div class="col" style="position:relative; border-bottom:2px red solid;">
+		<div class="col-12" style="position:relative; border-bottom:2px red solid;">
 
 
 
@@ -540,7 +540,8 @@
     </tbody>
 </table>
 
-
+</div>
+<div class="col-6" style="position:relative; border-bottom:2px red solid;">
 
 <?php
     ////////////////////////////////////////////////// SETORES ///////////////////////////////////////////////////
@@ -594,6 +595,9 @@
 ?>
     </tbody>
 </table>
+
+</div>
+<div class="col-6" style="position:relative; border-bottom:2px red solid;">
 
 
 <?php
