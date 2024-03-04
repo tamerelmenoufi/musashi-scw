@@ -563,7 +563,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:20px;">
     <thead>
         <tr>
-            <th colspan="4"><hr><h6>SETORES / UTM</h6></th>
+            <th colspan="4"><h6>SETORES / UTM</h6></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -618,7 +618,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:20px;">
     <thead>
         <tr>
-            <th colspan="4"><hr><h6>TIMES DE ATUAÇÃO</h6></th>
+            <th colspan="4"><h6>TIMES DE ATUAÇÃO</h6></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
