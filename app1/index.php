@@ -379,7 +379,7 @@
 			font-size:10px;
 			font-family:verdana;
 			color:#333;
-			padding:5px;
+			padding:3px;
 		}
 		.bg1{
 			background-color:#fff;
