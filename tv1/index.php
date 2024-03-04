@@ -338,6 +338,27 @@
 			margin-bottom:20px;
 			/*Dado de teste*/
 		}
+		table{
+			width:calc(100% - 30px);
+			margin-left:10px;
+		}
+		th{
+			font-size:18px;
+			font-family:verdana;        
+		}
+		td{
+			text-align:center;
+			font-size:18px;
+			font-family:verdana;
+			color:#333;
+			padding:5px;
+		}
+		.bg1{
+			background-color:#fff;
+		}
+		.bg2{
+			background-color:#ccc;
+		}
 	</style>
 </head>
 <body>
@@ -555,33 +576,7 @@
 
 
 
-
-<style>
-    table{
-        width:calc(100% - 30px);
-		margin-left:10px;
-    }
-    th{
-        font-size:18px;
-        font-family:verdana;        
-    }
-    td{
-        text-align:center;
-        font-size:18px;
-        font-family:verdana;
-        color:#333;
-        padding:5px;
-    }
-    .bg1{
-        background-color:#fff;
-    }
-    .bg2{
-        background-color:#ccc;
-    }
-
-</style>
-
-
+	<div class="col-12">
 		<?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
     $query = "select 
@@ -635,7 +630,9 @@
     </tbody>
 </table>
 
+</div>
 
+<div class="col-6">
 
 <?php
     ////////////////////////////////////////////////// SETORES ///////////////////////////////////////////////////
@@ -689,7 +686,9 @@
 ?>
     </tbody>
 </table>
+</div>
 
+<div class="col-6">
 
 <?php
     ////////////////////////////////////////////////// TIMES ///////////////////////////////////////////////////
@@ -745,8 +744,7 @@
     </tbody>
 </table>
 
-
-	</div>
+</div>
 </div>
 
 <!-- <div class="rodapeTV">
