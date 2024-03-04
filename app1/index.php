@@ -430,7 +430,7 @@
 		</div>
 	</div>
 	<?php
-	if($Rlt['paradas']){
+	if($Rlt['paradasXX']){
 	?>
 	<div class="row" style="margin-top:-5px;">
 		<div class="col">
@@ -554,7 +554,7 @@
 
 
 
-		<div class="col" style="position:relative;">
+		<!-- <div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:0; right:20px;">
 				<h5>Ocorrência</h5>
 				<?php
@@ -576,7 +576,7 @@
 				}
 				?>
 			</div>
-		</div>
+		</div> -->
 
 
 	</div>
