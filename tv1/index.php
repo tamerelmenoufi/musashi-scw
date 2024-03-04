@@ -750,13 +750,13 @@
 <div style="margin-left:40px; margin-right:50px; width:calc(100% - 90px); margin-top:5px;">
 	<div class="row bg-warning p-3">
 		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
+			<div style="width:100%; text-align:center; font-weight:bold">NV (NOVO)</div>
 		</div>
 		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">PD (PENDENTE)</div>
+			<div style="width:100%; text-align:center; font-weight:bold">PD (PENDENTE)</div>
 		</div>
 		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">CL (CONCLUÍDO)</div>
+			<div style="width:100%; text-align:center; font-weight:bold">CL (CONCLUÍDO)</div>
 		</div>
 	</div>
 </div>
