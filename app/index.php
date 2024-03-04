@@ -372,7 +372,8 @@
 		}
 		th{
 			font-size:10px;
-			font-family:verdana;        
+			font-family:verdana;   
+			text-align:center;     
 		}
 		td{
 			text-align:center;
