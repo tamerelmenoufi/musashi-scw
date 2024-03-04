@@ -365,6 +365,29 @@
 			opacity:0!important;
 		}
 
+
+		table{
+        width:calc(100% - 30px);
+		margin-left:10px;
+		}
+		th{
+			font-size:18px;
+			font-family:verdana;        
+		}
+		td{
+			text-align:center;
+			font-size:18px;
+			font-family:verdana;
+			color:#333;
+			padding:5px;
+		}
+		.bg1{
+			background-color:#fff;
+		}
+		.bg2{
+			background-color:#ccc;
+		}
+
 	</style>
 </head>
 <body>
