@@ -655,18 +655,19 @@
     </tbody>
 </table>
 </div>
-<div class="row bg-warning">
-	<div class="col-4">
-		<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
-	</div>
-	<div class="col-4">
-		<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">PD (PENDENTE)</div>
-	</div>
-	<div class="col-4">
-		<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">CL (CONCLUÍDO)</div>
+<div class="w-100">
+	<div class="row bg-warning">
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
+		</div>
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">PD (PENDENTE)</div>
+		</div>
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">CL (CONCLUÍDO)</div>
+		</div>
 	</div>
 </div>
-
 
 
 
