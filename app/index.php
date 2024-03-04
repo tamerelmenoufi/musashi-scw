@@ -561,7 +561,7 @@
                 where a.status != 'c' group by a.setor order by ordem desc limit 7";
     $result = mysql_query($query);
 ?>
-<table cellspacing="0" cellpadding="0" style="margin-top:20px;">
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
             <th colspan="4"><h6>SETORES / UTM</h6></th>
@@ -619,7 +619,7 @@
     $result = mysql_query($query);
     $i = 1;
 ?>
-<table cellspacing="0" cellpadding="0" style="margin-top:20px;">
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
             <th colspan="4"><h6>TIMES DE ATUAÇÃO</h6></th>
