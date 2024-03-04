@@ -512,9 +512,9 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>Novos</th>
-            <th>Pendentes</th>
-            <th>Concluídos (30 Dias)</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
         </tr>
     </thead>
     <tbody>
@@ -568,9 +568,9 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>Novos</th>
-            <th>Pendentes</th>
-            <th>Concluídos (30 Dias)</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
         </tr>
     </thead>
     <tbody>
@@ -626,9 +626,9 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>Novos</th>
-            <th>Pendentes</th>
-            <th>Concluídos (30 Dias)</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
         </tr>
     </thead>
     <tbody>
