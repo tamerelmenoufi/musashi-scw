@@ -238,7 +238,7 @@
 			position:fixed;
 			left:10px;
 			top:70px;
-			bottom:310px;
+			bottom:10px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
