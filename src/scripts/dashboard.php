@@ -2,11 +2,6 @@
   
   include("../../includes/includes.php");
   
-  
-
-
-
-
 
 
   $md5 = md5(date("YmdHis"));
@@ -64,67 +59,7 @@
   }
 
 
-?>
 
-<h3>Relatório</h3>
-
-<div class="input-group mb-3">
-
-    <div class="input-group-prepend">
-        <span class="input-group-text">Busca</span>
-    </div>
-
-    <div class="input-group-prepend">
-        <span class="input-group-text">UTM</span>
-    </div>
-    <select class="form-control" id="utm">
-        <option value="">:: Geral ::</option>
-        <?php
-        $q = "select * from utm order by nome";
-        $r = mysql_query($q);
-        while($s = mysql_fetch_object($r)){
-        ?>
-        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_utm'])?'selected':false)?>><?=utf8_encode($s->nome)?></option>
-        <?php
-        }
-        ?>
-    </select>
-
-    <div class="input-group-prepend">
-        <span class="input-group-text">Setor</span>
-    </div>
-    <select class="form-control" id="setor">
-        <option value="">:: Geral ::</option>
-        <?php
-        $q = "select * from setores where utm = '{$_SESSION['relatorio_utm']}' order by nome";
-        $r = mysql_query($q);
-        while($s = mysql_fetch_object($r)){
-        ?>
-        <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['relatorio_setor'])?'selected':false)?>><?=utf8_encode($s->nome)?></option>
-        <?php
-        }
-        ?>
-    </select>
-
-    <div class="input-group-prepend">
-        <span class="input-group-text">Data Ini</span>
-    </div>
-    <input type="text" id="relatorio_filtro_data1" value="<?=$_SESSION['relatorio_filtro_data1']?>" class="form-control" placeholder="Data Inicial" aria-label="Data Inicial">
-
-    <div class="input-group-prepend">
-        <span class="input-group-text">Data Fim</span>
-    </div>
-    <input type="text" id="relatorio_filtro_data2" value="<?=$_SESSION['relatorio_filtro_data2']?>" class="form-control" placeholder="Data Final" aria-label="Data Final">
-
-
-    <div class="input-group-append">
-    <button buscar class="btn btn-success"><i class="fa fa-search"></i> Buscar</button>
-    <button limpar_relatorio class="btn btn-danger"><i class="fa fa-eraser"></i> Limpar</button>
-    </div>
-</div>
-
-
-<?php
     $query = "select 
                     a.*,
                     b.utm,
@@ -170,6 +105,7 @@
 
     }
 ?>
+
 <h3 class="mt-3">Representação das UTM's</h3>
 <table class="table">
     <thead>
