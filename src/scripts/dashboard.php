@@ -154,7 +154,9 @@
                     beginAtZero: true
                 }
             }],
-            xAxes: false
+            x: {
+              display:false
+            }
         }
     }
   });
