@@ -13,10 +13,10 @@
   list($tecnicos) = mysql_fetch_row(mysql_query("select count(*) from login where tipo = 'tec' group by tipo"));
   
 
-  $query = "select a.*, count(*) as qt, b.nome as tipo_manutencao from chamados a left join tipos_manutencao b on a.tipo_manutencao = b.codigo group by a.tipo_manutencao order by qt desc limit 10";
+  $query = "select a.*, count(*) as qt, b.nome as motivos from chamados a left join motivos b on a.motivo = b.codigo where b.nome != '' group by a.motivo order by qt desc limit 10";
   $result = mysql_query($query);
   while($d = mysql_fetch_object($result)){
-    $problema_rotulo[] = "'".utf8_encode($d->tipo_manutencao)."'";
+    $problema_rotulo[] = "'".utf8_encode($d->motivos)."'";
     $problema_qt[] = utf8_encode($d->qt);
   }
 
