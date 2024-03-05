@@ -154,7 +154,7 @@
                     beginAtZero: true
                 }
             }],
-            x: [{
+            xAxes: [{
               ticks: {
                     display: false
                 }
