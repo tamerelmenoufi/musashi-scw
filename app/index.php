@@ -37,6 +37,8 @@
 	a.tipo_manutencao,
 	a.maquina,
 
+	DATEDIFF (NOW(), a.data_abertura) as dias,
+
 	a.peca,
 	a.modelo,
 	a.codigos as codigos_nome,
@@ -72,8 +74,8 @@
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
-	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 1 DAY)
-		order by a.codigo desc";
+	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)
+		order by a.data_abertura asc";
 	$r = mysql_query($q);
 	// exit();
 	$TickDetalhe = [];
@@ -84,6 +86,7 @@
 	$Qt['concluidos'] = 0;
 	$Qt['parados'] = 0;
 
+	$visor = 0;
 	while($d = mysql_fetch_object($r)){
 
 
@@ -142,7 +145,9 @@
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
 
-		if($d->status != 'c'){
+		if($d->status != 'c' and $visor < 7){
+
+			$visor++;
 
 			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
@@ -153,7 +158,7 @@
 
 			$TickDetalhe[] = "
 					<div style='float:left; width:30%;'><b>Cadastrado ID:</b> <div >".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data:</b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data: <span style='color:red'>{$d->dias} dias atraso</span></b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
 					"<div style='float:left; width:20%;'>".(($d->status)?"<b>Situação:</b>
 						<div  style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
@@ -365,6 +370,30 @@
 			opacity:0!important;
 		}
 
+
+		table{
+        width:calc(100% - 30px);
+		margin-left:10px;
+		}
+		th{
+			font-size:10px;
+			font-family:verdana;   
+			text-align:center;     
+		}
+		td{
+			text-align:center;
+			font-size:10px;
+			font-family:verdana;
+			color:#333;
+			padding:3px;
+		}
+		.bg1{
+			background-color:#fff;
+		}
+		.bg2{
+			background-color:#ccc;
+		}
+
 	</style>
 </head>
 <body>
@@ -376,11 +405,11 @@
 	</div>
 	<div>
 		<div style="background-color:rgb(255,255,255,0.3); border-radius:5px; padding:2px; margin-top:10px; font-size:10px;">
-			<i class="fa fa-square" style="color:blue;"></i> Novo
+			<i class="fa fa-square" style="color:blue;"></i> Chamados
 			<i class="fa fa-square" style="color:orange; margin-left:10px;"></i> Pendente
+			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Paradas
 			<i class="fa fa-square" style="color:green; margin-left:10px;"></i> Concluído
-			<i class="fa fa-square" style="color:red; margin-left:10px;"></i> Máquina Parada
-			<i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando
+			<!-- <i class="fa fa-square" style="color:yellow; margin-left:10px;"></i> Máquina Funcionando -->
 		</div>
 	</div>
 	<div>
@@ -400,7 +429,7 @@
 		<?php
 		for($i=0;$i<count($TickDetalhe);$i++){
 		?>
-		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:0.5; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px;"><?=$TickDetalhe[$i]?></div>
+		<div data-codigo="<?=$Codigo[$i]?>" class="listaDestaque" style="opacity:1; padding-top:5px; border-top:8px solid <?=$CorDetalhe[$i]?>; border-radius:10px; height:220px;"><?=$TickDetalhe[$i]?></div>
 		<?php
 		}
 		?>
@@ -410,27 +439,27 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<div>Novos</div><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Chamados</div><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) + trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<div>Em Andamento</div><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Pendentes</div><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:red">
-				<div>Máquinas Paradas</div><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Paradas</div><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído (últimas 24H)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído (últimas 30 Dias)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
 	<?php
-	if($Rlt['paradas']){
+	if($Rlt['paradasXX']){
 	?>
 	<div class="row" style="margin-top:-5px;">
 		<div class="col">
@@ -456,7 +485,205 @@
 	}
 	?>
 	<div class="row" style="margin-top:-2px;">
-		<div class="col" style="position:relative;">
+		<div class="col-12" style="position:relative;">
+
+
+
+
+
+
+
+		<?php
+    ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
+    $query = "select 
+                    a.*,
+                    s.nome as setor_nome,
+                    t.nome as time_nome,
+                    u.nome as utm_nome,
+                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
+                    (select count(*) from chamados where status = 'p' and utm = a.utm) as pendentes,
+                    (select count(*) from chamados where status = 'n' and utm = a.utm) as novos,
+                    ((select count(*) from chamados where status = 'p' and utm = a.utm) + (select count(*) from chamados where status = 'n' and utm = a.utm)) as ordem
+                from chamados a 
+                    left join setores s on a.setor = s.codigo
+                    left join time t on a.time = t.codigo
+                    left join utm u on a.utm = u.codigo
+                where a.status != 'c' group by a.utm order by ordem desc limit 7";
+    $result = mysql_query($query);
+?>
+<table cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th colspan="4"><h6>UTM</h6></th>
+        </tr>
+        <tr>
+            <th style="width:60%; text-align:left;">Nome</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    $i = 0;
+    while($d = mysql_fetch_object($result)){
+		if($d->utm_nome){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'bg2';
+        }
+?>
+        <tr class="<?=$bg?>">
+            <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=$d->novos?></td>
+            <td><?=$d->pendentes?></td>
+            <td><?=$d->concluidos?></td>
+        </tr>
+<?php
+    $i++;
+		}
+    }
+?>
+    </tbody>
+</table>
+
+</div>
+<div class="col-6" style="position:relative;">
+
+<?php
+    ////////////////////////////////////////////////// SETORES ///////////////////////////////////////////////////
+    $query = "select 
+                    a.*,
+                    s.nome as setor_nome,
+                    t.nome as time_nome,
+                    u.nome as utm_nome,
+                    (select count(*) from chamados where status = 'c' and setor = a.setor and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
+                    (select count(*) from chamados where status = 'p' and setor = a.setor) as pendentes,
+                    (select count(*) from chamados where status = 'n' and setor = a.setor) as novos,
+                    ((select count(*) from chamados where status = 'p' and setor = a.setor) + (select count(*) from chamados where status = 'n' and setor = a.setor)) as ordem
+                from chamados a 
+                    left join setores s on a.setor = s.codigo
+                    left join time t on a.time = t.codigo
+                    left join utm u on a.utm = u.codigo
+                where a.status != 'c' group by a.setor order by ordem desc limit 8";
+    $result = mysql_query($query);
+?>
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
+    <thead>
+        <tr>
+            <th colspan="4"><h6>SETORES / UTM</h6></th>
+        </tr>
+        <tr>
+            <th style="width:60%; text-align:left;">Nome</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    $i = 0;
+    while($d = mysql_fetch_object($result)){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'bg2';
+        }
+?>
+        <tr class="<?=$bg?>">
+            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?> / <?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=$d->novos?></td>
+            <td><?=$d->pendentes?></td>
+            <td><?=$d->concluidos?></td>
+        </tr>
+<?php
+    $i++;
+    }
+?>
+    </tbody>
+</table>
+
+</div>
+<div class="col-6" style="position:relative;">
+
+
+<?php
+    ////////////////////////////////////////////////// TIMES ///////////////////////////////////////////////////
+    $query = "select 
+                    a.*,
+                    s.nome as setor_nome,
+                    t.nome as time_nome,
+                    u.nome as utm_nome,
+                    (select count(*) from chamados where status = 'c' and time = a.time and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
+                    (select count(*) from chamados where status = 'p' and time = a.time) as pendentes,
+                    (select count(*) from chamados where status = 'n' and time = a.time) as novos,
+                    ((select count(*) from chamados where status = 'p' and time = a.time) + (select count(*) from chamados where status = 'n' and time = a.time)) as ordem
+                from chamados a 
+                    left join setores s on a.setor = s.codigo
+                    left join time t on a.time = t.codigo
+                    left join utm u on a.utm = u.codigo
+                where a.status != 'c' group by a.time order by ordem desc limit 8";
+    $result = mysql_query($query);
+    $i = 1;
+?>
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
+    <thead>
+        <tr>
+            <th colspan="4"><h6>TIMES DE ATUAÇÃO</h6></th>
+        </tr>
+        <tr>
+            <th style="width:60%; text-align:left;">Nome</th>
+            <th>NV</th>
+            <th>PD</th>
+            <th>CL</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    $i = 0;
+    while($d = mysql_fetch_object($result)){
+        if($i%2 == 0){
+            $bg = 'bg1';
+        }else{
+            $bg = 'bg2';
+        }
+?>
+        <tr class="<?=$bg?>">
+            <td style="text-align:left;"><?=(utf8_encode($d->time_nome)?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=$d->novos?></td>
+            <td><?=$d->pendentes?></td>
+            <td><?=$d->concluidos?></td>
+        </tr>
+<?php
+    $i++;
+    }
+?>
+    </tbody>
+</table>
+</div>
+
+<div style="margin-left:40px; margin-right:50px; width:calc(100% - 90px); margin-top:5px;">
+	<div class="row bg-warning p-3">
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
+		</div>
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">PD (PENDENTE)</div>
+		</div>
+		<div class="col-4">
+			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">CL (CONCLUÍDO)</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
 			<!-- <div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>Setores</h5>
 				<?php
@@ -479,7 +706,7 @@
 				?>
 			</div> -->
 
-
+<!-- 
 			<div class="graficos" style="position:absolute; right:0; left:20px;">
 				<h5>UTM's</h5>
 				<?php
@@ -500,7 +727,7 @@
 					}
 				}
 				?>
-			</div>
+			</div> -->
 
 
 		</div>
@@ -528,7 +755,7 @@
 			</div>
 		</div> -->
 
-		<div class="col" style="position:relative;">
+		<!-- <div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:5px; right:5px;">
 				<h5>Time de Atuação</h5>
 				<?php
@@ -550,11 +777,11 @@
 				}
 				?>
 			</div>
-		</div>
+		</div> -->
 
 
 
-		<div class="col" style="position:relative;">
+		<!-- <div class="col" style="position:relative;">
 			<div class="graficos" style="position:absolute; left:0; right:20px;">
 				<h5>Ocorrência</h5>
 				<?php
@@ -576,12 +803,11 @@
 				}
 				?>
 			</div>
-		</div>
+		</div> -->
 
 
-	</div>
 </div>
-<div class="rodapeTV">
+<!-- <div class="rodapeTV">
 
 	<div class="slider-nav">
 		<?php
@@ -594,7 +820,7 @@
 		?>
 	</div>
 
-</div>
+</div> -->
 <script type="text/javascript">
 
 	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
@@ -603,17 +829,30 @@
 
 		Carregando('none');
 
+		// $('.slider-for').slick({
+		// 	slidesToShow: 1,
+		// 	slidesToScroll: 1,
+		// 	arrows: false,
+		// 	fade: true,
+		// 	asNavFor: '.slider-nav'
+		// });
+		// $('.slider-nav').slick({
+		// 	slidesToShow: 5,
+		// 	slidesToScroll: 1,
+		// 	asNavFor: '.slider-for',
+		// 	dots: false,
+		// 	centerMode: false,
+		// 	focusOnSelect: true,
+		// 	autoplay: true,
+  		// 	autoplaySpeed: 5000,
+		// });
+
+
 		$('.slider-for').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			arrows: false,
-			fade: true,
-			asNavFor: '.slider-nav'
-		});
-		$('.slider-nav').slick({
-			slidesToShow: 5,
-			slidesToScroll: 1,
-			asNavFor: '.slider-for',
+			rows:2,
+			vertical:true,
 			dots: false,
 			centerMode: false,
 			focusOnSelect: true,
@@ -621,18 +860,15 @@
   			autoplaySpeed: 5000,
 		});
 
-
-
-
-		$('.lista_maquinas_paradas').slick({
-			slidesToShow: 5,
-			slidesToScroll: 1,
-			dots: false,
-			centerMode: false,
-			focusOnSelect: true,
-			autoplay: true,
-  			autoplaySpeed: 2000,
-		});
+		// $('.lista_maquinas_paradas').slick({
+		// 	slidesToShow: 5,
+		// 	slidesToScroll: 1,
+		// 	dots: false,
+		// 	centerMode: false,
+		// 	focusOnSelect: true,
+		// 	autoplay: true,
+  		// 	autoplaySpeed: 2000,
+		// });
 
 
 		setInterval(() => {
