@@ -72,7 +72,8 @@
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
-	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 1 DAY)
+	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 1 DAY)*/
+	where a.data_fechamento >= NOW() - INTERVAL 30 DAY
 		order by a.codigo desc";
 	$r = mysql_query($q);
 	// exit();
