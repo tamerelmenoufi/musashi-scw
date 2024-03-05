@@ -155,7 +155,9 @@
                 }
             }],
             x: {
-              display:false
+              ticks: {
+                    display: false
+                }
             }
         }
     }
