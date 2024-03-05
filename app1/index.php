@@ -158,7 +158,7 @@
 
 			$TickDetalhe[] = "
 					<div style='float:left; width:30%;'><b>Cadastrado ID:</b> <div >".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data: <span style='color:red'>{$d->dias} dias atraso)</span></b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data: <span style='color:red'>{$d->dias} dias atraso</span></b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
 					"<div style='float:left; width:20%;'>".(($d->status)?"<b>Situação:</b>
 						<div  style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
