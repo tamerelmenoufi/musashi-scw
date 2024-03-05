@@ -86,6 +86,7 @@
 	$Qt['concluidos'] = 0;
 	$Qt['parados'] = 0;
 
+	$visor = 0;
 	while($d = mysql_fetch_object($r)){
 
 
@@ -144,7 +145,9 @@
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
 
-		if($d->status != 'c'){
+		if($d->status != 'c' and $visor < 7){
+
+			$visor++;
 
 			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
 			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
