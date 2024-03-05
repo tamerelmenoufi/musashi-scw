@@ -407,12 +407,12 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<span>Chamados</span><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Chamados</span><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) + trim($Qt['concluidos']), 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<span>Pendentes</span><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<span>Pendentes</span><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
