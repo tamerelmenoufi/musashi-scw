@@ -37,6 +37,8 @@
 	a.tipo_manutencao,
 	a.maquina,
 
+	DATEDIFF (NOW(), a.data_abertura) as dias,
+
 	a.peca,
 	a.modelo,
 	a.codigos as codigos_nome,
@@ -152,7 +154,7 @@
 		
 			$TickDetalhe[] = "
 					<div style='float:left; width:30%;'><b style='color:#a1a1a1; font-size:20px;''>Cadastrado ID:</b> <div class='detalhesTexto'>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:45%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:20px;'>Data:</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:45%;'>".((dataBr($d->data_abertura))?"<b style='color:#a1a1a1; font-size:20px;'>Data: {$d->dias}</b><div class='detalhesTexto'>".dataBr($d->data_abertura)."</div>":false)."</div>".
 					"<div style='float:left; width:25%;'>".(($d->status)?"<b style='color:#a1a1a1; font-size:20px;'>Situação:</b>
 						<div class='detalhesTexto' style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
 
