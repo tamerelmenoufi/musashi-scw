@@ -188,6 +188,7 @@
         $grafico_utm['parada'][] = $v['parada']*1;
         $grafico_utm['producao'][] = $v['producao']*1;
 
+        if($i){
 ?>
         <tr>
             <td><?=$i?></td>
@@ -200,6 +201,7 @@
         
 <?php
     $j++;
+        }
     }
 ?>
     </tbody>
