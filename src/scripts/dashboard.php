@@ -153,7 +153,8 @@
                 ticks: {
                     beginAtZero: true
                 }
-            }]
+            }],
+            xAxes: false
         }
     }
   });
