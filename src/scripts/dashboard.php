@@ -154,11 +154,11 @@
                     beginAtZero: true
                 }
             }],
-            x: {
+            x: [{
               ticks: {
                     display: false
                 }
-            }
+            }]
         }
     }
   });
