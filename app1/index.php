@@ -561,7 +561,7 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.setor order by ordem desc limit 7";
+                where a.status != 'c' group by a.setor order by ordem desc limit 8";
     $result = mysql_query($query);
 ?>
 <table cellspacing="0" cellpadding="0" style="margin-top:10px;">
@@ -618,7 +618,7 @@
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.time order by ordem desc limit 7";
+                where a.status != 'c' group by a.time order by ordem desc limit 8";
     $result = mysql_query($query);
     $i = 1;
 ?>
