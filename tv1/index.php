@@ -612,6 +612,7 @@
 <?php
     $i = 0;
     while($d = mysql_fetch_object($result)){
+		if($d->utm_nome){
         if($i%2 == 0){
             $bg = 'bg1';
         }else{
@@ -626,6 +627,7 @@
         </tr>
 <?php
     $i++;
+		}
     }
 ?>
     </tbody>
