@@ -73,7 +73,7 @@
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
 	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)
-		order by a.codigo desc";
+		order by a.data_abertura asc";
 	$r = mysql_query($q);
 	// exit();
 	$TickDetalhe = [];
