@@ -427,7 +427,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído - CL (Período <?=date("Y-m")?>)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído - CL (De <?=date("Y-m")?>)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
@@ -690,7 +690,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído - CL (Período <?=$mes_passado?>)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído - CL (De <?=$mes_passado?>)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
