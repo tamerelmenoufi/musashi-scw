@@ -668,7 +668,7 @@
 	$query = "select 
                     a.*,
 					count(*) as qt,
-                    t.nome as time_nome,
+                    t.nome as time_nome
                 from chamados a 
                     left join time t on a.time = t.codigo
                 where data_abertura like '".date("Y-m")."%' group by a.time, status order by qt desc";
