@@ -74,7 +74,8 @@
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
-	where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)
+	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
+	where a.data_fechamento like '".date("Y-m")."%'
 		order by a.data_abertura asc";
 	$r = mysql_query($q);
 	// exit();
@@ -509,6 +510,23 @@
                     left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
                 where a.status != 'c' group by a.utm order by ordem desc limit 7";
+
+
+	$query = "select 
+                    a.*,
+                    s.nome as setor_nome,
+                    t.nome as time_nome,
+                    u.nome as utm_nome,
+                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as concluidos,
+                    (select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') as pendentes,
+                    (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%') as novos,
+                    ((select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') + (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%')) as ordem
+                from chamados a 
+                    left join setores s on a.setor = s.codigo
+                    left join time t on a.time = t.codigo
+                    left join utm u on a.utm = u.codigo
+                where data_abertura like '".date("Y-m")."%' group by a.utm order by ordem desc";
+
     $result = mysql_query($query);
 ?>
 <table cellspacing="0" cellpadding="0">
