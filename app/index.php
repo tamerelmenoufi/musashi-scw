@@ -134,9 +134,9 @@
 	}
 
 
-	$q = "SELECT count(*) as qt, max(UNIX_TIMESTAMP(data_atualizacao)) as tempo FROM `chamados`";
-	$r = mysql_query($q);
-    $st = mysql_fetch_object($r);
+
+
+
 
 	$q = "SELECT
 	a.codigo,
@@ -219,6 +219,19 @@
 
 
 	}
+
+
+	$query = "select 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%') as ch, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('n', 'p')) as pn, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('c')) as cl,
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status not in ('c') and parada = 's') as pd";
+	$result = mysql_query($query);
+	$t = mysql_fetch_object($result);
+	$Qt['novos'] = $t->ch;
+	$Qt['pendentes'] = $t->pn;
+	$Qt['concluidos'] = $t->cl;
+	$Qt['parados'] = $t->pd; 
 
 ?>
 <!DOCTYPE html>
