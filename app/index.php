@@ -536,6 +536,7 @@
 <?php
     $j = 0;
 	$outros = [];
+	arsort($utm['qt']);
     foreach($utm['nome'] as $i => $v){
 		// if($d->utm_nome){
         if($j%2 == 0){
@@ -583,22 +584,6 @@
 
 <?php
     ////////////////////////////////////////////////// SETORES ///////////////////////////////////////////////////
-    $query = "select 
-                    a.*,
-                    s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and setor = a.setor and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
-                    (select count(*) from chamados where status = 'p' and setor = a.setor) as pendentes,
-                    (select count(*) from chamados where status = 'n' and setor = a.setor) as novos,
-                    ((select count(*) from chamados where status = 'p' and setor = a.setor) + (select count(*) from chamados where status = 'n' and setor = a.setor)) as ordem
-                from chamados a 
-                    left join setores s on a.setor = s.codigo
-                    left join time t on a.time = t.codigo
-                    left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.setor order by ordem desc limit 8";
-    $result = mysql_query($query);
-
 
 	$query = "select 
                     a.*,
@@ -633,6 +618,7 @@
 	<?php
     $j = 0;
 	$outros = [];
+	arsort($setor['qt']);
     foreach($setor['nome'] as $i => $v){
         if($j%2 == 0){
             $bg = 'bg1';
