@@ -499,59 +499,13 @@
 			</div>
 		</div>
 	</div>
-	<?php
-	if($Rlt['paradasXX']){
-	?>
-	<div class="row" style="margin-top:-5px;">
-		<div class="col">
-			<div class="lista_maquinas">
-				<h5 >Máquinas Paradas</h5>
-				<div class="lista_maquinas_paradas">
-				<?php
 
-					foreach($Rlt['paradas'] as $ind => $maq){
-						// for($i=0;$i<20;$i++){
-				?>
-					<div style="margin:5px; border-radius:5px; background-color:red; padding:5px;"><?=$maq?></div>
-				<?php
-						// }
-					}
-
-				?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<?php
-	}
-	?>
 	<div class="row" style="margin-top:-2px;">
 		<div class="col-12" style="position:relative;">
 
 
-
-
-
-
-
 		<?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
-    $query = "select 
-                    a.*,
-                    s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
-                    (select count(*) from chamados where status = 'p' and utm = a.utm) as pendentes,
-                    (select count(*) from chamados where status = 'n' and utm = a.utm) as novos,
-                    ((select count(*) from chamados where status = 'p' and utm = a.utm) + (select count(*) from chamados where status = 'n' and utm = a.utm)) as ordem
-                from chamados a 
-                    left join setores s on a.setor = s.codigo
-                    left join time t on a.time = t.codigo
-                    left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.utm order by ordem desc limit 7";
-
-
 	$query = "select 
                     a.*,
 					count(*) as qt,
@@ -623,6 +577,24 @@
                     left join utm u on a.utm = u.codigo
                 where a.status != 'c' group by a.setor order by ordem desc limit 8";
     $result = mysql_query($query);
+
+
+	$query = "select 
+                    a.*,
+					count(*) as qt,
+                    s.nome as setor_nome,
+                    u.nome as utm_nome
+                from chamados a 
+                    left join utm u on a.utm = u.codigo
+                    left join setores s on a.setor = s.codigo
+                where data_abertura like '".date("Y-m")."%' group by a.setor, status order by s.nome";
+
+    $result = mysql_query($query);
+	while($d = mysql_fetch_object($result)){
+		$setor['nome']["{$d->setor_nome} / {$d->utm_nome}"] = "{$d->setor_nome} / {$d->utm_nome}";
+		$setor['qt']["{$d->setor_nome} / {$d->utm_nome}"][$d->status] += $d->qt;
+	}
+
 ?>
 <table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
@@ -637,24 +609,25 @@
         </tr>
     </thead>
     <tbody>
-<?php
-    $i = 0;
-    while($d = mysql_fetch_object($result)){
-        if($i%2 == 0){
+	<?php
+    $j = 0;
+    foreach($setor['nome'] as $i => $v){
+        if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
         }
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?> / <?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=$d->novos?></td>
-            <td><?=$d->pendentes?></td>
-            <td><?=$d->concluidos?></td>
+            <td style="text-align:left;"><?=(utf8_encode($setor['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'] + $setor['qt'][$setor['nome'][$i]]['c'])?></td>
+            <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'])?></td>
+            <td><?=$setor['qt'][$setor['nome'][$i]]['c']?></td>
         </tr>
 <?php
-    $i++;
-    }
+    $j++;
+	}
+    // }
 ?>
     </tbody>
 </table>
