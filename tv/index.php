@@ -718,15 +718,26 @@ $MP['parados'] = $t->pd;
 </div>
 
 <div style="position:fixed; bottom:10px; left:620px; right:35px;">
-	<div class="row bg-warning p-3">
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-weight:bold">NV (NOVO)</div>
+	<div class="row">
+		<div class="col">
+			<div class="Qt" style="background-color:blue">
+				<div>Chamados - CH </div><h1><?=str_pad(trim($MP['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-weight:bold">PD (PENDENTE)</div>
+		<div class="col">
+			<div class="Qt" style="background-color:orange">
+				<div>Pendentes - PD </div><h1><?=str_pad(trim($MP['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-weight:bold">CL (CONCLUÍDO)</div>
+		<div class="col">
+			<div class="Qt" style="background-color:red">
+				<div>Paradas - PR </div><h1><?=str_pad(trim($MP['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
+		</div>
+		<div class="col">
+			<div class="Qt" style="background-color:green">
+				<div>Concluído - CL (<?=periodo($mes_passado)?>)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
 	</div>
 </div>
