@@ -211,50 +211,7 @@
 		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
-		//UTMs
-		$Rlt['utm']['nome'][$d->utm] = utf8_encode($d->utm_nome);
-		$Rlt['utm']['qt'][$d->utm] = ($Rlt['utm']['qt'][$d->utm] + 1);
-		$Rlt['utm']['tot'] = ($Rlt['utm']['tot'] + 1);
 
-
-		// //Setores
-		// $Rlt['tipo_manutencao']['nome'][$d->tipo_manutencao] = utf8_encode($d->tipo_manutencao_nome);
-		// $Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] = ($Rlt['tipo_manutencao']['qt'][$d->tipo_manutencao] + 1);
-		// $Rlt['tipo_manutencao']['tot'] = ($Rlt['tipo_manutencao']['tot'] + 1);
-
-		//Motivos
-		$Rlt['motivo']['nome'][$d->motivo] = utf8_encode($d->motivo_nome);
-		$Rlt['motivo']['qt'][$d->motivo] = ($Rlt['motivo']['qt'][$d->motivo] + 1);
-		$Rlt['motivo']['tot'] = ($Rlt['motivo']['tot'] + 1);
-
-
-		//Peças
-		$Rlt['peca']['nome'][$d->peca] = utf8_encode($d->peca_nome);
-		$Rlt['peca']['qt'][$d->peca] = ($Rlt['peca']['qt'][$d->peca] + 1);
-		$Rlt['peca']['tot'] = ($Rlt['peca']['tot'] + 1);
-
-
-		//Modelos
-		$Rlt['modelo']['nome'][$d->modelo] = utf8_encode($d->modelo_nome);
-		$Rlt['modelo']['qt'][$d->modelo] = ($Rlt['modelo']['qt'][$d->modelo] + 1);
-		$Rlt['modelo']['tot'] = ($Rlt['modelo']['tot'] + 1);
-
-
-		//Códigos
-		$Rlt['codigos']['nome'][$d->codigos] = utf8_encode($d->codigos_nome);
-		$Rlt['codigos']['qt'][$d->codigos] = ($Rlt['codigos']['qt'][$d->codigos] + 1);
-		$Rlt['codigos']['tot'] = ($Rlt['codigos']['tot'] + 1);
-
-
-		//Time
-		$Rlt['time']['nome'][$d->time] = utf8_encode($d->time_nome);
-		$Rlt['time']['qt'][$d->time] = ($Rlt['time']['qt'][$d->time] + 1);
-		$Rlt['time']['tot'] = ($Rlt['time']['tot'] + 1);
-
-		//Paradas
-		if($d->parada == 's' and $d->status != 'c'){
-			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
-		}
 	}
 
 ?>
