@@ -554,21 +554,17 @@
 
 	$query = "select 
                     a.*,
-                    s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as concluidos,
-                    (select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') as pendentes,
-                    (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%') as novos,
-					(select count(*) from chamados where parada = 's' and status != 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as paradas,
-                    ((select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') + (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%')) as ordem
+					count(*) as qt,
+                    u.nome as utm_nome
                 from chamados a 
-                    left join setores s on a.setor = s.codigo
-                    left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.utm order by ordem desc";
+                where data_abertura like '".date("Y-m")."%' group by a.utm, status order by u.nome";
 
     $result = mysql_query($query);
+	while($d = mysql_fetch_object($result)){
+		$utm['nome'][] = $d->utm_nome;
+		$utm['qt'][$d->utm_nome][$d->status] += $d->qt;
+	}
 ?>
 <table cellspacing="0" cellpadding="0">
     <thead>
@@ -585,8 +581,8 @@
     <tbody>
 <?php
     $i = 0;
-    while($d = mysql_fetch_object($result)){
-		if($d->utm_nome){
+    foreach($utm['nome'] as $i => $v){
+		// if($d->utm_nome){
         if($i%2 == 0){
             $bg = 'bg1';
         }else{
@@ -594,15 +590,15 @@
         }
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=($d->novo + $d->pendentes + $d->paradas + $d->concluidos)?></td>
-            <td><?=($d->novo + $d->pendentes + $d->paradas)?></td>
-            <td><?=$d->concluidos?></td>
+            <td style="text-align:left;"><?=(utf8_encode($utm['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'] + $utm['qt'][$utm['nome'][$i]]['c'])?></td>
+            <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'])?></td>
+            <td><?=$utm['qt'][$utm['nome'][$i]]['c']?></td>
         </tr>
 <?php
     $i++;
-		}
-    }
+	}
+    // }
 ?>
     </tbody>
 </table>
