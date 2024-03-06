@@ -66,7 +66,7 @@
         <span class="input-group-text">Busca</span>
     </div>
 
-    <div class="input-group-prepend">
+    <!-- <div class="input-group-prepend">
         <span class="input-group-text">UTM</span>
     </div>
     <select class="form-control" id="utm">
@@ -96,7 +96,7 @@
         <?php
         }
         ?>
-    </select>
+    </select> -->
 
     <div class="input-group-prepend">
         <span class="input-group-text">Data Ini</span>
