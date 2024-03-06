@@ -169,7 +169,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SISTEMA - SCW - <?=$mes_passado?></title>
+	<title>SISTEMA - SCW</title>
 	<?php include('../lib/header.php'); ?>
 	<style>
 		body{
@@ -427,7 +427,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído - CL (mês atual)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído - CL (<?=date("Y-m")?>)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
@@ -690,7 +690,7 @@
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído - CL (Mes passado)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído - CL (<?=$mes_passado?>)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
