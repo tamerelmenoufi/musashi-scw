@@ -21,6 +21,9 @@
 		return strtoupper($mes[$d[1]])."/".$d[0];
 	}
 
+	$mes_passado = date("Y-m", mktime(0,0,0, date("m"), 1 - 1 , date("Y")));
+
+
     $titulo = array(
 		't' => '',
 		'n' => 'Novo',
