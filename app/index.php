@@ -2,7 +2,7 @@
 	$home = true;
 	include('../includes/includes.php');
 
-	$mes_passado = date("Y-m", mktime(0,0,0, date("m") - 1, 1 , date("Y")));
+	$mes_passado = date("Y-m", mktime(0,0,0, date("m"), 1 - 1 , date("Y")));
 
     $titulo = array(
 		't' => '',
@@ -206,14 +206,14 @@
 		$Qt['novos'] = (($d->status == 'n')?($Qt['novos'] = ($Qt['novos'] + 1)):($Qt['novos']));
 		$Qt['pendentes'] = (($d->status == 'p')?($Qt['pendentes'] = ($Qt['pendentes'] + 1)):($Qt['pendentes']));
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
-		$Qt['parados'] = (($d->parada == 's' and $d->status != 'c')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
+		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
 	}
 
 
 ///////////////////////// MES PASSADO /////////////////////////////
 
-$q = "SELECT
+echo $q = "SELECT
 a.codigo,
 a.data_abertura,
 a.status,
@@ -279,7 +279,7 @@ while($d = mysql_fetch_object($r)){
 	$MP['novos'] = (($d->status == 'n')?($MP['novos'] = ($MP['novos'] + 1)):($MP['novos']));
 	$MP['pendentes'] = (($d->status == 'p')?($MP['pendentes'] = ($MP['pendentes'] + 1)):($MP['pendentes']));
 	$MP['concluidos'] = (($d->status == 'c')?($MP['concluidos'] = ($MP['concluidos'] + 1)):($MP['concluidos']));
-	$MP['parados'] = (($d->parada == 's' and $d->status != 'c')?($MP['parados'] = ($MP['parados'] + 1)):($MP['parados']));
+	$MP['parados'] = (($d->parada == 's')?($MP['parados'] = ($MP['parados'] + 1)):($MP['parados']));
 
 }
 
