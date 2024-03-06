@@ -242,7 +242,7 @@
 			position:fixed;
 			left:10px;
 			top:45px;
-			bottom:140px;
+			bottom:10px;
 			width:30%;
 			border-radius:10px;
 			background:#eee !important;
