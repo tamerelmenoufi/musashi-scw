@@ -581,10 +581,10 @@
                     s.nome as setor_nome,
                     t.nome as time_nome,
                     u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and data_abertura like '".date("Y-m")."%') as concluidos,
-                    (select count(*) from chamados where status = 'p' and data_abertura like '".date("Y-m")."%') as pendentes,
-                    (select count(*) from chamados where status = 'n' and data_abertura like '".date("Y-m")."%') as novos,
-                    ((select count(*) from chamados where status = 'p' and data_abertura like '".date("Y-m")."%') + (select count(*) from chamados where status = 'n' and data_abertura like '".date("Y-m")."%')) as ordem
+                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as concluidos,
+                    (select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') as pendentes,
+                    (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%') as novos,
+                    ((select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') + (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%')) as ordem
                 from chamados a 
                     left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
