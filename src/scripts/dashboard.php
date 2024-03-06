@@ -194,7 +194,7 @@ if($_SESSION['relatorio_filtro_data1']){
       $relatorio['time'][utf8_encode($d->time_nome)]['producao'] = ($relatorio['time'][utf8_encode($d->time_nome)]['producao'] + 1);    
       }
 
-      if($x < 10){
+
         $relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] + 1);
         if($d->status != 'c'){
         $relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] + 1);
@@ -206,9 +206,8 @@ if($_SESSION['relatorio_filtro_data1']){
         }else{
         $relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] + 1);    
         }
-      }
 
-$x++;
+
   }
 
 
@@ -238,14 +237,17 @@ $x++;
     $grafico_time['parada'][] = $v['parada']*1;
     $grafico_time['producao'][] = $v['producao']*1;
   }
-
+  $x = 0;
   foreach($relatorio['maquina'] as $i => $v){
+    if($x < 10){
     $grafico_maquina['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
     $grafico_maquina['nome'][] = $v['nome']*1;
     $grafico_maquina['pendente'][] = $v['pendente']*1;
     $grafico_maquina['concluido'][] = $v['concluido']*1;
     $grafico_maquina['parada'][] = $v['parada']*1;
     $grafico_maquina['producao'][] = $v['producao']*1;
+    }
+    $x++;
   }
 ?>
 <?php
