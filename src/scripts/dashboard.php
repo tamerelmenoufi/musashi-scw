@@ -153,6 +153,7 @@ if($_SESSION['relatorio_filtro_data1']){
           order by a.data_abertura desc";
   $result = mysql_query($query);
   $relatorio = [];
+  $x = 0;
   while($d = mysql_fetch_object($result)){
 
       $relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] + 1);
@@ -193,21 +194,21 @@ if($_SESSION['relatorio_filtro_data1']){
       $relatorio['time'][utf8_encode($d->time_nome)]['producao'] = ($relatorio['time'][utf8_encode($d->time_nome)]['producao'] + 1);    
       }
 
-
-      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] + 1);
-      if($d->status != 'c'){
-      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] + 1);
-      }else{
-      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] + 1);
+      if($x < 10){
+        $relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] + 1);
+        if($d->status != 'c'){
+        $relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] + 1);
+        }else{
+        $relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] + 1);
+        }
+        if($d->parada == 's'){
+        $relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] + 1);
+        }else{
+        $relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] + 1);    
+        }
       }
-      if($d->parada == 's'){
-      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] + 1);
-      }else{
-      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] + 1);    
-      }
 
-
-
+$x++;
   }
 
 
