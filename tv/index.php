@@ -549,57 +549,77 @@ $MP['parados'] = $t->pd;
 
 
 	<div class="col-12">
-		<?php
+
+	<?php
     ////////////////////////////////////////////////// UTMs ///////////////////////////////////////////////////
-    $query = "select 
+	$query = "select 
                     a.*,
-                    s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
-                    (select count(*) from chamados where status = 'p' and utm = a.utm) as pendentes,
-                    (select count(*) from chamados where status = 'n' and utm = a.utm) as novos,
-                    ((select count(*) from chamados where status = 'p' and utm = a.utm) + (select count(*) from chamados where status = 'n' and utm = a.utm)) as ordem
+					count(*) as qt,
+                    u.nome as utm_nome
                 from chamados a 
-                    left join setores s on a.setor = s.codigo
-                    left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.utm order by ordem desc limit 7";
+                where data_abertura like '".date("Y-m")."%' group by a.utm, status order by qt desc";
+
     $result = mysql_query($query);
+	while($d = mysql_fetch_object($result)){
+		$utm['nome'][$d->utm_nome] = $d->utm_nome;
+		$utm['qt'][$d->utm_nome][$d->status] += $d->qt;
+	}
 ?>
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4"><h3>UTM</h3></th>
+            <th colspan="4"><h6>UTM</h6></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
     </thead>
     <tbody>
 <?php
-    $i = 0;
-    while($d = mysql_fetch_object($result)){
-		if($d->utm_nome){
-        if($i%2 == 0){
+    $j = 0;
+	$outros = [];
+    foreach($utm['nome'] as $i => $v){
+		// if($d->utm_nome){
+        if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
         }
+		if($j<6){
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=$d->novos?></td>
-            <td><?=$d->pendentes?></td>
-            <td><?=$d->concluidos?></td>
+            <td style="text-align:left;"><?=(utf8_encode($utm['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'] + $utm['qt'][$utm['nome'][$i]]['c'])?></td>
+            <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'])?></td>
+            <td><?=$utm['qt'][$utm['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
-    $i++;
+		}else{
+			$outros['nome'] = 'Demais Setores';
+			$outros['ch'] += ($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'] + $utm['qt'][$utm['nome'][$i]]['c']);
+			$outros['pd'] += ($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p']);
+			$outros['cl'] += $utm['qt'][$utm['nome'][$i]]['c']*1;
+
 		}
-    }
+    $j++;
+	}
+
+	if($outros){
+?>
+        <tr class="<?=$bg?>">
+            <td style="text-align:left;"><?=($outros['nome'])?></td>
+            <td><?=($outros['ch'])?></td>
+            <td><?=($outros['pd'])?></td>
+            <td><?=$outros['cl']?></td>
+        </tr>
+<?php
+	}
+
+    // }
 ?>
     </tbody>
 </table>
@@ -610,53 +630,78 @@ $MP['parados'] = $t->pd;
 
 <?php
     ////////////////////////////////////////////////// SETORES ///////////////////////////////////////////////////
-    $query = "select 
+
+	$query = "select 
                     a.*,
+					count(*) as qt,
                     s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and setor = a.setor and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
-                    (select count(*) from chamados where status = 'p' and setor = a.setor) as pendentes,
-                    (select count(*) from chamados where status = 'n' and setor = a.setor) as novos,
-                    ((select count(*) from chamados where status = 'p' and setor = a.setor) + (select count(*) from chamados where status = 'n' and setor = a.setor)) as ordem
+                    u.nome as utm_nome
                 from chamados a 
-                    left join setores s on a.setor = s.codigo
-                    left join time t on a.time = t.codigo
                     left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.setor order by ordem desc limit 8";
+                    left join setores s on a.setor = s.codigo
+                where data_abertura like '".date("Y-m")."%' group by a.setor, status order by qt desc";
+
     $result = mysql_query($query);
+	while($d = mysql_fetch_object($result)){
+		$setor['nome']["{$d->setor_nome} / {$d->utm_nome}"] = "{$d->setor_nome} / {$d->utm_nome}";
+		$setor['qt']["{$d->setor_nome} / {$d->utm_nome}"][$d->status] += $d->qt;
+	}
+
 ?>
-<table cellspacing="0" cellpadding="0" style="margin-top:20px;">
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
-            <th colspan="4"><h3>SETORES / UTM</h3></th>
+            <th colspan="4"><h6>SETORES / UTM</h6></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
     </thead>
     <tbody>
-<?php
-    $i = 0;
-    while($d = mysql_fetch_object($result)){
-        if($i%2 == 0){
+	<?php
+    $j = 0;
+	$outros = [];
+    foreach($setor['nome'] as $i => $v){
+        if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
         }
+		if($j<6){
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->setor_nome)?:('NÃO IDENTIFICADO'))?> / <?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=$d->novos?></td>
-            <td><?=$d->pendentes?></td>
-            <td><?=$d->concluidos?></td>
+            <td style="text-align:left;"><?=(utf8_encode($setor['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'] + $setor['qt'][$setor['nome'][$i]]['c'])?></td>
+            <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'])?></td>
+            <td><?=$setor['qt'][$setor['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
-    $i++;
-    }
+		}else{
+			$outros['nome'] = 'Demais Setores';
+			$outros['ch'] += ($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'] + $setor['qt'][$setor['nome'][$i]]['c']);
+			$outros['pd'] += ($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p']);
+			$outros['cl'] += $setor['qt'][$setor['nome'][$i]]['c']*1;
+
+		}
+    $j++;
+	}
+
+	if($outros){
+?>
+		<tr class="<?=$bg?>">
+			<td style="text-align:left;"><?=($outros['nome'])?></td>
+			<td><?=($outros['ch'])?></td>
+			<td><?=($outros['pd'])?></td>
+			<td><?=$outros['cl']?></td>
+		</tr>
+<?php
+
+	}
+		
+    // }
 ?>
     </tbody>
 </table>
@@ -666,58 +711,79 @@ $MP['parados'] = $t->pd;
 
 <?php
     ////////////////////////////////////////////////// TIMES ///////////////////////////////////////////////////
-    $query = "select 
+
+	$query = "select 
                     a.*,
-                    s.nome as setor_nome,
-                    t.nome as time_nome,
-                    u.nome as utm_nome,
-                    (select count(*) from chamados where status = 'c' and time = a.time and data_abertura >= NOW() - INTERVAL 30 DAY) as concluidos,
-                    (select count(*) from chamados where status = 'p' and time = a.time) as pendentes,
-                    (select count(*) from chamados where status = 'n' and time = a.time) as novos,
-                    ((select count(*) from chamados where status = 'p' and time = a.time) + (select count(*) from chamados where status = 'n' and time = a.time)) as ordem
+					count(*) as qt,
+                    t.nome as time_nome
                 from chamados a 
-                    left join setores s on a.setor = s.codigo
                     left join time t on a.time = t.codigo
-                    left join utm u on a.utm = u.codigo
-                where a.status != 'c' group by a.time order by ordem desc limit 8";
+                where data_abertura like '".date("Y-m")."%' group by a.time, status order by qt desc";
+
     $result = mysql_query($query);
-    $i = 1;
+	while($d = mysql_fetch_object($result)){
+		$time['nome'][$d->time_nome] = $d->time_nome;
+		$time['qt'][$d->time_nome][$d->status] += $d->qt;
+	}
+
 ?>
-<table cellspacing="0" cellpadding="0" style="margin-top:20px;">
+<table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
-            <th colspan="4"><h3>TIMES DE ATUAÇÃO</h3></th>
+            <th colspan="4"><h6>TIMES DE ATUAÇÃO</h6></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
     </thead>
     <tbody>
-<?php
-    $i = 0;
-    while($d = mysql_fetch_object($result)){
-        if($i%2 == 0){
+	<?php
+    $j = 0;
+	$outros = [];
+    foreach($time['nome'] as $i => $v){
+        if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
         }
+		if($j<6){
 ?>
         <tr class="<?=$bg?>">
-            <td style="text-align:left;"><?=(utf8_encode($d->time_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=$d->novos?></td>
-            <td><?=$d->pendentes?></td>
-            <td><?=$d->concluidos?></td>
+            <td style="text-align:left;"><?=(utf8_encode($time['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
+            <td><?=($time['qt'][$time['nome'][$i]]['n'] + $time['qt'][$time['nome'][$i]]['p'] + $time['qt'][$time['nome'][$i]]['c'])?></td>
+            <td><?=($time['qt'][$time['nome'][$i]]['n'] + $time['qt'][$time['nome'][$i]]['p'])?></td>
+            <td><?=$time['qt'][$time['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
-    $i++;
-    }
+		}else{
+			$outros['nome'] = 'Demais Times';
+			$outros['ch'] += ($time['qt'][$time['nome'][$i]]['n'] + $time['qt'][$time['nome'][$i]]['p'] + $time['qt'][$time['nome'][$i]]['c']);
+			$outros['pd'] += ($time['qt'][$time['nome'][$i]]['n'] + $time['qt'][$time['nome'][$i]]['p']);
+			$outros['cl'] += $time['qt'][$time['nome'][$i]]['c']*1;
+
+		}
+    $j++;
+	}
+
+	if($outros){
+?>
+		<tr class="<?=$bg?>">
+			<td style="text-align:left;"><?=($outros['nome'])?></td>
+			<td><?=($outros['ch'])?></td>
+			<td><?=($outros['pd'])?></td>
+			<td><?=$outros['cl']?></td>
+		</tr>
+<?php
+
+	}
+		
+    // }
 ?>
     </tbody>
 </table>
-
 </div>
 
 <div style="position:fixed; bottom:10px; left:610px; right:15px;">
