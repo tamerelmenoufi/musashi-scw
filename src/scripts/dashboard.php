@@ -148,7 +148,7 @@ if($_SESSION['relatorio_filtro_data1']){
               left join setores b on a.setor = b.codigo 
               left join utm c on b.utm = c.codigo 
               left join time t on a.time = t.codigo 
-              left join maquinas m on a.mquina = m.codigo 
+              left join maquinas m on a.maquina = m.codigo 
           where 1 = 1 {$where}
           order by a.data_abertura desc";
   $result = mysql_query($query);
