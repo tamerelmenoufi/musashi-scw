@@ -535,6 +535,7 @@
     <tbody>
 <?php
     $j = 0;
+	$outros = [];
     foreach($utm['nome'] as $i => $v){
 		// if($d->utm_nome){
         if($j%2 == 0){
@@ -542,6 +543,7 @@
         }else{
             $bg = 'bg2';
         }
+		if($i<6){
 ?>
         <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($utm['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
@@ -550,8 +552,26 @@
             <td><?=$utm['qt'][$utm['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
+		}else{
+			$outros['nome'] = 'Demais Setores';
+			$outros['ch'] += ($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'] + $utm['qt'][$utm['nome'][$i]]['c']);
+			$outros['pd'] += ($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p']);
+			$outros['cl'] += $utm['qt'][$utm['nome'][$i]]['c']*1;
+
+		}
     $j++;
 	}
+	if($outros){
+?>
+        <tr class="<?=$bg?>">
+            <td style="text-align:left;"><?=($outros['nome'])?></td>
+            <td><?=($outros['ch'])?></td>
+            <td><?=($outros['pd'])?></td>
+            <td><?=$outros['cl']?></td>
+        </tr>
+<?php
+	}
+
     // }
 ?>
     </tbody>
