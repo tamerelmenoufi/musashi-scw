@@ -141,17 +141,21 @@ if($_SESSION['relatorio_filtro_data1']){
                   a.*,
                   b.utm,
                   c.nome as utm_nome,
-                  b.nome as setor_nome
+                  b.nome as setor_nome,
+                  t.nome as time_nome,
+                  m.nome as maquina_nome
               from chamados a 
               left join setores b on a.setor = b.codigo 
               left join utm c on b.utm = c.codigo 
+              left join time t on a.time = t.codigo 
+              left join maquinas m on a.mquina = m.codigo 
           where 1 = 1 {$where}
           order by a.data_abertura desc";
   $result = mysql_query($query);
   $relatorio = [];
   while($d = mysql_fetch_object($result)){
-      $relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] + 1);
 
+      $relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['nome'] + 1);
       if($d->status != 'c'){
       $relatorio['utm'][utf8_encode($d->utm_nome)]['pendente'] = ($relatorio['utm'][utf8_encode($d->utm_nome)]['pendente'] + 1);
       }else{
@@ -164,11 +168,7 @@ if($_SESSION['relatorio_filtro_data1']){
       }
       
 
-
-
       $relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['nome'] + 1);
-
-
       if($d->status != 'c'){
       $relatorio['setor'][utf8_encode($d->setor_nome)]['pendente'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['pendente'] + 1);
       }else{
@@ -179,6 +179,34 @@ if($_SESSION['relatorio_filtro_data1']){
       }else{
       $relatorio['setor'][utf8_encode($d->setor_nome)]['producao'] = ($relatorio['setor'][utf8_encode($d->setor_nome)]['producao'] + 1);    
       }
+
+
+      $relatorio['time'][utf8_encode($d->time_nome)]['nome'] = ($relatorio['time'][utf8_encode($d->time_nome)]['nome'] + 1);
+      if($d->status != 'c'){
+      $relatorio['time'][utf8_encode($d->time_nome)]['pendente'] = ($relatorio['time'][utf8_encode($d->time_nome)]['pendente'] + 1);
+      }else{
+      $relatorio['time'][utf8_encode($d->time_nome)]['concluido'] = ($relatorio['time'][utf8_encode($d->time_nome)]['concluido'] + 1);
+      }
+      if($d->parada == 's'){
+      $relatorio['time'][utf8_encode($d->time_nome)]['parada'] = ($relatorio['time'][utf8_encode($d->time_nome)]['parada'] + 1);
+      }else{
+      $relatorio['time'][utf8_encode($d->time_nome)]['producao'] = ($relatorio['time'][utf8_encode($d->time_nome)]['producao'] + 1);    
+      }
+
+
+      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['nome'] + 1);
+      if($d->status != 'c'){
+      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['pendente'] + 1);
+      }else{
+      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['concluido'] + 1);
+      }
+      if($d->parada == 's'){
+      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['parada'] + 1);
+      }else{
+      $relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] = ($relatorio['maquina'][utf8_encode($d->maquina_nome)]['producao'] + 1);    
+      }
+
+
 
   }
 
@@ -199,6 +227,24 @@ if($_SESSION['relatorio_filtro_data1']){
     $grafico_utm['concluido'][] = $v['concluido']*1;
     $grafico_utm['parada'][] = $v['parada']*1;
     $grafico_utm['producao'][] = $v['producao']*1;
+  }
+
+  foreach($relatorio['time'] as $i => $v){
+    $grafico_time['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_time['nome'][] = $v['nome']*1;
+    $grafico_time['pendente'][] = $v['pendente']*1;
+    $grafico_time['concluido'][] = $v['concluido']*1;
+    $grafico_time['parada'][] = $v['parada']*1;
+    $grafico_time['producao'][] = $v['producao']*1;
+  }
+
+  foreach($relatorio['maquina'] as $i => $v){
+    $grafico_maquina['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_maquina['nome'][] = $v['nome']*1;
+    $grafico_maquina['pendente'][] = $v['pendente']*1;
+    $grafico_maquina['concluido'][] = $v['concluido']*1;
+    $grafico_maquina['parada'][] = $v['parada']*1;
+    $grafico_maquina['producao'][] = $v['producao']*1;
   }
 ?>
 <?php
@@ -304,6 +350,11 @@ $j++;
 <canvas id="grafico_setor" style="margin-top:30px;"></canvas>
 
 
+<canvas id="grafico_time" style="margin-top:30px;"></canvas>
+
+<canvas id="grafico_maquinas" style="margin-top:30px;"></canvas>
+
+
 
 <script>
 
@@ -407,6 +458,107 @@ new Chart("grafico_utm", {
       }
   }
 });
+
+
+
+  ///////////////////////// Grafico ////////////////////////////////////////////////////////////
+
+
+  new Chart("grafico_time", {
+      type: "bar", //horizontalBar
+      data: {
+          labels: ['<?=implode("', '", $grafico_time['legenda'])?>'],
+          datasets: [{
+          label: 'Geral',
+          data: [<?=implode(", ", $grafico_time['nome'])?>],
+          borderColor: "blue",
+          backgroundColor:"rgb(2, 62, 198, 0.7)",
+          fill: false
+          },{
+          label: 'Concluidos',
+          data: [<?=implode(", ", $grafico_time['concluido'])?>],
+          borderColor: "green",
+          backgroundColor:"rgb(1, 174, 50, 0.7)",
+          fill: false
+          },{
+          label: 'Pendentes',
+          data: [<?=implode(", ", $grafico_time['pendente'])?>],
+          borderColor: "gray",
+          backgroundColor:"rgb(116, 116, 116, 0.7)",
+          fill: false
+          },{
+          label: 'Máquinas Paradas',
+          data: [<?=implode(", ", $grafico_time['parada'])?>],
+          borderColor: "red",
+          backgroundColor:"rgb(200, 3, 54, 0.7)",
+          fill: false
+          },{
+          label: 'Máquinas Em Produção',
+          data: [<?=implode(", ", $grafico_time['producao'])?>],
+          borderColor: "orange",
+          backgroundColor:"rgb(247, 152, 2, 0.7)",
+          fill: false
+          }]
+      },
+      options: {
+          legend: {display: false},
+          title: {
+              display: true,
+              text: "Gráfico de Representação dos Times",
+              fontSize: 16
+          }
+      }
+  });
+  
+  ///////////////////////// Grafico ////////////////////////////////////////////////////////////
+
+
+  new Chart("grafico_maquina", {
+      type: "bar", //horizontalBar
+      data: {
+          labels: ['<?=implode("', '", $grafico_maquina['legenda'])?>'],
+          datasets: [{
+          label: 'Geral',
+          data: [<?=implode(", ", $grafico_maquina['nome'])?>],
+          borderColor: "blue",
+          backgroundColor:"rgb(2, 62, 198, 0.7)",
+          fill: false
+          },{
+          label: 'Concluidos',
+          data: [<?=implode(", ", $grafico_maquina['concluido'])?>],
+          borderColor: "green",
+          backgroundColor:"rgb(1, 174, 50, 0.7)",
+          fill: false
+          },{
+          label: 'Pendentes',
+          data: [<?=implode(", ", $grafico_maquina['pendente'])?>],
+          borderColor: "gray",
+          backgroundColor:"rgb(116, 116, 116, 0.7)",
+          fill: false
+          },{
+          label: 'Máquinas Paradas',
+          data: [<?=implode(", ", $grafico_maquina['parada'])?>],
+          borderColor: "red",
+          backgroundColor:"rgb(200, 3, 54, 0.7)",
+          fill: false
+          },{
+          label: 'Máquinas Em Produção',
+          data: [<?=implode(", ", $grafico_maquina['producao'])?>],
+          borderColor: "orange",
+          backgroundColor:"rgb(247, 152, 2, 0.7)",
+          fill: false
+          }]
+      },
+      options: {
+          legend: {display: false},
+          title: {
+              display: true,
+              text: "Gráfico de Representação dos Máquinas",
+              fontSize: 16
+          }
+      }
+  });
+  
 
 
 
