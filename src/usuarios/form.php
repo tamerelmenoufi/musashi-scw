@@ -99,7 +99,8 @@
                       'todos' => 'Todos os chamados',
                       'novos' => 'Novos Chamados',
                       'producao' => 'Chamados em produção (atendimento)',
-                      'concluidos' => 'Chamados concluídos'
+                      'concluidos' => 'Chamados concluídos',
+                      'chamados' => 'Fechar qualquer Chamado',
                     );
         $usu = array('todos','novos','producao','concluidos');
       foreach ($permissoes as $chave => $valor) {
