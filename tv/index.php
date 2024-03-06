@@ -717,7 +717,7 @@ $MP['parados'] = $t->pd;
 
 </div>
 
-<div style="position:fixed; bottom:10px; left:620px; right:35px;">
+<div style="position:fixed; bottom:10px; left:610px; right:15px;">
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
