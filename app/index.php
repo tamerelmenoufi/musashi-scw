@@ -805,7 +805,7 @@ while($d = mysql_fetch_object($r)){
 </table>
 </div>
 
-<div style="margin-left:20px; margin-right:30px; width:calc(100% - 50px); margin-top:5px;">
+<div style="margin-left:20px; margin-right:10px; width:calc(100% - 30px); margin-top:5px;">
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
