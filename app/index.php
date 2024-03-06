@@ -480,12 +480,12 @@
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<div>Chamados</div><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) + trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Chamados</div><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<div>Pendentes</div><h1><?=str_pad(trim($Qt['novos']) +  trim($Qt['pendentes']) + trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Pendentes</div><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
