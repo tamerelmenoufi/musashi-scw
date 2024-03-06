@@ -512,7 +512,7 @@
                     u.nome as utm_nome
                 from chamados a 
                     left join utm u on a.utm = u.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.utm, status order by u.nome";
+                where data_abertura like '".date("Y-m")."%' group by a.utm, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
@@ -593,7 +593,7 @@
                 from chamados a 
                     left join utm u on a.utm = u.codigo
                     left join setores s on a.setor = s.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.setor, status order by s.nome";
+                where data_abertura like '".date("Y-m")."%' group by a.setor, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
