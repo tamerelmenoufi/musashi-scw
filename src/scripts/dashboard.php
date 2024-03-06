@@ -238,6 +238,7 @@ if($_SESSION['relatorio_filtro_data1']){
     $grafico_time['producao'][] = $v['producao']*1;
   }
   $x = 0;
+  arsort($relatorio['maquina']['concluido']);
   foreach($relatorio['maquina'] as $i => $v){
     if($x < 10){
     $grafico_maquina['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
