@@ -182,7 +182,9 @@ if($_SESSION['relatorio_filtro_data1']){
 
   }
 ?>
-
+<?php
+/*
+?>
 <h3 class="mt-3">Representação das UTM's</h3>
 <table class="table">
   <thead>
@@ -228,9 +230,13 @@ if($_SESSION['relatorio_filtro_data1']){
 ?>
   </tbody>
 </table>
-
+<?php
+//*/
+?>
 <canvas id="grafico_utm" style="margin-top:30px;"></canvas>
-
+<?php
+/*
+?>
 <h3 class="mt-3">Representação dos Setores</h3>
 <table class="table">
   <thead>
@@ -273,7 +279,9 @@ $j++;
 ?>
   </tbody>
 </table>
-
+<?php
+//*/
+?>
 <canvas id="grafico_setor" style="margin-top:30px;"></canvas>
 
 
