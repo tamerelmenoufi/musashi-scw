@@ -75,19 +75,129 @@
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
 	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-	where a.data_fechamento like '".date("Y-m")."%'
+	where a.status != 'c'
 		order by a.data_abertura asc";
 	$r = mysql_query($q);
 	// exit();
 	$TickDetalhe = [];
 	$TickResumo = [];
 
+	$visor = 0;
+	while($d = mysql_fetch_object($r)){
+
+
+		if($d->status != 'c' and $visor < 7){
+
+			$visor++;
+
+			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
+			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
+			$CorBorda[] = (($d->parada == 's')?'red':'yellow');
+
+			$Codigo[] = $d->codigo;
+
+
+			$TickDetalhe[] = "
+					<div style='float:left; width:30%;'><b>Cadastrado ID:</b> <div >".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data: <span style='color:red'>{$d->dias} dias atraso</span></b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
+					"<div style='float:left; width:20%;'>".(($d->status)?"<b>Situação:</b>
+						<div  style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
+
+					"<div style='float:left; width:60%;'><b>Peça:</b> <div >".utf8_encode($d->peca_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
+					"<div style='float:left; width:20%;'><b>Código:</b><div >".utf8_encode($d->codigos_nome)."</div></div>".
+
+					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
+					"<div style='float:left; width:40%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
+
+					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
+					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
+
+
+				//    "<div style='width:100%;'> <b style='color:#a1a1a1;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
+				"<div style='width:100%;'>".(($d->problema)?"<b>Problema:</b><div >".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
+
+				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b>Funcionário:</b><div >".utf8_encode($d->funcionario)."</div>":false)."</div>".
+				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b>Técnico:</b><div >".utf8_encode($d->tecnico)."</div>":false)."</div>".
+
+				"<div style='width:100%;'>".(($d->observacao)?"<b>Observações:</b><div >".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
+
+			$TickResumo[] = "<div style='float:left; width:40%;'><b >Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
+							"<div style='float:left; width:60%;'>".(($d->status)?"<b >Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
+							"<div style='float:left; width:100%;'> <b >Setor:</b><div>".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
+							"<div style='float:left; width:100%;'> <b >Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
+							"<div style='float:left; width:100%;'> <b >Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
+		}
+
+
+	}
+
+
+	$q = "SELECT count(*) as qt, max(UNIX_TIMESTAMP(data_atualizacao)) as tempo FROM `chamados`";
+	$r = mysql_query($q);
+    $st = mysql_fetch_object($r);
+
+	$q = "SELECT
+	a.codigo,
+	a.data_abertura,
+	a.status,
+	a.time,
+	a.motivo,
+	a.parada,
+	a.setor,
+	a.tipo_manutencao,
+	a.maquina,
+
+	DATEDIFF (NOW(), a.data_abertura) as dias,
+
+	a.peca,
+	a.modelo,
+	a.codigos as codigos_nome,
+
+
+	tm.nome as time_nome,
+	mt.nome as motivo_nome,
+	s.nome as setor_nome,
+	s.utm as utm,
+    u.nome as utm_nome,
+	m.nome as maquina_nome,
+
+	p.nome as peca_nome,
+	md.nome as modelo_nome,
+	/*cd.nome as codigos_nome,*/
+
+
+	t.nome as tipo_manutencao_nome,
+	a.problema,
+	f.nome as funcionario,
+	tc.nome as tecnico
+		FROM chamados a
+		left join setores s on a.setor = s.codigo
+        left join utm u on s.utm = u.codigo
+		left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+		left join maquinas m on a.maquina = m.codigo
+
+		left join pecas p on a.peca = p.codigo
+		left join modelos md on a.modelo = md.codigo
+		/*left join codigos cd on a.codigos = cd.codigo*/
+
+		left join time tm on a.time = tm.codigo
+		left join motivos mt on a.motivo = mt.codigo
+		left join login tc on a.tecnico = tc.codigo
+		left join login f on a.funcionario = f.codigo
+	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
+	where a.data_fechamento like '".date("Y-m")."%'
+		order by a.data_abertura asc";
+	$r = mysql_query($q);
+
+
 	$Qt['novos'] = 0;
 	$Qt['pendentes'] = 0;
 	$Qt['concluidos'] = 0;
 	$Qt['parados'] = 0;
 
-	$visor = 0;
+
 	while($d = mysql_fetch_object($r)){
 
 
@@ -145,52 +255,6 @@
 		if($d->parada == 's' and $d->status != 'c'){
 			$Rlt['paradas'][] = utf8_encode($d->maquina_nome);
 		}
-
-		if($d->status != 'c' and $visor < 7){
-
-			$visor++;
-
-			$CorDetalhe[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
-			$CorResumo[] = $cor[(($d->parada == 's' and $d->status == 'n')?$d->parada:$d->status)];
-			$CorBorda[] = (($d->parada == 's')?'red':'yellow');
-
-			$Codigo[] = $d->codigo;
-
-
-			$TickDetalhe[] = "
-					<div style='float:left; width:30%;'><b>Cadastrado ID:</b> <div >".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-					"<div style='float:left; width:50%;'>".((dataBr($d->data_abertura))?"<b>Data: <span style='color:red'>{$d->dias} dias atraso</span></b><div >".dataBr($d->data_abertura)."</div>":false)."</div>".
-					"<div style='float:left; width:20%;'>".(($d->status)?"<b>Situação:</b>
-						<div  style='color:{$cor[$d->status]}; font-weight:bold;'>".$titulo[$d->status]."</div>":false)."</div>".
-
-					"<div style='float:left; width:60%;'><b>Peça:</b> <div >".utf8_encode($d->peca_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b>Modelo:</b><div >".utf8_encode($d->modelo_nome)."</div></div>".
-					"<div style='float:left; width:20%;'><b>Código:</b><div >".utf8_encode($d->codigos_nome)."</div></div>".
-
-					"<div style='float:left; width:60%;'> <b>Setor:</b><div >".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
-					"<div style='float:left; width:40%;'> <b>Máquina:<span style='color:".(($d->parada == 's')?'red':'#333').";'> (".$parada[$d->parada].")</span></b><div >".utf8_encode($d->maquina_nome)."</div></div>".
-
-					"<div style='float:left; width:50%;'>".(($d->time_nome)?"<b>Time:</b><div >".utf8_encode($d->time_nome)."</div>":false)."</div>".
-					"<div style='float:left; width:50%;'>".(($d->motivo_nome)?"<b>Ocorrência:</b><div >".utf8_encode($d->motivo_nome)."</div>":false)."</div>".
-
-
-				//    "<div style='width:100%;'> <b style='color:#a1a1a1;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
-				"<div style='width:100%;'>".(($d->problema)?"<b>Problema:</b><div >".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
-
-				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b>Funcionário:</b><div >".utf8_encode($d->funcionario)."</div>":false)."</div>".
-				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b>Técnico:</b><div >".utf8_encode($d->tecnico)."</div>":false)."</div>".
-
-				"<div style='width:100%;'>".(($d->observacao)?"<b>Observações:</b><div >".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
-
-			$TickResumo[] = "<div style='float:left; width:40%;'><b >Cadastrado ID:</b> <div>".str_pad($d->codigo, 8, "0", STR_PAD_LEFT)."</div></div>".
-							"<div style='float:left; width:60%;'>".(($d->status)?"<b >Situação:</b><div>".$titulo[$d->status]."</div>":false)."</div>".
-							"<div style='float:left; width:100%;'> <b >Setor:</b><div>".utf8_encode($d->setor_nome)." (".utf8_encode($d->utm_nome).")</div></div>".
-							"<div style='float:left; width:100%;'> <b >Máquina: (".$parada[$d->parada].")</b><div>".utf8_encode($d->maquina_nome)."</div></div>".
-							"<div style='float:left; width:100%;'> <b >Time:</b><div>".utf8_encode($d->time_nome)."</div></div>".
-							"<div style='float:left; width:100%;'> <b >Ocorrência:</b><div>".utf8_encode($d->motivo_nome)."</div></div>";
-		}
-
-
 	}
 
 ?>
