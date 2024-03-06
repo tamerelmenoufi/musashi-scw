@@ -561,6 +561,7 @@
 		}
     $j++;
 	}
+
 	if($outros){
 ?>
         <tr class="<?=$bg?>">
@@ -631,12 +632,14 @@
     <tbody>
 	<?php
     $j = 0;
+	$outros = [];
     foreach($setor['nome'] as $i => $v){
         if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
         }
+		if($j<6){
 ?>
         <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($setor['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
@@ -645,8 +648,28 @@
             <td><?=$setor['qt'][$setor['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
+		}else{
+			$outros['nome'] = 'Demais Setores';
+			$outros['ch'] += ($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'] + $setor['qt'][$setor['nome'][$i]]['c']);
+			$outros['pd'] += ($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p']);
+			$outros['cl'] += $setor['qt'][$setor['nome'][$i]]['c']*1;
+
+		}
     $j++;
 	}
+
+	if($outros){
+?>
+		<tr class="<?=$bg?>">
+			<td style="text-align:left;"><?=($outros['nome'])?></td>
+			<td><?=($outros['ch'])?></td>
+			<td><?=($outros['pd'])?></td>
+			<td><?=$outros['cl']?></td>
+		</tr>
+<?php
+
+	}
+		
     // }
 ?>
     </tbody>
