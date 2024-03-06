@@ -312,7 +312,7 @@ $j++;
 
 
   new Chart("grafico_setor", {
-      type: "horizontalBar",
+      type: "bar", //horizontalBar
       data: {
           labels: ['<?=implode("', '", $grafico_setor['legenda'])?>'],
           datasets: [{
@@ -363,7 +363,7 @@ $j++;
 
 
 new Chart("grafico_utm", {
-  type: "horizontalBar",
+  type: "bar", //horizontalBar
   data: {
       labels: ['<?=implode("', '", $grafico_utm['legenda'])?>'],
       datasets: [{
