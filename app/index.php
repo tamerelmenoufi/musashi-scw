@@ -562,7 +562,7 @@
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
-		$utm['nome'][] = $d->utm_nome;
+		$utm['nome'][$d->utm_nome] = $d->utm_nome;
 		$utm['qt'][$d->utm_nome][$d->status] += $d->qt;
 	}
 ?>
