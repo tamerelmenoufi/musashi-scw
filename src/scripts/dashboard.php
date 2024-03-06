@@ -352,7 +352,7 @@ $j++;
 
 <canvas id="grafico_time" style="margin-top:30px;"></canvas>
 
-<canvas id="grafico_maquinas" style="margin-top:30px;"></canvas>
+<canvas id="grafico_maquina" style="margin-top:30px;"></canvas>
 
 
 
