@@ -136,155 +136,7 @@
 	}
 
 
-
-
-///////////////////////// MES ATUAL ///////////////////////////////
-
-	$q = "SELECT
-	a.codigo,
-	a.data_abertura,
-	a.status,
-	a.time,
-	a.motivo,
-	a.parada,
-	a.setor,
-	a.tipo_manutencao,
-	a.maquina,
-
-	DATEDIFF (NOW(), a.data_abertura) as dias,
-
-	a.peca,
-	a.modelo,
-	a.codigos as codigos_nome,
-
-
-	tm.nome as time_nome,
-	mt.nome as motivo_nome,
-	s.nome as setor_nome,
-	s.utm as utm,
-    u.nome as utm_nome,
-	m.nome as maquina_nome,
-
-	p.nome as peca_nome,
-	md.nome as modelo_nome,
-	/*cd.nome as codigos_nome,*/
-
-
-	t.nome as tipo_manutencao_nome,
-	a.problema,
-	f.nome as funcionario,
-	tc.nome as tecnico
-		FROM chamados a
-		left join setores s on a.setor = s.codigo
-        left join utm u on s.utm = u.codigo
-		left join tipos_manutencao t on a.tipo_manutencao = t.codigo
-		left join maquinas m on a.maquina = m.codigo
-
-		left join pecas p on a.peca = p.codigo
-		left join modelos md on a.modelo = md.codigo
-		/*left join codigos cd on a.codigos = cd.codigo*/
-
-		left join time tm on a.time = tm.codigo
-		left join motivos mt on a.motivo = mt.codigo
-		left join login tc on a.tecnico = tc.codigo
-		left join login f on a.funcionario = f.codigo
-	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-	where a.data_abertura like '".date("Y-m")."%'
-		order by a.data_abertura asc";
-	$r = mysql_query($q);
-
-
-	$Qt['novos'] = 0;
-	$Qt['pendentes'] = 0;
-	$Qt['concluidos'] = 0;
-	$Qt['parados'] = 0;
-
-
-	while($d = mysql_fetch_object($r)){
-
-
-		$Qt['novos'] = (($d->status == 'n')?($Qt['novos'] = ($Qt['novos'] + 1)):($Qt['novos']));
-		$Qt['pendentes'] = (($d->status == 'p')?($Qt['pendentes'] = ($Qt['pendentes'] + 1)):($Qt['pendentes']));
-		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
-		$Qt['parados'] = (($d->parada == 's')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
-
-	}
-
-
-///////////////////////// MES PASSADO /////////////////////////////
-
-$q = "SELECT
-a.codigo,
-a.data_abertura,
-a.status,
-a.time,
-a.motivo,
-a.parada,
-a.setor,
-a.tipo_manutencao,
-a.maquina,
-
-DATEDIFF (NOW(), a.data_abertura) as dias,
-
-a.peca,
-a.modelo,
-a.codigos as codigos_nome,
-
-
-tm.nome as time_nome,
-mt.nome as motivo_nome,
-s.nome as setor_nome,
-s.utm as utm,
-u.nome as utm_nome,
-m.nome as maquina_nome,
-
-p.nome as peca_nome,
-md.nome as modelo_nome,
-/*cd.nome as codigos_nome,*/
-
-
-t.nome as tipo_manutencao_nome,
-a.problema,
-f.nome as funcionario,
-tc.nome as tecnico
-	FROM chamados a
-	left join setores s on a.setor = s.codigo
-	left join utm u on s.utm = u.codigo
-	left join tipos_manutencao t on a.tipo_manutencao = t.codigo
-	left join maquinas m on a.maquina = m.codigo
-
-	left join pecas p on a.peca = p.codigo
-	left join modelos md on a.modelo = md.codigo
-	/*left join codigos cd on a.codigos = cd.codigo*/
-
-	left join time tm on a.time = tm.codigo
-	left join motivos mt on a.motivo = mt.codigo
-	left join login tc on a.tecnico = tc.codigo
-	left join login f on a.funcionario = f.codigo
-/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-where a.data_abertura like '".$mes_passado."%'
-	order by a.data_abertura asc";
-$r = mysql_query($q);
-
-
-$MP['novos'] = 0;
-$MP['pendentes'] = 0;
-$MP['concluidos'] = 0;
-$MP['parados'] = 0;
-
-
-while($d = mysql_fetch_object($r)){
-
-
-	$MP['novos'] = (($d->status == 'n')?($MP['novos'] = ($MP['novos'] + 1)):($MP['novos']));
-	$MP['pendentes'] = (($d->status == 'p')?($MP['pendentes'] = ($MP['pendentes'] + 1)):($MP['pendentes']));
-	$MP['concluidos'] = (($d->status == 'c')?($MP['concluidos'] = ($MP['concluidos'] + 1)):($MP['concluidos']));
-	$MP['parados'] = (($d->parada == 's')?($MP['parados'] = ($MP['parados'] + 1)):($MP['parados']));
-
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////MES ATUAL/////////////////////////////////////
 
 
 	$query = "select 
@@ -299,6 +151,20 @@ while($d = mysql_fetch_object($r)){
 	$Qt['concluidos'] = $t->cl;
 	$Qt['parados'] = $t->pd; 
 
+//////////////////////////////////MES PASSADO/////////////////////////////////////
+
+
+	$query = "select 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%') as ch, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('n', 'p')) as pn, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('c')) as cl,
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status not in ('c') and parada = 's') as pd";
+	$result = mysql_query($query);
+	$t = mysql_fetch_object($result);
+	$MP['novos'] = $t->ch;
+	$MP['pendentes'] = $t->pn;
+	$MP['concluidos'] = $t->cl;
+	$MP['parados'] = $t->pd; 
 ?>
 <!DOCTYPE html>
 <html>
