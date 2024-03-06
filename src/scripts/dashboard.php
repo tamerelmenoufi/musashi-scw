@@ -181,6 +181,25 @@ if($_SESSION['relatorio_filtro_data1']){
       }
 
   }
+
+
+  foreach($relatorio['setor'] as $i => $v){
+    $grafico_setor['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_setor['nome'][] = $v['nome']*1;
+    $grafico_setor['pendente'][] = $v['pendente']*1;
+    $grafico_setor['concluido'][] = $v['concluido']*1;
+    $grafico_setor['parada'][] = $v['parada']*1;
+    $grafico_setor['producao'][] = $v['producao']*1;
+  }
+
+  foreach($relatorio['utm'] as $i => $v){
+    $grafico_utm['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_utm['nome'][] = $v['nome']*1;
+    $grafico_utm['pendente'][] = $v['pendente']*1;
+    $grafico_utm['concluido'][] = $v['concluido']*1;
+    $grafico_utm['parada'][] = $v['parada']*1;
+    $grafico_utm['producao'][] = $v['producao']*1;
+  }
 ?>
 <?php
 /*
