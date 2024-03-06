@@ -132,11 +132,8 @@
                  t.nome as tipo_manutencao,
                  a.problema,
                  f.nome as funcionario,
-                 f.permissoes as Fpermissoes,
                  tc.nome as tecnico,
-                 tc.codigo as tecnico_codigo,
-                 tc.permissoes as TCpermissoes
-
+                 tc.codigo as tecnico_codigo
 
          FROM chamados a
              left join setores s on a.setor = s.codigo
@@ -155,7 +152,6 @@
 
   $result = mysql_query($query);
   $d = mysql_fetch_object($result);
-
 ?>
 
 <style type="text/css">
@@ -237,7 +233,7 @@
     	<span><?=dataBr($d->data_recebimento)?></span>
 
     <?php
-    if($d->status == 'p' and $d->tecnico_codigo == $_SESSION['scw_usuario_logado']){
+    if(($d->status == 'p' and $d->tecnico_codigo == $_SESSION['scw_usuario_logado']) or in_array('chamados', $_SESSION['scw_usuario_permissoes'])){
     ?>
 		<div class="form-group">
 			<label for="observacoes">Incluir Observações</label>
