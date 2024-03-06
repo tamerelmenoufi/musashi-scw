@@ -208,6 +208,12 @@
 
 		//Setores
 		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
+		$Rlt['setor']['novos'] = (($d->status == 'n')?($Qt['novos'] = ($Qt['novos'] + 1)):($Qt['novos']));
+		$Rlt['setor']['pendentes'] = (($d->status == 'p')?($Qt['pendentes'] = ($Qt['pendentes'] + 1)):($Qt['pendentes']));
+		$Rlt['setor']['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
+		$Rlt['setor']['parados'] = (($d->parada == 's' and $d->status != 'c')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
+
+		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
 		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
 		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
 
@@ -541,6 +547,7 @@
                     (select count(*) from chamados where status = 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as concluidos,
                     (select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') as pendentes,
                     (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%') as novos,
+					(select count(*) from chamados where parada = 's' and status != 'c' and utm = a.utm and data_abertura like '".date("Y-m")."%') as paradas,
                     ((select count(*) from chamados where status = 'p' and utm = a.utm and data_abertura like '".date("Y-m")."%') + (select count(*) from chamados where status = 'n' and utm = a.utm and data_abertura like '".date("Y-m")."%')) as ordem
                 from chamados a 
                     left join setores s on a.setor = s.codigo
@@ -557,7 +564,7 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
@@ -575,8 +582,8 @@
 ?>
         <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($d->utm_nome)?:('NÃO IDENTIFICADO'))?></td>
-            <td><?=$d->novos?></td>
-            <td><?=$d->pendentes?></td>
+            <td><?=($d->novo + $d->pendentes + $d->paradas + $d->concluidos)?></td>
+            <td><?=($d->novo + $d->pendentes + $d->paradas)?></td>
             <td><?=$d->concluidos?></td>
         </tr>
 <?php
