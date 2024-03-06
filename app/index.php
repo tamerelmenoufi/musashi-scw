@@ -2,6 +2,8 @@
 	$home = true;
 	include('../includes/includes.php');
 
+	$mes_passado = date("Y-m", mktime(0,0,0, date("m") - 1, 1 , date("Y")));
+
     $titulo = array(
 		't' => '',
 		'n' => 'Novo',
@@ -211,9 +213,6 @@
 
 ///////////////////////// MES PASSADO /////////////////////////////
 
-
-///////////////////////// MES ATUAL ///////////////////////////////
-
 $q = "SELECT
 a.codigo,
 a.data_abertura,
@@ -263,7 +262,7 @@ tc.nome as tecnico
 	left join login tc on a.tecnico = tc.codigo
 	left join login f on a.funcionario = f.codigo
 /*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-where a.data_fechamento like '".date("Y-m")."%'
+where a.data_fechamento like '".$mes_passado."%'
 	order by a.data_abertura asc";
 $r = mysql_query($q);
 
@@ -810,22 +809,22 @@ while($d = mysql_fetch_object($r)){
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
-				<div>Chamados - CH </div><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Chamados - CH </div><h1><?=str_pad(trim($MP['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:orange">
-				<div>Pendentes - PD </div><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Pendentes - PD </div><h1><?=str_pad(trim($MP['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:red">
-				<div>Paradas - PR </div><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Paradas - PR </div><h1><?=str_pad(trim($MP['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 		<div class="col">
 			<div class="Qt" style="background-color:green">
-				<div>Concluído - CL (Mes passado)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+				<div>Concluído - CL (Mes passado)</div><h1><?=str_pad(trim($MP['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
 			</div>
 		</div>
 	</div>
