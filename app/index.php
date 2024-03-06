@@ -213,7 +213,7 @@
 
 ///////////////////////// MES PASSADO /////////////////////////////
 
-echo $q = "SELECT
+$q = "SELECT
 a.codigo,
 a.data_abertura,
 a.status,
@@ -303,7 +303,7 @@ while($d = mysql_fetch_object($r)){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SISTEMA - SCW</title>
+	<title>SISTEMA - SCW - <?=$mes_passado?></title>
 	<?php include('../lib/header.php'); ?>
 	<style>
 		body{
