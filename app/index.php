@@ -543,7 +543,7 @@
         }else{
             $bg = 'bg2';
         }
-		if($i<6){
+		if($j<6){
 ?>
         <tr class="<?=$bg?>">
             <td style="text-align:left;"><?=(utf8_encode($utm['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
