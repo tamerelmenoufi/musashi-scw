@@ -136,7 +136,7 @@
 
 
 
-
+///////////////////////// MES ATUAL ///////////////////////////////
 
 	$q = "SELECT
 	a.codigo,
@@ -206,19 +206,86 @@
 		$Qt['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
 		$Qt['parados'] = (($d->parada == 's' and $d->status != 'c')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
 
-		//Setores
-		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
-		$Rlt['setor']['novos'] = (($d->status == 'n')?($Qt['novos'] = ($Qt['novos'] + 1)):($Qt['novos']));
-		$Rlt['setor']['pendentes'] = (($d->status == 'p')?($Qt['pendentes'] = ($Qt['pendentes'] + 1)):($Qt['pendentes']));
-		$Rlt['setor']['concluidos'] = (($d->status == 'c')?($Qt['concluidos'] = ($Qt['concluidos'] + 1)):($Qt['concluidos']));
-		$Rlt['setor']['parados'] = (($d->parada == 's' and $d->status != 'c')?($Qt['parados'] = ($Qt['parados'] + 1)):($Qt['parados']));
-
-		$Rlt['setor']['nome'][$d->setor] = utf8_encode($d->setor_nome);
-		$Rlt['setor']['qt'][$d->setor] = ($Rlt['setor']['qt'][$d->setor] + 1);
-		$Rlt['setor']['tot'] = ($Rlt['setor']['tot'] + 1);
-
-
 	}
+
+
+///////////////////////// MES PASSADO /////////////////////////////
+
+
+///////////////////////// MES ATUAL ///////////////////////////////
+
+$q = "SELECT
+a.codigo,
+a.data_abertura,
+a.status,
+a.time,
+a.motivo,
+a.parada,
+a.setor,
+a.tipo_manutencao,
+a.maquina,
+
+DATEDIFF (NOW(), a.data_abertura) as dias,
+
+a.peca,
+a.modelo,
+a.codigos as codigos_nome,
+
+
+tm.nome as time_nome,
+mt.nome as motivo_nome,
+s.nome as setor_nome,
+s.utm as utm,
+u.nome as utm_nome,
+m.nome as maquina_nome,
+
+p.nome as peca_nome,
+md.nome as modelo_nome,
+/*cd.nome as codigos_nome,*/
+
+
+t.nome as tipo_manutencao_nome,
+a.problema,
+f.nome as funcionario,
+tc.nome as tecnico
+	FROM chamados a
+	left join setores s on a.setor = s.codigo
+	left join utm u on s.utm = u.codigo
+	left join tipos_manutencao t on a.tipo_manutencao = t.codigo
+	left join maquinas m on a.maquina = m.codigo
+
+	left join pecas p on a.peca = p.codigo
+	left join modelos md on a.modelo = md.codigo
+	/*left join codigos cd on a.codigos = cd.codigo*/
+
+	left join time tm on a.time = tm.codigo
+	left join motivos mt on a.motivo = mt.codigo
+	left join login tc on a.tecnico = tc.codigo
+	left join login f on a.funcionario = f.codigo
+/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
+where a.data_fechamento like '".date("Y-m")."%'
+	order by a.data_abertura asc";
+$r = mysql_query($q);
+
+
+$MP['novos'] = 0;
+$MP['pendentes'] = 0;
+$MP['concluidos'] = 0;
+$MP['parados'] = 0;
+
+
+while($d = mysql_fetch_object($r)){
+
+
+	$MP['novos'] = (($d->status == 'n')?($MP['novos'] = ($MP['novos'] + 1)):($MP['novos']));
+	$MP['pendentes'] = (($d->status == 'p')?($MP['pendentes'] = ($MP['pendentes'] + 1)):($MP['pendentes']));
+	$MP['concluidos'] = (($d->status == 'c')?($MP['concluidos'] = ($MP['concluidos'] + 1)):($MP['concluidos']));
+	$MP['parados'] = (($d->parada == 's' and $d->status != 'c')?($MP['parados'] = ($MP['parados'] + 1)):($MP['parados']));
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
 
 
 	$query = "select 
@@ -608,7 +675,7 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
@@ -687,7 +754,7 @@
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
-            <th>NV</th>
+            <th>CH</th>
             <th>PD</th>
             <th>CL</th>
         </tr>
@@ -740,15 +807,26 @@
 </div>
 
 <div style="margin-left:40px; margin-right:50px; width:calc(100% - 90px); margin-top:5px;">
-	<div class="row bg-warning p-3">
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">NV (NOVO)</div>
+	<div class="row">
+		<div class="col">
+			<div class="Qt" style="background-color:blue">
+				<div>Chamados</div><h1><?=str_pad(trim($Qt['novos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">PD (PENDENTE)</div>
+		<div class="col">
+			<div class="Qt" style="background-color:orange">
+				<div>Pendentes</div><h1><?=str_pad(trim($Qt['pendentes']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
-		<div class="col-4">
-			<div style="width:100%; text-align:center; font-size:10px; font-weight:bold">CL (CONCLUÍDO)</div>
+		<div class="col">
+			<div class="Qt" style="background-color:red">
+				<div>Paradas</div><h1><?=str_pad(trim($Qt['parados']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
+		</div>
+		<div class="col">
+			<div class="Qt" style="background-color:green">
+				<div>Concluído (últimas 30 Dias)</div><h1><?=str_pad(trim($Qt['concluidos']) , 4 , '0' , STR_PAD_LEFT)?></h1>
+			</div>
 		</div>
 	</div>
 </div>
