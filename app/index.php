@@ -547,7 +547,7 @@
             <td style="text-align:left;"><?=(utf8_encode($utm['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
             <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'] + $utm['qt'][$utm['nome'][$i]]['c'])?></td>
             <td><?=($utm['qt'][$utm['nome'][$i]]['n'] + $utm['qt'][$utm['nome'][$i]]['p'])?></td>
-            <td><?=$utm['qt'][$utm['nome'][$i]]['c']?></td>
+            <td><?=$utm['qt'][$utm['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
     $j++;
@@ -622,7 +622,7 @@
             <td style="text-align:left;"><?=(utf8_encode($setor['nome'][$i])?:('NÃO IDENTIFICADO'))?></td>
             <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'] + $setor['qt'][$setor['nome'][$i]]['c'])?></td>
             <td><?=($setor['qt'][$setor['nome'][$i]]['n'] + $setor['qt'][$setor['nome'][$i]]['p'])?></td>
-            <td><?=$setor['qt'][$setor['nome'][$i]]['c']?></td>
+            <td><?=$setor['qt'][$setor['nome'][$i]]['c']*1?></td>
         </tr>
 <?php
     $j++;
