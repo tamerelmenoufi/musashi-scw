@@ -580,10 +580,10 @@
     </thead>
     <tbody>
 <?php
-    $i = 0;
+    $j = 0;
     foreach($utm['nome'] as $i => $v){
 		// if($d->utm_nome){
-        if($i%2 == 0){
+        if($j%2 == 0){
             $bg = 'bg1';
         }else{
             $bg = 'bg2';
@@ -596,7 +596,7 @@
             <td><?=$utm['qt'][$utm['nome'][$i]]['c']?></td>
         </tr>
 <?php
-    $i++;
+    $j++;
 	}
     // }
 ?>
