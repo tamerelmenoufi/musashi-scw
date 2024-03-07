@@ -136,7 +136,7 @@
 
 
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
-				"<div style='width:100%;'>".(($d->problema)?"<b>Problema:</b><div >".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
+				"<div style='width:100%;'>".(($d->problema)?"<b>Problema:</b><div style='overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;' >".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
 				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b>Funcionário:</b><div >".utf8_encode($d->funcionario)."</div>":false)."</div>".
 				"<div style='float:left; width:50%;'>".(($d->tecnico)?"<b>Técnico:</b><div >".utf8_encode($d->tecnico)."</div>":false)."</div>".
