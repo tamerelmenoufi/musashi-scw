@@ -787,7 +787,7 @@ $MP['parados'] = $t->pd;
 </div>
 
 <div style="position:fixed; bottom:10px; left:610px; right:15px; border:solid 2px #fff">
-	<span style="font-size:15px; font-weight:bold">Histórico do mês anterior</span>
+	<span style="font-size:15px; font-weight:bold; padding-left:20px;">Histórico do mês anterior</span>
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
