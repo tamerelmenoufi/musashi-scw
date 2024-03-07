@@ -98,7 +98,7 @@
 		left join login f on a.funcionario = f.codigo
 	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
 	where a.data_abertura like '".date("Y-m")."%' and a.status in ('n', 'p')
-		order by a.data_abertura asc";
+		order by dias desc";
 	$r = mysql_query($q);
 	// exit();
 	$TickDetalhe = [];
