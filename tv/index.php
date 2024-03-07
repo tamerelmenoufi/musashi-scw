@@ -786,7 +786,7 @@ $MP['parados'] = $t->pd;
 </table>
 </div>
 
-<div style="position:fixed; bottom:10px; left:610px; right:15px; border:solid 2px #ccc">
+<div style="position:fixed; bottom:10px; left:610px; right:15px; border:solid 2px #fff">
 	<span style="font-size:15px; font-weight:bold">Histórico do mês anterior</span>
 	<div class="row">
 		<div class="col">
