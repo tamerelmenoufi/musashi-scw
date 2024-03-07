@@ -694,7 +694,8 @@
 </table>
 </div>
 
-<div style="margin-left:20px; margin-right:25px; width:calc(100% - 45px); margin-top:5px;">
+<div style="margin-left:20px; margin-right:25px; width:calc(100% - 45px); margin-top:5px; border:solid 2px #ccc">
+	<span style="font-weight:bold">Histórico do mês anterior</span>
 	<div class="row">
 		<div class="col">
 			<div class="Qt" style="background-color:blue">
