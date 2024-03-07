@@ -117,7 +117,7 @@
 
 
 <?php
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     b.utm,
                     c.nome as utm_nome,
