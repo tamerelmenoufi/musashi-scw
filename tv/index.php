@@ -140,7 +140,7 @@
 				//    "<div style='width:100%;'> <b style='color:#a1a1a1; font-size:10px;'>Tipo de Manutenção:</b><div>".utf8_encode($d->tipo_manutencao_nome)."</div></div>".
 				"<div style='width:100%;'>".(($d->problema)?"<b style='color:#a1a1a1; font-size:20px;'>Problema:</b><div class='detalhesTexto' style='overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;'>".str_replace("\n"," ",utf8_encode($d->problema))."</div>":false)."</div>".
 
-				"<div style='float:left; width:50%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:20px;'>Funcionário:</b><div class='detalhesTexto' style='overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
+				"<div style='float:left; width:100%;'>".(($d->funcionario)?"<b style='color:#a1a1a1; font-size:20px;'>Funcionário:</b><div class='detalhesTexto' style='overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;'>".utf8_encode($d->funcionario)."</div>":false)."</div>".
 				"<div style='float:left; width:100%;'>".(($d->tecnico)?"<b style='color:#a1a1a1; font-size:20px;'>Técnico:</b><div class='detalhesTexto' style='overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;'>".utf8_encode($d->tecnico)."</div>":false)."</div>".
 
 				"<div style='width:100%;'>".(($d->observacao)?"<b style='color:#a1a1a1; font-size:20px;'>Observações:</b><div class='detalhesTexto'>".str_replace("\n"," ",$_POST['observacao'])."</div>":false)."</div><br>";
