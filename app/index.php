@@ -900,7 +900,7 @@
 			centerMode: false,
 			focusOnSelect: true,
 			autoplay: true,
-  			autoplaySpeed: 10000,
+  			autoplaySpeed: 20000,
 		});
 
 		// $('.lista_maquinas_paradas').slick({

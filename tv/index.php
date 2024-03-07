@@ -863,7 +863,7 @@ $MP['parados'] = $t->pd;
 			centerMode: false,
 			focusOnSelect: true,
 			autoplay: true,
-  			autoplaySpeed: 10000,
+  			autoplaySpeed: 20000,
 		});
 
 
