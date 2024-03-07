@@ -97,7 +97,7 @@
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
 	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-	where a.status != 'c'
+	where a.status in ('c', 'p') and (a.data_fechamento like '".date("Y-m")."%' or a.data_fechamento like '".$mes_passado."%')
 		order by a.data_abertura asc";
 	$r = mysql_query($q);
 	// exit();
