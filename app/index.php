@@ -242,7 +242,7 @@
 		}
 
 		.detalhesTexto{
-			font-size:10px;
+			font-size:9px;
 		}
 		.listaDestaque div{
 			margin:0;
