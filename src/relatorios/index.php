@@ -38,19 +38,19 @@
 
   if($_POST['acao'] == 'filtro'){
     
-    $_SESSION['relatorio_utm'] = $_POST['utm'];
-    $_SESSION['relatorio_setor'] = $_POST['setor'];
+    // $_SESSION['relatorio_utm'] = $_POST['utm'];
+    // $_SESSION['relatorio_setor'] = $_POST['setor'];
     $_SESSION['relatorio_filtro_data1'] = $_POST['relatorio_filtro_data1'];
     $_SESSION['relatorio_filtro_data2'] = $_POST['relatorio_filtro_data2'];
     
   }
 
-  if($_SESSION['relatorio_utm']){
-    $where = " and b.utm = '{$_SESSION['relatorio_utm']}' ";
-  }
-  if($_SESSION['relatorio_setor']){
-    $where .= " and a.setor = '{$_SESSION['relatorio_setor']}' ";
-  }
+//   if($_SESSION['relatorio_utm']){
+//     $where = " and b.utm = '{$_SESSION['relatorio_utm']}' ";
+//   }
+//   if($_SESSION['relatorio_setor']){
+//     $where .= " and a.setor = '{$_SESSION['relatorio_setor']}' ";
+//   }
   if($_SESSION['relatorio_filtro_data1']){
     $where .= " and a.data_abertura between '".dataMysql($_SESSION['relatorio_filtro_data1'])." 00:00:00' and '".(($_SESSION['relatorio_filtro_data2'])?dataMysql($_SESSION['relatorio_filtro_data2']):dataMysql($_SESSION['relatorio_filtro_data1']))." 23:59:59' ";
   }
@@ -117,7 +117,7 @@
 
 
 <?php
-    $query = "select 
+    echo $query = "select 
                     a.*,
                     b.utm,
                     c.nome as utm_nome,
