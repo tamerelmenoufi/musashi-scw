@@ -386,7 +386,7 @@
 			background-color:#ccc;
 		}
 
-		h6{
+		.h6{
 			font-size:15px;
 		}
 
@@ -478,7 +478,7 @@
 <table cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th colspan="4"><h6>UTM</h6></th>
+            <th colspan="4"><span class="h6">UTM</span></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -559,7 +559,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
-            <th colspan="4"><h6>SETORES / UTM</h6></th>
+            <th colspan="4"><span class="h6">SETORES / UTM</span></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
@@ -638,7 +638,7 @@
 <table cellspacing="0" cellpadding="0" style="margin-top:10px;">
     <thead>
         <tr>
-            <th colspan="4"><h6>TIMES DE ATUAÇÃO</h6></th>
+            <th colspan="4"><span class="h6">TIMES DE ATUAÇÃO</span></th>
         </tr>
         <tr>
             <th style="width:60%; text-align:left;">Nome</th>
