@@ -241,6 +241,9 @@
 			padding:15px;
 		}
 
+		.detalhesTexto{
+			font-size:10px;
+		}
 		.listaDestaque div{
 			margin:0;
 			padding:0;
