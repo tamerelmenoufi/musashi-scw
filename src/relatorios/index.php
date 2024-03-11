@@ -270,7 +270,7 @@
 ?>
         <tr>
             <td><?=strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT)?></td>
-            <td><?=$i?> XX</td>
+            <td><?=$i?></td>
             <td><?=$v['nome']*1?></td>
             <td><?=$v['concluido']*1?></td>
             <td><?=$v['pendente']*1?></td>
@@ -334,8 +334,6 @@ $j++;
 </table>
 
 <!-- <canvas id="grafico_time" style="margin-top:30px;"></canvas> -->
-
-
 
 
 
