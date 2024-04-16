@@ -122,13 +122,13 @@
 
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_tabelas" value="option1" checked>
+  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_tabelas" value="option1" <?=(($_SESSION['modo'] == 'canvas')?'checked':false)?>>
   <label class="form-check-label" for="exampleRadios1">
     Relatório de dados em Tabelas
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_graficos" value="option2">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_graficos" value="option2" <?=(($_SESSION['modo'] == 'table')?'checked':false)?>>
   <label class="form-check-label" for="exampleRadios2">
     Relatório visual em Gráfico
   </label>
