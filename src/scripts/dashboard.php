@@ -15,7 +15,7 @@
   $query = "select a.*, count(*) as qt, b.nome as motivos, b.sigla from chamados a left join motivos b on a.motivo = b.codigo where b.nome != '' group by a.motivo order by qt desc limit 10";
   $result = mysql_query($query);
   while($d = mysql_fetch_object($result)){
-    $problema_rotulo[] = "'".utf8_encode($d->motivos)."'";
+    $problema_rotulo[] = "'".utf8_encode($d->sigla)."'";
     $problema_qt[] = utf8_encode($d->qt);
   }
 
