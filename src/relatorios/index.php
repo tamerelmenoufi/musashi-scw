@@ -503,66 +503,6 @@ new Chart("grafico_utm", {
 });
 
 
-
-    $(function(){
-
-        $("#relatorio_filtro_data1, #relatorio_filtro_data2").mask("99/99/9999");
-
-        $("#utm").change(function(){
-            utm = $(this).val();
-            $.ajax({
-                url:"src/relatorios/index.php",
-                type:"POST",
-                data:{
-                    utm,
-                    acao:'filtra_setor',
-                },
-                success:function(dados){
-                    $("#setor").html(dados);
-                }
-            });
-        })
-
-        $("button[buscar]").click(function(){
-            utm = $("#utm").val();
-            setor = $("#setor").val();
-            relatorio_filtro_data1 = $("#relatorio_filtro_data1").val();
-            relatorio_filtro_data2 = $("#relatorio_filtro_data2").val();
-            Carregando();
-            $.ajax({
-                url:"src/relatorios/index.php",
-                type:"POST",
-                data:{
-                    utm,
-                    setor,
-                    relatorio_filtro_data1,
-                    relatorio_filtro_data2,           
-                    acao:'filtro'         
-                },
-                success:function(dados){
-                    $("main").html(dados);
-                    Carregando('none');
-                }
-            });
-        })
-
-        $("button[limpar_relatorio]").click(function(){
-            Carregando();
-            $.ajax({
-                url:"src/relatorios/index.php",
-                type:"POST",
-                data:{
-                    limpar:1,
-                },
-                success:function(dados){
-                    $("main").html(dados);
-                    Carregando('none');
-                }
-            });
-        })
-
-
-    })
     //*/
 
 
@@ -781,6 +721,61 @@ new Chart("grafico_utm", {
         $("table").css("display","none");
     })
 
+
+    $("#relatorio_filtro_data1, #relatorio_filtro_data2").mask("99/99/9999");
+
+    $("#utm").change(function(){
+        utm = $(this).val();
+        $.ajax({
+            url:"src/relatorios/index.php",
+            type:"POST",
+            data:{
+                utm,
+                acao:'filtra_setor',
+            },
+            success:function(dados){
+                $("#setor").html(dados);
+            }
+        });
+    })
+
+    $("button[buscar]").click(function(){
+        utm = $("#utm").val();
+        setor = $("#setor").val();
+        relatorio_filtro_data1 = $("#relatorio_filtro_data1").val();
+        relatorio_filtro_data2 = $("#relatorio_filtro_data2").val();
+        Carregando();
+        $.ajax({
+            url:"src/relatorios/index.php",
+            type:"POST",
+            data:{
+                utm,
+                setor,
+                relatorio_filtro_data1,
+                relatorio_filtro_data2,           
+                acao:'filtro'         
+            },
+            success:function(dados){
+                $("main").html(dados);
+                Carregando('none');
+            }
+        });
+    })
+
+    $("button[limpar_relatorio]").click(function(){
+        Carregando();
+        $.ajax({
+            url:"src/relatorios/index.php",
+            type:"POST",
+            data:{
+                limpar:1,
+            },
+            success:function(dados){
+                $("main").html(dados);
+                Carregando('none');
+            }
+        });
+    })
     
 
   })
