@@ -122,7 +122,7 @@ if($_POST['acao'] == 'filtra_setor'){
                   b.utm,
                   c.nome as utm_nome,
                   b.sigla as setor_nome,
-                  t.nome as time_nome,
+                  t.sigla as time_nome,
                   m.nome as maquina_nome
               from chamados a 
               left join setores b on a.setor = b.codigo 
@@ -211,7 +211,7 @@ if($_POST['acao'] == 'filtra_setor'){
 
   arsort($relatorio['time']);
   foreach($relatorio['time'] as $i => $v){
-    $grafico_time['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_time['legenda'][] = $i; //strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
     $grafico_time['nome'][] = $v['nome']*1;
     $grafico_time['pendente'][] = $v['pendente']*1;
     $grafico_time['concluido'][] = $v['concluido']*1;
