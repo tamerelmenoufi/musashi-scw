@@ -192,7 +192,7 @@ if($_POST['acao'] == 'filtra_setor'){
 
   arsort($relatorio['setor']);
   foreach($relatorio['setor'] as $i => $v){
-    $grafico_setor['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_setor['legenda'][] = $i; //strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
     $grafico_setor['nome'][] = $v['nome']*1;
     $grafico_setor['pendente'][] = $v['pendente']*1;
     $grafico_setor['concluido'][] = $v['concluido']*1;
