@@ -116,6 +116,20 @@
 </div>
 
 
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_tabelas" value="option1" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    Relatório de dados em Tabelas
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="modo_graficos" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    Relatório visual em Gráfico
+  </label>
+</div>
+
+
 <?php
     $query = "select 
                     a.*,
@@ -751,5 +765,24 @@ new Chart("grafico_utm", {
           }
       }
   });
+
+
+  $(function(){
+
+    $("canvas").css("display","none");
+
+    $("#modo_tabelas").click(function(){
+        $("canvas").css("display","none");
+        $("table").css("display","block");
+    })
+
+    $("#modo_graficos").click(function(){
+        $("canvas").css("display","block");
+        $("table").css("display","none");
+    })
+
+    
+
+  })
   
 </script>
