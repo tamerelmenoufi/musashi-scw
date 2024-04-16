@@ -50,7 +50,7 @@
       <div class="input-group-prepend">
           <span class="input-group-text">Sigla</span>
       </div>
-      <input type="text" id="sigla<?=$tabela?>" value="" class="form-control" placeholder="Digite a sigla" aria-label="Digite a sigla">
+      <input type="text" id="sigla<?=$tabela?>" maxlength="10" value="" class="form-control" placeholder="Digite a sigla" aria-label="Digite a sigla">
       
       <div class="input-group-prepend">
           <span class="input-group-text">UTM</span>
