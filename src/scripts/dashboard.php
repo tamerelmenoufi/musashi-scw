@@ -12,10 +12,10 @@
   list($tecnicos) = mysql_fetch_row(mysql_query("select count(*) from login where tipo = 'tec' group by tipo"));
   
 
-  $query = "select a.*, count(*) as qt, b.nome as motivos from chamados a left join motivos b on a.motivo = b.codigo where b.nome != '' group by a.motivo order by qt desc limit 10";
+  $query = "select a.*, count(*) as qt, b.nome as motivos, b.sigla from chamados a left join motivos b on a.motivo = b.codigo where b.nome != '' group by a.motivo order by qt desc limit 10";
   $result = mysql_query($query);
   while($d = mysql_fetch_object($result)){
-    $problema_rotulo[] = "'".utf8_encode($d->motivos)."'";
+    $problema_rotulo[] = "'".utf8_encode($d->sigla)."'";
     $problema_qt[] = utf8_encode($d->qt);
   }
 
@@ -700,7 +700,7 @@ new Chart("grafico_utm", {
             }],
             xAxes: [{
               ticks: {
-                    display: true
+                    display: false
                 }
             }]
         }
