@@ -54,6 +54,11 @@
   </div>
 
   <div class="form-group">
+    <label for="sigla">Sigla</label>
+    <input form type="text" maxlength="10" class="form-control" id="sigla" aria-describedby="Sigla" value="<?=utf8_encode($d->sigla)?>">
+  </div>
+
+  <div class="form-group">
     <label for="competencia">Competência (Time)</label>
     <select form id="competencia" class="form-control">
       <option value="">:: Selecione o time ::</option>
