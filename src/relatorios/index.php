@@ -3,6 +3,11 @@
 
   $md5 = md5(date("YmdHis"));
 
+  if($_POST['modo']) $_SESSION['modo'] = $_POST['modo'];
+
+  if(!$_SESSION['modo']) $_SESSION['modo'] = 'canvas';
+
+
   function Legenda($opc){
 
     $d = [
@@ -709,16 +714,36 @@ new Chart("grafico_utm", {
 
   $(function(){
 
-    $("canvas").css("display","none");
+    $("<?=$_SESSION['modo']?>").css("display","none");
 
     $("#modo_tabelas").click(function(){
-        $("canvas").css("display","none");
-        $("table").css("display","block");
+        Carregando();
+        $.ajax({
+            url:"src/relatorios/index.php",
+            type:"POST",
+            data:{
+                modo:'canvas',
+            },
+            success:function(dados){
+                $("main").html(dados);
+                Carregando('none');
+            }
+        });
     })
 
     $("#modo_graficos").click(function(){
-        $("canvas").css("display","block");
-        $("table").css("display","none");
+        Carregando();
+        $.ajax({
+            url:"src/relatorios/index.php",
+            type:"POST",
+            data:{
+                modo:'table',
+            },
+            success:function(dados){
+                $("main").html(dados);
+                Carregando('none');
+            }
+        });
     })
 
 
