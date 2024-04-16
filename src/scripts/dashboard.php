@@ -121,7 +121,7 @@ if($_POST['acao'] == 'filtra_setor'){
                   a.*,
                   b.utm,
                   c.nome as utm_nome,
-                  b.nome as setor_nome,
+                  b.sigla as setor_nome,
                   t.nome as time_nome,
                   m.nome as maquina_nome
               from chamados a 
