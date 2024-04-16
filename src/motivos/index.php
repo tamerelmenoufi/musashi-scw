@@ -30,6 +30,7 @@
     <thead>
       <tr>
         <!--<th scope="col-1">#</th>-->
+        <th scope="col">Sigla</th>
         <th scope="col">Nome</th>
         <th scope="col">Competência (Time)</th>
         <th scope="col-1" width="110" class="text-right"></th>
@@ -42,6 +43,7 @@
       ?>
       <tr cadastro<?=$d->codigo?>>
         <!--<th scope="row"><?=$d->codigo?></th>-->
+        <td><?=utf8_encode($d->sigla)?></td>
         <td><?=utf8_encode($d->nome)?></td>
         <td><?=utf8_encode($d->competencia)?></td>
         <td class="text-right">
