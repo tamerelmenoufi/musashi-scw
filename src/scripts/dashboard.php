@@ -700,7 +700,7 @@ new Chart("grafico_utm", {
             }],
             xAxes: [{
               ticks: {
-                    display: false
+                    display: true
                 }
             }]
         }
