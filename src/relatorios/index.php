@@ -240,7 +240,7 @@
     </tbody>
 </table>
 
-<!-- <canvas id="grafico_utm" style="margin-top:30px;"></canvas> -->
+<canvas id="grafico_utm" style="margin-top:30px;"></canvas>
 
 <h3 class="mt-3">Representação dos Setores</h3>
 <table class="table">
