@@ -201,7 +201,7 @@ if($_POST['acao'] == 'filtra_setor'){
   }
   arsort($relatorio['utm']);
   foreach($relatorio['utm'] as $i => $v){
-    $grafico_utm['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_utm['legenda'][] = $i; //strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
     $grafico_utm['nome'][] = $v['nome']*1;
     $grafico_utm['pendente'][] = $v['pendente']*1;
     $grafico_utm['concluido'][] = $v['concluido']*1;
@@ -222,7 +222,7 @@ if($_POST['acao'] == 'filtra_setor'){
   arsort($relatorio['maquina']);
   foreach($relatorio['maquina'] as $i => $v){
     if($x < 10){
-    $grafico_maquina['legenda'][] = strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
+    $grafico_maquina['legenda'][] = $i; //strtoupper(substr($i,0,2)).str_pad($j, 2, "0", STR_PAD_LEFT);
     $grafico_maquina['nome'][] = $v['nome']*1;
     $grafico_maquina['pendente'][] = $v['pendente']*1;
     $grafico_maquina['concluido'][] = $v['concluido']*1;
