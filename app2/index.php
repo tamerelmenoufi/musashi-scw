@@ -26,7 +26,7 @@
 <body opc="scw">
 
 <iframe opc="scw" src="../app/" frameborder="0" allowfullscreen></iframe>
-<iframe opc="tv" class="oculto" src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
+<iframe opc="tv" src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
 
 <script type="text/javascript">
 
