@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<iframe src="../app/" frameborder="0" allowfullscreen></iframe>
+<!-- <iframe src="../app/" frameborder="0" allowfullscreen></iframe> -->
 <iframe src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
 
 <script type="text/javascript">
