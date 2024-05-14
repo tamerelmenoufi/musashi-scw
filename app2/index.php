@@ -12,7 +12,7 @@
 			position:fixed;
             padding:0;
             margin:0;
-            left:10;
+            left:0;
             right:0;
 			top:0;
 			bottom:0;
