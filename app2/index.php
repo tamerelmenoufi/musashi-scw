@@ -8,7 +8,7 @@
 	<title>SISTEMA - SCW/TV</title>
 	<?php include('../lib/header.php'); ?>
 	<style>
-        body{
+        iframe{
 			position:fixed;
             padding:0;
             margin:0;
@@ -22,10 +22,12 @@
 </head>
 <body>
 
+<iframe frameborder="0" src="../app/"></iframe>
+
 <script type="text/javascript">
 
 	Carregando = (opc) => { $("#Carregando").css("display",(opc?opc:'block')) }
-	
+
 	$(function(){
 		Carregando('none')
 
