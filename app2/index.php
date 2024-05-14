@@ -18,7 +18,7 @@
 
 		iframe {
 			width: 100%;
-			height: 50%;
+			height: 100%;
 			border: none; /* Remove a borda padrão do iframe */
 		}
 	</style>
@@ -38,12 +38,12 @@
 		setInterval(() => {
 			opc = $("body").attr("opc");
 			if(opc == 'scw'){
-				// $(`iframe[opc="scw"]`).css("opacity",1);
-				// $(`iframe[opc="tv"]`).css("opacity",0);
+				$(`iframe[opc="scw"]`).css("z-index",10);
+				$(`iframe[opc="tv"]`).css("z-index",1);
 				$("body").attr("opc","tv");
 			}else{
-				// $(`iframe[opc="tv"]`).css("opacity",1);
-				// $(`iframe[opc="scw"]`).css("opacity",0);
+				$(`iframe[opc="tv"]`).css("z-index",10);
+				$(`iframe[opc="scw"]`).css("z-index",1);
 				$("body").attr("opc","scw");		
 			}
 		}, 5000);
