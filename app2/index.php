@@ -21,12 +21,18 @@
 			height: 100%;
 			border: none; /* Remove a borda padrão do iframe */
 		}
+
+		div[tvcorp] {
+			width: 100%;
+			height: 100%;
+			border: none; /* Remove a borda padrão do iframe */
+		}
 	</style>
 </head>
 <body opc="scw">
 
-<iframe opc="scw" src="../app/" frameborder="0" allowfullscreen></iframe>
-<iframe opc="tv" src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
+<div tvcorp opc="scw"><iframe src="../app/" frameborder="0" allowfullscreen></iframe></div>
+<div tvcorp opc="tv"><iframe src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe></div>
 
 <script type="text/javascript">
 
@@ -38,12 +44,12 @@
 		setInterval(() => {
 			opc = $("body").attr("opc");
 			if(opc == 'scw'){
-				$(`iframe[opc="scw"]`).css("height","100%");
-				$(`iframe[opc="tv"]`).css("height","0");
+				$(`div[opc="scw"]`).css("height","100%");
+				$(`div[opc="tv"]`).css("height","0");
 				$("body").attr("opc","tv");
 			}else{
-				$(`iframe[opc="tv"]`).css("height","100%");
-				$(`iframe[opc="scw"]`).css("height","0");
+				$(`div[opc="tv"]`).css("height","100%");
+				$(`div[opc="scw"]`).css("height","0");
 				$("body").attr("opc","scw");		
 			}
 		}, 5000);
