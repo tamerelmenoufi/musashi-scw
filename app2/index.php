@@ -41,13 +41,13 @@
 		setInterval(() => {
 			opc = $("body").attr("opc");
 			if(opc == 'scw'){
-				$(`iframe[opc="scw"]`).removeClass("oculto");
-				$(`iframe[opc="tv"]`).addClass("oculto");
+				$(`iframe[opc="scw"]`).css("opacity",1);
+				$(`iframe[opc="tv"]`).css("opacity",0);
 				$("body").attr("opc","tv");
 			}else{
-				$(`iframe[opc="tv"]`).removeClass("oculto");
-				$(`iframe[opc="scw"]`).addClass("oculto");
-				$("body").attr("opc","scw");				
+				$(`iframe[opc="tv"]`).css("opacity",1);
+				$(`iframe[opc="scw"]`).css("opacity",0);
+				$("body").attr("opc","scw");		
 			}
 		}, 5000);
 
