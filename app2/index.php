@@ -52,7 +52,7 @@
 				$(`div[opc="scw"]`).css("height","0");
 				$("body").attr("opc","scw");		
 			}
-		}, 5000);
+		}, 60000);
 
 	})
 </script>
