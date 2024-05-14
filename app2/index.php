@@ -38,12 +38,12 @@
 		setInterval(() => {
 			opc = $("body").attr("opc");
 			if(opc == 'scw'){
-				$(`iframe[opc="scw"]`).css("z-index",10);
-				$(`iframe[opc="tv"]`).css("z-index",1);
+				$(`iframe[opc="scw"]`).css("height","100%");
+				$(`iframe[opc="tv"]`).css("height","0");
 				$("body").attr("opc","tv");
 			}else{
-				$(`iframe[opc="tv"]`).css("z-index",10);
-				$(`iframe[opc="scw"]`).css("z-index",1);
+				$(`iframe[opc="tv"]`).css("height","100%");
+				$(`iframe[opc="scw"]`).css("height","0");
 				$("body").attr("opc","scw");		
 			}
 		}, 5000);
