@@ -9,10 +9,13 @@
 	<?php include('../lib/header.php'); ?>
 	<style>
         body{
+			position:fixed;
             padding:0;
             margin:0;
-            width:100%;
-            height:100%;
+            left:10;
+            right:0;
+			top:0;
+			bottom:0;
             border:solid 1px red;
         }
 	</style>
@@ -22,6 +25,7 @@
 <script type="text/javascript">
 
 	$(function(){
+		Carregando('none')
 
 	})
 </script>
