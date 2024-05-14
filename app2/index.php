@@ -22,7 +22,7 @@
 			border: none; /* Remove a borda padrão do iframe */
 		}
 		.oculto{
-			display:none;
+			opacity:0;
 		}
 	</style>
 </head>
