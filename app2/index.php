@@ -21,12 +21,15 @@
 			height: 100%;
 			border: none; /* Remove a borda padrão do iframe */
 		}
+		.oculto{
+			display:none;
+		}
 	</style>
 </head>
-<body>
+<body opc="scw">
 
-<!-- <iframe src="../app/" frameborder="0" allowfullscreen></iframe> -->
-<iframe src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
+<iframe opc="scw" src="../app/" frameborder="0" allowfullscreen></iframe>
+<iframe opc="tv" class="oculto" src="http://tvcorp.mohatron.com/v2___/" frameborder="0" allowfullscreen></iframe>
 
 <script type="text/javascript">
 
@@ -34,6 +37,19 @@
 
 	$(function(){
 		Carregando('none')
+
+		setInterval(() => {
+			opc = $("body").attr("opc");
+			if(opc == 'scw'){
+				$(`iframe[opc="scw"]`).removeClass("oculto");
+				$(`iframe[opc="tv"]`).addClass("oculto");
+				$("body").attr("opc","tv");
+			}else{
+				$(`iframe[opc="tv"]`).removeClass("oculto");
+				$(`iframe[opc="scw"]`).addClass("oculto");
+				$("body").attr("opc","scw");				
+			}
+		}, 5000);
 
 	})
 </script>
