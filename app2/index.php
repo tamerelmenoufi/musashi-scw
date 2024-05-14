@@ -8,7 +8,7 @@
 	<title>SISTEMA - SCW/TV</title>
 	<?php include('../lib/header.php'); ?>
 	<style>
-        iframe{
+        object{
 			position:fixed;
             padding:0;
             margin:0;
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<iframe frameborder="0" src="../app/"></iframe>
+<object src="../app/"></object>
 
 <script type="text/javascript">
 
