@@ -96,7 +96,7 @@
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
 	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
-	where a.data_abertura like '".date("Y-m")."%' and a.status in ('n', 'p')
+	where a.data_abertura like '".date("Y-m")."%' and a.status in ('n', 'p') and a.time != '20'
 		order by dias desc";
 	$r = mysql_query($q);
 	// exit();
@@ -159,10 +159,10 @@
 
 
 	$query = "select 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%') as ch, 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('n', 'p')) as pn, 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('c')) as cl,
-					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status not in ('c') and parada = 's') as pd";
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and time != '20') as ch, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('n', 'p') and time != '20') as pn, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status in ('c') and time != '20') as cl,
+					(SELECT count(*) FROM `chamados` where data_abertura like '".date("Y-m")."%' and status not in ('c') and parada = 's' and time != '20') as pd";
 	$result = mysql_query($query);
 	$t = mysql_fetch_object($result);
 	$Qt['novos'] = $t->ch;
@@ -174,10 +174,10 @@
 
 
 	$query = "select 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%') as ch, 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('n', 'p')) as pn, 
-					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('c')) as cl,
-					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status not in ('c') and parada = 's') as pd";
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and time != '20') as ch, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('n', 'p') and time != '20') as pn, 
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status in ('c') and time != '20') as cl,
+					(SELECT count(*) FROM `chamados` where data_abertura like '".$mes_passado."%' and status not in ('c') and parada = 's' and time != '20') as pd";
 	$result = mysql_query($query);
 	$t = mysql_fetch_object($result);
 	$MP['novos'] = $t->ch;
@@ -470,7 +470,7 @@
                     u.nome as utm_nome
                 from chamados a 
                     left join utm u on a.utm = u.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.utm, status order by qt desc";
+                where data_abertura like '".date("Y-m")."%' and a.time != '20' group by a.utm, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
@@ -550,7 +550,7 @@
                 from chamados a 
                     left join utm u on a.utm = u.codigo
                     left join setores s on a.setor = s.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.setor, status order by qt desc";
+                where data_abertura like '".date("Y-m")."%' and a.time != '20' group by a.setor, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
