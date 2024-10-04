@@ -629,7 +629,7 @@
                     t.nome as time_nome
                 from chamados a 
                     left join time t on a.time = t.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.time, status order by qt desc";
+                where data_abertura like '".date("Y-m")."%' and a.time != '20' group by a.time, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
