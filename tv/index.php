@@ -96,6 +96,7 @@
 		left join motivos mt on a.motivo = mt.codigo
 		left join login tc on a.tecnico = tc.codigo
 		left join login f on a.funcionario = f.codigo
+
 	/*where (a.status != 'c') or (a.status = 'c' and a.data_fechamento >= NOW() - INTERVAL 30 DAY)*/
 	where a.data_abertura like '".date("Y-m")."%' and a.status in ('n', 'p')
 		order by dias desc";
@@ -718,7 +719,7 @@ $MP['parados'] = $t->pd;
                     t.nome as time_nome
                 from chamados a 
                     left join time t on a.time = t.codigo
-                where data_abertura like '".date("Y-m")."%' group by a.time, status order by qt desc";
+                where data_abertura like '".date("Y-m")."%' and a.time != '20' group by a.time, status order by qt desc";
 
     $result = mysql_query($query);
 	while($d = mysql_fetch_object($result)){
